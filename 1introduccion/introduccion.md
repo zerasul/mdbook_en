@@ -61,3 +61,4 @@ Además para poder seguir todos los contenidos de este libro recomendamos utiliz
 * **Sistema Operativo Windows, Linux o Macos**. Para aquellos que utilicen Linux, los ejemplos y herramientas se han probado en entornos basados en distribuciones Debian (como Ubuntu).
 * **Visual Studio Code** como editor. Aunque puede utilizarse cualquier editor que se necesite, en este libro vamos a utilizar este editor como ejemplo. Ademas de instalarle herramientas personalizadas para desarrollo de homebrew.
 * **Emulador Mega Drive Blastem**. Aunque puede utilizarse cualquier otro como Gens (con la version modificada Kmod para Windows) o cualquier otro emulador.
+* **Cartucho Flash para Mega Drive**: aunque no es obligatorio, si se dispone de una Mega Drive, se puede utilizar un cartucho flash para poder cargar nuestras roms y probarlas en un hardware real. Uno de los más conocidos es _Everdrive_.
