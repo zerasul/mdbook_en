@@ -1,0 +1,9 @@
+---
+title:
+- type: main
+  text:  Desarrollo HomeBrew para Sega Mega Drive
+creator:
+- role: author
+  text: Víctor Suárez García
+rights: Creative Commons Non-Commercial Share Alike 4.0
+language: es-ES

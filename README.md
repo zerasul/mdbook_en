@@ -8,7 +8,7 @@ Este libro contiene lo mínimo e imprescindible para poder crear juegos a partir
 
 ## Contenido de este libro
 
-1. Introducción.
+1. [Introducción.](1introduccion/introduccion.md)
 2. Historia.
 3. Arquitectura.
 4. SGDK.
@@ -32,4 +32,3 @@ Este libro tiene una licencia [Creative Commons By SA 4.0](https://creativecommo
 Además, el código fuente que se encuentra en los ejemplos tanto de este como de otros repositorios (siempre que no se indique lo contrario), estará bajo licencia [MIT](https://opensource.org/licenses/MIT).
 
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />Este obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">licencia de Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional</a>.
-
