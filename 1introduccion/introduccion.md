@@ -8,6 +8,12 @@ Muchos recordaran los tiempos del spectrum donde usaban revistas donde venian pe
 
 Este libro, pretende ser una guia para poder aprender los conceptos y herramientas para crear un videojuego totalmente funcional para Sega Mega Drive, utilizando herramientas modernas.
 
+[^1]: Sega Mega Drive / Sega Genesis es una marca registrada de Sega Inc.
+
+[^2]: Sonic & Knuckles es un videojuego que pertenece a Sega Inc. Todos los derechos reservados.
+
+[^3]: World of Illusion: es un videojuego desarrollado por Disney Para sega Mega Drive. Todos los derechos reservados.
+
 ## ¿Qué es y para que sirve este libro?
 
 Como hemos comentado en la introducción, este libro pretende ser una guia para poder crear un videojuego completamente funcional para el sistema Sega Mega Drive (o Sega Genesis).
@@ -18,7 +24,9 @@ Además, este libro no pretende ser tampoco un libro sobre diseño de videojuego
 
 ### Estructura del libro
 
-Para poder tener una mejor compresión de cada uno de los temas a tratar en este libro, se comentaran distintos ejemplos y pequeños fragmentos de código que estarán disponibles Online dentro del repositorio de código en Github:
+Este libro esta dividido en 16 capitulos donde en cada uno de ellos se aborda un tema desde comentar qué es la Sega Mega Drive, hasta poder crear conceptos avanzados de creación de videojuegos como el scroll o el depurar nuestros juegos.
+
+Para poder tener una mejor compresión de cada uno de los capítulos a tratar en este libro, se comentaran distintos ejemplos y pequeños fragmentos de código que estarán disponibles Online dentro del repositorio de código en Github:
 
 [https://github.com/zerasul/mdbook](https://github.com/zerasul/mdbook)
 
@@ -28,11 +36,28 @@ Otra parte importante, es que habrás podido ver que este libro esta bajo una li
 
 ## Objetivos
 
+Los objetivos de este libro son:
+
+1. Conocer la Sega Mega Drive /Sega genesis y su historia
+2. Conocer la arquitectura de la Sega Mega Drive.
+3. Conocer las distintas herramientas que se pueden utilizar para crear software casero o Homebrew para Sega Mega Drive.
+4. Conocer la libreria SGDK(Sega Genesis Development Kit).
+5. Conocer los distintos conceptos sobre creación de videojuegos en 2D aplicados a la Sega Mega Drive.
+6. Crear un videojuego completamente funcional para Sega mega Drive.
+
 ## Requisitos previos para este libro
 
----
-[^1]: Sega Mega Drive / Sega Genesis es una marca registrada de Sega Inc.
+Para poder comprender los contenidos de este libro, necesitaras conocer los siguentes lenguajes o herramientas (o al menos haberlos usado).
 
-[^2]: Sonic & Knuckles es un videojuego que pertenece a Sega Inc. Todos los derechos reservados.
+* Lenguaje de Programación C.
+* Bash Script o CMD (windows).
+* Git
+* Herramientas de dibujo de Pixel Art como aserpsirte.
 
-[^3]: World of Illusion: es un videojuego desarrollado por Disney Para sega Mega Drive. Todos los derechos reservados.
+Por supuesto, no te preocupes si no entiendes alguna parte del código ya que cada capítulo trae referencias para poder comprender el código fuente o cualquier otra referencia tratada.
+
+Además para poder seguir todos los contenidos de este libro recomendamos utilizar el siguiente software o hardware:
+
+* **Sistema Operativo Windows, Linux o Macos**. Para aquellos que utilicen Linux, los ejemplos y herramientas se han probado en entornos basados en distribuciones Debian (como Ubuntu).
+* **Visual Studio Code** como editor. Aunque puede utilizarse cualquier editor que se necesite, en este libro vamos a utilizar este editor como ejemplo. Ademas de instalarle herramientas personalizadas para desarrollo de homebrew.
+* **Emulador Mega Drive Blastem**. Aunque puede utilizarse cualquier otro como Gens (con la version modificada Kmod para Windows) o cualquier otro emulador.
