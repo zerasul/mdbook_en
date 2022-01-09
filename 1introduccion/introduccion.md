@@ -6,6 +6,8 @@ Aunque alguno puede pensar que soy algo joven (35 años recien cumplidos) para l
 
 Muchos recordaran los tiempos del spectrum donde usaban revistas donde venian pequeños juegos que debiamos escribir a mano (Normalmente en BASIC o ensamblador), donde cualquier mínimo error hacia que nuestro juego no funcionase. Por suerte, hoy en día se utilizan herramientas más modernas que usar BASIC o ensamblador. Como puede ser utilizar lenguaje C junto a alguna librería como SGDK o editores más modernos que nos ayuden en el desarrollo de nuestro juego.
 
+Por supuesto que existen lenguajes más modernos. Pero queremos recordar que normalmente se utilizaba ensamblador para los desarrollos y que al menos usando C nos abstraeremos del mismo. No quiere decir que no se pueda seguir utilizando ya que a día de hoy, muchos siguen trabajando con ensamblador.
+
 Este libro, pretende ser una guia para poder aprender los conceptos y herramientas para crear un videojuego totalmente funcional para Sega Mega Drive, utilizando herramientas modernas.
 
 [^1]: Sega Mega Drive / Sega Genesis es una marca registrada de Sega Inc.
@@ -25,6 +27,12 @@ Además, este libro no pretende ser tampoco un libro sobre diseño de videojuego
 ### Estructura del libro
 
 Este libro esta dividido en 16 capitulos donde en cada uno de ellos se aborda un tema desde comentar qué es la Sega Mega Drive, hasta poder crear conceptos avanzados de creación de videojuegos como el scroll o el depurar nuestros juegos.
+
+La primera parte del libro, trata sobre una introducción a la Mega Drive como su historia, arquitectura y las herramientas y librerías que vamos a utilizar; como la libreria SGDK(Sega Genesis Development Kit) y el entorno de desarrollo a utilizar.
+
+En la segunda parte, hablaremos de como comenzar a hacer nuestro juego, mostrando los conceptos básicos; desde el Hola Mundo, hasta terminar con el uso de Sprites sin olvidar el sonido.
+
+Por último, se hablará de conceptos más avanzados como el uso de Scroll, Tilesets e incluso hablar de herarmientas para nuestro desarrollo como la depuración (Debug) e incluso usar la SRAM para guardar información de nuestro juego.
 
 Para poder tener una mejor compresión de cada uno de los capítulos a tratar en este libro, se comentaran distintos ejemplos y pequeños fragmentos de código que estarán disponibles Online dentro del repositorio de código en Github:
 
@@ -60,5 +68,6 @@ Además para poder seguir todos los contenidos de este libro recomendamos utiliz
 
 * **Sistema Operativo Windows, Linux o Macos**. Para aquellos que utilicen Linux, los ejemplos y herramientas se han probado en entornos basados en distribuciones Debian (como Ubuntu).
 * **Visual Studio Code** como editor. Aunque puede utilizarse cualquier editor que se necesite, en este libro vamos a utilizar este editor como ejemplo. Ademas de instalarle herramientas personalizadas para desarrollo de homebrew.
+* **Docker**: aunque esto es opcional, se puede utilizar un contenedor para poder desarrollar para Sega Mega Drive usando SGDK.
 * **Emulador Mega Drive Blastem**. Aunque puede utilizarse cualquier otro como Gens (con la version modificada Kmod para Windows) o cualquier otro emulador.
 * **Cartucho Flash para Mega Drive**: aunque no es obligatorio, si se dispone de una Mega Drive, se puede utilizar un cartucho flash para poder cargar nuestras roms y probarlas en un hardware real. Uno de los más conocidos es _Everdrive_.
