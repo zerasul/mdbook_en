@@ -33,9 +33,9 @@ Veamos las especificaciones de la Sega Mega Drive:
 3. Memoria: 64Kb de memoria y 64Kb de memoria de vídeo más 8Kb de memoria de sonido.
 4. Vídeo: Procesador VDP con resolución de 320x224 (320x240 en NTSC); con capacidad de hasta 61 colores por pantalla. Aunque tenia capacidad de mostrar hasta 512 colores diferentes.
 5. Sonido: 6 Canales FM gracias al chip de sonido el Yamaha YM2612 y un chip adicional de sonido de 4 canales de 8 bits SN76489.
-6. Entrada/salida: Slot de cartuchos por la parte superior, dos conectores para controladores, bus de expansión, entrada de auriculares estereo(solo modelo 1).
+6. Entrada/salida: Slot de cartuchos por la parte superior, dos conectores para controladores, bus de expansión y entrada de auriculares estereo(solo modelo 1).
 
-![Mega Drive Model 1](MD1.jpg)
+![Mega Drive Model 1 "Mega Drive Model 1"](MD1.jpg)
 
 ## Periféricos
 
