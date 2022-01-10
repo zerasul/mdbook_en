@@ -9,7 +9,7 @@ Este libro contiene lo mínimo e imprescindible para poder crear juegos a partir
 ## Contenido de este libro
 
 1. [Introducción.](1introduccion/introduccion.md)
-2. Historia.
+2. [Historia](2historia/historia.md).
 3. Arquitectura.
 4. SGDK.
 5. Configurar Nuestro Entorno.
