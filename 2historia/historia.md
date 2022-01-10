@@ -18,7 +18,7 @@ En el año 1994, aparecierón varios sistemas (3DO, Jaguar,etc...) Sega Japon es
 
 [^4]: NES (Nintendo Entertainment System): es una marca registrada de Nintendo Company Ltd.
 
-[^5]: NES (Super Nintendo Entertainment System): es una marca registrada de Nintendo Company Ltd.
+[^5]: SNES (Super Nintendo Entertainment System): es una marca registrada de Nintendo Company Ltd.
 
 [^6]: Rocket Knigth Adventures es un videojuego para Sega Mega Drive Desarrollado por Konami. Todos los derechos reservados.
 
