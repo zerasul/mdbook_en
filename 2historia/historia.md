@@ -1,6 +1,6 @@
 # 2. Historia de la Mega Drive
 
-La Sega Mega Drive, fue la tercera consola de videojuegos publicada por la misma tras la SG-1000 y la Master System, Sega impulsó el uso de un procesador de 16 bits; por lo que publicó podemos decir el primer sistema de entretenimiento de 16 bits en el mercado. Tratando de superar el éxito de la NES[^1] de Nintendo.
+La Sega Mega Drive, fue la tercera consola de videojuegos publicada por la misma tras la SG-1000 y la Master System, Sega impulsó el uso de un procesador de 16 bits; por lo que publicó podemos decir el primer sistema de entretenimiento de 16 bits en el mercado. Tratando de superar el éxito de la NES [^4] de Nintendo.
 
 Sega Trató de superar con los modelos Mark 2 y Mark 3 de la Sega Master System con los 8 bits, pero no tuvo gran aceptación en Japon; no siendo el mismo caso en Europa.
 
@@ -14,13 +14,15 @@ Fue en el año 1992, cuando Sega lanzó grandes éxitos de su catálogo; como So
 
 En 1993, Sega presento la Mega Drive 2 con un rediseño de la misma. Sin embargo, ese año Nintendo superó a Sega en plena guerra de los 16 bits.
 
-En el año 1994, aparecierón varios sistemas (3DO, Jaguar,etc...) Sega Japon estaba con el proyecto "Saturn" mientras Sega America trató de comercializar el periférico 32X. Al final de ese año con la aparición del juego _Donkey Kong country_ para la SNES[^3], hicieron que la Sega Mega Drive fuera decayendo. No sin antes dar grandes títulos de dicha consola como el _Ristar_ o _Rocket Knigth Adventures_.
+En el año 1994, aparecierón varios sistemas (3DO, Jaguar,etc...) Sega Japon estaba con el proyecto "Saturn" mientras Sega America trató de comercializar el periférico 32X. Al final de ese año con la aparición del juego _Donkey Kong country_ para la SNES[^5], hicieron que la Sega Mega Drive fuera decayendo. No sin antes dar grandes títulos de dicha consola como el _Ristar_ o _Rocket Knigth Adventures_ [^6].
 
 [^4]: NES (Nintendo Entertainment System): es una marca registrada de Nintendo Company Ltd.
 
-[^5]: Rocket Knigth Adventures es un videojuego para Sega Mega Drive Desarrollado por Konami. Todos los derechos reservados.
+[^5]: NES (Super Nintendo Entertainment System): es una marca registrada de Nintendo Company Ltd.
 
-[^6]: NES (Super Nintendo Entertainment System): es una marca registrada de Nintendo Company Ltd.
+[^6]: Rocket Knigth Adventures es un videojuego para Sega Mega Drive Desarrollado por Konami. Todos los derechos reservados.
+
+
 
 ## Especificaciones de la Mega Drive
 
