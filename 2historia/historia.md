@@ -35,7 +35,7 @@ Veamos las especificaciones de la Sega Mega Drive:
 5. Sonido: 6 Canales FM gracias al chip de sonido el Yamaha YM2612 y un chip adicional de sonido de 4 canales de 8 bits SN76489.
 6. Entrada/salida: Slot de cartuchos por la parte superior, dos conectores para controladores, bus de expansión y entrada de auriculares estereo(solo modelo 1).
 
-![Mega Drive Model 1 "Mega Drive Model 1"](MD1.jpg)
+![Mega Drive Model 1 "Mega Drive Model 1"](img/MD1.jpg)
 
 ## Periféricos
 

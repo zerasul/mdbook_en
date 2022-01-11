@@ -402,4 +402,8 @@ body {
     border: none;
   }
   
+  sup{
+    font-size: 10px;
+  }
   
+  a.footnote-ref{ font-size: 75%;}
