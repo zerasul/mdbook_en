@@ -35,17 +35,58 @@ Veamos las especificaciones de la Sega Mega Drive:
 5. Sonido: 6 Canales FM gracias al chip de sonido el Yamaha YM2612 y un chip adicional de sonido de 4 canales de 8 bits SN76489.
 6. Entrada/salida: Slot de cartuchos por la parte superior, dos conectores para controladores, bus de expansión y entrada de auriculares estereo(solo modelo 1).
 
-![Mega Drive Model 1 "Mega Drive Model 1"](img/MD1.jpg)
+![Mega Drive Model 1 "Mega Drive Model 1"](2historia/img/MD1.jpg "Mega Drive Model 1")
+<span class="centered">Sega Mega Drive Modelo 1 Europea</span>
 
 ## Periféricos
 
-Veamos también, algunos de los periféricos más conocidos de la Sega Mega Drive.
+Sega Mega Drive, ha tenido una serie de perífericos no solo a nivel de controladores, sino accesorios que ampliaban la capacidad de la misma.
+
+Hemos de diferenciar que en Sega mega Drive, principalmente se utilizaban los controladores de 3 o 6 botones.
+
+![Controlador de 3 Botones](2historia/img/controller3button.jpg "Controlador de 3 Botones")
+<span class="centered">Controlador de 3 Botones Europeo</span>
 
 ### Power Base Converter
 
+Una de las principales características de la Sega Mega Drive, es que gracias a su procesador Zilog Z80, es retrocompatible con los juegos de la Sega Master System.
+
+Sin embargo, el slot que trae para los cartuchos, no tiene el mismo formato que para los juegos de Master System. Por lo que es necesario un adaptador para poder encajar los cartuchos de la consola de 8 bits de Sega.
+
+<img src="2historia/img/SegaMegaAdaptor.jpg" class="center" alt="Power base Converter" title="Power Base Converter"/>
+
+<span class="centered">Power Base Converter</span>
+
 ### Sega Mouse
 
+Otro de los perifericos que podemos encontrar y que podemos utilizar en algunos juegos como _lemmings_, donde podemos controlar el cursor y poder controlar el movimiento del mismo.
+
+En este libro, abordaremos como utilizarlo en nuestros juegos ya que SGDK, trae soporte para Sega Mouse y algunos emuladores, permiten utilizar nuestro ratón del PC como si del ratón de Mega Drive se tratara.
+
 ### Mega CD
+
+Uno de los principales perifericos de la Mega Drive. Permitia ampliar su capacidad a través del bus de expansion que tenia en la parte inferior.
+
+Añadia la capacidad de utilizar almacenamiento óptico (en CD-ROM). Además de ampliar la capacidad de la Mega Drive; pudiendo tener una gran calidad de Audio y de vídeo.
+
+El primer modelo de Sega Mega CD, salió al mercado en 1992; aunque no tuvo mucho éxito debido a su elevado precio y el poco catálogo que se encuentra.
+
+Las especificaciones técnicas de la Mega CD son:
+
+* *CPU*: Motorola 68000 de 16 bits a 12,5Mhz. Exactamente el mismo que la Mega Drive, actuando como co-procesador.
+* *CPU 2*:  Motorola 68000 (Mega Drive CPU) a 7,67Mhz.
+* *Vídeo*: Sega 315-5548 Custom ASIC. Ampliaba las capacidades del chip VDP, pudiendo mostrar en pantalla entre 128-256 colores (mientras que Mega Drive solo podía 61 colores). Además de poder añadir hasta 5 planos. Y añadía el "modo 7" para poder escalar, rotar y añadir más funcionalidades a los Sprites.
+* *Audio*: Añadia 10 pistas más de audio con calidad CD (44,1Khz sampling rate).
+* *Memoria*: Añadia 856KB de memoria Divididos en:
+    * 4Mb RAM principal
+    * 2Mb de VRAM.
+    * 512 Kb de RAM para audio.
+    * 128 Kb de cache para CD.
+    * 64 Kb como RAM backup.
+
+<img src="2historia/img/megacd.png" alt="Mega CD 1" title="Mega CD 1" class="center"/>
+
+<span class="centered">Sega mega CD Model 1</span>
 
 ### 32X
 
