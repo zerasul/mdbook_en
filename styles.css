@@ -408,13 +408,19 @@ body {
   
   a.footnote-ref{ font-size: 75%;}
 
-  img.center{
-    display: block;
-    margin-left: 15em;
-    margin-right: auto;
-  }
+ 
   span.centered{
     text-align:center;
-    margin-left:26em;
+    margin-left:30%;
+    margin-top: 2em;
     justify-content: center;
+  }
+
+  .image{
+    text-align: center;
+  }
+  
+  .image+p, .centered{
+    text-align: center;
+    font-style: italic;
   }

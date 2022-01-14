@@ -36,7 +36,7 @@ Veamos las especificaciones de la Sega Mega Drive:
 6. Entrada/salida: Slot de cartuchos por la parte superior, dos conectores para controladores, bus de expansión y entrada de auriculares estereo(solo modelo 1).
 
 ![Mega Drive Model 1 "Mega Drive Model 1"](2historia/img/MD1.jpg "Mega Drive Model 1")
-<span class="centered">Sega Mega Drive Modelo 1 Europea</span>
+<p class="centered">Sega Mega Drive Modelo 1 Europea</p>
 
 ## Periféricos
 
@@ -45,7 +45,7 @@ Sega Mega Drive, ha tenido una serie de perífericos no solo a nivel de controla
 Hemos de diferenciar que en Sega mega Drive, principalmente se utilizaban los controladores de 3 o 6 botones.
 
 ![Controlador de 3 Botones](2historia/img/controller3button.jpg "Controlador de 3 Botones")
-<span class="centered">Controlador de 3 Botones Europeo</span>
+<p class="centered">Controlador de 3 Botones Europeo</p>
 
 ### Power Base Converter
 
@@ -53,9 +53,9 @@ Una de las principales características de la Sega Mega Drive, es que gracias a 
 
 Sin embargo, el slot que trae para los cartuchos, no tiene el mismo formato que para los juegos de Master System. Por lo que es necesario un adaptador para poder encajar los cartuchos de la consola de 8 bits de Sega.
 
-<img src="2historia/img/SegaMegaAdaptor.jpg" class="center" alt="Power base Converter" title="Power Base Converter"/>
-
-<span class="centered">Power Base Converter</span>
+<div class="image">
+<img src="2historia/img/SegaMegaAdaptor.jpg" alt="Power base Converter" title="Power Base Converter"/> </div>
+<p>Power Base Converter</p>
 
 ### Sega Mouse
 
@@ -84,17 +84,53 @@ Las especificaciones técnicas de la Mega CD son:
     * 128 Kb de cache para CD.
     * 64 Kb como RAM backup.
 
-<img src="2historia/img/megacd.png" alt="Mega CD 1" title="Mega CD 1" class="center"/>
-
-<span class="centered">Sega mega CD Model 1</span>
+<div class="image"><img src="2historia/img/megacd.png" alt="Mega CD 1" title="Mega CD 1"/>
+</div>
+<p>Sega mega CD Model 1</p>
 
 ### 32X
 
+El accesorio 32X (conocido en Europa como Mega Drive 32X, Sega 32X en america y Super 32X en Japón), fue principalmente comercializado inicialmente en America. Se añadia a través de la ranura de cartucho de la parte superior, y ampliaba la capacidad del procesador Motorola, convirtiendolo en un procesador de 32 bits.
+
+Este periférico añadia su propio slot de cartucho y añadiendo nuevas funcionalidades a la Mega Drive. La Sega 32X, salio el 22 de Noviembre de 1994 en Ameria, mientras que para europa tuvo que esperar a enero de 1995.
+
+No tuvo mucho éxito, ya que a la vez, sega estaba trabajando en la Sega Saturn; una nueva consola de 32 bits. Además de su elevado precio, y que en algunos casos necesitaba tanto 32X como Mega CD a la vez, lo cual era un gran desembolso para el consumidor.
+
+Otro aspecto por el que no tuvo mucho éxito, fue el catalogo de juegos fue bastante pequeño por lo que esto hizo que la gente no considerara tanto esta opción.
+
+Características de la 32X:
+
+* **CPU**: 2 procesadores Hitachi SH2 RISC de 32 bits a 23,011Mhz.
+* **Co-procesador**: Nueva VDP; además de poder utilizar el procesador Motorola 68000 de Mega Drive.
+* **RAM**: 256KB (2Mb) destinados al programa; además de 2 framebuffers de 128KB (1Mb).
+* **Paleta**: 32768 colores simultaneos en pantalla.
+* **Sonido**: Se agregaban canales extra PWM digital para un total de 12 canales junto a Mega Drive (o 22 si añadimos Mega CD).
+
+<div class="image">
+<img src="2historia/img/32X_EU.jpg" alt="32X Europeo" title="32X Versión Europea"/>
+</div>
+<p>Mega Drive 32X Europeo</p>
+
 ### Mega Modem
+
+No olvidemos que la Sega Mega Drive tuvo su aparición y auge en la decada de los 90; coincidiendo con los inicios del Internet domestico. Por lo que gracias a este Modem, podíamos conectar nuestra Mega Drive a Internet.
+
+Se trata de un Modem que solo estuvo disponible en Japon y que se conectaba en la parte posterior a través del tercer puerto DE-9 que solo tenian los modelos Japoneses (y algunos primeros Europeos) del Modelo 1 de Mega Drive.
+
+En los primeros modelos de este modem, solo se podia conectar a servicios que proveeia la propia Sega.
+
+Este modem, también permitia a algunos juegos, jugar online siendo uno de los primeros sistemas de entretenimiento en demostrarlo.
+
+Sin embargo, la tecnología aun no estaba muy desarrollada y no funcionaba como esperaba. Sin embargo, si que tuvo algunos casos de utilización para contratar algunos servicios.
 
 ### Sega Activator
 
-## Juegos y Sagas conocidos
+Muchos habremos jugado con controlres de movimiento como los famosos mandos de la Wii[^7] o los sistemas Kinect[^8] de Xbox.
+
+[^7]: Wii es una marca registrada de Nintendo Company Ltd. Inc.
+[^8]: Kinect y Xbox, son marcas Registradas de Microsoft Inc.
+
+## Juegos y Sagas conocidas
 
 ### Sonic
 
