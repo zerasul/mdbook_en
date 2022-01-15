@@ -127,15 +127,72 @@ Sin embargo, la tecnología aun no estaba muy desarrollada y no funcionaba como 
 
 Muchos habremos jugado con controlres de movimiento como los famosos mandos de la Wii[^7] o los sistemas Kinect[^8] de Xbox.
 
+Mucho antes de estos controles de movimiento, Sega America sacó al mercado el Sega Activator. Se trataba de un octogono con 8 sensores infrarojos.
+
+El jugador se situaba en medio, y dependiendo de que lado de dicho octogono tocase, era un botón del mando. Se trató de vender con algunos juegos como "simulador de artes marciales"; pero no tuvo mucho éxito ya que solo sacarón algunos pocos juegos para este dispositivo.
+
+El Sega activator se publico el año 1993 en America,, y posteriormente en Brasil y Rusia.
+
 [^7]: Wii es una marca registrada de Nintendo Company Ltd. Inc.
 [^8]: Kinect y Xbox, son marcas Registradas de Microsoft Inc.
 
 ## Juegos y Sagas conocidas
 
+Obviamente, el gran éxito de la Mega Drive, fue su extenso catálogo que a día de hoy, sigue creciendo gracias a los desarrolladores de Homebrew.
+
 ### Sonic
+
+No podemos olvidar, a la mascota de Sega. Sonic el Erizo (_sonic the hedgehog_ [^9]); un erizo (o puercoespin) azul que se caracterizaba por una super velocidad y dar brincos.
+
+Sonic tuvo 6 juegos para Sega Mega Drive; y algunos son considerados de los mejores juegos del sistema. Como es el caso de _Sonic 2_.
+
+La principal característica de los juegos de Sonic, es la velocidad, y se trata de juegos con scroll normalmente horizontal (aunque tambien tenian vertical), con una velocidad muy alta. A veces llevando al limite la consola. Junto con un gran colorido de escenarios, hacia que Sonic fuese uno de los juegos favoritos de todos los que poseian una Mega Drive.
+
+Además, gracias al juego _Sonic & Knuckles_, se incorporó el sistema Lock On. Que se trataba de una ranura para cartucho en la parte superior que añadiendo otros dos titulos, se podían conseguir dos juegos adicionales.
+
+* Si se añadía Sonic 3, se permitia jugar al juego _Sonic 3 & Knuckles_; que permitia tanto jugar como Knuckles en Sonic 3, como disponer de características adicionales.
+* Si se añadia Sonic 2, se permitia jugar como Knuckles en Sonic 2.
+
+Además de otros titulos, no solo orientado al 2D, sino al 3D como puede ser Sonic 3D, que fue el último título publicado de sonic para este sistema (aunque también tenia versión para Saturn).
+
+<div class="image">
+<img src="2historia/img/SyK.png" title="Sonic & Knuckles con Lock On" alt="Sonic & Knuckles con Lock on"/>
+</div>
+<p>Sonic & Knuckles con Ranura Lock On</p>
+
+
+[^9]: _Sonic the Hedgehog_ es una Marca registrada de Sega enterprise Inc.
 
 ### Streets Of Rage
 
-### Golden Axe
+Las decadas de los 80 y 90, estaban caracterizados tambien por un genero de juego que hoy en día esta más en desuso pero no igualmente sea algo divertido.
+
+Estamos hablando de los _Beat'em up_; que se trataba de juegos normalmente con scroll horizontal, que permitian que los jugadores luchar contra hordas y hordas de enemigos.
+
+Uno de los juegos más característicos de este genero, es el _Streets of Rage_ un juego que relata las aventuras de 3 personajes ex-policias que tratan de librar las calles de la corrupción librando de cualquier enemigo que se ponga delante.
+
+Con una banda sonora muy pegadiza creada por el compositor _Yuzo Koshiro_; considerado uno de los mejores compositores para la Sega Mega Drive.
+
+Esta saga, tuvo 3 entregas en la Sega Mega Drive, las cuales tenian una gran jugabilidad y una gran variedad de escenarios, enemigos, armas,etc...
+
+La cuarta entrega, salió en el año 2020; pero ya para sistemas modernos (PC,PlayStation[^10], Xbox, Switch[^11]).
+
+[^10]: PlayStation es una marca registrada de Sony Interactive Entertainment.
+[^11]: Switch es una marca registrada de Nintendo Entertainment Ltd.
 
 ### World of Illusion
+
+En los años 90, la compañia Disney, publico también varios títulos de sus personajes de animación para Sega mega Drive.
+
+Desde el famoso _QuackShot_, otro también conocido es el _Castle of Ilusion_ considerado en su versión de 8 Bits como uno de los mejores para Sega Master System.
+
+Sin embargo, quiero señalar un título del que tengo mucho cariño. Es el _World of illusion_; un juego protagonizado por Mickey Mouse y Donald Duck, que nos permitira ir a un mundo de fantasia con muchos escenarios con muchos colores y animaciones.
+
+Por supuesto, una de las características de este juego, es el modo 2 Jugadores; que introducia la colaboración de ambos; siendo un gran juego para jugar en cooperativo.
+
+Se trataba de un juego que mezclaba plataformas, con algunas pantallas donde controlabamos algun vehículo como puede ser una alfombra mágica, o una burbuja debajo del oceano.
+
+<div class="image">
+<img src="2historia/img/woi.png" alt="World of Illusion" title="World of Illusion">
+</div>
+<p>World of Illusion</p>
