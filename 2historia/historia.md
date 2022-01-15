@@ -73,11 +73,11 @@ El primer modelo de Sega Mega CD, salió al mercado en 1992; aunque no tuvo much
 
 Las especificaciones técnicas de la Mega CD son:
 
-* *CPU*: Motorola 68000 de 16 bits a 12,5Mhz. Exactamente el mismo que la Mega Drive, actuando como co-procesador.
-* *CPU 2*:  Motorola 68000 (Mega Drive CPU) a 7,67Mhz.
-* *Vídeo*: Sega 315-5548 Custom ASIC. Ampliaba las capacidades del chip VDP, pudiendo mostrar en pantalla entre 128-256 colores (mientras que Mega Drive solo podía 61 colores). Además de poder añadir hasta 5 planos. Y añadía el "modo 7" para poder escalar, rotar y añadir más funcionalidades a los Sprites.
-* *Audio*: Añadia 10 pistas más de audio con calidad CD (44,1Khz sampling rate).
-* *Memoria*: Añadia 856KB de memoria Divididos en:
+* **CPU**: Motorola 68000 de 16 bits a 12,5Mhz. Exactamente el mismo que la Mega Drive, actuando como co-procesador.
+* **CPU 2**:  Motorola 68000 (Mega Drive CPU) a 7,67Mhz.
+* **Vídeo**: Sega 315-5548 Custom ASIC. Ampliaba las capacidades del chip VDP, pudiendo mostrar en pantalla entre 128-256 colores (mientras que Mega Drive solo podía 61 colores). Además de poder añadir hasta 5 planos. Y añadía el "modo 7" para poder escalar, rotar y añadir más funcionalidades a los Sprites.
+* **Audio**: Añadia 10 pistas más de audio con calidad CD (44,1Khz sampling rate).
+* **Memoria**: Añadia 856KB de memoria Divididos en:
     * 4Mb RAM principal
     * 2Mb de VRAM.
     * 512 Kb de RAM para audio.
@@ -184,7 +184,7 @@ La cuarta entrega, salió en el año 2020; pero ya para sistemas modernos (PC,Pl
 
 En los años 90, la compañia Disney, publico también varios títulos de sus personajes de animación para Sega mega Drive.
 
-Desde el famoso _QuackShot_, otro también conocido es el _Castle of Ilusion_ considerado en su versión de 8 Bits como uno de los mejores para Sega Master System.
+Desde el famoso _QuackShot_, otro también conocido es el _Castle of Illusion_ considerado en su versión de 8 Bits como uno de los mejores para Sega Master System.
 
 Sin embargo, quiero señalar un título del que tengo mucho cariño. Es el _World of illusion_; un juego protagonizado por Mickey Mouse y Donald Duck, que nos permitira ir a un mundo de fantasia con muchos escenarios con muchos colores y animaciones.
 
@@ -193,6 +193,6 @@ Por supuesto, una de las características de este juego, es el modo 2 Jugadores;
 Se trataba de un juego que mezclaba plataformas, con algunas pantallas donde controlabamos algun vehículo como puede ser una alfombra mágica, o una burbuja debajo del oceano.
 
 <div class="image">
-<img src="2historia/img/woi.png" alt="World of Illusion" title="World of Illusion">
+<img src="2historia/img/woi.png" alt="World of Illusion" title="World of Illusion"/>
 </div>
 <p>World of Illusion</p>
