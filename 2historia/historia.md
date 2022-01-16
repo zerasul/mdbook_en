@@ -181,17 +181,24 @@ La cuarta entrega, salió en el año 2020; pero ya para sistemas modernos (PC,Pl
 
 ### World of Illusion
 
-En los años 90, la compañia Disney, publico también varios títulos de sus personajes de animación para Sega mega Drive.
+En los años 90, la compañía Disney, publico también varios títulos de sus personajes de animación para Sega mega Drive.
 
 Desde el famoso _QuackShot_, otro también conocido es el _Castle of Illusion_ considerado en su versión de 8 Bits como uno de los mejores para Sega Master System.
 
-Sin embargo, quiero señalar un título del que tengo mucho cariño. Es el _World of illusion_; un juego protagonizado por Mickey Mouse y Donald Duck, que nos permitira ir a un mundo de fantasia con muchos escenarios con muchos colores y animaciones.
+Sin embargo, quiero señalar un título del que tengo mucho cariño. Es el _World of illusion_; un juego protagonizado por Mickey Mouse y Donald Duck, que nos permitirá ir a un mundo de fantasia con muchos escenarios con muchos colores y animaciones.
 
-Por supuesto, una de las características de este juego, es el modo 2 Jugadores; que introducia la colaboración de ambos; siendo un gran juego para jugar en cooperativo.
+Por supuesto, una de las características de este juego, es el modo 2 Jugadores; que introducía la colaboración de ambos; siendo un gran juego para jugar en cooperativo.
 
-Se trataba de un juego que mezclaba plataformas, con algunas pantallas donde controlabamos algun vehículo como puede ser una alfombra mágica, o una burbuja debajo del oceano.
+Se trataba de un juego que mezclaba plataformas, con algunas pantallas donde controlábamos algún vehículo como puede ser una alfombra mágica, o una burbuja debajo del océano.
 
 <div class="image">
 <img src="2historia/img/woi.png" alt="World of Illusion" title="World of Illusion"/>
 </div>
 <p>World of Illusion</p>
+
+## Referencias
+
+* Wikipedia; Sega Mega Drive: [https://es.wikipedia.org/wiki/Mega_Drive](https://es.wikipedia.org/wiki/Mega_Drive).
+* Historia de la Mega Drive (Sega Retro): [https://segaretro.org/History_of_the_Sega_Mega_Drive](https://segaretro.org/History_of_the_Sega_Mega_Drive).
+* Sega Retro; (Accesorios Mega Drive): [https://segaretro.org/Category:Mega_Drive_accessories](https://segaretro.org/Category:Mega_Drive_accessories).
+* Sega Retro; (Información sobre Juegos): [https://segaretro.org/Category:Mega_Drive_games](https://segaretro.org/Category:Mega_Drive_games).

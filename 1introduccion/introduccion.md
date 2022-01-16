@@ -36,7 +36,7 @@ Por último, se hablará de conceptos más avanzados como la utilización de Scr
 
 Para poder tener una mejor compresión de cada uno de los capítulos a tratar en este libro, se comentarán distintos ejemplos y pequeños fragmentos de código que estarán disponibles Online dentro del repositorio de código en Github:
 
-[https://github.com/zerasul/mdbook](https://github.com/zerasul/mdbook)
+[https://github.com/zerasul/mdbook-examples](https://github.com/zerasul/mdbook-examples)
 
 Para cada capítulo, se mostrará un ejemplo con el que trabajar con las distintas herramientas que se comentarán en este libro.
 
@@ -71,3 +71,9 @@ Además, para poder seguir todos los contenidos de este libro recomendamos utili
 * **Docker**: aunque esto es opcional, se puede utilizar un contenedor para poder desarrollar para Sega Mega Drive usando SGDK.
 * **Emulador Mega Drive Blastem**. Aunque puede utilizarse cualquier otro como Gens (con la versión modificada Kmod para Windows) o cualquier otro emulador.
 * **Cartucho Flash para Mega Drive**: aunque no es obligatorio, si se dispone de una Mega Drive, se puede utilizar un cartucho flash para poder cargar nuestras roms y probarlas en un hardware real. Uno de los más conocidos es _Everdrive_.
+
+## Referencias
+
+* Wikipedia: Sega Mega Drive: [https://es.wikipedia.org/wiki/Mega_Drive](https://es.wikipedia.org/wiki/Mega_Drive).
+* SGDK: Repositorio Github: [https://github.com/Stephane-D/SGDK](https://github.com/Stephane-D/SGDK).
+* Sega Retro: [https://segaretro.org/](https://segaretro.org/).
