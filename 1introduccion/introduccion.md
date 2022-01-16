@@ -26,21 +26,21 @@ Además, este libro no pretende ser tampoco un libro sobre diseño de videojuego
 
 ### Estructura del libro
 
-Este libro esta dividido en 16 capitulos donde en cada uno de ellos se aborda un tema desde comentar qué es la Sega Mega Drive, hasta poder crear conceptos avanzados de creación de videojuegos como el scroll o el depurar nuestros juegos.
+Este libro está dividido en 16 capítulos donde en cada uno de ellos se aborda un tema desde comentar qué es la Sega Mega Drive, hasta poder crear conceptos avanzados de creación de videojuegos como el scroll o el depurar nuestros juegos.
 
-La primera parte del libro, trata sobre una introducción a la Mega Drive como su historia, arquitectura y las herramientas y librerías que vamos a utilizar; como la libreria SGDK(Sega Genesis Development Kit) y el entorno de desarrollo a utilizar.
+La primera parte del libro, trata sobre una introducción a la Mega Drive como su historia, arquitectura y las herramientas y librerías que vamos a utilizar; como la librería SGDK(Sega Genesis Development Kit) y el entorno de desarrollo a utilizar.
 
 En la segunda parte, hablaremos de como comenzar a hacer nuestro juego, mostrando los conceptos básicos; desde el Hola Mundo, hasta terminar con el uso de Sprites sin olvidar el sonido.
 
-Por último, se hablará de conceptos más avanzados como el uso de Scroll, Tilesets e incluso hablar de herarmientas para nuestro desarrollo como la depuración (Debug) e incluso usar la SRAM para guardar información de nuestro juego.
+Por último, se hablará de conceptos más avanzados como la utilización de Scroll, Tilesets e incluso hablar de herramientas para nuestro desarrollo como la depuración (Debug) e incluso usar la SRAM para guardar información de nuestro juego.
 
-Para poder tener una mejor compresión de cada uno de los capítulos a tratar en este libro, se comentaran distintos ejemplos y pequeños fragmentos de código que estarán disponibles Online dentro del repositorio de código en Github:
+Para poder tener una mejor compresión de cada uno de los capítulos a tratar en este libro, se comentarán distintos ejemplos y pequeños fragmentos de código que estarán disponibles Online dentro del repositorio de código en Github:
 
 [https://github.com/zerasul/mdbook](https://github.com/zerasul/mdbook)
 
 Para cada capítulo, se mostrará un ejemplo con el que trabajar con las distintas herramientas que se comentarán en este libro.
 
-Otra parte importante, es que habrás podido ver que este libro esta bajo una licencia Creative Commons. Por lo que este libro esta disponible para todo el mundo y Puede ser mejorado y modificado. Si detectas alguna errata o posible mejora del mismo, no dudes en enviarme cualquier sugerencia al repositorio de código de este libro.
+Otra parte importante es que habrás podido ver que este libro esta bajo una licencia Creative Commons. Por lo que este libro está disponible para todo el mundo y Puede ser mejorado y modificado. Si detectas alguna errata o posible mejora del mismo, no dudes en enviarme cualquier sugerencia al repositorio de código de este libro.
 
 ## Objetivos
 
@@ -48,26 +48,26 @@ Los objetivos de este libro son:
 
 1. Conocer la Sega Mega Drive /Sega genesis y su historia
 2. Conocer la arquitectura de la Sega Mega Drive.
-3. Conocer las distintas herramientas que se pueden utilizar para crear software casero o Homebrew para Sega Mega Drive.
+3. Conocer las distintas herramientas que se pueden utilizar para crear software casero ó Homebrew para Sega Mega Drive.
 4. Conocer la libreria SGDK(Sega Genesis Development Kit).
 5. Conocer los distintos conceptos sobre creación de videojuegos en 2D aplicados a la Sega Mega Drive.
 6. Crear un videojuego completamente funcional para Sega mega Drive.
 
 ## Requisitos previos para este libro
 
-Para poder comprender los contenidos de este libro, necesitaras conocer los siguentes lenguajes o herramientas (o al menos haberlos usado).
+Para poder comprender los contenidos de este libro, necesitarás conocer los siguientes lenguajes o herramientas (o al menos haberlos usado).
 
 * Lenguaje de Programación C.
-* Bash Script o CMD (windows).
+* Bash Script o CMD (Windows).
 * Git
 * Herramientas de dibujo de Pixel Art como asersprite.
 
-Por supuesto, no te preocupes si no entiendes alguna parte del código ya que cada capítulo trae referencias para poder comprender el código fuente o cualquier otra referencia tratada.
+Por supuesto, no te preocupes si no entiendes alguna parte del código, ya que cada capítulo trae referencias para poder comprender el código fuente o cualquier otra referencia tratada.
 
-Además para poder seguir todos los contenidos de este libro recomendamos utilizar el siguiente software o hardware:
+Además, para poder seguir todos los contenidos de este libro recomendamos utilizar el siguiente software o hardware:
 
 * **Sistema Operativo Windows, Linux o Macos**. Para aquellos que utilicen Linux, los ejemplos y herramientas se han probado en entornos basados en distribuciones Debian (como Ubuntu).
-* **Visual Studio Code** como editor. Aunque puede utilizarse cualquier editor que se necesite, en este libro vamos a utilizar este editor como ejemplo. Ademas de instalarle herramientas personalizadas para desarrollo de homebrew.
+* **Visual Studio Code** como editor. Aunque puede usarse cualquier editor que se necesite, en este libro vamos a utilizar este editor como ejemplo. Además de instalarle herramientas personalizadas para desarrollo de homebrew.
 * **Docker**: aunque esto es opcional, se puede utilizar un contenedor para poder desarrollar para Sega Mega Drive usando SGDK.
-* **Emulador Mega Drive Blastem**. Aunque puede utilizarse cualquier otro como Gens (con la version modificada Kmod para Windows) o cualquier otro emulador.
+* **Emulador Mega Drive Blastem**. Aunque puede utilizarse cualquier otro como Gens (con la versión modificada Kmod para Windows) o cualquier otro emulador.
 * **Cartucho Flash para Mega Drive**: aunque no es obligatorio, si se dispone de una Mega Drive, se puede utilizar un cartucho flash para poder cargar nuestras roms y probarlas en un hardware real. Uno de los más conocidos es _Everdrive_.
