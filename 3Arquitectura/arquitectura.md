@@ -2,7 +2,7 @@
 
 Para poder Desarrollar para Mega Drive, necesitamos conocer su arquitectura para poder evitar problemas a la hora de crear nuestros juegos; si conocemos bien como funciona, podemos evitar problemas de memoria, cuellos de botella, etc...
 
-A la hora de trabajar con estos sistemas con pocos recursos, contra más conozcamos la arquitectura, mejor podremos optimizar nuestro código y nuestro juego será más ligero. No solo necesitaremos conocer la aquitectura del propio procesador; sino que también es bueno conocer los distintos elementos que podemos encontrar en una Mega Drive.
+A la hora de trabajar con estos sistemas con pocos recursos, cuanto más conozcamos la arquitectura, mejor podremos optimizar nuestro código y nuestro juego será más ligero. No solo necesitaremos conocer la arquitectura del propio procesador; sino que también es bueno conocer los distintos elementos que podemos encontrar en una Mega Drive.
 
 En este capítulo, vamos a estudiar cada uno de los elementos que componen la Mega Drive y la arquitectura de como se conectan cada uno de ellos, además de sus funciones y características de cada uno de ellos.
 
@@ -35,20 +35,20 @@ Como podemos ver en la imagen anterior, La Mega Drive, se compone de una serie d
 
 Principal procesador de la Mega drive, el Motorola 68000 (MC68000) es un procesador de 16/32 bits de la familia de CISC; se trata del primer modelo de procesador de la familia m68k capaz de direccionar instrucciones de 32 bits. Recibe su nombre por el número de transistores que contiene. El procesador de la Mega Drive, tiene una frecuencia de 7,61Mhz (PAL) o 7,67Mhz (NTSC).
 
-Este procesador, tiene una arquitectura basada en 2 bancos (uno para datos y otro para punteros) de 8 registros de 32 bits; además de tener un contador de programa de 32 bits y un registro de estado de 16 bits. Además de tener un bus externo de 24 bits capaz de direccionar hasta 16MB de memoria.
+Este procesador tiene una arquitectura basada en 2 bancos (uno para datos y otro para punteros) de 8 registros de 32 bits; además de tener un contador de programa de 32 bits y un registro de estado de 16 bits. Además de tener un bus externo de 24 bits capaz de direccionar hasta 16MB de memoria.
 
-Este procesador tiene distintos registros separados tanto para trabajar con datos, como con punteros. Siendo este último tipo donde se almacena de forma duplicada el puntero de la pila. Uno en modo usuario, y otro en modo supervisor.
+El Motorola 68K tiene distintos registros separados tanto para trabajar con datos, como con punteros. Siendo este último tipo donde se almacena de forma duplicada el puntero de la pila. Uno en modo usuario, y otro en modo supervisor.
 
-Además de tener dos ALUs (sin soporte a coma flotante), para poder trabajar con datos y punteros a la vez.
+Además de tener dos ALU (sin soporte a coma flotante), para poder trabajar con datos y punteros a la vez.
 
-Otro aspecto importante, es que este procesador tiene distintos modos de trabajo (normal, parada y excepción); siendo el último modo, importante ya que permite manejar señales internas y externas (interrupciones); de tal forma que nos ayudará a trabajar con las distintas señales que podemos mandarle.
+Otro aspecto importante es que este procesador tiene distintos modos de trabajo (normal, parada y excepción); siendo el último modo, importante ya que permite manejar señales internas y externas (interrupciones); de tal manera que nos ayudará a trabajar con las distintas señales que podemos mandarle.
 
-Este procesador, fue utilizado por distintas marcas:
+Este procesador fue utilizado por distintas marcas:
 
 * Apple (Los primeros Macintosh [^12]).
 * Atari (Los Atari ST [^13], utilizaban este procesador).
-* Commodore (Los ordenadores Amiga [^14] 1000, utilizaban este procesador).
-* SNK (utilizado por la consola Neo Geo [^15]).
+* Commodore (Los ordenadores Amiga [^14] 1000, usaban este procesador).
+* SNK (usado por la consola Neo Geo [^15]).
 
 [^12]: Macintosh es una marca Registrada de Apple Inc.
 [^13]: Atari ST es una marca Registrada de Atari Interactive.
@@ -60,6 +60,8 @@ Este procesador, fue utilizado por distintas marcas:
 La memoria principal de la Mega Drive o la RAM de programa, tiene una capacidad de 64 Kb (8KB); permite almacenar la información de programa y además se utiliza para mandar la información de la ROM a la VRAM (a través del DMA).
 
 La memoria tiene una capacidad de 16 bits de palabra (2x8bits) de tipo PSRAM [^16], la cual tiene una latencia de 190ns (5.263157 MHz de frecuencia) con una latencia de acceso por parte de la CPU de 200-263 ns. Teniendo un ancho de banda la memoria principal para 16 bit de 10,526314 MB/s.
+
+[^16]: PSRAM (Pseudostatic RAM) es un tipo de memoria RAM que permite tener incluido en su circuitería todo lo necesario para refrescar la memoria y direccionarla.
 
 ## Memoria ROM (Cartucho)
 
