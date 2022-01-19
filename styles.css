@@ -424,3 +424,7 @@ body {
     text-align: center;
     font-style: italic;
   }
+
+  img#arq{
+    background-color: white;
+  }
