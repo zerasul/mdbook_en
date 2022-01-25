@@ -10,7 +10,6 @@ Además de cada componente se comentarán sus capacidades y funciones tanto en M
 
 Para comprender mejor su arquitectura, vamos a mostrar en primer lugar, un esquema con cada uno de los componentes y como se conectan.
 
-
 <div class="image">
 <img id="arq" src="3Arquitectura/img/arqmegadrive.png" alt="Arquitectura Mega Drive" title="Arquitectura Mega Drive"/> </div>
 <p>Arquitectura de una Mega Drive</p>
@@ -64,6 +63,20 @@ La memoria tiene una capacidad de 16 bits de palabra (2x8bits) de tipo PSRAM [^1
 [^16]: PSRAM (Pseudostatic RAM) es un tipo de memoria RAM que permite tener incluido en su circuitería todo lo necesario para refrescar la memoria y direccionarla.
 
 ## Memoria ROM (Cartucho)
+
+La memoria ROM o propiamente dicho el "cartucho", es donde se almacenará la información del juego. Normalmente es un chip de tipo EPROM ó EEPROM (aunque los actuales cartuchos pueden ser Flash), donde se almacena el juego tanto el propio código, como todos los gráficos y recursos del juego.
+
+La lectura de este cartucho, se hace por el slot de la parte superior de la Mega Drive; solo hay que insertar los contactos por la ranura que podemos ver en la parte superior. Normalmente, un cartucho standar, tenía un ancho de banda de 10MB/s (aunque había algunos de 15,20-15,34 MB/s); además de tener en cuenta que el acceso del 68k a la rom normalmente tenia una velocidad de 5MB/s.
+
+El cartucho básico que estamos acostumbrados a ver en Mega Drive, tiene una capacidad de 32Mb (4MB), y además puede tener una pequeña RAM (SRAM) a través de una pila de boton CR2302. Existen cartuchos con más funcionalidades, como el conocido _Sonic & Knuckles_ que tenía la ranura superior Lock On. Además de otros cartuchos con algunas funcionalidades extendidas como puede ser el _Virtua Racing [^17]_; que ampliaba la capacidad de la Mega Drive.
+
+Como hemos dicho, por defecto un cartucho de Mega Drive tiene un tamaño máximo de 32Mb, sin embargo, esto era ampliable añadiendo funcionalidad extra al cartucho, como es el caso del _Street Fighter_ el cual ampliaba el cartucho añadiendo distintos chips y usando un mapper, podia cambiar de banco de memoria ROM. Este "Mapper", ha sido reutilizado en algunos juegos homebrew actuales y permiten ampliar el tamaño disponible.
+
+<div class="image">
+<img id="arq" src="3Arquitectura/img/cartuchopcb.png" alt="PCB ROM Mega Drive" title="PCB ROM Mega Drive"/> </div>
+<p>Cartucho ROM PCB</p>
+
+[^17]: Virtua Racing es un juego desarrollado por Sega AM2.
 
 ## VDP
 
