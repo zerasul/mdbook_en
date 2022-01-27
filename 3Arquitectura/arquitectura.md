@@ -68,19 +68,50 @@ La memoria ROM o propiamente dicho el "cartucho", es donde se almacenará la inf
 
 La lectura de este cartucho, se hace por el slot de la parte superior de la Mega Drive; solo hay que insertar los contactos por la ranura que podemos ver en la parte superior. Normalmente, un cartucho standar, tenía un ancho de banda de 10MB/s (aunque había algunos de 15,20-15,34 MB/s); además de tener en cuenta que el acceso del 68k a la rom normalmente tenia una velocidad de 5MB/s.
 
-El cartucho básico que estamos acostumbrados a ver en Mega Drive, tiene una capacidad de 32Mb (4MB), y además puede tener una pequeña RAM (SRAM) a través de una pila de boton CR2302. Existen cartuchos con más funcionalidades, como el conocido _Sonic & Knuckles_ que tenía la ranura superior Lock On. Además de otros cartuchos con algunas funcionalidades extendidas como puede ser el _Virtua Racing [^17]_; que ampliaba la capacidad de la Mega Drive.
+El cartucho básico que estamos acostumbrados a ver en Mega Drive, tiene una capacidad de 32Mb (4MB), y además puede tener una pequeña RAM (SRAM) a través de una pila de boton CR2302. Existen cartuchos con más funcionalidades, como el conocido _Sonic & Knuckles_ que tenía la ranura superior Lock On. Además de otros cartuchos con algunas funcionalidades extendidas como puede ser el _Virtua Racing [^17]_; que ampliaba la capacidad de la Mega Drive, gracias a un chip con un DSP [^18] personalizado.
 
-Como hemos dicho, por defecto un cartucho de Mega Drive tiene un tamaño máximo de 32Mb, sin embargo, esto era ampliable añadiendo funcionalidad extra al cartucho, como es el caso del _Street Fighter_ el cual ampliaba el cartucho añadiendo distintos chips y usando un mapper, podia cambiar de banco de memoria ROM. Este "Mapper", ha sido reutilizado en algunos juegos homebrew actuales y permiten ampliar el tamaño disponible.
+Como hemos dicho, por defecto un cartucho de Mega Drive tiene un tamaño máximo de 32Mb, sin embargo, esto era ampliable añadiendo funcionalidad extra al cartucho, como es el caso del _Street Fighter_ el cual ampliaba el cartucho añadiendo distintos chips y usando un mapper, podia cambiar de banco de memoria ROM. Este "Mapper" conocido como Sega Standar Mapper, ha sido reutilizado en algunos juegos homebrew actuales y permiten ampliar el tamaño disponible.
 
 <div class="image">
 <img id="arq" src="3Arquitectura/img/cartuchopcb.png" alt="PCB ROM Mega Drive" title="PCB ROM Mega Drive"/> </div>
 <p>Cartucho ROM PCB</p>
 
 [^17]: Virtua Racing es un juego desarrollado por Sega AM2.
+[^18]: DSP; procesador digital de señales.
 
 ## VDP
 
-## VRAM
+El VDP, es el chip gráfico que permite a la Mega Drive, poder mostrar todo su potencial. Se trata de un chip integrado Yamaha YM7101; (junto con el chip de sonido PSG, conforman el circuito integrado Sega-yamaha IC6).
+
+El VDP de la mega drive, es una evolución de su predecesor de la Sega master System. Amplia funcionalidades y aumenta de potencia. El chip VDP tiene una frecuencia de reloj de 13,423294Mhz para NTSC y de 13,300856Mhz para Sistemas PAL [^19].
+
+Estaba conectado a través del un bus de 16 bit al Motorola 68K y permitia distintas resoluciones:
+
+* Modo Normal: 320x224,256x224 para NTSC y 320x224, 256x224, 320x240 y 256x240 para PAL.
+* Modo Entrelazado: 320x448,256x448,320x480 y 256x480 que era utilizado por distintos juegos como el modo 2 jugadores de sonic 2.
+
+El VDP tenia capacidad de hasta 4 planos:
+
+* 2 planos para Scroll.
+* 1 Plano Ventana (Window).
+* 1 plano para Sprites.
+
+Los planos de Scroll (A y B) estaban basados en Tiles (imagenes de 8x8 píxeles) que permitian poder formar distintas imagenes a partir de estos pequeños trozos. Normalmente basados en un TileMap, con un tamaño de hasta 1024x256.
+
+El VDP, también tenía soporte para Sprites, pudiendo almacenar hasta 80 sprites, teniendo 20 sprites por línea, con 16 colores por sprite, teniendo un tamaño máximo de 1280Tiles (combinando distintos Sprites), combinando Sprites de 16 tamaños distintos.
+
+El VDP, podía mostrar hasta 512 colores, mostrando por pantalla entre 61-64 colores. Aunque se podía ampliar utilizando tecnicas de sombreado o resaltado (Shadowing / Highlighting) hasta 1536 en total; con 16 colores (4 bit) por píxel. Además de estar almacenados en 4 paletas de 16 colores.
+
+En cuanto a la memoria, el VDP tenia a su disposición 64KB de RAM de vídeo, el cual permitia tener almacenados bastantes tiles (teniendo en cuenta que esta conectado por un bus de 16 bit a la ROM y con capacidad de usar el DMA). La memoria estaba dividida en:
+
+* 2KB a 8KB para el plano A.
+* 2Kb a 8KB para el plano B.
+* 2KB a 4KB para el plano Window.
+* Hasta 40KB para almacenar Sprites.
+
+Además, el VDP tenia una cache de 232bytes para operaciones.
+
+[^19]: Los Sistemas NTSC y PAL son sistemas de color que se usaban en distintos paises a la hora de mostrar por pantallas CRT normalmente.
 
 ## Z80
 
