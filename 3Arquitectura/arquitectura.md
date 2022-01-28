@@ -115,6 +115,27 @@ Además, el VDP tenia una cache de 232bytes para operaciones.
 
 ## Z80
 
+El z80 o zilog z80, es un procesador de proposito general que fue fabricado por Zilog a partir de 1976 fue diseñado para ordenadores de escritorio y para embebidos.
+
+Este procesador tiene una arquitectura parecida al Intel 8080 ya que fue diseñado por un ex-empleado de Intel. Es un procesador de la familia CISC que tiene una longitud variable de instrucciones; las cuales pueden tener una longitud de entre 1 y 4 bytes. Tiene 20 registros de 8 bit y 4 de 16 bit (PC, SP, IX, IY), además de tener una ALU de 8 bits.
+
+Es el procesador utilizado en muchos dispositivos; como:
+
+* ZX Spectrum de Sinclair [^20].
+* Neo Geo Pocket [^21] y Neo Geo Pocket Color.
+* Nintendo Game Boy [^22]  usando una versión clonica (GB-Z80).
+* Sega Master System y Sega SG-100(con un procesador compatible).
+
+El procesador de la Sega mega Drive, tiene una frecuencia de reloj de 3,579545Mhz(NTSC) y 3,546894Mhz (PAL); conectado a un bus de 8 bits.
+
+Tiene acceso a una memoria de 8KB que se utilizará como RAM de sonido ya que el Z80, se puede utilizar para orquestar el sonido o como co-procesador.
+
+Además el Z80, permite retrocompatibilidad con los juegos de Sega Master System de tal forma que no es necesario un hardware adicional (pero si un adaptador para el slot).
+
+[^20]: Zx Spectrum y Sinclair son marcas registadas de Sinclair Research Ltd.
+[^21]: Neo Geo Pocket y Neo Geo Pocket Color son marcas registadas de SNK.
+[^22]: Nintendo Game Boy es una marca registada de Nintendo Entertainment ltd.
+
 ## PSG
 
 ## YM6212
