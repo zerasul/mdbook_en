@@ -26,7 +26,7 @@ Como podemos ver en la imagen anterior, La Mega Drive, se compone de una serie d
 * VRAM 64Kb: RAM dedicado al VDP para almacenar los elementos gráficos.
 * CPU Z80: Co-Procesador Zilog z80. Encargado de ejecutar los juegos de Sega Master System y orquestar el sonido.
 * Sound RAM 8Kb: RAM dedicado al sonido utilizado por el procesador Z80 y los chips de sonido.
-* YM6212: Chip de sonido FM, dedicado a dar sonido a la Mega Drive.
+* YM2612: Chip de sonido FM, dedicado a dar sonido a la Mega Drive.
 * Controlador E/S: Controlador de los controladores y distintos dispositivos externos.
 * Árbitro Bus: Controlador de los distintos Bus.
 
@@ -111,7 +111,10 @@ En cuanto a la memoria, el VDP tenía a su disposición 64KB de RAM de vídeo, e
 
 Además, el VDP tenía una caché de 232bytes para operaciones.
 
+Además, gracias al DMA [^20], se podía enviar la información de la ROM a la VRAM (y a la RAM), sin necesidad de pasar por el la CPU.
+
 [^19]: Los Sistemas NTSC y PAL son sistemas de color que se usaban en distintos países a la hora de mostrar por pantallas CRT normalmente.
+[^20]: DMA (Direct Memory Access), permite pasar información a través del bus sin necesidad de interactuar con la CPU; sin embargo el bus de la CPU, RAM y DMA era compartido por lo que podía haber cuellos de botella.
 
 ## Z80
 
@@ -121,9 +124,9 @@ Este procesador tiene una arquitectura parecida al Intel 8080, ya que fue diseñ
 
 Es el procesador utilizado en muchos dispositivos; como:
 
-* ZX Spectrum de Sinclair [^20].
-* Neo Geo Pocket [^21] y Neo Geo Pocket Color.
-* Nintendo Game Boy [^22] usando una versión clonica (GB-Z80).
+* ZX Spectrum de Sinclair [^21].
+* Neo Geo Pocket [^22] y Neo Geo Pocket Color.
+* Nintendo Game Boy [^23] usando una versión clonica (GB-Z80).
 * Sega Master System y Sega SG-100(con un procesador compatible).
 
 El procesador de la Sega mega Drive, tiene una frecuencia de reloj de 3,579545Mhz(NTSC) y 3,546894Mhz (PAL); conectado a un bus de 8 bits.
@@ -132,14 +135,45 @@ Tiene acceso a una memoria de 8KB que se utilizará como RAM de sonido, ya que e
 
 Además, el Z80 permite retrocompatibilidad con los juegos de Sega Master System de tal forma que no es necesario un hardware adicional (pero si un adaptador para el slot).
 
-[^20]: Zx Spectrum y Sinclair son marcas registadas de Sinclair Research Ltd.
-[^21]: Neo Geo Pocket y Neo Geo Pocket Color son marcas registadas de SNK.
-[^22]: Nintendo Game Boy es una marca registada de Nintendo Entertainment ltd.
+[^21]: Zx Spectrum y Sinclair son marcas registadas de Sinclair Research Ltd.
+[^22]: Neo Geo Pocket y Neo Geo Pocket Color son marcas registadas de SNK.
+[^23]: Nintendo Game Boy es una marca registada de Nintendo Entertainment ltd.
 
 ## PSG
 
-## YM6212
+Dentro del chip del VDP, podemos encontrar tanto el chip dedicado a los gráficos, como un chip de sonido de 8 bits dedicado tanto a dar sonido a la Mega Drive (para sonido 8 bit), como para usarse como chip de sonido en los juegos de Master System.
+
+El chip de sonido PSG es un chip personalizado por parte de SEGA llamado PSG (SN76496) que esta conectado al reloj del propio Z80, es el mismo chip que tenía la Master System.
+
+Este chip nos permite crear 4 canales de audio:
+
+* 3 canales para generar curvas de sonido cuadrada[^24].
+* un canal de sonido para generar ruido.
+
+Este chip, se podía utilizar tanto por el 68k, como por el z80 de tal forma que se podía generar sonido extra.
+
+Sin embargo, no olvidemos que uno de los puntos fuertes de la Mega Drive, es el sonido estéreo FM. El cual se generaba con el otro chip de sonido. El Yama YM2612.
+
+[^24]: Se conoce como onda cuadrada una señal que pasa entre dos valores, sin pasar por valores intermedios. Se suele utilizar en electrónica y en corriente alternas.
+
+## YM2612
+
+Chip de sonido principal de la Mega Drive, este chip permitia a la Mega Drive, generar sonido FM gracias al chip Yamaha YM2612, que estaba conectado al reloj del 68k.
+
+Permitia generar 6 canales FM de audio, que daba una señal de salida de 53,267Khz(NTSC) y 52,781Khz (PAL).
+
+También permitia generar con otra configuración 5 canales de audio FM, y 1 canal para PCM [^25].
+
+Este chip podía utilizarse a través del z80 que era el que orquestaba el sonido junto al chip PSG; estos chips junto al z80, estaban conectados a un b us de 8 bits; que conectaban con la RAM de sonido de 8Kb de tamaño.
+
+En las Mega Drive modelo 1, el sonido de salida por la televisión, era sonido Mono; pero tenia un conector jack, que permitia sonido estéreo (además de un control de volumen en la propia consola).
+
+Los modelos 2 y 3 de la mega drive, tenían sonido estéreo por la salida de televisión. Además de que algunos modelos tenian una versión clónica del YM2612.
+
+[^25]: Sonido PCM (modulación por impulsos codificados). es un procedimiento de modulación utilizado para transformar una señal analógica (sonido); en una secuencia de Bits.
 
 ## Controlador E/S
 
 ## Puerto Auxiliar (MCD)
+
+## Referencias
