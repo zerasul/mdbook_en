@@ -168,7 +168,7 @@ Este chip podía utilizarse a través del z80 que era el que orquestaba el sonid
 
 En las Mega Drive modelo 1, el sonido de salida por la televisión, era sonido Mono; pero tenia un conector jack, que permitia sonido estéreo (además de un control de volumen en la propia consola).
 
-Los modelos 2 y 3 de la mega drive, tenían sonido estéreo por la salida de televisión. Además de que algunos modelos tenian una versión clónica del YM2612.
+Los modelos 2 y 3 de la mega drive, tenían sonido estéreo por la salida de televisión, pero ya no tenia el conector Jack. Además de que algunos modelos tenian una versión clónica del YM2612.
 
 [^25]: Sonido PCM (modulación por impulsos codificados). es un procedimiento de modulación utilizado para transformar una señal analógica (sonido); en una secuencia de Bits.
 
