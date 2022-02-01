@@ -16,7 +16,7 @@ Por supuesto, no me he olvidado de aquellos que me han apoyado siempre.
 
 Quiero dedicar este libro, a la asociación La Jaquería cuyo esfuerzo en seguir haciendo cosas en Almería, sigue cada día más fuerte.
 
-También agradecer a mis queridos amigos de canarias, Jesús y Yurena, que siempre los tengo en mente y espero que disfruten de este libro que va para ellos principalmente.
+También agradecer a mis queridos amigos de Canarias, Jesús y Yurena, que siempre los tengo en mente y espero que disfruten de este libro que va para ellos principalmente.
 
 No puedo olvidarme por supuesto, a mi gente del WoW (ahora de Microsoft), como pueden ser Laikhas, Sharedia, Suzu (o Xuxu) e Hydrargiros. Que siempre me han tenido que aguantar tantos años después.
 
