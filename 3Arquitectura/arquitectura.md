@@ -111,7 +111,7 @@ En cuanto a la memoria, el VDP tenía a su disposición 64KB de RAM de vídeo, e
 
 Además, el VDP tenía una caché de 232bytes para operaciones.
 
-Además, gracias al DMA [^20], se podía enviar la información de la ROM a la VRAM (y a la RAM), sin necesidad de pasar por el la CPU.
+Adicionalmente, gracias al DMA [^20], se podía enviar la información de la ROM a la VRAM (y a la RAM), sin necesidad de pasar por la CPU.
 
 [^19]: Los Sistemas NTSC y PAL son sistemas de color que se usaban en distintos países a la hora de mostrar por pantallas CRT normalmente.
 [^20]: DMA (Direct Memory Access), permite pasar información a través del bus sin necesidad de interactuar con la CPU; sin embargo el bus de la CPU, RAM y DMA era compartido por lo que podía haber cuellos de botella.
@@ -135,9 +135,9 @@ Tiene acceso a una memoria de 8KB que se utilizará como RAM de sonido, ya que e
 
 Además, el Z80 permite retrocompatibilidad con los juegos de Sega Master System de tal forma que no es necesario un hardware adicional (pero si un adaptador para el slot).
 
-[^21]: Zx Spectrum y Sinclair son marcas registadas de Sinclair Research Ltd.
-[^22]: Neo Geo Pocket y Neo Geo Pocket Color son marcas registadas de SNK.
-[^23]: Nintendo Game Boy es una marca registada de Nintendo Entertainment ltd.
+[^21]: Zx Spectrum y Sinclair son marcas registradas de Sinclair Research Ltd.
+[^22]: Neo Geo Pocket y Neo Geo Pocket Color son marcas registradas de SNK.
+[^23]: Nintendo Game Boy es una marca registrada de Nintendo Entertainment ltd.
 
 ## PSG
 
@@ -158,22 +158,39 @@ Sin embargo, no olvidemos que uno de los puntos fuertes de la Mega Drive, es el 
 
 ## YM2612
 
-Chip de sonido principal de la Mega Drive, este chip permitia a la Mega Drive, generar sonido FM gracias al chip Yamaha YM2612, que estaba conectado al reloj del 68k.
+Chip de sonido principal de la Mega Drive, este chip permitía a la Mega Drive, generar sonido FM gracias al chip Yamaha YM2612, que estaba conectado al reloj del 68k.
 
-Permitia generar 6 canales FM de audio, que daba una señal de salida de 53,267Khz(NTSC) y 52,781Khz (PAL).
+Permitía generar 6 canales FM de audio, que daba una señal de salida de 53,267Khz(NTSC) y 52,781Khz (PAL).
 
-También permitia generar con otra configuración 5 canales de audio FM, y 1 canal para PCM [^25].
+También permitía generar con otra configuración 5 canales de audio FM, y 1 canal para PCM [^25].
 
 Este chip podía utilizarse a través del z80 que era el que orquestaba el sonido junto al chip PSG; estos chips junto al z80, estaban conectados a un b us de 8 bits; que conectaban con la RAM de sonido de 8Kb de tamaño.
 
-En las Mega Drive modelo 1, el sonido de salida por la televisión, era sonido Mono; pero tenia un conector jack, que permitia sonido estéreo (además de un control de volumen en la propia consola).
+En las Mega Drive modelo 1, el sonido de salida por la televisión, era sonido Mono; pero tenia un conector jack, que generaba sonido estéreo (además de un control de volumen en la propia consola).
 
-Los modelos 2 y 3 de la mega drive, tenían sonido estéreo por la salida de televisión, pero ya no tenia el conector Jack. Además de que algunos modelos tenian una versión clónica del YM2612.
+Los modelos 2 y 3 de la mega drive, tenían sonido estéreo por la salida de televisión, pero ya no tenia el conector Jack. Además de que algunos modelos tenían una versión clónica del YM2612.
 
-[^25]: Sonido PCM (modulación por impulsos codificados). es un procedimiento de modulación utilizado para transformar una señal analógica (sonido); en una secuencia de Bits.
+[^25]: Sonido PCM (modulación por impulsos codificados). Es un procedimiento de modulación utilizado para transformar una señal analógica (sonido); en una secuencia de Bits.
 
 ## Controlador E/S
 
+Una parte importante a la hora de tener una videoconsola, es poder utilizar periféricos y controladores. La Sega Mega Drive, tenía incorporados dos puertos tipo Atari (tipo DB9); estos puertos, permitían conectar tanto los controladores de 3 como de 6 botones; además de otros periféricos.
+
+Además, en los primeros modelos de Mega Drive, en la parte posterior, se permitía conectar un puerto serie. Este era usado por el Mega Modem para poder conectar la Sega Mega Drive a Internet a través de la línea telefónica.
+
+En principio, solo se permitían conectar 2 controladores a la Mega Drive por los distintos puertos que tenía disponible la Mega Drive. Sin embargo, había cartuchos especiales (J-CART), que tenían dos puertos adicionales en el propio cartucho; permitiendo hasta 4 jugadores.
+
+Todo esto era realizado por el controlador de Entrada-Salida. Este controlador estaba conectando tanto al bus de 16 bits, como al de 8 bits para poder acceder tanto en modo Mega Drive, como en modo retrocompatible con Master System.
+
 ## Puerto Auxiliar (MCD)
 
+Una de las partes importantes de la Mega Drive, fue su capacidad de ampliarse; gracias entre otros a su accesorio Mega CD.
+
+Este accesorio, permitía aumentar las capacidades tanto de cálculo, gráficos e incluso sonido gracias a tener acceso a un lector de CD-ROM.
+
+El conector para la Mega CD, estaba situado en la parte inferior derecha y conectaba a través de unos pines. Este conector estaba conectado al bus de 16 bits para poder ser accedido a través del motorola 68000.
+
 ## Referencias
+
+* Sega Retro; especificaciones Técnicas: [https://segaretro.org/Sega_Mega_Drive/Technical_specifications](https://segaretro.org/Sega_Mega_Drive/Technical_specifications).
+* Mega Drive Wikipedia: [https://es.wikipedia.org/wiki/Mega_Drive](https://es.wikipedia.org/wiki/Mega_Drive).
