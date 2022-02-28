@@ -78,7 +78,7 @@ Veamos cada uno de estos componentes:
 
 Este conjunto de compiladores es uno de los más utilizados a la hora de utilizar lenguajes de programación como C o C++. Permite tanto compilar, como posteriormente enlazar y ensamblar el código fuente y generar un binario.
 
-Gcc se incluye con la versión 6.3.0 dentro de SGDK, y utilizando herramientas como make[^28], podemos generar la rom correspondiente.
+Gcc se incluye con la versión 6.3.0 dentro de SGDK, y utilizando herramientas como make [^28], podemos generar la rom correspondiente.
 
 [^28]: make, es una herramienta para la gestión de dependencias y para construcción de software.
 
@@ -102,16 +102,127 @@ Os dejamos un ejemplo de recurso usado por rescomp:
 SPRITE tiovara_sprite "sprt/tiovara.bmp" 4 4 NONE 5 BOX
 ```
 
-En el anterior ejemplo, se muestra como importar una hoja de sprites que veremos más adelante como se realiza.
+En el anterior ejemplo, se muestra como importar una hoja de sprites que veremos más adelante con más detalle.
 
 ## Juegos Realizados con SGDK
 
+Una parte importante de SGDK, es que se utiliza para juegos ya comerciales que puedes encontrar en algunos crownfunding. En este apartado, vamos a comentar algunos de los más conocidos, y dejaremos algunas direcciones para que podáis aprender más sobre ellos:
+
+### Xeno crisis
+
+Xeno Crisis [^29], es un juego de perspectiva isometrica, que nos permite luchar contra hordas y hordas de aliens mientras sobrevivimos en distintas habitaciones y zonas.
+
+Permite jugar 2 jugadores en la Sega Mega Drive; aunque también existen ya versiones para Steam (PC), Swich e incluso versiones para Xbox y Playstation. También se trabaja en una versión para Neo-Geo y DreamCast.
+
+Puedes consultar las versiones de este juego en el kickstarter del mismo:
+[https://www.kickstarter.com/projects/1676714319/xeno-crisis-a-new-game-for-the-sega-genesis-mega-d/](https://www.kickstarter.com/projects/1676714319/xeno-crisis-a-new-game-for-the-sega-genesis-mega-d/)
+
+[^29]: Xeno Crisis es publicado y desarrollado por el estudio Bitmap Bureau. Todos los derechos Reservados.
+
+### Demons of Asteborg
+
+Demons of Astebord [^30] es un juego para Sega Mega Drive, que tiene una estetica de plataformas con movimiento lateral, en el que tiene toques RPG. Este juego esta publicado por Neofid-studios.
+
+En este caso, solo se permite 1 jugador y puede encontrarse tanto la versión de Mega Drive, como en Steam.
+
+Se esta trabajando en una versión para Nintendo Switch. Puede encontrarse más información en su página web:
+
+[https://neofid-studios.com/en/home-3/](https://neofid-studios.com/en/home-3/)
+
+[^30]: Demons of Astebord es un juego publicado y desarrollado por neofid-studios. Todos los derechos reservados.
+
 ## Instalación del SGDK
+
+Una vez conocidos tanto la historia del SGDK, sus componentes y visto algunos juegos realizados con el mismo, vamos a pasar a dar nuestros primeros pasos.
+
+En este caso, vamos a ver la instalación del mismo en los distintos Sistemas Operativos más conocidos. Es importante destacar que estas instrucciones pueden cambiar en el tiempo desde que se escribió este libro; por lo que siempre es importante leer las instrucciones del propio repositorio.
 
 ### Windows
 
+El primer Sistema Operativo que vamos a ver para instalar SGDK, es Microsoft Windows [^31]; en este caso, veremos las distintas instrucciones necesarias para instalar SGDK.
+
+En primer lugar, necesitaremos descargar una serie de dependencias que se requieren para usar SGDK como por ejemplo el entorno de ejecución Java (JRE [^32]) que nos permitirá utilizar las herramientas como rescomp. Puede instalarse tanto la versión de Oracle, como la versión de _openjdk_ [^33]. Dejamos la URL para poder descargar la versión de Java correspondiente:
+
+[https://www.java.com/es/download/](https://www.java.com/es/download/)
+
+Una vez descargadas e instaladas las dependencias, necesitaremos descargar el propio SGDK; que podéis hacer en el apartado de Releases del Repositorio de SGDK:
+
+[https://github.com/Stephane-D/SGDK/releases](https://github.com/Stephane-D/SGDK/releases)
+
+Una vez descargado y descomprimido SGDK, podemos crear la siguiente variable de entorno (Este paso es opcional):
+
+```cmd
+GDK = <directorio donde se encuentra SGDK>
+```
+
+**NOTA:** Al descargar SGDK, ya trae una versión compilada de _libmd_; sin embargo, si se requiere compilar la librería con los fuentes descargados, podemos hacerlo con la siguiente instrucción:
+
+```cmd
+%GDK%\bin\make -f %GDK%\makelib.gen
+```
+
+Recuerda que la variable ```GDK``` es opcional y puede sustituirse por la ruta donde este el SGDK instalado.
+
+Más adelante, veremos como utilizar el SGDK de distintas formas.
+
+[^31]: Microsoft Windows es una marca registrada de Microsoft Corporation.
+
+[^32]: JRE (Java Runtime Environment); entorno de ejecución para poder ejecutar aplicaciones desarrolladas para la máquina virtual Java (JVM).
+[^33]: OpenJdk; es una implementación del ecosistema Java de código abierto.
+
 ### Linux
+
+SGDK, por defecto no esta compilado para usarse con Linux; sin embargo, existen proyectos como GENDEV que nos permiten utilizar SGDK a partir de dicho conjunto de herramientas.
+
+Puedes encontrar este proyecto en su repositorio de Github:
+
+[https://github.com/kubilus1/gendev](https://github.com/kubilus1/gendev)
+
+Para utilizar este proyecto, necesitaremos instalar una serie de dependencias; las cuales podemos instalar usando el gestor de paquetes de vuestra distribución; para nuestro caso, usaremos una distribución basada en debian [^34] (Ubuntu).
+
+Necesitaras instalar las siguientes dependencias:
+
+* text-info
+* java
+
+Primero actualizaremos el arbol de dependencias:
+
+```bash
+sudo apt update
+```
+
+En el caso de java, usaremos _openjdk_:
+
+```bash
+sudo apt install texinfo default-jre
+```
+
+[^34]: Debian y Ubuntu son distribuciones Linux de código abierto. Ubuntu esta mantenida por Canonical Ltd.
+
+Una vez instaladas las dependencias, descargaremos el paquete _.deb_ (o el tar); del repositorio de GENDEV. En el caso de instalar usando el paquete .deb, lo instalaremos con la siguiente instrucción:
+
+```bash
+sudo dpkg -i <fichero.deb>
+```
+
+Si todo va bien, podemos ver que en la dirección ```/opt/gendev``` estarán todos los ficheros.
+
+Por último, necesitaremos crear la variable de entorno ```GENDEV```.
+
+```bash
+export GENDEV=/opt/gendev/
+```
+
+**NOTA:** Recuerda que si quieres compilar la librería _libmd_ puedes hacerlo con la siguiente instrucción:
+
+```bash
+make -f $GEDEV/Makefile
+```
+
+Más adelante, veremos en detalle como utilizar SGDK, utilizando GENDEV.
 
 ### Macos
 
 ### Docker
+
+### MarsDev
