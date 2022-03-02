@@ -2,11 +2,11 @@
 
 Hasta ahora, hemos visto que es la Mega Drive y su arquitectura, conociendo cada parte y las funciones que realiza.
 
-Sin embargo, este libro trata sobre desarrollo de software casero (o HomeBrew) para Sega Mega Drive; por lo que vamos a estudiar las herramientas que necesitaremos para ello.
+Sin embargo, este libro trata sobre desarrollo de software casero (u HomeBrew) para Sega Mega Drive; por lo que vamos a estudiar las herramientas que necesitaremos para ello.
 
-Para desarrollar software para Mega Drive, debemos conocer como funciona el procesador Motorola 68000; además de las direcciones de memoria para acceder a perifericos, vidéo etc...
+Para desarrollar software para Mega Drive, debemos conocer como funciona el procesador Motorola 68000; además de las direcciones de memoria para acceder a periféricos, vídeo etc...
 
-Esto era importante en los años 90 cuando se desarrollaba directamente en ensamblador ya que no se disponia herramientas como compiladores muy avanzandos que pudiesen compilar a ensamblador para esta arquitectura de forma eficiente. Por ello, se utilizaba el ensamblador directamente.
+Esto era importante en los años 90 cuando se desarrollaba directamente en ensamblador, ya que no se disponía herramientas como compiladores muy avanzados que pudiesen compilar a ensamblador para esta arquitectura de forma eficiente. Por ello, se utilizaba el ensamblador directamente.
 
 Veamos un ejemplo de ensamblador para Motorola 68k:
 
@@ -32,15 +32,15 @@ bucle   move.b d0,(a0)+     ;Guarda dato e incrementa A0 puntero
 
 En el anterior fragmento corresponde a un programa que simplemente implementa un bucle y compara una serie de datos, usando registros del procesador y direcciones de la memoria.
 
-Sin embargo, esto es muy engorroso aunque puede ser muy optimo el utilizar ensamblador; y el objetivo de este libro es usar herramientas más modernas. Por ello, utilizaremos el lenguaje de programación C.
+Sin embargo, esto es muy engorroso aunque puede ser muy óptimo el utilizar ensamblador; y el objetivo de este libro es utilizar herramientas más modernas. Por ello, usaremos el lenguaje de programación C.
 
-Además, existe un conjunto de herramientas para poder utilizar este lenguaje C para Sega Mega Drive. Este conjunto de herramientas, se llama Sega Genesis Development Kit o SGDK.
+Además, existe un conjunto de herramientas para poder usar este lenguaje C para Sega Mega Drive. Este conjunto de herramientas, se llama Sega Genesis Development Kit o SGDK.
 
-Sega Genesis Development Kit, es un conjunto de herramientas como un compilador, una librería, herramientas de gestión de recursos, etc... que nos va a permitir crear software (videojuegos) para Sega Mega Drive. SGDK, es gratuito y su código es libre; esta liberado bajo la licencia MIT; excepto el compilador GCC [^26] que incorpora que tiene licencia GPL3.
+Sega Genesis Development Kit, es un conjunto de herramientas como un compilador, una librería, herramientas de gestión de recursos, etc. que nos va a permitir crear software (videojuegos) para Sega Mega Drive. SGDK, es gratuito y su código es libre; está liberado bajo la licencia MIT; excepto el compilador GCC [^26] que incorpora que tiene licencia GPL3.
 
 [^26]: GCC (Gnu Compiler Collection) es un conjunto de compiladores de código abierto que se incorpora en muchas de las distribuciones GNU/Linux.
 
-Este capítulo, mostrará tanto la historia, los componentes que se componen y además de ver algunos juegos realizados con SGDK y por supuesto, ya entraremos en materia, instalando el propio SGDK en los Sistemas Operativos más conocidos.
+Este capítulo mostrará tanto la historia, los componentes que se componen y además de ver algunos juegos realizados con SGDK y por supuesto, ya entraremos en materia, instalando el propio SGDK en los Sistemas Operativos más conocidos.
 
 ## Historia del SGDK
 
@@ -50,7 +50,7 @@ Repositorio SGDK: [https://github.com/Stephane-D/SGDK](https://github.com/Stepha
 
 Durante todos estos años, ha tenido una gran aceptación por la comunidad debido a que facilita mucho el desarrollo de homebrew a los entusiastas de los 16 bits. Además de que hoy en día gracias a este kit, se siguen desarrollando nuevos títulos para esta consola.
 
-La librería que nos provee SGDK, esta escrita en C aunque tiene otras herramientas que estan escritas en otros lenguajes como Java.
+La librería que nos provee SGDK, está escrita en C aunque tiene otras herramientas que están escritas en otros lenguajes como Java.
 
 Actualmente (2022), se ha publicado la versión 1.70 que incluye soporte para Mega Wifi [^27], además de otras mejoras.
 
@@ -60,17 +60,17 @@ Si quieres conocer más acerca del proyecto, puedes ver su repositorio de Github
 
 [https://www.patreon.com/SGDK](https://www.patreon.com/SGDK).
 
-Una vez hemos conocido la historia del SGDK y de que se trata, vamos a mostrar los compoentes que lo componente este kit de desarrollo.
+Una vez hemos conocido la historia del SGDK y de que se trata, vamos a mostrar los componentes que lo componente este kit de desarrollo.
 
 ## Componentes del SGDK
 
-SGDK, se compone de una serie de herramientas que nos van a ayudar a crear nuestros juegos para Sega Mega Drive. En este caso, tanto para realizar la compilación y creación de la ROM, asi como la gestión de los recursos del juego.
+SGDK, se compone de una serie de herramientas que nos van a ayudar a crear nuestros juegos para Sega Mega Drive. En este caso, tanto para realizar la compilación y creación de la ROM, así como la gestión de los recursos del juego.
 
 Los Componentes son:
 
 * Un compilador GCC que nos va a permitir compilar nuestro código a instrucciones para el procesador 68K. La versión actual del GCC que incluye SGDK es 6.30 (Se puede configurar, para usar un compilador más reciente). Además, incluye un depurador _GDB_ que nos va a permitir depurar nuestros juegos (lo veremos más adelante en el capítulo de depuración) Recordamos que tiene una licencia GPL3.
 * Una librería _libmd_ con todas las funciones y herramientas que nos permite desarrollar con el lenguaje C para Sega Mega Drive.
-* Un gestor de recursos _rescomp_; que nos va a permitir importar los recursos de nuestro juego (gráficos, sonidos, sprite,etc.)
+* Un gestor de recursos _rescomp_; que nos va a permitir importar los recursos de nuestro juego (gráficos, sonidos, sprite, etc.)
 
 Veamos cada uno de estos componentes:
 
@@ -78,27 +78,27 @@ Veamos cada uno de estos componentes:
 
 Este conjunto de compiladores es uno de los más utilizados a la hora de utilizar lenguajes de programación como C o C++. Permite tanto compilar, como posteriormente enlazar y ensamblar el código fuente y generar un binario.
 
-Gcc se incluye con la versión 6.3.0 dentro de SGDK, y utilizando herramientas como make [^28], podemos generar la rom correspondiente.
+GCC se incluye con la versión 6.3.0 dentro de SGDK, y usando herramientas como make [^28], podemos generar la rom correspondiente.
 
 [^28]: make, es una herramienta para la gestión de dependencias y para construcción de software.
 
 ### LibMd
 
-LibMd, es una librería que incorpora SGDK, con una serie de funciones y datos que nos van a permitir crear videojuegos para Sega Mega Drive; incopora todo lo necesario para manejar el hardware ya sea tanto a manejar los controles, vídeo, sonido, etc...
+LibMd, es una librería que incorpora SGDK, con una serie de funciones y datos que nos van a permitir crear videojuegos para Sega Mega Drive; incorpora todo lo necesario para manejar el hardware ya sea tanto a manejar los controles, vídeo, sonido, etc.
 
-Esta escrita en C y puedes consultar la documentación dentro del propio SGDK.
+Está escrita en C y puedes consultar la documentación dentro del propio SGDK.
 
 ### Rescomp
 
-Rescomp, es una herramienta que nos va a permitir importar todos los recursos de nuestro juego; ya sean gráficos, sprites, sonido,etc...
+Rescomp, es una herramienta que nos va a permitir importar todos los recursos de nuestro juego; ya sean gráficos, sprites, sonido,etc.
 
-Esta herramienta esta esta escrita en C, sin embargo, utiliza otras herramientas ya escritas en otros lenguajes como Java.
+Esta herramienta está escrita en C, sin embargo, utiliza otras herramientas ya escritas en otros lenguajes como Java.
 
-Rescomp, se basa el leer una serie de ficheros con extension .res, que tienen definidos una serie de parametros de los distintos datos necesarios para cada recurso; rescomp, al leer este fichero, generará un fichero .h, e importará los recursos a nuestro juego.
+Rescomp, se basa el leer una serie de ficheros con extensión .res, que tienen definidos una serie de parámetros de los distintos datos necesarios para cada recurso; rescomp, al leer este fichero, generará un fichero .h, e importará los recursos a nuestro juego.
 
 Os dejamos un ejemplo de recurso usado por rescomp:
 
-```
+```res
 SPRITE tiovara_sprite "sprt/tiovara.bmp" 4 4 NONE 5 BOX
 ```
 
@@ -106,11 +106,11 @@ En el anterior ejemplo, se muestra como importar una hoja de sprites que veremos
 
 ## Juegos Realizados con SGDK
 
-Una parte importante de SGDK, es que se utiliza para juegos ya comerciales que puedes encontrar en algunos crownfunding. En este apartado, vamos a comentar algunos de los más conocidos, y dejaremos algunas direcciones para que podáis aprender más sobre ellos:
+Una parte importante de SGDK, es que se utiliza para juegos ya comerciales que puedes encontrar en algunos crowdfunding. En este apartado, vamos a comentar algunos de los más conocidos, y dejaremos algunas direcciones para que podáis aprender más sobre ellos:
 
 ### Xeno crisis
 
-Xeno Crisis [^29], es un juego de perspectiva isometrica, que nos permite luchar contra hordas y hordas de aliens mientras sobrevivimos en distintas habitaciones y zonas.
+Xeno Crisis [^29], es un juego de perspectiva isométrica, que nos permite luchar contra hordas y hordas de Aliens mientras sobrevivimos en distintas habitaciones y zonas.
 
 Permite jugar 2 jugadores en la Sega Mega Drive; aunque también existen ya versiones para Steam (PC), Swich e incluso versiones para Xbox y Playstation. También se trabaja en una versión para Neo-Geo y DreamCast.
 
@@ -121,11 +121,11 @@ Puedes consultar las versiones de este juego en el kickstarter del mismo:
 
 ### Demons of Asteborg
 
-Demons of Astebord [^30] es un juego para Sega Mega Drive, que tiene una estetica de plataformas con movimiento lateral, en el que tiene toques RPG. Este juego esta publicado por Neofid-studios.
+Demons of Astebord [^30] es un juego para Sega Mega Drive, que tiene una estética de plataformas con movimiento lateral, en el que tiene toques RPG. Este juego esta publicado por Neofid-studios.
 
 En este caso, solo se permite 1 jugador y puede encontrarse tanto la versión de Mega Drive, como en Steam.
 
-Se esta trabajando en una versión para Nintendo Switch. Puede encontrarse más información en su página web:
+Se está trabajando en una versión para Nintendo Switch. Puede encontrarse más información en su página web:
 
 [https://neofid-studios.com/en/home-3/](https://neofid-studios.com/en/home-3/)
 
@@ -155,13 +155,13 @@ Una vez descargado y descomprimido SGDK, podemos crear la siguiente variable de 
 GDK = <directorio donde se encuentra SGDK>
 ```
 
-**NOTA:** Al descargar SGDK, ya trae una versión compilada de _libmd_; sin embargo, si se requiere compilar la librería con los fuentes descargados, podemos hacerlo con la siguiente instrucción:
+**NOTA:** Al descargar SGDK, ya trae una versión compilada de _libmd_; sin embargo, si se requiere compilar la librería con el código fuente descargado, podemos hacerlo con la siguiente instrucción:
 
 ```cmd
 %GDK%\bin\make -f %GDK%\makelib.gen
 ```
 
-Recuerda que la variable ```GDK``` es opcional y puede sustituirse por la ruta donde este el SGDK instalado.
+Recuerda que la variable ```GDK``` es opcional y puede sustituirse por la ruta donde esté el SGDK instalado.
 
 Más adelante, veremos como utilizar el SGDK de distintas formas.
 
@@ -172,20 +172,20 @@ Más adelante, veremos como utilizar el SGDK de distintas formas.
 
 ### Linux
 
-SGDK, por defecto no esta compilado para usarse con Linux; sin embargo, existen proyectos como GENDEV que nos permiten utilizar SGDK a partir de dicho conjunto de herramientas.
+SGDK, por defecto, no está compilado para usarse con Linux; sin embargo, existen proyectos como GENDEV que nos permiten utilizar SGDK a partir de dicho conjunto de herramientas.
 
 Puedes encontrar este proyecto en su repositorio de Github:
 
 [https://github.com/kubilus1/gendev](https://github.com/kubilus1/gendev)
 
-Para utilizar este proyecto, necesitaremos instalar una serie de dependencias; las cuales podemos instalar usando el gestor de paquetes de vuestra distribución; para nuestro caso, usaremos una distribución basada en debian [^34] (Ubuntu).
+Para utilizar este proyecto, necesitaremos instalar una serie de dependencias; las cuales podemos instalar usando el gestor de paquetes de vuestra distribución; para nuestro caso, usaremos una distribución basada en Debian [^34] (Ubuntu).
 
-Necesitaras instalar las siguientes dependencias:
+Necesitarás instalar las siguientes dependencias:
 
 * text-info
 * java
 
-Primero actualizaremos el arbol de dependencias:
+Primero actualizaremos el árbol de dependencias:
 
 ```bash
 sudo apt update
@@ -197,7 +197,7 @@ En el caso de java, usaremos _openjdk_:
 sudo apt install texinfo default-jre
 ```
 
-[^34]: Debian y Ubuntu son distribuciones Linux de código abierto. Ubuntu esta mantenida por Canonical Ltd.
+[^34]: Debian y Ubuntu son distribuciones Linux de código abierto. Ubuntu está mantenida por Canonical Ltd.
 
 Una vez instaladas las dependencias, descargaremos el paquete _.deb_ (o el tar); del repositorio de GENDEV. En el caso de instalar usando el paquete .deb, lo instalaremos con la siguiente instrucción:
 
@@ -221,8 +221,57 @@ make -f $GEDEV/Makefile
 
 Más adelante, veremos en detalle como utilizar SGDK, utilizando GENDEV.
 
-### Macos
+### MarsDev
+
+Hasta ahora, hemos estado utilizando todas las herramientas que tiene SGDK o GENDEV; sin embargo, a veces es muy complicado mantener todas las herramientas en distintos entornos que son muy heterogéneos.
+
+Por ello, el proyecto MARSDEV, permite tener de forma homogénea la forma de usar SGDK o las distintas herramientas disponibles.
+
+Podéis descargar MarsDev de su repositorio:
+
+[https://github.com/andwn/marsdev](https://github.com/andwn/marsdev)
+
+Una vez descargado, puede usarse una variable de entorno llamada ```$MARSDEV``` que apunta al directorio donde se descargó Marsdev.
+
+Si se requiere más información acerca de cómo instalar MarsDev o de como utilizarlo dejamos enlace a su página de instalación:
+
+[https://github.com/andwn/marsdev/tree/master/doc](https://github.com/andwn/marsdev/tree/master/doc)
 
 ### Docker
 
-### MarsDev
+El uso de contenedores (usando Docker u otra implementación), cada día está más extendido; ya que nos permite configurar un contenedor de tal forma que nos abstrae por parte del software del host y la configuración es mucho más sencilla.
+
+La utilización de Docker, es válida en los tres sistemas Operativos más conocidos (en el caso de macOs; aunque hay otras maneras de utilizar SGDK, muchas están deprecadas).
+
+Si necesita conocer más sobre Docker, recomendamos el libro _Aprender Docker. Un enfoque Práctico_ escrito por _José Juan Sánchez_ (En las referencias de este capítulo puede encontrar un enlace al libro).
+
+Para poder utilizar SGDK con docker, primero necesitaremos generar una imagen con SGDK; por ello utilizaremos un fichero ```Dockerfile``` que nos indicará las instrucciones necesarias para generar la imagen del contenedor.
+
+Para generar la imagen, descargaremos la última versión de SGDK del repositorio del mismo (el mismo paso que para Windows). Una vez hecho esto, ejecutaremos la siguiente instrucción en la carpeta donde se encuentre SGDK:
+
+```bash
+docker build -t sgk .
+```
+
+Esta instrucción generará la imagen de SGDK con todo lo necesario para crear nuestras ROM Para Mega Drive.
+
+Una vez construida la imagen, si necesitamos crear una rom, podemos hacerlo con la siguiente instrucción:
+
+```bash
+docker run --rm -v $PWD:/src/ sgdk #en windows cambiar $PWD por %CD%.
+```
+
+Con la instrucción anterior, se compilará y generará la ROM de Mega Drive.
+
+## Referencias
+
+* SGKD: [https://github.com/Stephane-D/SGDK](https://github.com/Stephane-D/SGDK).
+* SpritesMind Foro: [http://gendev.spritesmind.net/forum/](http://gendev.spritesmind.net/forum/)
+* GCC: [https://gcc.gnu.org/](https://gcc.gnu.org/).
+* Make: [https://www.gnu.org/software/make/](https://www.gnu.org/software/make/).
+* Bitmap Bureau: [https://bitmapbureau.com/](https://bitmapbureau.com/).
+* Neofid-Studios: [https://neofid-studios.com/](https://neofid-studios.com/).
+* Open JDK: [https://openjdk.java.net/](https://openjdk.java.net/).
+* MarsDev: [https://github.com/andwn/marsdev](https://github.com/andwn/marsdev).
+* Docker: [https://www.docker.com/](https://www.docker.com/).
+* Aprender Docker. Un enfoque Práctico (Amazon): [https://amzn.to/35M9sCR](https://amzn.to/35M9sCR).
