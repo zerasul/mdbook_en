@@ -53,7 +53,65 @@ En este libro, vamos a recomendar algunas de ellas; aunque es solo una recomenda
 
 #### Genesis Code
 
-Genesis Code es una extensión para Visual Studio Code, 
+Genesis Code es una extensión para Visual Studio Code, que nos permitirá utilizar SGDK y sus herramientas, de forma sencilla. Genesis Code es código abierto y tiene una licencia MIT. Puedes encontrar su código fuente en la siguiente dirección:
+
+[https://github.com/zerasul/genesis-code](https://github.com/zerasul/genesis-code)
+
+Genesis Code, permite a partir de una serie de comandos, realizar distintas tareas con SGDK; estos comandos son:
+
+* Compilar Nuestro Juego y Construir la ROM.
+* Limpiar los ficheros de construcción.
+* Ejecutar nuestro juego en un emulador.
+* Compilar y ejecutar nuestro juego en un emulador.
+* Crear un nuevo Proyecto.
+* Compilar para Depurar.
+* Importar un fichero en formato TMX o Json para generar un fichero cabecera C. Este comando, utiliza el formato de la herramienta _TILED_ para importar mapas.
+
+Además, Genesis Code incluye otras funcionalidades como resaltado de sintaxis para los ficheros de recursos de SGDK _.res_, autocompletado para los recursos, Visor de imágenes personalizado,etc.
+
+Si necesitas más información; acerca de Genesis Code, puedes consultar la documentación de la misma en:
+
+[https://zerasul.github.io/genesis-code-docs](https://zerasul.github.io/genesis-code-docs)
+
+**Instalación**
+
+Para instalar Genesis Code en Visual Studio Code, puede hacerse a través del repositorio de extensiones. Para ello, puslaremos en el 5º icóno de la izquierda y buscaremos la extensión.
+
+<div class="image">
+<img id="arq" src="5config-entorno/img/genscode.png" alt="Genesis Code" title="Instalar Genesis Code"/> </div>
+<p>Exntesión Genesis Code</p>
+
+Una vez localizada, pulsaremos el botón _install_ (o instalar), y la extensión quedará instalada.
+
+**Configuración**
+
+Genesis Code, es compatible con las siguientes formas de instalar SGDK:
+
+* SGDK.
+* GENDEV.
+* MARSDEV.
+* Docker.
+
+Dependiendo de la instalación que tengamos de SGDK, tenemos que configurar Genesis Code de una forma u otra.
+
+Para acceder a la configuración de Genesis Code, accederemos a las opciones de Visual Studio Code (menú File->preferences->settings o <kbd>ctrl</kbd>+<kbd>,</kbd>), y buscaremos las opciones de Genesis Code; las cuales mostramos una captura a continuación.
+
+<div class="image">
+<img id="arq" src="5config-entorno/img/settings.png" alt="Configuración Genesis Code" title="Configuración Genesis Code"/> </div>
+<p>Configuración Genesis Code</p>
+
+Las opciones disponibles son:
+
+* custom-makefile: Permite usar un fichero MakeFile personalizado para generar la rom. Si no se especifica, utilizará el del propio SGDK.
+* Docker Tag: Indica el nombre de la imagen Docker con SGDK. Si no se indica, se utilizará el nombre de _sgdk_.
+* GDK: sobrescribe la variable de entorno GDK apuntando a la instalación de SGDK (solo Windows).
+* GENDEV: sobrescribe la variable de entorno GENDEV apuntando a la instalación de Gendev (solo Linux).
+* Gens path: Indica la ruta del ejecutable donde se encuentre el emulador que se va a utilizar.
+* MARSDEV: sobrescribe la variable de entorno MARSDEV apuntando a la instalación de MarsDev.
+* Toolchain Type: Indica el tipo de herramienta que utilizará para usar SGDK; puede tener los siguientes valores:
+    * sgdk/gendev: Utiliza SGDK o Gendev (windows o Linux).
+    * marsdev: Utiliza MARSDEV como entorno para llamar a SGDK.
+    * Docker: Utiliza un contenedor Docker para crear la ROM.
 
 ## Emulador
 
