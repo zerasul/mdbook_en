@@ -40,16 +40,16 @@ Para aquellos que no esten familiarizados con este editor de texto, os dejamos u
 
 [https://code.visualstudio.com/docs](https://code.visualstudio.com/docs)
 
-Con Visual Studio code, se puede desarrollar facilmente y se pueden ampliar sus funcionalidades de forma muy sencilla, gracias al repositorio de extensiones que incluye (o incluso instalandolas manualmente).
+Con Visual Studio code, se puede desarrollar fácilmente y se pueden ampliar sus funcionalidades de forma muy sencilla, gracias al repositorio de extensiones que incluye (o incluso instalandolas manualmente).
 
 [^35]: Visual Studio Code es una marca registrada de Microsoft Corporation Ltd.
 [^36]: intellisense es una marca registrada de Microsoft Corporation ltd.
 
 En este libro, vamos a recomendar algunas de ellas; aunque es solo una recomendación; ya que pueden usarse las que más guste al lector.
 
-* Extensión oficial de C/C++: Nos permitirá programar y activar intellisense para los lenguajes de programación C/C++.
-* Amiga Assembly: Aunque este libro no se centra en el uso de ensamblador, si que puede ser interesante poder ver el código de ensablador que haya escrito con sintaxis resaltada. En este caso, se trata de poder ver con la sintaxis ya coloreada, el ensamblador para Motorola 68000.
-* Genesis Code: Este libro se centra en el uso de SGDK; y aunque podemos utilizar directamente SGDK a través de tareas y/o una terminal en el propio editor, suele ser bastante complicado configurar el entorno. Por ello, Genesis Code te simplifica el uso de SGDK a través de este editor. A continuación, nos centraremos en esta extensión.
+* _Extensión oficial de C/C++_: Nos permitirá programar y activar intellisense para los lenguajes de programación C/C++.
+* _Amiga Assembly_: Aunque este libro no se centra en el uso de ensamblador, si que puede ser interesante poder ver el código de ensablador que haya escrito con sintaxis resaltada. En este caso, se trata de poder ver con la sintaxis ya coloreada, el ensamblador para Motorola 68000.
+* _Genesis Code_: Este libro se centra en el uso de SGDK; y aunque podemos utilizar directamente SGDK a través de tareas y/o una terminal en el propio editor, suele ser bastante complicado configurar el entorno. Por ello, Genesis Code te simplifica el uso de SGDK a través de este editor. A continuación, nos centraremos en esta extensión.
 
 #### Genesis Code
 
@@ -64,7 +64,7 @@ Genesis Code, permite a partir de una serie de comandos, realizar distintas tare
 * Ejecutar nuestro juego en un emulador.
 * Compilar y ejecutar nuestro juego en un emulador.
 * Crear un nuevo Proyecto.
-* Compilar para Depurar.
+* Compilar con opciones de depuracion.
 * Importar un fichero en formato TMX o Json para generar un fichero cabecera C. Este comando, utiliza el formato de la herramienta _TILED_ para importar mapas.
 
 Además, Genesis Code incluye otras funcionalidades como resaltado de sintaxis para los ficheros de recursos de SGDK _.res_, autocompletado para los recursos, Visor de imágenes personalizado,etc.
@@ -83,9 +83,15 @@ Para instalar Genesis Code en Visual Studio Code, puede hacerse a través del re
 
 Una vez localizada, pulsaremos el botón _install_ (o instalar), y la extensión quedará instalada.
 
+Ademas, puede instalarse manualmente, descargando la última versión del repositorio del proyecto:
+
+[https://github.com/zerasul/genesis-code/releases](https://github.com/zerasul/genesis-code/releases)
+
+Una vez descargado el fichero con extensión _.vsix_, abriremos la consola de comandos de Visual Studio Code <kbd>ctrl</kbd>+<kbd>Mayus</kbd>+<kbd>,</kbd> y buscaremos la opción _Extension: Install from vsix..._; seleccionaremos el fichero vsix y esperaremos que acabe la instalación.
+
 **Configuración**
 
-Genesis Code, es compatible con las siguientes formas de instalar SGDK:
+Genesis Code, es compatible con las siguientes formas de utilizar SGDK:
 
 * SGDK.
 * GENDEV.
@@ -115,6 +121,16 @@ Las opciones disponibles son:
 
 ## Emulador
 
+### Gens KMod
+
+### Blastem
+
 ## Software de Manipulación Gráfica
+
+### GIMP
+
+### AserSrprite
+
+### TILED
 
 ## Referencias
