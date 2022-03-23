@@ -67,7 +67,7 @@ Genesis Code, permite a partir de una serie de comandos, realizar distintas tare
 * Compilar con opciones de depuracion.
 * Importar un fichero en formato TMX o Json para generar un fichero cabecera C. Este comando, utiliza el formato de la herramienta _TILED_ para importar mapas.
 
-Además, Genesis Code incluye otras funcionalidades como resaltado de sintaxis para los ficheros de recursos de SGDK _.res_, autocompletado para los recursos, Visor de imágenes personalizado,etc.
+Además, Genesis Code incluye otras funcionalidades como resaltado de sintaxis para los ficheros de recursos de SGDK _.res_, autocompletado para los recursos o Visor de imágenes personalizado.
 
 Si necesitas más información; acerca de Genesis Code, puedes consultar la documentación de la misma en:
 
