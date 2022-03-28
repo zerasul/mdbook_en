@@ -121,9 +121,64 @@ Las opciones disponibles son:
 
 ## Emulador
 
+A la hora de desarrollar nuestro juego, es importante poder probar el progreso de este y aunque podemos usar un hardware real usando un cartucho FlashCart como _everdrive_[^37], no es nada práctico, tener que estar transfiriendo la ROM cada vez a la tarjeta SD. Por ello, se utilizan emuladores para pode ejecutar la rom creada y ver los resultados.
+
+Además, algunos de estos emuladores tienen herramientas que nos pueden ayudar a depurar nuestros juegos; como depuración tanto del 68K como del z80, visor de los gráficos en el VDP, visor de Planos o Sprites,etc.
+
+Vamos a ver un par de ejemplos de emulador; es importante destacar que el lector, puede usar con el que mejor se maneje cuando este trabajando en su proyecto homebrew.
+
+Es importante saber, que aunque usemos un emulador, nunca se podrá emular el hardware 100%; por lo que aunque podamos emular el juego, si es interesante poder probarlo en un hardware; es más, a ser posibles en distintos modelos de Mega Drive.
+
+[^37]: everdrive: es un Cartucho FlashCart con capacidad de poder cargar roms usando una tarjeta SD o MicroSD.
+
 ### Gens KMod
 
+Gens, es un emulador de código abierto y gratuito que permite emular Sega Mega drive, Mega CD, 32X e incluso Master System. Este emulador ha tenido muchas versiones comenzando en una versión para el sistema operativo Windows, pero se han hecho muchos ports para distintos otros Sistemas Operativos.
+
+Tiene distintas funcionalidades como puede ser el guardado de estados, soporte para conexión por internet, mejora de audio,etc. Existen distintas versiones como el llamado _gens Plus_ que añade más mejoras como distintos efectos o Shaders.
+
+Para Microsoft Windows, existe una versión modificada, llamada Gens KMod, que añade distintas herramientas para desarrollo; como puede ser:
+
+* depurador tanto para el Motorola 68000 como Z80.
+* Depuración de la memoria
+* Visor de Planos
+* Visor de Sprites
+* Visor de Tiles y paletas (VDP)
+* Visor para Sonido YM2612 y PSG
+
+<div class="image">
+<img id="arq" src="5config-entorno/img/gens.png" alt="Gens KMod" title="Gens KMod"/> </div>
+<p>Gens Kmod</p>
+
+Puede descargarse de la siguiente dirección:
+
+[https://segaretro.org/Gens_KMod](https://segaretro.org/Gens_KMod)
+
+Para poder utilizarlo para nuestro desarrollo, si se tiene la extensión Genesis Code, Puede configurarlo para desarrollar; para ello, puede hacerlo de dos formas:
+
+La primera es usar el comando _Genesis Code: set Gens Emlator Command Path_ que provee la extensión y añadir la ruta al fichero _gens.exe_ para poder ejecutar el comando.
+
+La otra forma, es a partir de la configuración de Genesis Code podemos añadir la ruta de donde se encuentra el ejecutable del emulador.
+
 ### Blastem
+
+Otro emulador conocido, es _Blastem_; este emulador, permite emular con bastante precisión, el hardware de la Mega Drive; además de tener una serie de herramientas como el visor de las paletas y colores del VDP.
+
+Este emulador tiene las siguientes características:
+
+* Guardado y Carga de estados.
+* Depurador Integrado y posibilidad de conectarlo a un depurador remoto.
+* Soporte para Controlador (Joistick).
+* Emulación de Mega/Sega Mouse.
+* Soporte para teclado Saturn.
+* Soporte para Lock con de Sonic & Knuckles.
+* Soporte para mappers de distintos juegos Homebrew.
+* Soporte para SRAM y EEPROM.
+* Soporte para Shaders y otros filtros.
+
+<div class="image">
+<img id="arq" src="5config-entorno/img/blastem.png" alt="Blastem" title="Blastem"/> </div>
+<p>Blastem</p>
 
 ## Software de Manipulación Gráfica
 
