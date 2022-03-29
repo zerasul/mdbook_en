@@ -133,7 +133,7 @@ Es importante saber, que aunque usemos un emulador, nunca se podrá emular el ha
 
 ### Gens KMod
 
-Gens, es un emulador de código abierto y gratuito que permite emular Sega Mega drive, Mega CD, 32X e incluso Master System. Este emulador ha tenido muchas versiones comenzando en una versión para el sistema operativo Windows, pero se han hecho muchos ports para distintos otros Sistemas Operativos.
+Gens, es un emulador de código abierto y gratuito con licencia GPL-2.0, que permite emular Sega Mega drive, Mega CD, 32X e incluso Master System. Este emulador ha tenido muchas versiones comenzando en una versión para el sistema operativo Windows, pero se han hecho muchos ports para distintos otros Sistemas Operativos.
 
 Tiene distintas funcionalidades como puede ser el guardado de estados, soporte para conexión por internet, mejora de audio,etc. Existen distintas versiones como el llamado _gens Plus_ que añade más mejoras como distintos efectos o Shaders.
 
@@ -162,7 +162,7 @@ La otra forma, es a partir de la configuración de Genesis Code podemos añadir 
 
 ### Blastem
 
-Otro emulador conocido, es _Blastem_; este emulador, permite emular con bastante precisión, el hardware de la Mega Drive; además de tener una serie de herramientas como el visor de las paletas y colores del VDP.
+Otro emulador conocido, es _Blastem_; este emulador, permite emular con bastante precisión, el hardware de la Mega Drive; además de tener una serie de herramientas como el visor de las paletas y colores del VDP. Blastem es Software libre bajo la licencia GNU GPL v3.
 
 Este emulador tiene las siguientes características:
 
