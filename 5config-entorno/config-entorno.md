@@ -87,7 +87,7 @@ Ademas, puede instalarse manualmente, descargando la última versión del reposi
 
 [https://github.com/zerasul/genesis-code/releases](https://github.com/zerasul/genesis-code/releases)
 
-Una vez descargado el fichero con extensión _.vsix_, abriremos la consola de comandos de Visual Studio Code <kbd>ctrl</kbd>+<kbd>Mayus</kbd>+<kbd>,</kbd> y buscaremos la opción _Extension: Install from vsix..._; seleccionaremos el fichero vsix y esperaremos que acabe la instalación.
+Una vez descargado el fichero con extensión _.vsix_, abriremos la consola de comandos de Visual Studio Code <kbd>ctrl</kbd>+<kbd>Mayus</kbd>+<kbd>p</kbd> y buscaremos la opción _Extension: Install from vsix..._; seleccionaremos el fichero vsix y esperaremos que acabe la instalación.
 
 **Configuración**
 
@@ -171,7 +171,7 @@ Este emulador tiene las siguientes características:
 * Soporte para Controlador (Joistick).
 * Emulación de Mega/Sega Mouse.
 * Soporte para teclado Saturn.
-* Soporte para Lock con de Sonic & Knuckles.
+* Soporte para Lock con de Sonic & Knuckles y algunos mappers como Sega Standar Mapper.
 * Soporte para mappers de distintos juegos Homebrew.
 * Soporte para SRAM y EEPROM.
 * Soporte para Shaders y otros filtros.
@@ -180,12 +180,98 @@ Este emulador tiene las siguientes características:
 <img id="arq" src="5config-entorno/img/blastem.png" alt="Blastem" title="Blastem"/> </div>
 <p>Blastem</p>
 
+Blastem, además, incluye algunas herramientas para desarrollo. Como puede ser el visor de las paletas del VDP o un depurador incluido en el propio emulador; tanto interno, como poder conectar uno externo.
+
+Blastem, se puede descargar para los sistemas operativos más utilizados (Windows, MacOs, Linux...); tanto desde la siguiente dirección, como usando los repositorios de paqueteria de algunas de nuestras distribuciones.
+
+[https://www.retrodev.com/blastem/](https://www.retrodev.com/blastem/)
+
+Al igual que con Gens, Blastem puede usarse con la extensión _Genesis Code_; por lo que pueden seguirse los mismos pasos descritos para configurarlo.
+
 ## Software de Manipulación Gráfica
+
+A la hora de trabajar en un videojuego, es igualmente importante trabajar el código fuente del juego, como de los recursos que se van a utilizar (gráficos, sonido, mapas,etc.); por ello, vamos a revisar algunas herramientas que podemos utilizar para crear todos estos recursos.
 
 ### GIMP
 
+GIMP (Gnu Image Manipulation Program), es un programa de edición de imágenes en forma de mapa de bits; este programa es de código abierto y tiene una licencia GPLv3.
+
+La primera versión de este programa salió en el año 1995 en la universidad de Berkley; y desde entonces se ha convertido en parte del proyecto GNU [^38]. GIMP, nos va a ayudar a modificar las imagenes para poder usarlas en nuestros proyectos.
+
+[^38]: Proyecto GNU: [https://www.gnu.org/home.es.html](https://www.gnu.org/home.es.html)
+
+Permite modificar imagenes digitalizadas a través de sus muchas herramientas que trae integrado como pueden ser recortar, escalar, modificar las propiedades de la imagen (reordenar la paleta). GIMP, es compatible con muchos formatos de imagenes (BMP, PNG, JPG, TIFF, PSD); por lo que puede ser una buena herramienta para convertir en los formatos que necesitemos.
+
+Además de las herramientas que trae integradas, se pueden añadir más herramientas gracias a la extensiones de este programa.
+
+<div class="image">
+<img id="arq" src="5config-entorno/img/GIMP2.png" alt="GIMP" title="GIMP"/> </div>
+<p>GIMP</p>
+
+Puede descargarse GIMP, desde su página web Oficial:
+
+[https://www.gimp.org/](https://www.gimp.org/)
+
 ### AserSrprite
+
+A la hora de crear nuestro gráficos, con programas como GIMP, no son muy usables; por eso se utilizan otros programas para poder crear los Sprites o los patrones necesarios para nuestro juego.
+
+Para ello, se utilizan programas como AserSprite el cual es un programa que nos va a permitir crear nuestros sprites y sus animaciones, de forma sencilla.
+
+Además, tambien nos va a permitir manejar la paleta de colores para nuestros gráficos. Por lo que podremos ver en todo momento los colores que estamos utilizando para crear nuestros gráficos.
+
+Además, Asersrite permite exportar nuestras animaciones de forma sencilla en distintos formatos, o crear un patron que podamos utilizar posteriormente en nuestro juego.
+
+AserSprite no es código abierto, y tiene un coste de 19.99$; el cual se puede adquirir desde su página web.
+
+[https://www.aseprite.org/](https://www.aseprite.org/)
+
+Entre sus muchas características, podemos ver:
+
+* Previsualizador de animaciones.
+* Gestión de las paletas.
+* Creación de Patrones.
+* Crear Hojas de Sprites.
+* Creación de pinceles personalizados.
+* Suavizado de lineas al dibujar.
+
+<div class="image">
+<img id="arq" src="5config-entorno/img/asersprite.png" alt="Asersprite" title="Asersprite"/> </div>
+<p>Asersprite</p>
 
 ### TILED
 
+Por último, a la hora de crear nuestros juegos, muchas veces necesitaremos herramientas para poder crear nuestros niveles a partir de bibliotecas de elementos gráficos (también llamados TileSets); por ello, podemos recomentar la utilización de la herramienta Tiled.
+
+Esta herramienta de código Abierto, nos va a permitir crear nuestros propios mapas, a partir de distintos elementos gráficos y posteriormente, podremos exportarlo a nuestros juegos.
+
+TILED, tiene una licencia GPL, sin embargo, utiliza distintos componentes que tienen diferentes licencias; para más información, consultar la licencia en el repositorio de TILED.
+
+[https://github.com/mapeditor/tiled/blob/master/COPYING](https://github.com/mapeditor/tiled/blob/master/COPYING)
+
+TILED, nos permite generar mapas multicapa, para poder dibujar nuestros niveles de forma independiente cada capa; de esta forma, podemos añadir muchos más elementos de una forma más comoda.
+
+Además. TILED permite añadir objetos para poder añadir información a cada nivel y poder gestionarlo dentro de nuestro código fuente.
+
+<div class="image">
+<img id="arq" src="5config-entorno/img/TILED.png" alt="TILED" title="TILED"/> </div>
+<p>TILED</p>
+
+Si utiliza la extensión _Genesis Code_, puede exportar los datos de cada mapa a un fichero .h para utilizarlo en nuestros juegos. Veremos más adelante su uso en el capítulo 12.
+
+Podemos descargar TILED, desde su página web oficial:
+
+[https://www.mapeditor.org/](https://www.mapeditor.org/)
+
 ## Referencias
+
+* [https://code.visualstudio.com/](https://code.visualstudio.com/)
+* [https://marketplace.visualstudio.com/items?itemName=zerasul.genesis-code](https://marketplace.visualstudio.com/items?itemName=zerasul.genesis-code)
+* [https://zerasul.github.io/genesis-code-docs](https://zerasul.github.io/genesis-code-docs)
+* [http://www.gens.me/](http://www.gens.me/)
+* [https://segaretro.org/Gens_KMod](https://segaretro.org/Gens_KMod)
+* [https://www.retrodev.com/blastem/](https://www.retrodev.com/blastem/)
+* [https://www.gimp.org/](https://www.gimp.org/)
+* [https://www.aseprite.org/](https://www.aseprite.org/)
+* [https://elmundodeubuntu.blogspot.com/2015/11/aseprite-editor-de-sprites.html](https://elmundodeubuntu.blogspot.com/2015/11/aseprite-editor-de-sprites.html)
+* [https://www.mapeditor.org/](https://www.mapeditor.org/)
