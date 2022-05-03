@@ -74,4 +74,49 @@ Dentro del bucle, vemos una llamada a la función ```SYS_doVBlankProcess``` esta
 
 ## Compilar y ejecutar nuestro proyecto
 
+Tras finalizar de escribir nuestro código, podemos dar el siguiente paso; generar la ROM [^40], y ejecutarla en un emulador.
+
+En este paso, se generarán todos los ficheros necesarios, y al final tendremos un fichero llamado _rom.bin_ con nuestra ROM preparada para ser ejecutada en un emulador, o en un hardware Real.
+
+Para Compilar nuestro juego, es necesario tener configurado correctamente SGDK; ya sea usando las variables de entorno, o con la configuración de _Genesis Code_. Además de tener configurada correctamente la ruta donde se encuentra nuestro emulador.
+
+Se utilizará el comando _Genesis Code: compile & Run Project_, para generar la ROM y posteriormente ejecutar un emulador con la Rom Generada. Existen otros comandos para Compilar (_Genesis Code: Compile Project_) o compilar para depuración (_Genesis Code: Compile For Debugging_). En este ejemplo, usaremos la opción de _Compile & Run Project_.
+
+### Compilar a mano
+
+Si por un casual necesitara compilar manualmente, puede hacerlo usando los comandos para llamar a SGDK. Dejamos aquí las distintas llamadas para generar la Rom usando SGDK, Gendev o Docker.
+
+#### SGDK (Windows)
+
+```bash
+%GDK%/bin/make -f %GDK%/makefile.gen
+```
+
+#### Gendev (linux)
+
+```bash
+make -f $GENDEV/sgdk/mkfiles/makefile.gen
+```
+
+### Docker
+
+```bash
+docker run --rm -v $PWD:/src sgdk
+```
+
+Si todo ha ido correctamente, podemos ver como se generará la ROM en la carpeta _out_ con el nombre de _rom.bin_ y posteriormente, se abre nuestro emulador mostrandolo.
+
+**NOTA**: Para aquellos que usen Windows, puede darle un error si por defecto usan _PowerShell_; esto puede solucionarse estableciendo por defecto la terminal de vscode para que use _cmd_. Para ello usaremos la paleta de comandos y seleccionaremos la opción _View: Toggle Integrated Terminal_; seleccionando posteriormente, para que utilice cmd.
+
+<div class="image">
+<img id="arq" src="6holamundo/img/hello.png" alt="Hello" title="Hello"/> </div>
+<p>Hello Sega en Mega Drive</p>
+
+[^40]: ROM (Read Only Memory): se trata de una memoria de solo lectura que normalmente se encuentra dentro del cartucho en una EPROM (o Flash en las versiones más modernas).
+
 ## Referencias
+
+* [https://www.ohsat.com/](https://www.ohsat.com/)
+* [https://github.com/Stephane-D/SGDK](https://github.com/Stephane-D/SGDK)
+* [https://docs.docker.com/engine/reference/run/](https://docs.docker.com/engine/reference/run/)
+* [https://danibus.wordpress.com/](https://danibus.wordpress.com/)
