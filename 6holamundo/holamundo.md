@@ -62,7 +62,7 @@ Si nos centramos en la función ```main``` vemos que se realiza una llamada a la
 
 * parametro 1: cadena de caracteres con la información a mostrar.
 * parametro 2: posición X donde se mostrará el texto. la coordenada X indica la columna donde se mostrará el texto. Esta expresado el Tiles.
-* parametro 3: posición X donde se mostrará el texto. la coordenada Y indica la fila donde se mostrará el texto. Esta expresado el Tiles.
+* parametro 3: posición Y donde se mostrará el texto. la coordenada Y indica la fila donde se mostrará el texto. Esta expresado el Tiles.
 
 Tanto la posición X e Y, estan expresados en Tiles. Un tile es un recuadro de 8x8 pixeles que se pinta por pantalla; el VDP trabaja en esta unidad y por lo tanto debemos de tener en cuenta esta dimensión. En el ejemplo vemos que pintaremos en la posición 10,13 es decir, (80px,104px).
 
