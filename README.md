@@ -13,7 +13,7 @@ Este libro contiene lo mínimo e imprescindible para poder crear juegos a partir
 3. [Arquitectura](3Arquitectura/arquitectura.md).
 4. [SGDK](4SGDK/sgdk.md).
 5. [Configurar Nuestro Entorno](5config-entorno/config-entorno.md).
-6. [Hola Mundo(6holamundo/holamundo.md)].
+6. [Hola Mundo](6holamundo/holamundo.md).
 7. Controles.
 8. Fondos.
 9. Sprites.
