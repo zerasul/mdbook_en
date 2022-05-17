@@ -54,15 +54,45 @@ Existieron distintos diseños dependiendo de la versión de Mega Drive (Japón/E
 
 Otra versión del controlador para Sega Mega Drive, es el controlador de 6 botones; que añadía tres botones adicionales (X,Y y Z). Esta versión era utilizada por algunos juegos como _Comix Zone_ [^42] o incluso _Streets of Rage 3_ [^43].
 
-Además, como había algunos juegos que no eran compatibles con el modo 6 botones, se añadió un botón adicional, que permitía usar el mando en modo "3 botones". Este botón llamado _MODE_, si se pulsaba al iniciar el juego, se cambiaba el modo del mismo.
+Además, como había algunos juegos que no eran compatibles con el modo 6 botones, se añadió un botón adicional, que permitía usar el mando en modo "3 botones". Este botón llamado _MODE_, si se pulsaba al iniciar el juego, se cambiaba el modo del mismo [^44].
+
+<div class="image">
+<img id="arq" src="7controles/img/md6buttons.jpg" alt="Controlador 6 botones" title="Controlador 6 botones"/> </div>
+<p>Controlador 6 botones de la marca retro-bit.</p>
 
 [^42]: Comix Zone es un videojuego desarrollado por Sega y publicado en el año 1995.
 [^43]: Streets of Rage 3, es la tercera entrega de la saga de Streets of rage, publicado en el año 1994.
+[^44]: El mando de la imagen no es oficial, pero si tiene licencia para Sega Mega Drive. En las referencias puede encontrar un enlace de compra.
 
 ### Sega Mouse
 
+Otro de los periféricos que podemos encontrar para Sega Mega Drive, es el famoso _Sega Mouse_; se trataba de un ratón con 2 botones con distintas versiones. Permitía jugar a algunos juegos que eran compatibles. Como el famoso _lemmings 2_ [^45], o el famoso _Cannon Fodder_ [^46].
+
+El ratón de 2 botones, permitía usar los botones A y B; sin embargo, para usar el botón C, la propia Bola del ratón era clickable; lo cual permitía mayor compatibilidad. Sin embargo, el Sega Mouse, no llegó a Sega America por lo que solo se pudo ver en Japón y Europa. Pero si tuvo su propia versión llamada _Mega Mouse_ que tenía 3 botones y un botón start; eliminando la posibilidad de hacer click con la propia Bola del ratón.
+
+<div class="image">
+<img id="arq" src="7controles/img/SegaMouse_MD_EU.jpg" alt="Sega Mouse" title="Sega Mouse"/> </div>
+<p>Sega Mouse (Sega Retro.org)</p>
+
+[^45]: Lemmings; era un juego de estrategia, donde se controlaban unos simpáticos personajes llamados lemmings, que cada uno tenia una función y se tenía que resolver un puzzle. La versión de Mega Drive fue publicada por Sega y lanzada en el año 1992.
+[^46]: Cannon Fodder es un juego de estrategia que fue publicado para Sega Mega Drive en el año 1992.
+
+## Programación de los controles
+
+### Síncronos
+
+### asíncronos
+
+### Programación con Sega Mouse
+
 ## Referencias
 
+* [https://segaretro.org/Control_Pad_(Mega_Drive)](https://segaretro.org/Control_Pad_(Mega_Drive))
+* [https://segaretro.org/Six_Button_Control_Pad_(Mega_Drive)](https://segaretro.org/Six_Button_Control_Pad_(Mega_Drive))
 * [https://segaretro.org/Super_Multi-play](https://segaretro.org/Super_Multi-play)
 * [https://segaretro.org/The_Justifier](https://segaretro.org/The_Justifier)
+* [https://amzn.to/3lBRnfv](https://amzn.to/3lBRnfv)
 * [https://segaretro.org/Micro_Machines_2:_Turbo_Tournament](https://segaretro.org/Micro_Machines_2:_Turbo_Tournament).
+* [https://segaretro.org/Sega_Mouse](https://segaretro.org/Sega_Mouse)
+* [https://segaretro.org/Lemmings](https://segaretro.org/Lemmings)
+* [https://segaretro.org/Cannon_Fodder](https://segaretro.org/Cannon_Fodder)
