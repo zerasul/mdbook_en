@@ -8,11 +8,11 @@ Las herramientas que comentamos en este capítulo, son opcionales ya que cada de
 
 Comenzaremos hablando del entorno de desarrollo, y posteriormente nos centraremos en otras herramientas como los emuladores, o incluso herramientas que podemos utilizar para manejar los gráficos.
 
-El objetivo de este capítulo, es configurar un entorno de desarrollo de forma sencilla; por lo que no entraremos en detalle de como utilizar cada herramienta; si que darémos enlaces a manuales y recursos para cada una de las herramientas utilizadas, al final de este capítulo.
+El objetivo de este capítulo, es configurar un entorno de desarrollo de forma sencilla; por lo que no entraremos en detalle de como utilizar cada herramienta; si que daremos enlaces a manuales y recursos para cada una de las herramientas utilizadas, al final de este capítulo.
 
 ## Editor de Texto
 
-A la hora de trabajar con código fuente, necesitaremos tener un editor de texto que nos ayude a la hora de estar con muchos ficheros fuente y que sea rápido y ligero para poder acelerar el máximo el tiempo que tardamos en códificar nuestro juego.
+A la hora de trabajar con código fuente, necesitaremos tener un editor de texto que nos ayude a la hora de estar con muchos ficheros fuente y que sea rápido y ligero para poder acelerar el máximo el tiempo que tardamos en codificar nuestro juego.
 
 Aunque cada desarrollador utilizará distintas herramientas, en este libro vamos a recomendar el editor de texto _Visual Studio Code_; el cual utilizaremos en los ejemplos y capturas que podrás ver en este libro.
 
@@ -36,11 +36,11 @@ Visual Studio Code, tiene partes del código fuente con licencia Mit; y otras ti
 <img id="arq" src="5config-entorno/img/vscode.png" alt="Visual Studio Code" title="Visual Studio Code"/> </div>
 <p>Visual Studio Code</p>
 
-Para aquellos que no esten familiarizados con este editor de texto, os dejamos un enlace al manual de VsCode:
+Para aquellos que no estén familiarizados con este editor de texto, os dejamos un enlace al manual de VsCode:
 
 [https://code.visualstudio.com/docs](https://code.visualstudio.com/docs)
 
-Con Visual Studio code, se puede desarrollar fácilmente y se pueden ampliar sus funcionalidades de forma muy sencilla, gracias al repositorio de extensiones que incluye (o incluso instalandolas manualmente).
+Con Visual Studio code, se puede desarrollar fácilmente y se pueden ampliar sus funcionalidades de forma muy sencilla, gracias al repositorio de extensiones que incluye (o incluso instalándolas manualmente).
 
 [^35]: Visual Studio Code es una marca registrada de Microsoft Corporation Ltd.
 [^36]: intellisense es una marca registrada de Microsoft Corporation ltd.
@@ -48,7 +48,7 @@ Con Visual Studio code, se puede desarrollar fácilmente y se pueden ampliar sus
 En este libro, vamos a recomendar algunas de ellas; aunque es solo una recomendación; ya que pueden usarse las que más guste al lector.
 
 * _Extensión oficial de C/C++_: Nos permitirá programar y activar intellisense para los lenguajes de programación C/C++.
-* _Amiga Assembly_: Aunque este libro no se centra en el uso de ensamblador, si que puede ser interesante poder ver el código de ensablador que haya escrito con sintaxis resaltada. En este caso, se trata de poder ver con la sintaxis ya coloreada, el ensamblador para Motorola 68000.
+* _Amiga Assembly_: Aunque este libro no se centra en el uso de ensamblador, si que puede ser interesante poder ver el código de ensamblador que haya escrito con sintaxis resaltada. En este caso, se trata de poder ver con la sintaxis ya coloreada, el ensamblador para Motorola 68000.
 * _Genesis Code_: Este libro se centra en el uso de SGDK; y aunque podemos utilizar directamente SGDK a través de tareas y/o una terminal en el propio editor, suele ser bastante complicado configurar el entorno. Por ello, Genesis Code te simplifica el uso de SGDK a través de este editor. A continuación, nos centraremos en esta extensión.
 
 #### Genesis Code
@@ -64,7 +64,7 @@ Genesis Code, permite a partir de una serie de comandos, realizar distintas tare
 * Ejecutar nuestro juego en un emulador.
 * Compilar y ejecutar nuestro juego en un emulador.
 * Crear un nuevo Proyecto.
-* Compilar con opciones de depuracion.
+* Compilar con opciones de depuración.
 * Importar un fichero en formato TMX o Json para generar un fichero cabecera C. Este comando, utiliza el formato de la herramienta _TILED_ para importar mapas.
 
 Además, Genesis Code incluye otras funcionalidades como resaltado de sintaxis para los ficheros de recursos de SGDK _.res_, autocompletado para los recursos o Visor de imágenes personalizado.
@@ -75,11 +75,11 @@ Si necesitas más información; acerca de Genesis Code, puedes consultar la docu
 
 **Instalación**
 
-Para instalar Genesis Code en Visual Studio Code, puede hacerse a través del repositorio de extensiones. Para ello, puslaremos en el 5º icóno de la izquierda y buscaremos la extensión.
+Para instalar Genesis Code en Visual Studio Code, puede hacerse a través del repositorio de extensiones. Para ello, pulsaremos en el 5º icono de la izquierda y buscaremos la extensión.
 
 <div class="image">
 <img id="arq" src="5config-entorno/img/genscode.png" alt="Genesis Code" title="Instalar Genesis Code"/> </div>
-<p>Exntesión Genesis Code</p>
+<p>Extensión Genesis Code</p>
 
 Una vez localizada, pulsaremos el botón _install_ (o instalar), y la extensión quedará instalada.
 
@@ -121,7 +121,7 @@ Las opciones disponibles son:
 
 ## Emulador
 
-A la hora de desarrollar nuestro juego, es importante poder probar el progreso de este y aunque podemos usar un hardware real usando un cartucho FlashCart como _everdrive_[^37], no es nada práctico, tener que estar transfiriendo la ROM cada vez a la tarjeta SD. Por ello, se utilizan emuladores para pode ejecutar la rom creada y ver los resultados.
+A la hora de desarrollar nuestro juego, es importante poder probar el progreso de este y aunque podemos usar un hardware real usando un cartucho FlashCart como _Everdrive_[^37], no es nada práctico, tener que estar transfiriendo la ROM cada vez a la tarjeta SD. Por ello, se utilizan emuladores para pode ejecutar la rom creada y ver los resultados.
 
 Además, algunos de estos emuladores tienen herramientas que nos pueden ayudar a depurar nuestros juegos; como depuración tanto del 68K como del z80, visor de los gráficos en el VDP, visor de Planos o Sprites,etc.
 
@@ -129,7 +129,7 @@ Vamos a ver un par de ejemplos de emulador; es importante destacar que el lector
 
 Es importante saber, que aunque usemos un emulador, nunca se podrá emular el hardware 100%; por lo que aunque podamos emular el juego, si es interesante poder probarlo en un hardware; es más, a ser posibles en distintos modelos de Mega Drive.
 
-[^37]: everdrive: es un Cartucho FlashCart con capacidad de poder cargar roms usando una tarjeta SD o MicroSD.
+[^37]: Everdrive: es un Cartucho FlashCart con capacidad de poder cargar roms usando una tarjeta SD o MicroSD.
 
 ### Gens KMod
 
@@ -156,7 +156,7 @@ Puede descargarse de la siguiente dirección:
 
 Para poder utilizarlo para nuestro desarrollo, si se tiene la extensión Genesis Code, Puede configurarlo para desarrollar; para ello, puede hacerlo de dos formas:
 
-La primera es usar el comando _Genesis Code: set Gens Emlator Command Path_ que provee la extensión y añadir la ruta al fichero _gens.exe_ para poder ejecutar el comando.
+La primera es usar el comando _Genesis Code: set Gens Emulator Command Path_ que provee la extensión y añadir la ruta al fichero _gens.exe_ para poder ejecutar el comando.
 
 La otra forma, es a partir de la configuración de Genesis Code podemos añadir la ruta de donde se encuentra el ejecutable del emulador.
 
@@ -168,10 +168,10 @@ Este emulador tiene las siguientes características:
 
 * Guardado y Carga de estados.
 * Depurador Integrado y posibilidad de conectarlo a un depurador remoto.
-* Soporte para Controlador (Joistick).
+* Soporte para Controlador (Joystick).
 * Emulación de Mega/Sega Mouse.
 * Soporte para teclado Saturn.
-* Soporte para Lock con de Sonic & Knuckles y algunos mappers como Sega Standar Mapper.
+* Soporte para Lock con de Sonic & Knuckles y algunos mappers como Sega Standard Mapper.
 * Soporte para mappers de distintos juegos Homebrew.
 * Soporte para SRAM y EEPROM.
 * Soporte para Shaders y otros filtros.
@@ -182,7 +182,7 @@ Este emulador tiene las siguientes características:
 
 Blastem, además, incluye algunas herramientas para desarrollo. Como puede ser el visor de las paletas del VDP o un depurador incluido en el propio emulador; tanto interno, como poder conectar uno externo.
 
-Blastem, se puede descargar para los sistemas operativos más utilizados (Windows, MacOs, Linux...); tanto desde la siguiente dirección, como usando los repositorios de paqueteria de algunas de nuestras distribuciones.
+Blastem, se puede descargar para los sistemas operativos más utilizados (Windows, MacOs, Linux...); tanto desde la siguiente dirección, como usando los repositorios de paquetería de algunas de nuestras distribuciones.
 
 [https://www.retrodev.com/blastem/](https://www.retrodev.com/blastem/)
 
@@ -200,7 +200,7 @@ La primera versión de este programa salió en el año 1995 en la universidad de
 
 [^38]: Proyecto GNU: [https://www.gnu.org/home.es.html](https://www.gnu.org/home.es.html)
 
-Permite modificar imagenes digitalizadas a través de sus muchas herramientas que trae integrado como pueden ser recortar, escalar, modificar las propiedades de la imagen (reordenar la paleta). GIMP, es compatible con muchos formatos de imagenes (BMP, PNG, JPG, TIFF, PSD); por lo que puede ser una buena herramienta para convertir en los formatos que necesitemos.
+Permite modificar imágenes digitalizadas a través de sus muchas herramientas que trae integrado como pueden ser recortar, escalar, modificar las propiedades de la imagen (reordenar la paleta). GIMP, es compatible con muchos formatos de imágenes (BMP, PNG, JPG, TIFF, PSD); por lo que puede ser una buena herramienta para convertir en los formatos que necesitemos.
 
 Además de las herramientas que trae integradas, se pueden añadir más herramientas gracias a la extensiones de este programa.
 
@@ -218,7 +218,7 @@ A la hora de crear nuestro gráficos, con programas como GIMP, no son muy usable
 
 Para ello, se utilizan programas como AserSprite el cual es un programa que nos va a permitir crear nuestros sprites y sus animaciones, de forma sencilla.
 
-Además, tambien nos va a permitir manejar la paleta de colores para nuestros gráficos. Por lo que podremos ver en todo momento los colores que estamos utilizando para crear nuestros gráficos.
+Además, también nos va a permitir manejar la paleta de colores para nuestros gráficos. Por lo que podremos ver en todo momento los colores que estamos utilizando para crear nuestros gráficos.
 
 Además, Asersrite permite exportar nuestras animaciones de forma sencilla en distintos formatos, o crear un patron que podamos utilizar posteriormente en nuestro juego.
 
@@ -228,7 +228,7 @@ AserSprite no es código abierto, y tiene un coste de 19.99$; el cual se puede a
 
 Entre sus muchas características, podemos ver:
 
-* Previsualizador de animaciones.
+* Pre-visualizador de animaciones.
 * Gestión de las paletas.
 * Creación de Patrones.
 * Crear Hojas de Sprites.
@@ -241,7 +241,7 @@ Entre sus muchas características, podemos ver:
 
 ### TILED
 
-Por último, a la hora de crear nuestros juegos, muchas veces necesitaremos herramientas para poder crear nuestros niveles a partir de bibliotecas de elementos gráficos (también llamados TileSets); por ello, podemos recomentar la utilización de la herramienta Tiled.
+Por último, a la hora de crear nuestros juegos, muchas veces necesitaremos herramientas para poder crear nuestros niveles a partir de bibliotecas de elementos gráficos (también llamados TileSets); por ello, podemos recomendar la utilización de la herramienta Tiled.
 
 Esta herramienta de código Abierto, nos va a permitir crear nuestros propios mapas, a partir de distintos elementos gráficos y posteriormente, podremos exportarlo a nuestros juegos.
 
@@ -249,7 +249,7 @@ TILED, tiene una licencia GPL, sin embargo, utiliza distintos componentes que ti
 
 [https://github.com/mapeditor/tiled/blob/master/COPYING](https://github.com/mapeditor/tiled/blob/master/COPYING)
 
-TILED, nos permite generar mapas multicapa, para poder dibujar nuestros niveles de forma independiente cada capa; de esta forma, podemos añadir muchos más elementos de una forma más comoda.
+TILED, nos permite generar mapas multicapa, para poder dibujar nuestros niveles de forma independiente cada capa; de esta forma, podemos añadir muchos más elementos de una forma más cómoda.
 
 Además. TILED permite añadir objetos para poder añadir información a cada nivel y poder gestionarlo dentro de nuestro código fuente.
 

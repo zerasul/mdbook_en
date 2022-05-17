@@ -2,7 +2,7 @@
 
 Hemos preparado ya nuestro entorno de desarrollo y visto las distintas herramientas que podemos utilizar a la hora de desarrollar nuestro juego "casero"; ahora ya podremos entrar en materia.
 
-En este tema, comenzaremos a hablar sobre como se puede crear un nuevo proyecto; haciendo incapié, en la estructura de este y de como utilizar el proyecto para crear nuestro juego.
+En este tema, comenzaremos a hablar sobre como se puede crear un nuevo proyecto; haciendo hincapié, en la estructura de este y de como utilizar el proyecto para crear nuestro juego.
 
 Tras comentar como crear un proyecto, nos pondremos con las manos en la masa; de tal forma que crearemos nuestro primer juego; mostrando por pantalla el famoso hola mundo. mostrando el código fuente y lo explicaremos.
 
@@ -18,7 +18,7 @@ Al seleccionar esta opción, se nos preguntará por donde se creará el proyecto
 
 * _.vscode_ (carpeta): Esta carpeta es especifica de Visual Studio code y contiene configuración para el proyecto. No se debería de modificar esta carpeta directamente.
 * _inc_ (carpeta): Esta carpeta contendrá los ficheros cabecera de C, es decir los ficheros .h.
-* _res_ (carpeta): Esta carpeta contendrá los recursos del juego; ya sean gráficos (imágenes), sonido (wav), musica (vgm) además, de los ficheros de recursos .res junto a los ficheros .h que son generados por la herramienta _rescomp_.
+* _res_ (carpeta): Esta carpeta contendrá los recursos del juego; ya sean gráficos (imágenes), sonido (wav), música (vgm) además, de los ficheros de recursos .res junto a los ficheros .h que son generados por la herramienta _rescomp_.
 * _src_ (carpeta): Esta carpeta contendrá los ficheros de código fuente .c. Aquí se almacenará todo el código fuente de nuestro juego.
 * _.gitignore_: Este fichero es usado por el repositorio Git que se genera al crear el proyecto. Contiene los ficheros que no serán manejados por el sistema de control de versiones.
 * _README.md_: Un pequeño fichero Markdown con un readme del proyecto.
@@ -58,13 +58,13 @@ En primer lugar, podemos ver el include de la cabecera _genesis.h_; este fichero
 
 [^39]: Puede ver la configuración de los ficheros include para C/C++, en la configuración de VsCode.
 
-Si nos centramos en la función ```main``` vemos que se realiza una llamada a la función ```VDP_drawText```; esta función, llama al chip gráfico VDP y nos va a permitir escribir un texto por pantalla, usando una fuente por defecto (o precargando una fuente personalizada). Vemos que tiene 3 parametros:
+Si nos centramos en la función ```main``` vemos que se realiza una llamada a la función ```VDP_drawText(const char * text,u16 x, u16 y)```; esta función, llama al chip gráfico VDP y nos va a permitir escribir un texto por pantalla, usando una fuente por defecto (o pre-cargando una fuente personalizada). Vemos que tiene 3 parámetros:
 
-* parametro 1: cadena de caracteres con la información a mostrar.
-* parametro 2: posición X donde se mostrará el texto. la coordenada X indica la columna donde se mostrará el texto. Esta expresado el Tiles.
-* parametro 3: posición Y donde se mostrará el texto. la coordenada Y indica la fila donde se mostrará el texto. Esta expresado el Tiles.
+* str: cadena de caracteres con la información a mostrar.
+* x: posición X donde se mostrará el texto. la coordenada X indica la columna donde se mostrará el texto. Esta expresado el Tiles.
+*y: posición Y donde se mostrará el texto. la coordenada Y indica la fila donde se mostrará el texto. Esta expresado el Tiles.
 
-Tanto la posición X e Y, estan expresados en Tiles. Un tile es un recuadro de 8x8 pixeles que se pinta por pantalla; el VDP trabaja en esta unidad y por lo tanto debemos de tener en cuenta esta dimensión. En el ejemplo vemos que pintaremos en la posición 10,13 es decir, (80px,104px).
+Tanto la posición X e Y, están expresados en Tiles. Un tile es un recuadro de 8x8 pixeles que se pinta por pantalla; el VDP trabaja en esta unidad y por lo tanto debemos de tener en cuenta esta dimensión. En el ejemplo vemos que pintaremos en la posición 10,13 es decir, (80px,104px).
 
 Una vez hemos visto como escribir texto por pantalla, podemos observar que aparece un bucle infinito; esto es importante a la hora de diseñar videojuegos; ya que si no estuviese dicho bucle, la ejecución terminaría, y no se podría interactuar con el juego.
 
@@ -104,7 +104,7 @@ make -f $GENDEV/sgdk/mkfiles/makefile.gen
 docker run --rm -v $PWD:/src sgdk
 ```
 
-Si todo ha ido correctamente, podemos ver como se generará la ROM en la carpeta _out_ con el nombre de _rom.bin_ y posteriormente, se abre nuestro emulador mostrandolo.
+Si todo ha ido correctamente, podemos ver como se generará la ROM en la carpeta _out_ con el nombre de _rom.bin_ y posteriormente, se abre nuestro emulador mostrándolo.
 
 **NOTA**: Para aquellos que usen Windows, puede darle un error si por defecto usan _PowerShell_; esto puede solucionarse estableciendo por defecto la terminal de vscode para que use _cmd_. Para ello usaremos la paleta de comandos y seleccionaremos la opción _View: Toggle Integrated Terminal_; seleccionando posteriormente, para que utilice cmd.
 
