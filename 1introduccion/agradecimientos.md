@@ -2,7 +2,7 @@
 
 ## Prólogo y agradecimientos
 
-Para muchos, ha sido un largo camino desde que encendimos la televisión (CRT), sintonizamos el canal 36 UHF, y encendimos una pantalla que nos decía "SEEGAAA". Todo cambió en ese momento; cuando empezamos a ver cierto puercoespín dar brincos y volteletas a toda velocidad.
+Para muchos, ha sido un largo camino desde que encendimos la televisión (CRT), sintonizamos el canal 36 UHF, y encendimos una pantalla que nos decía "SEEGAAA". Todo cambió en ese momento; cuando empezamos a ver cierto puercoespín dar brincos y volteretas a toda velocidad.
 
 Este libro, está dedicado a todos aquellos que crecimos con un controlador de 3 botones entre las manos y que hemos seguido soñando en ser nosotros quienes creamos nuestros propios juegos.
 

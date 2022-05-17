@@ -66,11 +66,11 @@ La memoria tiene una capacidad de 16 bits de palabra (2x8bits) de tipo PSRAM [^1
 
 La memoria ROM o propiamente dicho el "cartucho", es donde se almacenará la información del juego. Normalmente, es un chip de tipo EPROM o EEPROM (aunque los actuales cartuchos pueden ser Flash), donde se almacena el juego tanto el propio código, como todos los gráficos y recursos del juego.
 
-La lectura de este cartucho, se hace por el slot de la parte superior de la Mega Drive; solo hay que insertar los contactos por la ranura que podemos ver en la parte superior. Normalmente, un cartucho standar, tenía un ancho de banda de 10MB/s (aunque había algunos de 15,20-15,34 MB/s); además de tener en cuenta que el acceso del 68k a la rom normalmente tenía una velocidad de 5MB/s.
+La lectura de este cartucho, se hace por el slot de la parte superior de la Mega Drive; solo hay que insertar los contactos por la ranura que podemos ver en la parte superior. Normalmente, un cartucho standard, tenía un ancho de banda de 10MB/s (aunque había algunos de 15,20-15,34 MB/s); además de tener en cuenta que el acceso del 68k a la rom normalmente tenía una velocidad de 5MB/s.
 
 El cartucho básico que estamos acostumbrados a ver en Mega Drive, tiene una capacidad de 32Mb (4MB), y además puede tener una pequeña RAM (SRAM) a través de una pila de boton CR2302. Existen cartuchos con más funcionalidades, como el conocido _Sonic & Knuckles_ que tenía la ranura superior Lock On. Además de otros cartuchos con algunas funcionalidades extendidas como puede ser el _Virtua Racing [^17]_; que ampliaba la capacidad de la Mega Drive, gracias a un chip con un DSP [^18] personalizado.
 
-Como hemos dicho, por defecto un cartucho de Mega Drive tiene un tamaño máximo de 32Mb, sin embargo, esto era ampliable añadiendo funcionalidad extra al cartucho, como es el caso del _Street Fighter_ el cual ampliaba el cartucho añadiendo distintos chips y usando un mapper, podía cambiar de banco de memoria ROM. Este "Mapper" conocido como _Sega Standar Mapper_, ha sido reutilizado en algunos juegos homebrew actuales y permiten ampliar el tamaño disponible.
+Como hemos dicho, por defecto un cartucho de Mega Drive tiene un tamaño máximo de 32Mb, sin embargo, esto era ampliable añadiendo funcionalidad extra al cartucho, como es el caso del _Street Fighter_ el cual ampliaba el cartucho añadiendo distintos chips y usando un mapper, podía cambiar de banco de memoria ROM. Este "Mapper" conocido como _Sega Standard Mapper_, ha sido reutilizado en algunos juegos homebrew actuales y permiten ampliar el tamaño disponible.
 
 <div class="image">
 <img id="arq" src="3Arquitectura/img/cartuchopcb.png" alt="PCB ROM Mega Drive" title="PCB ROM Mega Drive"/> </div>
@@ -85,7 +85,7 @@ El VDP, es el chip gráfico que permite a la Mega Drive, poder mostrar todo su p
 
 El VDP de la mega drive, es una evolución de su predecesor de la Sega master System. Amplia funcionalidad y aumenta su potencia. El chip VDP tiene una frecuencia de reloj de 13,423294Mhz para NTSC y de 13,300856Mhz para Sistemas PAL [^19].
 
-Estaba conectado a través del un bus de 16 bit al Motorola 68K y permitia distintas resoluciones:
+Estaba conectado a través del un bus de 16 bit al Motorola 68K y permitía distintas resoluciones:
 
 * Modo Normal: 320x224,256x224 para NTSC y 320x224, 256x224, 320x240 y 256x240 para PAL.
 * Modo Entrelazado: 320x448,256x448,320x480 y 256x480 que era utilizado por distintos juegos como el modo 2 jugadores de sonic 2.
@@ -96,7 +96,7 @@ El VDP tenía capacidad de hasta 4 planos:
 * 1 Plano Ventana (Window).
 * 1 plano para Sprites.
 
-Los planos de Scroll (A y B) estaban basados en Tiles (imágenes de 8x8 píxeles) que permitían poder formar distintas imagenes a partir de estos pequeños trozos. Normalmente basados en un TileMap, con un tamaño de hasta 1024x256.
+Los planos de Scroll (A y B) estaban basados en Tiles (imágenes de 8x8 píxeles) que permitían poder formar distintas imágenes a partir de estos pequeños trozos. Normalmente basados en un TileMap, con un tamaño de hasta 1024x256.
 
 El VDP, también tenía soporte para Sprites, pudiendo almacenar hasta 80 sprites, teniendo 20 sprites por línea, con 16 colores por sprite, teniendo un tamaño máximo de 1280Tiles (combinando distintos Sprites), combinando Sprites de 16 tamaños distintos.
 
@@ -126,7 +126,7 @@ Es el procesador utilizado en muchos dispositivos; como:
 
 * ZX Spectrum de Sinclair [^21].
 * Neo Geo Pocket [^22] y Neo Geo Pocket Color.
-* Nintendo Game Boy [^23] usando una versión clonica (GB-Z80).
+* Nintendo Game Boy [^23] usando una versión clónica (GB-Z80).
 * Sega Master System y Sega SG-100(con un procesador compatible).
 
 El procesador de la Sega mega Drive, tiene una frecuencia de reloj de 3,579545Mhz(NTSC) y 3,546894Mhz (PAL); conectado a un bus de 8 bits.

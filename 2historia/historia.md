@@ -4,7 +4,7 @@ La Sega Mega Drive, fue la tercera consola de videojuegos publicada por la misma
 
 Sega Trató de superar con los modelos Mark 2 y Mark 3 de la Sega Master System con los 8 bits, pero no tuvo gran aceptación en Japón; no siendo el mismo caso en Europa.
 
-El 29 de Octubre de 1988, Sega Lanzo la Sega Mega Drive que es conocida durante su desarrollo como "Mark V" a través de la revista _beep!_. Sin embargo, no tuvo mucho éxito al principio y solo se vendiéron unas 400.000 unidades.
+El 29 de Octubre de 1988, Sega Lanzo la Sega Mega Drive que es conocida durante su desarrollo como "Mark V" a través de la revista _beep!_. Sin embargo, no tuvo mucho éxito al principio y solo se vendieron unas 400.000 unidades.
 
 Más adelante, Sega América trató de hablar con Atari para que distribuyera Mega Drive en América; sin embargo lo rechazaron (se centraron en lanzar Atari ST). Fue entonces, cuando Sega distribuyo bajo su propia subsidiaria Sega of America, la Sega Mega Drive con el nombre de Sega Genesis. La Sega Genesis, fue lanzada el 9 de enero de 1989.
 
@@ -21,7 +21,6 @@ En el año 1994, aparecieron varios sistemas (3DO, Jaguar,etc...) Sega Japón es
 [^5]: SNES (Super Nintendo Entertainment System): es una marca registrada de Nintendo Company Ltd.
 
 [^6]: Rocket Knigth Adventures es un videojuego para Sega Mega Drive Desarrollado por Konami. Todos los derechos reservados.
-
 
 ## Especificaciones de la Mega Drive
 
@@ -64,7 +63,7 @@ En este libro, abordaremos como usarlo en nuestros juegos, ya que SGDK, trae sop
 
 ### Mega CD
 
-Uno de los principales periféricos de la Mega Drive. Permitéa ampliar su capacidad a través del bus de expansión que tenía en la parte inferior.
+Uno de los principales periféricos de la Mega Drive. Permitía ampliar su capacidad a través del bus de expansión que tenía en la parte inferior.
 
 Añadía la capacidad de utilizar almacenamiento óptico (en CD-ROM). Además de ampliar la capacidad de la Mega Drive; pudiendo tener una gran calidad de Audio y de vídeo.
 
@@ -126,9 +125,9 @@ Sin embargo, la tecnología aún no estaba muy desarrollada y no funcionaba como
 
 Muchos habremos jugado con controles de movimiento como los famosos mandos de la Wii[^7] o los sistemas Kinect[^8] de Xbox.
 
-Mucho antes de estos controles de movimiento, Sega América sacó al mercado el Sega Activator. Se trataba de un octogono con 8 sensores infrarojos.
+Mucho antes de estos controles de movimiento, Sega América sacó al mercado el Sega Activator. Se trataba de un octógono con 8 sensores infrarrojos.
 
-El jugador se situaba en medio, y dependiendo de que lado de dicho octogono tocase, era un botón del mando. Se trató de vender con algunos juegos como "simulador de artes marciales"; pero no tuvo mucho éxito, ya que solo sacaron algunos pocos juegos para este dispositivo.
+El jugador se situaba en medio, y dependiendo de que lado de dicho octógono tocase, era un botón del mando. Se trató de vender con algunos juegos como "simulador de artes marciales"; pero no tuvo mucho éxito, ya que solo sacaron algunos pocos juegos para este dispositivo.
 
 El Sega activator se publicó el año 1993 en América, y posteriormente en Brasil y Rusia.
 
@@ -145,14 +144,14 @@ No podemos olvidar, a la mascota de Sega. Sonic el Erizo (_sonic the hedgehog_ [
 
 Sonic tuvo 6 juegos para Sega Mega Drive; y algunos son considerados de los mejores juegos del sistema. Como es el caso de _Sonic 2_.
 
-La principal característica de los juegos de Sonic, es la velocidad, y se trata de juegos con scroll normalmente horizontal (aunque tambien tenian vertical), con una velocidad muy alta. A veces llevando al limite la consola. Junto con un gran colorido de escenarios, hacia que Sonic fuese uno de los juegos favoritos de todos los que poseian una Mega Drive.
+La principal característica de los juegos de Sonic, es la velocidad, y se trata de juegos con scroll normalmente horizontal (aunque también tenia vertical), con una velocidad muy alta. A veces llevando al limite la consola. Junto con un gran colorido de escenarios, hacia que Sonic fuese uno de los juegos favoritos de todos los que poseían una Mega Drive.
 
-Además, gracias al juego _Sonic & Knuckles_, se incorporó el sistema Lock On. Que se trataba de una ranura para cartucho en la parte superior que añadiendo otros dos titulos, se podían conseguir dos juegos adicionales.
+Además, gracias al juego _Sonic & Knuckles_, se incorporó el sistema Lock On. Que se trataba de una ranura para cartucho en la parte superior que añadiendo otros dos títulos, se podían conseguir dos juegos adicionales.
 
-* Si se añadía Sonic 3, se permitia jugar al juego _Sonic 3 & Knuckles_; que permitia tanto jugar como Knuckles en Sonic 3, como disponer de características adicionales.
-* Si se añadia Sonic 2, se permitia jugar como Knuckles en Sonic 2.
+* Si se añadía Sonic 3, se permitía jugar al juego _Sonic 3 & Knuckles_; que añadía el poder jugar como Knuckles en Sonic 3, y además disponer de características adicionales.
+* Si se añadía Sonic 2, se permitía jugar como Knuckles en Sonic 2.
 
-Además de otros titulos, no solo orientado al 2D, sino al 3D como puede ser Sonic 3D, que fue el último título publicado de sonic para este sistema (aunque también tenia versión para Saturn).
+Además de otros títulos, no solo orientado al 2D, sino al 3D como puede ser Sonic 3D, que fue el último título publicado de sonic para este sistema (aunque también tenia versión para Saturn).
 
 <div class="image">
 <img src="2historia/img/SyK.png" title="Sonic & Knuckles con Lock On" alt="Sonic & Knuckles con Lock on"/>
@@ -164,15 +163,15 @@ Además de otros titulos, no solo orientado al 2D, sino al 3D como puede ser Son
 
 ### Streets Of Rage
 
-Las decadas de los 80 y 90, estaban caracterizados tambien por un genero de juego que hoy en día esta más en desuso pero no igualmente sea algo divertido.
+Las décadas de los 80 y 90, estaban caracterizados también por un genero de juego que hoy en día esta más en desuso pero no igualmente sea algo divertido.
 
-Estamos hablando de los _Beat'em up_; que se trataba de juegos normalmente con scroll horizontal, que permitian que los jugadores luchar contra hordas y hordas de enemigos.
+Estamos hablando de los _Beat'em up_; que se trataba de juegos normalmente con scroll horizontal, que permitían que los jugadores luchar contra hordas y hordas de enemigos.
 
-Uno de los juegos más característicos de este genero, es el _Streets of Rage_ un juego que relata las aventuras de 3 personajes ex-policias que tratan de librar las calles de la corrupción librando de cualquier enemigo que se ponga delante.
+Uno de los juegos más característicos de este genero, es el _Streets of Rage_ un juego que relata las aventuras de 3 personajes ex-policías que tratan de librar las calles de la corrupción librando de cualquier enemigo que se ponga delante.
 
 Con una banda sonora muy pegadiza creada por el compositor _Yuzo Koshiro_; considerado uno de los mejores compositores para la Sega Mega Drive.
 
-Esta saga, tuvo 3 entregas en la Sega Mega Drive, las cuales tenian una gran jugabilidad y una gran variedad de escenarios, enemigos, armas,etc...
+Esta saga, tuvo 3 entregas en la Sega Mega Drive, las cuales teñían una gran jugabilidad y una gran variedad de escenarios, enemigos, armas,etc...
 
 La cuarta entrega, salió en el año 2020; pero ya para sistemas modernos (PC,PlayStation[^10], Xbox, Switch[^11]).
 
