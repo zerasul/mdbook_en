@@ -79,6 +79,12 @@ El ratón de 2 botones, permitía usar los botones A y B; sin embargo, para usar
 
 ## Programación de los controles
 
+Tras ver en detalle algunos de los dispositivos de entrada con los que podemos trabajar, vamos a mostrar como programar nuestro juego para poder utilizarlos. SGDK, provee de distintos métodos para poder interactuar con los controles; ya sea mando o incluso el ratón. Por ello, vamos a mostrar tres ejemplos de distintos métodos con los que se pueden encontrar para desarrollar nuestro juego.
+
+Vamos a mostrar 2 formas de poder leer la entrada de nuestros controladores, el primero de forma sincrona, y el segundo de forma asíncrona; el primero lee en todo momento si se ha pulsado un botón y pregunta cuales de ellos han sido. El segundo método, utiliza las interrupciones del procesador, para poder definir una rutina de interrupción para cada pulsación.
+
+Por último, mostraremos un ejemplo de como utilizar el ratón para Sega Mega Drive (puede usarse un emulador para utilizar el ratón de nuestro ordenador).
+
 ### Síncronos
 
 ### asíncronos
