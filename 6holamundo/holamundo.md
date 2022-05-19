@@ -201,6 +201,7 @@ Es importante definirlo para tener una mayor compatibilidad con todo el hardware
 | C     | CD-ROM (Sega CD)          |
 | F     | Floppy drive              |
 | D     | Download?                 |
+_Tabla 1: Valores para dispositivos compatibles._
 
 Se pueden usar distintas opciones a la vez; es decir si definimos el valor ```J6M``` quiere decir que la ROM es compatible con mando de 3 y 6 botones y además el ratón.
 
@@ -225,6 +226,7 @@ Indica las regiones en la que es compatible la ROM (Japón, Europa o America); c
 | "J"   | Japan         |
 | "U"   | Americas      |
 | "E"   | Europe        |
+_Tabla 2: Valores de las regiones de la ROM_
 
 Puede ser compatible en varias regiones; por lo que puede tener el valor ```JUE``` indicando que es compatible con Japón, Europa y America.
 
