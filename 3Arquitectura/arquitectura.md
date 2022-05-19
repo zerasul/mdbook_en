@@ -4,7 +4,7 @@ Para poder Desarrollar para Mega Drive, necesitamos conocer su arquitectura para
 
 A la hora de trabajar con estos sistemas con pocos recursos, cuanto más conozcamos la arquitectura, mejor podremos optimizar nuestro código y nuestro juego será más ligero. No solo necesitaremos conocer la arquitectura del propio procesador; sino que también es bueno conocer los distintos elementos que podemos encontrar en una Mega Drive.
 
-En este capítulo, vamos a estudiar cada uno de los elementos que componen la Mega Drive y la arquitectura de como se conectan cada uno de ellos, además de sus funciones y características de cada uno de ellos.
+En este capítulo, vamos a estudiar cada uno de los elementos que componen la Mega Drive y la arquitectura de como se conectan cada uno de ellos, además de sus funciones y características.
 
 Además de cada componente se comentarán sus capacidades y funciones tanto en Modo Mega Drive, como en retrocompatibilidad a la hora de ejecutar juegos de Sega Master System.
 
