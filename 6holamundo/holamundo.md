@@ -114,9 +114,130 @@ Si todo ha ido correctamente, podemos ver como se generará la ROM en la carpeta
 
 [^40]: ROM (Read Only Memory): se trata de una memoria de solo lectura que normalmente se encuentra dentro del cartucho en una EPROM (o Flash en las versiones más modernas).
 
+## Cabecera de una ROM
+
+A la hora de crear la ROM de nuestro juego, se deben de añadir una serie de datos que forman parte del juego. Algunos se generan automáticamente y otros se pueden personalizar. SGDK, genera esta cabecera pero podemos añadir datos sobre el juego; como por ejemplo el título del juego, versión o incluso con qué dispositivos es compatible.
+
+Vemos que es interesante hablar sobre este apartado y ver las distintas opciones que podemos encontrar a la hora de generar la cabecera de la ROM ya que es necesario sobre todo para poder probarlo correctamente en un hardware real, una vez queramos tener nuestra ROM finalizada.
+
+Como hemos comentado, SGDK, genera el contenido mínimo para la cabecera de la ROM. Este contenido puede encontrarse dentro de la carpeta _src/boot_ de nuestro proyecto. En esta carpeta, podemos encontrar un fichero llamado "rom_head.c" , con la definición de un struct de C y posteriormente la inicialización de este.
+
+Vamos a mostrar la definición de este struct:
+
+```C
+const struct
+{
+    char console[16];             
+    char copyright[16];             
+    char title_local[48];           
+    char title_int[48];             
+    char serial[14];                
+    u16 checksum;                   
+    char IOSupport[16];             
+    u32 rom_start;                  
+    u32 rom_end;                    
+    u32 ram_start;                  
+    u32 ram_end;                    
+    char sram_sig[2];               
+    u16 sram_type;                  
+    u32 sram_start;                 
+    u32 sram_end;                   
+    char modem_support[12];         
+    char notes[40];                 
+    char region[16];                
+}
+```
+
+Vemos que hay distintos apartados para distintos usos; vamos a mostrar algunos de ellos:
+
+**console**
+
+Una cadena de caracteres de 16 bytes; donde se indica el tipo de Sistema de la ROM; para Mega Drive puede tener el valor ```SEGA MEGA DRIVE``` o ```SEGA GENESIS```.
+
+**copyright**
+
+Indica el Copyright indicando quien publica la ROM y en que año. Por ejemplo ```(C)SGDK 2019```.
+
+**title_local**
+
+Indica el título del juego.
+
+**title_int**
+
+Indica el título del juego internacionalmente. Puede repetir el anterior.
+
+**serial**
+
+Indica el nº de serie del juego; puede ser interesante para identificar la tirada de la ROM o la compilación de la misma.
+
+Suele tener el formato ```XX YYYYYYYY-ZZ``` donde ```XX``` define el tipo de ROM (GM para juego), ```YYYYYYYY``` para indicar el nº de serie y ```ZZ``` para indicar la revisión.
+
+**checksum**
+
+El _checksum_ es una suma de 16 bits con el contenido de la ROM; esta suma puede indicar si la ROM ha sido modificada o no; de tal forma que algunos juegos la comprueban como forma de averiguar que es una ROM original; algunos emuladores también la comprueban.
+
+**IOSupport**
+
+Este es uno de los aspectos más importantes; en este apartado, se define con qué dispositivos de entrada o salida es compatible; ya sea mando de 3 o 6 botones, ratón, CD-ROM, Activator,etc...
+
+Es importante definirlo para tener una mayor compatibilidad con todo el hardware disponible. Veamos una tabla con las opciones disponibles:
+
+| Clave | Descripción               |
+|-------|---------------------------|
+| J     | Mando de 3 Botones        |
+| 6     | Mando de 6 Botones        |
+| 0     | Mando Master System       |
+| A     | Joystick Analógico        |
+| 4     | Multitap                  |
+| G     | Pistola de Luz (Lightgun) |
+| L     | Activator                 |
+| M     | Mouse                     |
+| B     | Trackball                 |
+| T     | Tablet                    |
+| V     | Paddle                    |
+| K     | Teclado                   |
+| R     | RS-232                    |
+| P     | Impresora                 |
+| C     | CD-ROM (Sega CD)          |
+| F     | Floppy drive              |
+| D     | Download?                 |
+
+Se pueden usar distintas opciones a la vez; es decir si definimos el valor ```J6M``` quiere decir que la ROM es compatible con mando de 3 y 6 botones y además el ratón.
+
+**rom_start y rom_end**
+
+Indica donde comienza y donde termina la ROM; estos valores son calculados por SGDK cuando se genera la ROM.
+
+**sram_start y sram_end**
+
+Si nuestra ROM utiliza SRAM para almacenar datos, se deben definir las direcciones de inicio y de fin. también se debe definir ```sram_type```para indicar el tipo de SRAM a utilizar.
+
+**modem_support**
+
+Indica si esta ROM tiene soporte para Modem y que servicios dispone.
+
+**region**
+
+Indica las regiones en la que es compatible la ROM (Japón, Europa o America); con los siguientes valores [^41] :
+
+| Clave | Descripción   |
+|-------|---------------|
+| "J"   | Japan         |
+| "U"   | Americas      |
+| "E"   | Europe        |
+
+Puede ser compatible en varias regiones; por lo que puede tener el valor ```JUE``` indicando que es compatible con Japón, Europa y America.
+
+[^41]: Estos valores corresponden a la forma tradicional; existe una forma posterior que fue adoptada por SEGA; para más información, comprueba las referencias de este capítulo.
+
+**NOTA**: Tener siempre en cuenta que aunque la ROM sea compatible con otras regiones, se debe también definir el Sistema de color PAL o NTSC.
+
+En las referencias, dejamos más información acerca de la cabecera de la ROM.
+
 ## Referencias
 
 * [https://www.ohsat.com/](https://www.ohsat.com/)
 * [https://github.com/Stephane-D/SGDK](https://github.com/Stephane-D/SGDK)
 * [https://docs.docker.com/engine/reference/run/](https://docs.docker.com/engine/reference/run/)
 * [https://danibus.wordpress.com/](https://danibus.wordpress.com/)
+* [https://plutiedev.com/rom-header#devices](https://plutiedev.com/rom-header#devices)

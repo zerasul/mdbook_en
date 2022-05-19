@@ -12,7 +12,7 @@ En este capítulo, vamos a mostrar como utilizar estos controles; a través de d
 
 Para Sega Mega Drive, se crearon numerosos dispositivos de entrada; desde controladores  de 3 o 6 botones, el famoso _Sega Mouse_, pistolas de luz como la famosa _The Justifier_ que permitía jugar a juegos de puntería con una pistola y sin olvidar, el Sega Activator se define como un control de movimiento para Sega Mega Drive.
 
-Obviamente es importante recordar que la Sega Mega Drive, tenía 2 puertos de entrada tipo Atari o DE-9. En el cual se conectaban los dispositivos. Aunque era ampliable gracias a otros dispositivos como el _Super Multi Play_; que permitía conectar hasta 4 controladores por puerto; o algunos juegos como el _Micro Machines 2_ [^41] que incluía 2 puertos adicionales en el propio cartucho.
+Obviamente es importante recordar que la Sega Mega Drive, tenía 2 puertos de entrada tipo Atari o DE-9. En el cual se conectaban los dispositivos. Aunque era ampliable gracias a otros dispositivos como el _Super Multi Play_; que permitía conectar hasta 4 controladores por puerto; o algunos juegos como el _Micro Machines 2_ [^42] que incluía 2 puertos adicionales en el propio cartucho.
 
 Para comprender mejor el conector DE-9 y como se compone para un controlador de 3 botones:
 
@@ -32,7 +32,7 @@ Donde:
 8. Select (dependiendo de si esta a 1 o 0 se realizará una función u otra en los pines 6 o 9).
 9. A/B
 
-[^41]: Micro Machines 2: Turbo Tournament fue un juego publicado por codemasters y que permitía jugar hasta 4 jugadores simultáneos.
+[^42]: Micro Machines 2: Turbo Tournament fue un juego publicado por codemasters y que permitía jugar hasta 4 jugadores simultáneos.
 
 Si necesita conocer más sobre los distintos controladores y como se componen, hemos dejado información adicional en las referencias de este capítulo.
 
@@ -52,21 +52,21 @@ Existieron distintos diseños dependiendo de la versión de Mega Drive (Japón/E
 
 ### Controlador de 6 botones
 
-Otra versión del controlador para Sega Mega Drive, es el controlador de 6 botones; que añadía tres botones adicionales (X,Y y Z). Esta versión era utilizada por algunos juegos como _Comix Zone_ [^42] o incluso _Streets of Rage 3_ [^43].
+Otra versión del controlador para Sega Mega Drive, es el controlador de 6 botones; que añadía tres botones adicionales (X,Y y Z). Esta versión era utilizada por algunos juegos como _Comix Zone_ [^43] o incluso _Streets of Rage 3_ [^44].
 
-Además, como había algunos juegos que no eran compatibles con el modo 6 botones, se añadió un botón adicional, que permitía usar el mando en modo "3 botones". Este botón llamado _MODE_, si se pulsaba al iniciar el juego, se cambiaba el modo del mismo [^44].
+Además, como había algunos juegos que no eran compatibles con el modo 6 botones, se añadió un botón adicional, que permitía usar el mando en modo "3 botones". Este botón llamado _MODE_, si se pulsaba al iniciar el juego, se cambiaba el modo del mismo [^45].
 
 <div class="image">
 <img id="arq" src="7controles/img/md6buttons.jpg" alt="Controlador 6 botones" title="Controlador 6 botones"/> </div>
 <p>Controlador 6 botones de la marca retro-bit.</p>
 
-[^42]: Comix Zone es un videojuego desarrollado por Sega y publicado en el año 1995.
-[^43]: Streets of Rage 3, es la tercera entrega de la saga de Streets of rage, publicado en el año 1994.
-[^44]: El mando de la imagen no es oficial, pero si tiene licencia para Sega Mega Drive. En las referencias puede encontrar un enlace de compra.
+[^43]: Comix Zone es un videojuego desarrollado por Sega y publicado en el año 1995.
+[^44]: Streets of Rage 3, es la tercera entrega de la saga de Streets of rage, publicado en el año 1994.
+[^45]: El mando de la imagen no es oficial, pero si tiene licencia para Sega Mega Drive. En las referencias puede encontrar un enlace de compra.
 
 ### Sega Mouse
 
-Otro de los periféricos que podemos encontrar para Sega Mega Drive, es el famoso _Sega Mouse_; se trataba de un ratón con 2 botones con distintas versiones. Permitía jugar a algunos juegos que eran compatibles. Como el famoso _lemmings 2_ [^45], o el famoso _Cannon Fodder_ [^46].
+Otro de los periféricos que podemos encontrar para Sega Mega Drive, es el famoso _Sega Mouse_; se trataba de un ratón con 2 botones con distintas versiones. Permitía jugar a algunos juegos que eran compatibles. Como el famoso _lemmings 2_ [^46], o el famoso _Cannon Fodder_ [^47].
 
 El ratón de 2 botones, permitía usar los botones A y B; sin embargo, para usar el botón C, la propia Bola del ratón era clickable; lo cual permitía mayor compatibilidad. Sin embargo, el Sega Mouse, no llegó a Sega America por lo que solo se pudo ver en Japón y Europa. Pero si tuvo su propia versión llamada _Mega Mouse_ que tenía 3 botones y un botón start; eliminando la posibilidad de hacer click con la propia Bola del ratón.
 
@@ -74,8 +74,8 @@ El ratón de 2 botones, permitía usar los botones A y B; sin embargo, para usar
 <img id="arq" src="7controles/img/SegaMouse_MD_EU.jpg" alt="Sega Mouse" title="Sega Mouse"/> </div>
 <p>Sega Mouse (Sega Retro.org)</p>
 
-[^45]: Lemmings; era un juego de estrategia, donde se controlaban unos simpáticos personajes llamados lemmings, que cada uno tenia una función y se tenía que resolver un puzzle. La versión de Mega Drive fue publicada por Sega y lanzada en el año 1992.
-[^46]: Cannon Fodder es un juego de estrategia que fue publicado para Sega Mega Drive en el año 1992.
+[^46]: Lemmings; era un juego de estrategia, donde se controlaban unos simpáticos personajes llamados lemmings, que cada uno tenia una función y se tenía que resolver un puzzle. La versión de Mega Drive fue publicada por Sega y lanzada en el año 1992.
+[^47]: Cannon Fodder es un juego de estrategia que fue publicado para Sega Mega Drive en el año 1992.
 
 ## Programación de los controles
 
@@ -92,7 +92,7 @@ El ratón de 2 botones, permitía usar los botones A y B; sin embargo, para usar
 * [https://segaretro.org/Super_Multi-play](https://segaretro.org/Super_Multi-play)
 * [https://segaretro.org/The_Justifier](https://segaretro.org/The_Justifier)
 * [https://amzn.to/3lBRnfv](https://amzn.to/3lBRnfv)
-* [https://segaretro.org/Micro_Machines_2:_Turbo_Tournament](https://segaretro.org/Micro_Machines_2:_Turbo_Tournament).
+* [https://segaretro.org/Micro_Machines_2:_Turbo_Tournament](https://segaretro.org/Micro_Machines_2:_Turbo_Tournament)
 * [https://segaretro.org/Sega_Mouse](https://segaretro.org/Sega_Mouse)
 * [https://segaretro.org/Lemmings](https://segaretro.org/Lemmings)
 * [https://segaretro.org/Cannon_Fodder](https://segaretro.org/Cannon_Fodder)
