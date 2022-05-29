@@ -81,13 +81,120 @@ El ratón de 2 botones, permitía usar los botones A y B; sin embargo, para usar
 
 Tras ver en detalle algunos de los dispositivos de entrada con los que podemos trabajar, vamos a mostrar como programar nuestro juego para poder utilizarlos. SGDK, provee de distintos métodos para poder interactuar con los controles; ya sea mando o incluso el ratón. Por ello, vamos a mostrar tres ejemplos de distintos métodos con los que se pueden encontrar para desarrollar nuestro juego.
 
-Vamos a mostrar 2 formas de poder leer la entrada de nuestros controladores, el primero de forma sincrona, y el segundo de forma asíncrona; el primero lee en todo momento si se ha pulsado un botón y pregunta cuales de ellos han sido. El segundo método, utiliza las interrupciones del procesador, para poder definir una rutina de interrupción para cada pulsación.
+En primer lugar, veremos como saber de que tipo de controlador se esta utilizando (3 o 6 botones o mouse). Además, Vamos a mostrar 2 formas de poder leer la entrada de nuestros controladores, el primero de forma síncrona, y el segundo de forma asíncrona; el primero lee en todo momento si se ha pulsado un botón y pregunta cuales de ellos han sido. El segundo método, utiliza las interrupciones del procesador, para poder definir una rutina de interrupción para cada pulsación.
 
 Por último, mostraremos un ejemplo de como utilizar el ratón para Sega Mega Drive (puede usarse un emulador para utilizar el ratón de nuestro ordenador).
 
+### Tipo de Controlador
+
+Si nuestro juego es compatible con distintos dispositivos; como puede ser un controlador de 3 o de 6 botones, ratón o incluso pistola, podemos usar la función ```JOY_getPortType```, para poder saber que tipo de dispositivo de entrada esta conectado a un puerto.
+
+La función ```JOY_getPortType```, tiene los siguientes parámetros:
+
+* ```u16 port``` Indica el puerto por el cual esta conectado; puede tener los siguientes valores:
+    * ```PORT_1```: indica el primer puerto de la consola.
+    * ```PORT_2```: indica el segundo puerto de la consola.
+
+Esta función devuelve un valor entero ```u8``` la cual nos puede indicar el tipo de dispositivo, usando el operador &. Por ejemplo:
+
+```c
+u8 value = JOY_getPortType(PORT_1);
+
+if(value & PORT_TYPE_PAD) // comprueba que es un controlador.
+```
+
+Los valores que podemos encontrar son:
+
+* ```PORT_TYPE_MENACER```: Sega Menacer (Pistola de Luz).
+* ```PORT_TYPE_JUSTIFIER```: Konami Justifier (Pistola de Luz).
+* ```PORT_TYPE_MOUSE```: Sega MegaMouse.
+* ```PORT_TYPE_TEAMPLAYER```: Sega TeamPlayer.
+* ```PORT_TYPE_PAD```: Sega joypad.
+* ```PORT_TYPE_UNKNOWN```: unidentified or no peripheral.
+* ```PORT_TYPE_EA4WAYPLAY```: EA 4-Way Play.
+
+Además, se puede detectar el tipo de controlador para cada mando detectado; si se utiliza un multitap, (como Sega Player o EA4WayPlay), se necesita saber que tipo de dispositivo hay conectado; por ello se utiliza la función ```JOY_getJoypadType```; que recibe por parámetro:
+
+* ```u16 joy```: indicando el número de controlador a revisar; puede tener los siguientes valores:
+    * ```JOY_1```: Para indicar el primer controlador.
+    * ```JOY_2```: Para indicar el segundo controlador.
+    * ...
+    * ```JOY_8```: Para indicar el controlador número 8.
+
+Esta función devuelve un valor entero que nos va a permitir comparar con distintos valores para saber de que tipo de controlador se trata; puede tener los siguientes valores:
+
+* ```JOY_TYPE_PAD3```: 3 buttons joypad.
+* ```JOY_TYPE_PAD6```: 6 buttons joypad.
+* ```JOY_TYPE_MOUSE```: Sega Mouse.
+* ```JOY_TYPE_TRACKBALL```: Sega trackball.
+* ```JOY_TYPE_MENACER```: Sega Menacer gun.
+* ```JOY_TYPE_JUSTIFIER```: Sega Justifier gun.
+* ```JOY_TYPE_UNKNOWN```: Desconocido o no conectado.
+
+**NOTA**: Las funciones anteriormente mencionadas, solo actualizarán la información, si se llama a la función ```JOY_Init()``` o ```JOPY_Reset()``` para inicializar el sistema de controles de SGDK; no es necesario llamarlas manualmente ya que estas funciones se llaman automáticamente al cargar el SGDK.
+
 ### Síncronos
 
-### asíncronos
+La primera manera de poder usar los controles, es de forma síncrona; esto quiere decir, que en cada frame de nuestro juego, se va a leer el estado de los botones pulsados para cada uno de los controladores que tengamos conectados.
+
+Para comprender mejor como leer el estado de los controles de esta manera, puede ver el ejemplo llamado _ej2.controls1_ que encontrará en el repositorio de ejemplos que acompañan a este libro. Este ejemplo, nos mostrará por pantalla los botones que tengamos pulsados; en este caso se basa en un controlador de 3 botones por que solo se podrán visualizar las direcciones, y los botones A,B,C y Start.
+
+En este ejemplo, podrá ver que se ha creado un fichero llamado ```constants.h``` y que incluye una serie de constantes como las posiciones X e Y de los distintos mensajes a mostrar, en tiles. Este fichero se encuentra en el directorio _inc_; del proyecto.
+
+Si observamos el código, podemos ver que se utilizan la función ```JOY_readJoypad```, la cual permite leer el estado actual de un controlador; esta función recibe los siguientes parámetros:
+
+* ```u16 joy```: Indica el número de controlador; puede tener los siguientes valores:
+    * ```JOY_1```: Para indicar el primer controlador.
+    * ```JOY_2```: Para indicar el segundo controlador.
+    * ...
+    * ```JOY_8```: Para indicar el controlador número 8.
+
+Esta función, devuelve un número entero ```u16```; el cual contiene el estado actual del controlador; puede usarse el operador & para saber que botones se están utilizando; como podemos ver en el ejemplo:
+
+```c
+  if (value & BUTTON_UP)
+```
+
+El anterior fragmento, comprueba que se esta pulsando la dirección hacia arriba; podemos comprobar los siguientes botones:
+
+* ```BUTTON_UP```: Dirección Arriba.
+* ```BUTTON_DOWN```: Dirección Abajo.
+* ```BUTTON_LEFT```: Dirección Izquierda.
+* ```BUTTON_RIGHT```: Dirección Derecha.
+* ```BUTTON_A```: Botón A.
+* ```BUTTON_B```: Botón B.
+* ```BUTTON_C```: Botón C.
+* ```BUTTON_START```: Botón Start.
+* ```BUTTON_X```: Botón X (6 botones).
+* ```BUTTON_y```: Botón Y (6 botones).
+* ```BUTTON_Z```: Botón Z (6 botones).
+* ```BUTTON_MODE```: Botón MODE (6 botones).
+
+Además, existen unos alias si se usa un ratón:
+
+* ```BUTTON_LMB``` = Alias para el botón A para Ratón.
+* ```BUTTON_MMB``` = Alias para el botón B para Ratón.
+* ```BUTTON_RMC``` = Alias para el botón C para Ratón.
+
+En el ejemplo, se puede ver como se dibujará un texto o se borrará, en función de los botones pulsados; aquí puede verse un fragmento del ejemplo:
+
+```c
+  int value = JOY_readJoypad(JOY_1);
+
+    
+    if (value & BUTTON_UP)
+        printChar(UP_TEXT, POSX_UP, POSY_UP);
+    else
+        printChar(EMPTY_TEXT, POSX_UP, POSY_UP);
+```
+
+Donde vemos que si se pulsa el botón Arriba, se mostrará un texto o sino, se mostrará un texto vacío.
+
+<div class="image">
+<img id="arq" src="7controles/img/ej2.png" alt="Ejemplo 2: Controles Síncronos" title="Ejemplo 2: Controles Síncronos"/> </div>
+<p>Ejemplo 2: Controles Síncronos</p>
+
+### Asíncronos
 
 ### Programación con Sega Mouse
 

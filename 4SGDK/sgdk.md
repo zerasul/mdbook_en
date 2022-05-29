@@ -70,7 +70,8 @@ Los Componentes son:
 
 * Un compilador GCC que nos va a permitir compilar nuestro código a instrucciones para el procesador 68K. La versión actual del GCC que incluye SGDK es 6.30 (Se puede configurar, para usar un compilador más reciente). Además, incluye un depurador _GDB_ que nos va a permitir depurar nuestros juegos (lo veremos más adelante en el capítulo de depuración) Recordamos que tiene una licencia GPL3.
 * Una librería _libmd_ con todas las funciones y herramientas que nos permite desarrollar con el lenguaje C para Sega Mega Drive.
-* Un gestor de recursos _rescomp_; que nos va a permitir importar los recursos de nuestro juego (gráficos, sonidos, sprite, etc.)
+* Documentación de la librería: Puede encontrar en la carpeta _doc_, toda la información de las funciones de la librería.
+* Un gestor de recursos _rescomp_; que nos va a permitir importar los recursos de nuestro juego (gráficos, sonidos, sprite, etc.).
 
 Veamos cada uno de estos componentes:
 
@@ -86,7 +87,7 @@ GCC se incluye con la versión 6.3.0 dentro de SGDK, y usando herramientas como 
 
 LibMd, es una librería que incorpora SGDK, con una serie de funciones y datos que nos van a permitir crear videojuegos para Sega Mega Drive; incorpora todo lo necesario para manejar el hardware ya sea tanto a manejar los controles, vídeo, sonido, etc.
 
-Está escrita en C y puedes consultar la documentación dentro del propio SGDK.
+Está escrita en C y puedes consultar la documentación dentro del propio SGDK, en la carpeta _doc_.
 
 ### Rescomp
 
