@@ -196,7 +196,118 @@ Donde vemos que si se pulsa el botón Arriba, se mostrará un texto o sino, se m
 
 ### Asíncronos
 
+Hasta ahora hemos podido ver como poder leer los distintos controles usando la forma síncrona; es decir, que en cada frame se lee las teclas pulsadas en los distintos controles y se comprueban todos los controles se estén pulsando o no.
+
+Esto puede hacer a la larga que sea más engorroso y que puede hacer que se ralentice nuestro juego; por ello, gracias a que el procesador Motorola 68000 tiene interrupciones, podemos usar una función que maneje los eventos cuando pulsemos una tecla.
+
+Una interrupción, es una señal recibida por el procesador, el cual para la tarea actual, y ejecuta una función llamada subrutina de interrupción; la cual realiza una serie de acciones y una vez terminada, el procesador continua con la tarea anterior. Con una interrupción, se pueden manejar de forma óptima los eventos recibidos desde el hardware.
+
+SGDK, nos permite crear una función para manejar los eventos de los controles de forma asíncrona; de tal forma que solo actuará si se ha pulsado una tecla:
+
+```JOY_setEventHandler```; esta función permite definir una función que se ejecutará cuando se pulse una tecla.
+
+Recibe los siguientes parámetros:
+
+* ```function*(u16 joy, u16 changed, u16 state)```: puntero a función que debe de recibir los siguientes 3 parámetros:
+    * ```u16 joy```: Controlador pulsado puede tener el valor:
+        * ```JOY_1```: Controlador 1.
+        * ```JOY_2```: Controlador 2.
+        * ...
+        * ```JOY_8```: Controlador 8.
+    * ```u16 changed```: Indica el botón pulsado. Por ejemplo: ```BUTTON_START```.
+    * ```u16 state```: Indica el estado; es decir si ha sido pulsado o soltado. ```state=0``` indica que ha sido soltado.
+
+Una vez hemos visto como se utiliza la función para manejar los eventos de los controladores, podemos ver en el repositorio de ejemplos el ejemplo _ej3.controls2_; el cual tiene el comportamiento parecido al anterior ejemplo; sin embargo, podemos ver que se ha definido la función para manejar los distintos eventos.
+
+```c
+    JOY_init();
+
+    JOY_setEventHandler(inputHandler);
+```
+
+Podemos ver en el fragmento anterior, que se llama a la función ```JOY_Init``` que inicializa todo el motor asociado con los controladores (esta función se ejecuta al iniciar todo el sistema de SGDK automáticamente). Vemos que se ha establecido la función ```inputHandler```; la cual gestionará que ocurre cuando se pulsa un botón de uno de los controladores.
+
+Si echamos un vistazo a la función, podemos ver lo siguiente:
+
+```c
+    void inputHandler(u16 joy,u16 changed,u16 state){
+
+
+        if (changed & state & BUTTON_START)
+		{
+			printChar(START_TEXT, POSX_START, POSY_RIGHT);
+		}
+    ...
+```
+Vemos que la función ```inputHandler```, recibe los tres parámetros comentados:
+
+* joy: controlador pulsado.
+* changed: botón pulsado.
+* state: estado del botón (pulsado o soltado).
+
+Observamos como se compara la variable changed, con state y un botón; de esta forma se comprueba que sólo se realizará la acción, cuando se pulse el botón correspondiente y no cuando se suelta.
+
+<div class="image">
+<img id="arq" src="7controles/img/ej3.png" alt="Ejemplo 2: Controles Síncronos" title="Ejemplo 3: Controles Asíncronos"/> </div>
+<p>Ejemplo 3: Controles Asíncronos</p>
+
 ### Programación con Sega Mouse
+
+Hasta ahora, hemos estado trabajando con los controladores; ya sean de 3 o de 6 botones; sin embargo, puede ser interesante, ofrecer soporte para usar ratón en nuestros juegos. En esta sección, vamos a ver cómo poder leer el ratón _Sega Mouse_, usando SGDK.
+
+En primer lugar, no todos tenemos acceso a un Sega Mouse; por lo que es necesario utilizar un emulador, que permita usar el ratón de nuestro ordenador dentro del propio emulador. En este caso recomendamos el emulador _Kega Fusion_ o fusion. Este emulador, permite usando la tecla <kbd>F12</kbd>, capturar el ratón de nuestro ordenador.
+
+Hemos creado un nuevo ejemplo; en el repositorio de ejemplos para este libro; recuerda que puedes encontrarlo en:
+
+[https://github.com/zerasul/mdbook-examples](https://github.com/zerasul/mdbook-examples)
+
+El ejemplo que vamos a tratar aquí, es _ej4.mouse_ El cual nos va a mostrar por pantalla las coordenadas X e Y del ratón. No se mostrará por pantalla el cursor; esto lo veremos más adelante cuando usemos Sprites.
+
+En primer lugar, se va a habilitar el soporte para usar el ratón; usando la función ```JOY_setSupport``` la cual nos va a permitir habilitar el soporte para distintos dispositivos; veamos como funciona esta función:
+
+```JOY_setSupport```: habilita soporte para un dispositivo; recibe los siguientes parámetros:
+* ```port```: Puerto donde estará conectado; tiene los siguientes valores:
+    * ```PORT_1```: Puerto 1 de la consola.
+    * ```PORT_2```: Puerto 2 de la consola.
+* ```support```: Dispositivo para dar soporte; tiene los siguientes valores:
+    * ```JOY_SUPPORT_OFF```: Deshabilitado.
+    * ```JOY_SUPPORT_3BTN```: Controlador de 3 botones.
+    * ```JOY_SUPPORT_6BTN```: Controlador de 6 botones.
+    * ```JOY_SUPPORT_TRACKBALL```: Sega Sports Pad (SMS trackball).
+    * ```JOY_SUPPORT_MOUSE```: Sega Mouse.
+    * ```JOY_SUPPORT_TEAMPLAYER```: Sega TeamPlayer.
+    * ```JOY_SUPPORT_EA4WAYPLAY```: EA 4-Way Play.
+    * ```JOY_SUPPORT_MENACER```: Sega Menacer.
+    * ```JOY_SUPPORT_JUSTIFIER_BLUE```: Konami Justifier (Sólo pistola Azul).
+    * ```JOY_SUPPORT_JUSTIFIER_BOTH```: Konami Justifier (Todas las pistolas).
+    * ```JOY_SUPPORT_ANALOGJOY```: Sega analog joypad (Todavía no soportado).
+    * ```JOY_SUPPORT_KEYBOARD```: Sega keyboard (Todavía no soportado).
+
+También podemos ver la función ```sprintf``` la cual nos va a permitir mostrar por pantalla los valores de las distintas variables. Esta función funciona exactamente igual que su homónima de la librería standard de C.
+
+Podemos observar que hay una función llamada ```read_mouse``` la cual será la encargada de leer las coordenadas del ratón.
+
+veamos esta función:
+
+```c
+void read_mouse(){
+    u16 readX;
+    u16 readY;
+
+    if(status.portType == PORT_TYPE_MOUSE ){
+        readX=JOY_readJoypadX(JOY_1);
+        readY=JOY_readJoypadY(JOY_1);
+    }
+...
+```
+
+Vemos en el fragmento anterior, que se comprueba el tipo de controlador; el cual hemos leído con la función ```JOY_getPortType``` y comprobamos que es un ratón lo que hay conectado al puerto 1. Una vez comprobado, tenemos dos funciones; ```JOY_readJoypadX``` y ```JOY_readJoypadY```la cual nos va a permitir leer tanto la coordenada X o coordenada Y del dispositivo conectado al controlador 1.
+
+Una vez hemos visto el código, podemos ejecutar el ejemplo y ver como cambian el valor X e Y.
+
+<div class="image">
+<img id="arq" src="7controles/img/ej4.png" alt="Ejemplo 4: Programación Sega Mouse" title="Ejemplo 4: Programación Sega Mouse"/> </div>
+<p>Ejemplo 4: Programación Sega Mouse</p>
 
 ## Referencias
 
@@ -209,3 +320,5 @@ Donde vemos que si se pulsa el botón Arriba, se mostrará un texto o sino, se m
 * [https://segaretro.org/Sega_Mouse](https://segaretro.org/Sega_Mouse)
 * [https://segaretro.org/Lemmings](https://segaretro.org/Lemmings)
 * [https://segaretro.org/Cannon_Fodder](https://segaretro.org/Cannon_Fodder)
+* [https://www.cplusplus.com/reference/cstdio/sprintf/](https://www.cplusplus.com/reference/cstdio/sprintf/)
+* [https://segaretro.org/Kega_Fusion](https://segaretro.org/Kega_Fusion)
