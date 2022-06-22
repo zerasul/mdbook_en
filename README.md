@@ -15,7 +15,7 @@ Este libro contiene lo mínimo e imprescindible para poder crear juegos a partir
 5. [Configurar Nuestro Entorno](5config-entorno/config-entorno.md).
 6. [Hola Mundo](6holamundo/holamundo.md).
 7. [Controles](7controles/controles.md).
-8. Fondos.
+8. [Fondos](8fondos/fondos.md).
 9. Sprites.
 10. Paletas de Colores.
 11. Físicas.
