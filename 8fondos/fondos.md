@@ -71,6 +71,8 @@ Además, los fondos A,B y el plano de Sprites (que verémos en el siguiente cap�
 <img id="arq" src="8fondos/img/esquemaplanos.png" alt="Esquema de Prioridad de los Fondos" title="Esquema de Prioridad de los Fondos"/> </div>
 <p>Esquema de Prioridad de los Fondos</p>
 
+Como podemos ver en la anterior imágen, tanto el plano A, B y de Sprites, pueden tener una prioridad baja o alta. De tal forma, que podemos jugar indistintamente con ellos, para poder mostrarlos en distinto lugar y así; poder mostrar esa sensación de profundidad.
+
 ## Rescomp
 
 ## Ejemplo con fondos
