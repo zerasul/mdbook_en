@@ -75,6 +75,95 @@ Como podemos ver en la anterior imágen, tanto el plano A, B y de Sprites, puede
 
 ## Rescomp
 
+Para poder importar los distintos recursos para nuestro juego, es necesario usar una herramienta que esta incluida en el propio SGDK. Esta herramienta se llama _rescomp_ "Resource Compiler"; la cual va a permitir importar los recursos generando todo lo necesario para poder usarlo a través del propio SGDK.
+
+Esta herramienta, genera todo lo necesario para impotar los distintos tipos de recursos de nuestro juego (gráficos, sprites, musica, sonido, binario...). Se basa en el uso de unos ficheros que describen cada recurso; estos ficheros con extensión _.res_, incluyen toda la descripción de los recursos a importar.
+
+Rescomp, lee estos ficheros y generará uno o varios ficheros .s con la información del recurso y si no se indica lo contrario, un fichero cabecera de c _.h_. Veamos como use usa.
+
+```bash
+rescomp fichero.res [out.s] [-noheader]
+```
+
+Observamos que se reciben varios parámetros:
+
+* _fichero.res_: nombre del fichero de recursos.
+* _out.s (opcional)_: fichero .s resultado. Si no se indica, se genera un fichero .s con el nombre del recurso a importar.
+* _-noheader_: indica que no se va a generar un fichero cabecera de C _.h_.
+
+Podemos importar los siguientes tipos de recurso:
+
+* _BITMAP_: Mapa de Bits.
+* _PALETTE_: Paleta de Colores.
+* _TILESET_: Tileset; contiene un conjunto de tiles que puede usarse para generar imágenes o sprites.
+* _MAP_: Recurso tipo Mapa; contiene una paleta, un tileset y la información del mapa (a partir de SGDK 1.60).
+* _IMAGE_: Recurso tipo imágen; contiene una paleta, un tileset y un tilemap.
+* _SPRITE_: Recurso tipo Sprite; se usa para controlar los Sprites y las animaciones.
+* _XGM_: Recurso de música usando XGM (.vgm o .xgm).
+* _WAV_: Recurso de sonido.
+* _BIN_: Información guardado en formato binario.
+
+Durante los próximos capítulos, veremos cada uno de estos recursos y como se utilizan. En este capítulo, nos centraremos en el uso de paleta y de imágenes como recurso.
+
+Veamos un ejemplo de definición de recurso:
+
+```
+TILESET moontlset "moontlset.png" 0
+PALETTE moontlset_pal "moontlset.png" 0
+```
+
+En el ejemplo anterior, podemos ver como se definen los recursos como TileSet y como Paleta.
+
+**NOTA**: Si utiliza la extensión _Genesis Code_, incluye un editor con ayuda contextual a la hora de utilizar los ficheros _.res_.
+
+Por último, es importante saber, que si usamos el fichero _makefile_ que trae SGDK por defecto, se llama automáticamente a rescomp cuando se añade un fichero .res (debe insertarse en la carpeta _res_); por lo que no es necesario que la llamemos nosotros. Además, si se necesita más información acerca de rescomp, puede encontrar la documentación de este en el propio SGDK:
+
+[https://github.com/Stephane-D/SGDK/blob/master/bin/rescomp.txt](https://github.com/Stephane-D/SGDK/blob/master/bin/rescomp.txt)
+
+### Imágenes y Paletas con Rescomp
+
+Como hemos podido ver, se pueden impotar tanto Paletas, como imágenes, como recursos. Vamos a ver que opciones y como se define los recursos de Paleta y de Imagen.
+
+#### Paleta
+
+Una paleta es la información de los 16 colores que podemos almacenar para usarlo en los distintos gráficos. Es importante, que toda imágen que usemos para SGDK, debe estar almacenada como indexado de 4 u 8 bpp.
+
+**NOTA**: En futuras versiones de SGDK, se podran usar imágenes RGB con una información adicional para la paleta.
+
+Para definir un recurso de paleta para rescomp; se usa la siguiente sintaxis:
+
+```
+PALETTE pal1 "imagen.png"
+```
+
+Donde:
+
+* _pal1_: Nombre del recurso a referenciar.
+* _"imagen.png"_: Nombre de la imagen con la información de la paleta. Puede ser un fichero bmp, png o .pal.
+
+#### Imágen
+
+Una imágen para SGDK, contiene un tileset, una paleta y un tilemap de una imágen, normalmente estática. Veamos un ejemplo con las opciones disponibles para definir un recurso de tipo imágen en rescomp:
+
+```
+IMAGE img1 "img_file" BEST NONE [mapbase]
+```
+
+Donde:
+
+* _img1_: nombre del recurso
+* _"Img_file": Fichero de la imágen a impotar. Debe ser un fichero de imágen indexado en formato bmp o png.
+* _BEST_: Indica el algoritmo de compresión a utilizar; puede tener los siguientes valores:
+    * -1/BEST/AUTO: Usa la mejor compresión.
+    * 0/NONE: No usa ninguna compresión.
+    * 1/APLIB: algoritmo aplib (buena compresión, pero más lento).
+    * 2/FAST/LZ4W: Algoritmo LZ4 (menor compresión, pero más rápido).
+* _NONE_: Indica la optimización que se puede realizar al importar la imágen. Puede tener los siguientes valores:
+    * 0/NONE: No realiza ninguna optimización.
+    * 1/ALL: Elimina los tiles duplicados y los espejados.
+    * 2/DUPLICATE: Elimina solo los tiles duplicados.
+* _mapbase_: Define los valores por defecto como puede ser la prioridad, paleta a usar por defecto (PAL0,PAL1,PAL2, PAL3),etc...
+
 ## Ejemplo con fondos
 
 ## Referencias
