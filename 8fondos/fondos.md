@@ -166,4 +166,112 @@ Donde:
 
 ## Ejemplo con fondos
 
+Una vez hemos podido ver como se tratan las imágenes y como importarlas usando la herramienta rescomp; ahora vamos a ver un ejemplo de como usar estas imágenes, aprovechando los dos fondos disponibles y viendo su uso de distintas prioridades.
+
+Este ejemplo, podemos verlo en el repositorio de ejemplos que acompaña a este libro, con el nombre de _ej5.backgrounds_; el cual podemos observar, que vamos a mostrar 2 fondos como los que siguen:
+
+<div class="image">
+<img id="arq" src="8fondos/img/fondosEjemplo.png" alt="Fondos para el ejemplo" title="Fondos a usar para el ejemplo"/> </div>
+<p>Fondos a Usar para el ejemplo</p>
+
+Como vemos en la figura anterior, tenemos 2 imágenes; la primera un fondo azul imitando al cielo; y la segunda un fondo de baldosas amarillas con un fondo negro.
+
+Vamos a centrarnos en esta segunda imagen; la cual vemos ese fondo negro. Este fondo, será transparente, ya que será el primer color de la paleta de dicha imagen.
+
+**NOTA**: Si utilizamos la extensión _Genesis Code_, podemos ver la paleta de dicha imagen. Si no se muestra, puede hacer click derecho en el título de la imagen y pulsar la opción _reopen With..._.
+
+<div class="image">
+<img id="arq" src="8fondos/img/bgbdetails.png" alt="Detalles Imagen 2" title="Detalles Imagen 2"/> </div>
+<p>Detalles Imagen 2</p>
+
+Podemos observar en la anterior imagen, que el primer color es el negro y que es una imagen de 16 colores. Este detalle es importante, ya que se usará como color transparente.
+
+Una vez se tienen las dos imágenes, vamos a centrarnos en importar ambas imágenes usando la herramienta rescomp. Por lo tanto tenemos que definir un fichero _.res_ con el siguiente contenido:
+
+```
+IMAGE bg_a "gfx/bga.bmp" NONE 
+IMAGE bg_b "gfx/bgb.bmp" NONE
+```
+
+Podemos observar que se han creado 2 recursos de tipo ```IMAGE```; los cuales no tienen ninguna compresión. Si compilamos ahora nuestro proyecto de forma manual, o usando el comando de Genesis Code, _Genesis Code: Compile Project_; veremos que se generará un fichero _.h_. Este fichero lo usaremos para referenciar los recursos generados.
+
+Una vez hemos visto como se han importado estos recursos, vamos a centrarnos en el código; el cual podemos ver el código fuente:
+
+```c
+#include <genesis.h>
+
+#include "gfx.h"
+
+int main()
+{
+   
+    while(1)
+    {
+        
+        VDP_setScreenWidth320();
+        u16 ind = TILE_USERINDEX;
+        VDP_drawImageEx(BG_B,&bg_a,TILE_ATTR_FULL(PAL0,FALSE,FALSE,FALSE,ind),0,0,TRUE,CPU);
+        ind+=bg_a.tileset->numTile;
+        VDP_drawImageEx(BG_A,&bg_b,TILE_ATTR_FULL(PAL1,FALSE,FALSE,FALSE,ind),0,0,TRUE,CPU);
+        ind+=bg_b.tileset->numTile;
+        //For versions prior to SGDK 1.60 use VDP_waitVSync instead.
+        SYS_doVBlankProcess();
+    }
+    return (0);
+}
+```
+
+Veamos en detalle el anterior ejemplo; en primer lugar, incluimos la cabecera de la librería LibMD, seguido de la cabecera de los recursos generados con rescomp. Además, podemos observar la llamada a una función ```VDP_setScreenWidth320```; la cual establece la resolución horizontal a 320px (por defecto es esta resolución).
+
+Seguidamente, podemos observar que se guarda en una variable el valor de ```TILE_USERINDEX```; esta constante nos va a indicar el índice donde se va a poder acceder a la memoria donde están almacenados los tiles. Esto es importante para no mostrar tiles que no necesitemos en ese momento o zonas de memoria vacia que pueda dar error; ya que las primeras posiciones de la memoria de vídeo, SGDK las utiliza para inicializar las paletas etc...
+
+A continuación, podemos ver la llamada a la función ```VDP_drawImageEx```; la cual nos permitirá dibujar una imagen dentro de un fondo; veamos cuales son los parámetros de esta función:
+
+* _plano_: Plano a utilizar; puede tener los valores ```BG_A```, ```BG_B``` o ```WINDOW```; para indicar el plano a utilizar (para versiones anteriores a SGDK 1.60, usar ```PLAN_A```, ```PLAN_B```).
+* _image_: Dirección de memoria donde está el recurso de imagen a utilizar; puede usarse el operador & junto al nombre que hemos dado al recurso al definirlo en rescomp.
+* _TileBase_: Indica el Tile base por el que se cargará la imagen. Esto se realizará a través de la macro ```TILE_ATTR_FULL```; que veremos más adelante.
+* _X_: posición X en Tiles.
+* _Y_: posición Y en Tiles.
+* _loadPal_: indica si se cargará la paleta o no.
+* _dma_: Indica si se usara dma o CPU. Esto es importante ya que el uso de DMA, evita que la CPU tenga que trabajar a la hora de pasar la información de la ROM a la VRAM. Por lo tanto se puede establecer el valor a ```DMA``` para usar el dma, o ```CPU``` para usar la propia CPU; hay que tener muy en cuenta que tanto la CPU como la DMA, utilizan el mismo Bus y puede haber cuellos de botella a la hora de pasar los datos de la ROM a la RAM o VRAM.
+
+Hemos podido ver que para definir el Tile base por el que cargar la imagen, se puede utilizar la macro ```TILE_ATTR_FULL```; la cual recibe los siguientes parámetros:
+
+* PalIndex: Índice de la paleta a utilizar. Puede ser ```PAL0```, ```PAL2```, ```PAL2```, ```PAL3```. Para indicar las 4 paletas disponibles.
+* Prioridad: Indica la prioridad por la que se cargará. ```TRUE``` para prioridad alta, o ```FALSE```; para prioridad baja.
+* VFLIP: Espejado Vertical. Indica si estará espejado verticalmente (```TRUE``` para espejado o ```FALSE``` en caso contrario).
+* HFLIP: ESpejado Hortizontal. Indica si estará espejado horizontalmente  (```TRUE``` para espejado o ```FALSE``` en caso contrario).
+* index: Indica el índice del que se guardará en la memoria de vídeo. Se utilizará la variable de indices para almacenarlo en memoria.
+
+Como podemos ver en el ejemplo, vemos que se carga en el Plano B, el recurso llamado bg_a y que se guardará en la paleta ```PAL0```; es decir, la primera paleta disponible. Además, de que estará con baja prioridad; y que se cargará usando CPU y no DMA.
+
+Seguidamente vemos la siguiente línea:
+
+```c
+ind+=bg_a.tileset->numTile;
+```
+
+La cual indica que el índice a utilizar para guardar en la memoria de vídeo, se aumenta el valor hasta el final de los tiles que contiene la imagen. Esto es importante para no sobrescribir la memoria de vídeo. Seguidamente vemos la segunda llamada:
+
+```c
+VDP_drawImageEx(BG_A,&bg_b,TILE_ATTR_FULL(PAL1,FALSE,FALSE,FALSE,ind),0,0,TRUE,CPU);
+```
+
+La cual indica que se cargará la segunda imagen en el Plano A y con baja prioridad, la cual se pintará encima del plano anterior según el esquema de prioridades. Además, podemos observar que se cargará la paleta 1, y que se utilizará la CPU para cargarlo.
+
+Por último, podemos ver que se vuelve a aumentar el índice para almacenar en la memoria de vídeo para otras imágenes posteriormente. Además de la llamada a la función ```SYS_doVBlankProcess```; para esperar a que se termine de pintar la pantalla.
+
+Si compilamos y ejecutamos el ejemplo, podemos ver lo siguiente:
+
+<div class="image">
+<img id="arq" src="8fondos/img/ej5.png" alt="Ejemplo5: Fondos" title="Ejemplo5: Fondos"/> </div>
+<p>Ejemplo5: Fondos</p>
+
+Con este ejemplo, ya podemos ver como cargar imágenes usando recomp, y dibujarlas en los distintos planos o fondos disponibles. En los siguientes capítulos, veremos más usos de los fondos y como podemos usar más funcionalidades que nos provee SGDK.
+
 ## Referencias
+
+* [https://github.com/Stephane-D/SGDK](https://github.com/Stephane-D/SGDK).
+* [https://danibus.wordpress.com/](https://danibus.wordpress.com/).
+* [https://www.ohsat.com/tutorial/mdmisc/creating-graphics-for-md/](https://www.ohsat.com/tutorial/mdmisc/creating-graphics-for-md/).
+* [https://segaretro.org/images/a/a2/Genesis_Software_Manual.pdf](https://segaretro.org/images/a/a2/Genesis_Software_Manual.pdf).
