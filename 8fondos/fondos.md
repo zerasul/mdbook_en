@@ -1,8 +1,8 @@
 # 8. Fondos
 
-Hemos podido ya empezar a ver nuestros primeros juegos; pero nos falta el poder ver más colorido y poder jugar con las distintas cracterísticas que nos ofrece la Sega Mega Drive.
+Hemos podido ya empezar a ver nuestros primeros juegos; pero nos falta el poder ver más colorido y poder jugar con las distintas características que nos ofrece la Sega Mega Drive.
 
-Uno de los apartados más significativos a la hora de trabajar con juegos, son los fondos. Estos fondos son imagenes que podemos superponer, para poder dar una sensación de profundidad. Sega Mega Drive, permite trabajar con varios fondos (o planos), de tal forma que podemos dar esa sensación de profundidad.
+Uno de los apartados más significativos a la hora de trabajar con juegos, son los fondos. Estos fondos son imágenes que podemos superponer, para poder dar una sensación de profundidad. Sega Mega Drive, permite trabajar con varios fondos (o planos), de tal forma que podemos dar esa sensación de profundidad.
 
 En este capítulo, nos centraremos en el uso de fondos o planos, a través de SGDk y el uso de herramientas para poder gestionar estos fondos; como por ejemplo la herramienta _rescomp_.
 
@@ -12,20 +12,20 @@ Comenzaremos por hablar de como gestiona las imágenes o los gráficos la Sega M
 
 En primer lugar, antes de entrar en más conceptos, vamos a estudiar como se gestionan las imágenes o gráficos en la Sega Mega Drive; a través del VDP.
 
-Veamos las cracterísticas de los gráficos para Sega Mega Drive:
+Veamos las características de los gráficos para Sega Mega Drive:
 
 * Todo gráfico o imagen, se dibuja dividido por Tiles [^48], de un tamaño de 8x8 píxeles.
 * Solo se pueden almacenar 4096 Tiles (64Kb de VRAM).
-* Las imágenes, estan almacenadas en formáto indexado [^49] no como RGB [^50].
-* Solo se pueden almacenar 4 paletas de 16 colores cada una.
+* Las imágenes, están almacenadas en formato indexado [^49] no como RGB [^50].
+* Sólo se pueden almacenar 4 paletas de 16 colores cada una.
 * Normalmente, sólo se pueden mostrar 61 colores en pantalla.
 * En cada paleta, el primer color, se considera transparente.
 
-[^48]: Un Tile es un fragmento de una imágen que se muestra como si fuese un mosaico; por lo que una imágen esta compuesta por una serie de Tiles.
-[^49]: Una imágen en formato indexado, almacena una paleta con los distintos colores que contiene; después cada píxel, solo tiene información del color que representa en dicha paleta.
+[^48]: Un Tile es un fragmento de una imagen que se muestra como si fuese un mosaico; por lo que una imágen está compuesta por una serie de Tiles.
+[^49]: Una imagen en formato indexado, almacena una paleta con los distintos colores que contiene; después cada píxel, solo tiene información del color que representa en dicha paleta.
 [^50]: RGB (Red Green Blue) es un formato que se define en cada píxel almacenar el color rojo, verde y azul de tal forma que se pueda ver cada color combinando estos tres.
 
-Es importante conocer estas características, a la hora de trabajar con imágenes en Mega Drive; para no perder calidad o algún color, si la paleta no esta bien referenciada.
+Es importante conocer estas características, a la hora de trabajar con imágenes en Mega Drive; para no perder calidad o algún color, si la paleta no está bien referenciada.
 
 Además, hemos podido ver que solo se pueden mostrar 61 colores en pantalla. Esto es debido a los colores transparentes de cada una de las paletas; excepto la primera paleta (paleta 0), que se considera el color de fondo.
 
@@ -43,17 +43,17 @@ Más adelante, veremos como importar imágenes y gráficos para nuestro juego us
 
 Como hemos comentado, una parte importante es el uso de fondos o planos como también se les conoce; Sega Mega Drive permite trabajar con 2 fondos a la vez, de tal forma, que siempre se pintan estos dos fondos a la vez.
 
-Un fondo, no es más que un conjunto de Tiles que estan almacenados en la memoria de vídeo; normalmente en cada fondo se establece en cada Tile, un índice que apunta a un Tile de la memoria de vídeo; esto se conoce como Mapa y el conjunto de Tiles almacenados en la memoria, se conoce como TileSet. Más adelante, hablaremos sobre los Tilesets y como se pueden utilizar.
+Un fondo, no es más que un conjunto de Tiles que están almacenados en la memoria de vídeo; normalmente en cada fondo se establece en cada Tile, un índice que apunta a un Tile de la memoria de vídeo; esto se conoce como Mapa y el conjunto de Tiles almacenados en la memoria, se conoce como TileSet. Más adelante, hablaremos sobre los Tilesets y como se pueden utilizar.
 
 En este apartado, solo hablaremos sobre los fondos y como podemos utilizarlos para nuestros juegos, de forma estática.
 
 Es importante saber, que un fondo se dibuja de arriba a abajo y de izquierda a derecha. De tal forma, que es más fácil de trabajar con ellos. Además, no podemos olvidar que los fondos trabajan a nivel de Tile no a nivel de píxel.
 
-Por último, aunque la Sega Mega Drive tiene una resolución de pantalla de 320x224 (320x240 NTSC) que corresponden a 40x28 tiles en PAL, si que se pueden almacenar más Tiles por fondo de tal forma que podemos almacenar hasta 64x32 Tiles; de tal forma que podriamos utilizar este sobrante para realizar scroll. Esto lo veremos en el capítulo de Scroll.
+Por último, aunque la Sega Mega Drive tiene una resolución de pantalla de 320x224 (320x240 NTSC) que corresponden a 40x28 tiles en PAL, sí que se pueden almacenar más Tiles por fondo de tal forma que podemos almacenar hasta 64x32 Tiles; de tal forma que podríamos utilizar este sobrante para realizar scroll; que veremos en más detalle en un próximo capítulo.
 
 ### Fondo A, B y Window
 
-Como hemos comentado, Sega Mega Drive tiene disponibles 2 fondo para trabajar con ellos (a parte del encargado de los Sprites).
+Como hemos comentado, Sega Mega Drive tiene disponibles 2 fondos para trabajar con ellos (aparte del encargado de los Sprites).
 
 * **Fondo A**; permite dibujar un plano completo.
 * **Fondo B**; permite dibujar un plano completo.
@@ -63,21 +63,21 @@ Como hemos comentado, Sega Mega Drive tiene disponibles 2 fondo para trabajar co
 <img id="arq" src="8fondos/img/planeExplorer.png" alt="Visor de Planos de Gens Kmod" title="Visor de planos de Gens KMod"/> </div>
 <p>Visor de planos de Gens Kmod</p>
 
-En la anterior imágen, podemos ver el visor de fondos de _Gens KMod_, donde podremos visualizar cada fondo para ver como se dibuja.
+En la anterior imagen, podemos ver el visor de fondos de _Gens KMod_, donde podremos visualizar cada fondo para ver como se dibuja.
 
-Además, los fondos A,B y el plano de Sprites (que verémos en el siguiente capítulo), tienen distinta prioridad; de tal forma que podemos dar esta prioridad a cada fondo dando la sensación de profundidad.
+Además, los fondos A, B y el plano de Sprites (que veremos en el siguiente capítulo), tienen distinta prioridad; de tal forma que podemos dar esta prioridad a cada fondo dando la sensación de profundidad.
 
 <div class="image">
 <img id="arq" src="8fondos/img/esquemaplanos.png" alt="Esquema de Prioridad de los Fondos" title="Esquema de Prioridad de los Fondos"/> </div>
 <p>Esquema de Prioridad de los Fondos</p>
 
-Como podemos ver en la anterior imágen, tanto el plano A, B y de Sprites, pueden tener una prioridad baja o alta. De tal forma, que podemos jugar indistintamente con ellos, para poder mostrarlos en distinto lugar y así; poder mostrar esa sensación de profundidad.
+Como podemos ver en la anterior imagen, tanto el plano A, B y de Sprites, pueden tener una prioridad baja o alta. De tal forma, que podemos jugar indistintamente con ellos, para poder mostrarlos en distinto lugar y así; poder mostrar esa sensación de profundidad.
 
 ## Rescomp
 
-Para poder importar los distintos recursos para nuestro juego, es necesario usar una herramienta que esta incluida en el propio SGDK. Esta herramienta se llama _rescomp_ "Resource Compiler"; la cual va a permitir importar los recursos generando todo lo necesario para poder usarlo a través del propio SGDK.
+Para poder importar los distintos recursos para nuestro juego, es necesario usar una herramienta que está incluida en el propio SGDK. Esta herramienta se llama _rescomp_ "Resource Compiler"; la cual va a permitir importar los recursos generando todo lo necesario para poder usarlo a través del propio SGDK.
 
-Esta herramienta, genera todo lo necesario para impotar los distintos tipos de recursos de nuestro juego (gráficos, sprites, musica, sonido, binario...). Se basa en el uso de unos ficheros que describen cada recurso; estos ficheros con extensión _.res_, incluyen toda la descripción de los recursos a importar.
+Esta herramienta, genera todo lo necesario para importar los distintos tipos de recursos de nuestro juego (gráficos, sprites, música, sonido, binario...). Se basa en el uso de unos ficheros que describen cada recurso; estos ficheros con extensión _.res_, incluyen toda la descripción de los recursos a importar.
 
 Rescomp, lee estos ficheros y generará uno o varios ficheros .s con la información del recurso y si no se indica lo contrario, un fichero cabecera de c _.h_. Veamos como use usa.
 
@@ -97,11 +97,11 @@ Podemos importar los siguientes tipos de recurso:
 * _PALETTE_: Paleta de Colores.
 * _TILESET_: Tileset; contiene un conjunto de tiles que puede usarse para generar imágenes o sprites.
 * _MAP_: Recurso tipo Mapa; contiene una paleta, un tileset y la información del mapa (a partir de SGDK 1.60).
-* _IMAGE_: Recurso tipo imágen; contiene una paleta, un tileset y un tilemap.
+* _IMAGE_: Recurso tipo imagen; contiene una paleta, un tileset y un tilemap.
 * _SPRITE_: Recurso tipo Sprite; se usa para controlar los Sprites y las animaciones.
 * _XGM_: Recurso de música usando XGM (.vgm o .xgm).
 * _WAV_: Recurso de sonido.
-* _BIN_: Información guardado en formato binario.
+* _BIN_: Información guardada en formato binario.
 
 Durante los próximos capítulos, veremos cada uno de estos recursos y como se utilizan. En este capítulo, nos centraremos en el uso de paleta y de imágenes como recurso.
 
@@ -122,13 +122,13 @@ Por último, es importante saber, que si usamos el fichero _makefile_ que trae S
 
 ### Imágenes y Paletas con Rescomp
 
-Como hemos podido ver, se pueden impotar tanto Paletas, como imágenes, como recursos. Vamos a ver que opciones y como se define los recursos de Paleta y de Imagen.
+Como hemos podido ver, se pueden importar tanto Paletas, como imágenes, como recursos. Vamos a ver que opciones y como se define los recursos de Paleta y de Imagen.
 
 #### Paleta
 
-Una paleta es la información de los 16 colores que podemos almacenar para usarlo en los distintos gráficos. Es importante, que toda imágen que usemos para SGDK, debe estar almacenada como indexado de 4 u 8 bpp.
+Una paleta es la información de los 16 colores que podemos almacenar para usarlo en los distintos gráficos. Es importante, que toda imagen que usemos para SGDK, debe estar almacenada como indexado de 4 u 8 bpp.
 
-**NOTA**: En futuras versiones de SGDK, se podran usar imágenes RGB con una información adicional para la paleta.
+**NOTA**: En futuras versiones de SGDK, se podrán usar imágenes RGB con una información adicional para la paleta.
 
 Para definir un recurso de paleta para rescomp; se usa la siguiente sintaxis:
 
@@ -141,9 +141,9 @@ Donde:
 * _pal1_: Nombre del recurso a referenciar.
 * _"imagen.png"_: Nombre de la imagen con la información de la paleta. Puede ser un fichero bmp, png o .pal.
 
-#### Imágen
+#### Imagen
 
-Una imágen para SGDK, contiene un tileset, una paleta y un tilemap de una imágen, normalmente estática. Veamos un ejemplo con las opciones disponibles para definir un recurso de tipo imágen en rescomp:
+Una imagen para SGDK, contiene un tileset, una paleta y un tilemap de una imagen, normalmente estática. Veamos un ejemplo con las opciones disponibles para definir un recurso de tipo imagen en rescomp:
 
 ```
 IMAGE img1 "img_file" BEST NONE [mapbase]
@@ -152,7 +152,7 @@ IMAGE img1 "img_file" BEST NONE [mapbase]
 Donde:
 
 * _img1_: nombre del recurso
-* _"Img_file": Fichero de la imágen a impotar. Debe ser un fichero de imágen indexado en formato bmp o png.
+* _"Img_file"_: Fichero de la imagen a importar. Debe ser un fichero de imagen indexado en formato bmp o png.
 * _BEST_: Indica el algoritmo de compresión a utilizar; puede tener los siguientes valores:
     * -1/BEST/AUTO: Usa la mejor compresión.
     * 0/NONE: No usa ninguna compresión.
