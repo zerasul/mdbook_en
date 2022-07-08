@@ -270,10 +270,6 @@ while(1)
         readInput();
         SPR_setPosition(sha,sha_x,sha_y);
         SPR_update();
-        sprintf(buffer,"Sha Priority: %d",shaPrio);
-        sprintf(buffer2,"Elli Priority: %d", elliPrio);
-        VDP_drawText(buffer,4,2);
-        VDP_drawText(buffer2,4,3);
         //For versions prior to SGDK 1.60 use VDP_waitVSync instead.
         SYS_doVBlankProcess();
     }
@@ -294,23 +290,27 @@ void asyncReadInput(u16 joy,u16 changed,u16 state){
 
     if(joy == JOY_1){
         if(changed & state &  BUTTON_A){
-                 shaPrio=(shaPrio==TRUE)? FALSE:TRUE;
-                 SPR_setPriority(sha,shaPrio);
+                 shaPrio=TRUE;
+                 elliPrio=FALSE;
+                 SPR_setZ(sha,shaPrio);
+                 SPR_setZ(sha,elliPrio);
         }
         if(changed & state &  BUTTON_B){
-                 elliPrio=(elliPrio==TRUE)? FALSE:TRUE;
-                 SPR_setPriority(elli,elliPrio);
+                 shaPrio=FALSE;
+                 elliPrio=TRUE;
+                 SPR_setZ(sha,shaPrio);
+                 SPR_setZ(sha,elliPrio);
         }
     }
 }
 ```
 
-Vemos como la función, comprueba si ha pulsado el controlador 1 (```JOY_1```), y si pulsa el botón A, se establece la prioridad del sprite _sha_; mientras que si se pulsa el botón B, se cambia la prioridad del sprite _elli_.
+Vemos como la función, comprueba si ha pulsado el controlador 1 (```JOY_1```), y si pulsa el botón A, se establece la profundidad del sprite _sha_ frente al sprite _elli_; mientras que si se pulsa el botón B, se cambia la profundidad del sprite _elli_ respecto al sprite _sha_.
 
-La prioridad de un Sprite, se puede establacer con la función ```SPR_setPriority```, que recibe los siguientes parámetros:
+La profundidad del Sprite, se puede establacer con la función ```SPR_setZ```, que recibe los siguientes parámetros:
 
 * _sprite_: Puntero al sprite a modificar.
-* _prio_: Recibe el valor ```TRUE``` para indicar prioridad alta, o ```FALSE``` para indicar prioridad baja.
+* _Z_: Indica la profundidad del Sprite.
 
 Por último, y no menos importante, podemos ver como se leen los controles sincronos a partir de la función ```readInput```; la cual es quien reaccionará en función de los controles que hemos utilizado.
 
