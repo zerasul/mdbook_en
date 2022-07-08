@@ -16,7 +16,7 @@ Este libro contiene lo mínimo e imprescindible para poder crear juegos a partir
 6. [Hola Mundo](6holamundo/holamundo.md).
 7. [Controles](7controles/controles.md).
 8. [Fondos](8fondos/fondos.md).
-9. [Sprites](9sprites/sprites.md).
+9. [Sprites](9Sprites/sprites.md).
 10. Físicas.
 11. Paletas de Colores.
 12. Tilesets.
