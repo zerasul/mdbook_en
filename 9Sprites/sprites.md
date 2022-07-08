@@ -122,6 +122,228 @@ Por último, como hemos podido ver a la hora de importar los recursos de sprites
 
 ## Ejemplo con Sprites en SGDK
 
+Una vez hemos visto como trabajar con Sprites en SGDK, vamos a ver un ejemplo. El cual tomaremos como base el anterior ejemplo para los fondos y añadiremos dos Sprites. Este ejemplo puede encontrarse en el repositorio de ejemplos que acompaña a este libro; en la carpeta _ej6.sprites_.
+
+Este ejemplo, consistirá en trabajar con dos sprites y ver como podemos moverlos, cambiar animación, prioridad,etc. Estos dos Sprites, se componen de dos hojas de Sprites de 72x160 y 96x160 Píxeles cada una. Veamos estas dos Hojas de Sprite.
+
+<div class="image">
+<img id="arq" src="9sprites/img/sprites.png" alt="Hojas de Sprites de ejemplo" title="Hojas de Sprites de ejemplo"/> </div>
+<p>Hojas de Sprites de ejemplo</p>
+
+Como podemos ver en las imágenes, se tratan de dos hojas de Sprites, con distintas animaciones y frames. En este caso se tratan de frames de distintos tamaños. El personaje de la izquierda, cada frame tiene 32x32 píxeles (4x4 tiles); mientras que el personaje de la derecha, tiene 24x32 píxeles (3x4 Tiles); por lo que tenemos que tener en cuenta esto a la hora de importar ambos recursos. Para importar estos recursos, usaremos un fichero _.res_, para definir cada uno de ellos.
+
+```
+SPRITE shaSprt "sprt/sha.png" 3 4 NONE 6 BOX
+SPRITE elliSprt "sprt/elliready.png" 4 4 NONE 5 BOX
+```
+
+Vemos que el primero el cual llamaremos _shaSprt_ y obtendremos el fichero con el mapa de bits dentro de la carpeta sprt (recordamos que todos los recursos deben ir en la carpeta _res_), después vemos que definimos que cada frame tiene 3 Tiles de anchura y 4 de altura; para poder realizar el corte correctamente. Por último, no usaremos compresión, y la velocidad de cambio de frame será 6 veces por segundo.
+
+Para el segundo Sprite que llamaremos _elliSprt_, haremos de igual forma; pero teniendo en cuenta, que cada frame es de 4 tiles de anchura y 4 tiles de altura. Una vez que hemos definido ambos Sprites y también los correspondientes fondos (que reutilizaremos los del ejemplo anterior), podremos compilar el proyecto y que rescomp, nos genere los recursos y ficheros cabecera _.h_ si fuese necesario.
+
+Con estos pasos ya tendríamos importados los sprites y los fondos para utilizar en nuestro código fuente. Vamos a analizar el código fuente. En este ejemplo, ya utilizaremos tanto por un lado controles tanto sincronos como asincronos, además de utilizar fondos.
+
+Comenzaremos por incluir los recursos en nuestro código, seguido de la definición de las constantes necesarias:
+
+```c
+#include <genesis.h>
+
+#include "gfx.h"
+#include "sprt.h"
+
+#define SHA_UP 0
+#define SHA_DOWN 2
+#define SHA_LEFT 3
+#define SHA_RIGHT 1
+#define SHA_STAY 4
+```
+
+Como podemos ver en el anterior fragmento, importamos tanto la librería ```genesis.h```, además de los ficheros cabecera generados con rescomp.h. Por otro lado, también vemos una serie de constantes, que corresponden a los índices de las animaciones de un Sprite; esto es recomendable para hacer el código más legible.
+
+Seguidamente, definiremos las variables globales necesarias para nuestro juego:
+
+```c
+Sprite * sha;
+Sprite * elli;
+
+u16 sha_x=15;
+u16 sha_y=125;
+
+int shaPrio=TRUE;
+int elliPrio=FALSE;
+```
+
+Las cuales utilizaremos durante el código del ejemplo; como pueden ser los punteros a los distintos Sprites, posición x e y de uno de ellos, y el estado de la prioridad de cada uno de los Sprites. Más adelante veremos como vamos a utilizarlos.
+
+A continuación, nos centraremos en la función ```main``` donde podemos ver la inicialización de los distintos recursos:
+
+```c
+JOY_init();
+JOY_setEventHandler(asyncReadInput);
+SPR_init();
+VDP_setScreenWidth320();
+```
+
+Donde podemos observar como se inicializan los controles, estableciendo la función callback para los controles asíncronos con la función ```JOY_setEventHandler``` (para más información, consulta el capítulo de controles). Además, de inicializar el motor de Sprites con la función ```SPR_init``` y posteriormente establacemos el ancho a una resolución de 320px.
+
+Después, ya comenzamos a añadir elementos a la pantalla, como pueden ser los fondos; de igual forma que hemos visto en el ejemplo del capítulo anterior:
+
+```c
+u16 index = TILE_USERINDEX;
+VDP_drawImageEx(BG_B, &bg_b, TILE_ATTR_FULL(PAL0,FALSE,FALSE,FALSE,index),0,0,TRUE,CPU);
+index+=bg_b.tileset->numTile;
+VDP_drawImageEx(BG_A, &bg_a, TILE_ATTR_FULL(PAL1,FALSE,FALSE,FALSE,index),0,0,TRUE,CPU);
+index+=bg_a.tileset->numTile;
+```
+
+Pero a continuación, podremos ver como añadir Sprites a partir de una definición de Sprite. Una definición de Sprite, es el propio recurso que hemos importado; pero podemos definir multiples Sprites a partir de una definición de Sprite.
+Veamos como se añade un nuevo Sprite a partir de su definición:
+
+```c
+ sha = SPR_addSprite(&shaSprt,sha_x,sha_y,TILE_ATTR(PAL2,TRUE,FALSE,FALSE));
+```
+
+Vemos en el fragmento anterior, que se utiliza la función ```SPR_addSprite```; esta función, permite crear un Sprite a partir de un recurso; vamos a ver los distintos parámetros de la que se compone:
+
+* _spritedef_: Puntero a la definición de Sprite; que corresponde con el recurso importado por rescomp.
+* _x_: posición X por defecto en píxeles.
+* _y_: posición Y por defecto en píxeles.
+* attrbute: Indica los atributos del propio Sprite. Para ello, se puede utilizar la macro ```TILE_ATTR```, para establecer dichos atributos.
+
+La macro ```TILE_ATTR``` permite establecer los atributos de un tilemap; veamos sus parámetros:
+
+* _pal_: Paleta a utilizar (```PAL0```,```PAL1```,```PAL2```,```PAL3```)
+* _prio_: Indica la prioridad ```TRUE``` para alta o ```FALSE``` para baja.
+* _FlipV_: Indica si hay volteo vertical ```TRUE``` para voltear o ```FALSE``` para desactivarlo.
+* _FlipH_: Indica si hay volteo vertical ```TRUE``` para voltear o ```FALSE``` para desactivarlo.
+
+El motor de Sprites de SGDK, es el encargado de alojar automáticamente los distintos Tiles de los Sprites en la VRAM; sin embargo, esto puede dar lugar a fragmentar la VRAM; debido a huecos que haya entre distintos Sprites. Para evitarlo, se puede usar la función ```SPR_addSpriteSafe```; sin embargo, tenemos que tener cuidado ya que puede ser más lenta.
+
+Tanto la función ```SPR_addSprite``` como ```SPR_addSpriteSafe```, devuelven un puntero a una estructura llamada ```Sprite```; la cual tiene una serie de propiedades con todo lo necesario para almacenar el Sprite; vamos a ver algunos de los campos de esta estructura:
+
+* _status_: Estado interno con información de como se alojará el sprite.
+* _visibility_: Indica la información del frame actual y como se mostrará en el VDP.
+* _spriteDef_: Puntero a la definición.
+* _onFrameChange_: Indica la función personalizada que puede lanzarse en cada cambio de frame. Puede establecerse con la funcion ```SPR_setFrameChangeCallback```.
+* _animation_: Puntero a la animación seleccionada.
+* _frame_: Puntero al frame actual.
+* _animInd_: Índice a la animación actual.
+* _frameInd_: Índice al frame actual.
+* _timer_: timer del frame actual (uso interno).
+* _x_: posición x en píxeles.
+* _y_: posición y en píxeles.
+* _depth_: indica la profundidad; util cuando hay varios Sprites.
+* _attribut_ Información con los atributos establecidos con la macro ```TILE_ATTR```.
+* _VDPSpriteIndex_: Índice al primer Sprite alojado en la VDP.
+
+Puede encontrar más información en la propia documentación de SGDK.
+
+Una vez añadidos los dos sprites, tenemos que asignar las paletas de los recursos, a cada una de las paletas disponibles en Sega Mega Drive. Recordemos que cada paleta tiene 16 colores y que el primero, corresponde a un color transparente. Para establecer la paleta, usaremos la función ```VDP_setPalette```. La cual recibe los siguientes parámetros:
+
+* _pal_: Paleta a utilizar (```PAL0```,```PAL1```,```PAL2```,```PAL3```).
+* _data_: Datos con la paleta. Puede ser la del propio recurso, o establecer una personalizada.
+
+Como en el propio ejemplo, que establece la paleta ```PAL3``` con los datos de la paleta del recurso importado:
+
+```c
+VDP_setPalette(PAL3,elliSprt.palette->data);
+```
+
+Para acabar la inicialización, se establecen las animaciones por defecto de los dos Sprites:
+
+```c
+SPR_setAnim(sha,SHA_STAY);
+SPR_setAnim(elli,4);
+```
+
+La cual se realiza usando la función ```SPR_setAnim```, la cual permite a un Sprite definir el índice de la animación a utilizar. recibe los siguientes parámetros:
+
+* _sprite_: Puntero al Sprite a utilizar.
+* _ind_: Índice de la animación a utilizar. Recordemos que los índices de las animaciones comienzan por 0. Como puede verse en el ejemplo, puede ser interesante definirse una serie de constantes para las animaciones.
+
+Veamos el resto de la función ```main```:
+
+```c
+while(1)
+    {
+
+        readInput();
+        SPR_setPosition(sha,sha_x,sha_y);
+        SPR_update();
+        sprintf(buffer,"Sha Priority: %d",shaPrio);
+        sprintf(buffer2,"Elli Priority: %d", elliPrio);
+        VDP_drawText(buffer,4,2);
+        VDP_drawText(buffer2,4,3);
+        //For versions prior to SGDK 1.60 use VDP_waitVSync instead.
+        SYS_doVBlankProcess();
+    }
+```
+
+Vemos que dentro del bucle infinito, realizamos una serie de llamas a funciones; como puede ser el leer los controles síncronos (que veremos más adelante), se establece la posición de un Sprite, con la función ```SPR_setPosition```; y se actualiza el motor de Sprites llamando a la función ```SPR_update```. Además de mostrar por pantalla información como la prioridad de cada Sprite, y acabando el bucle con la llamada a ```SYS_doVBlankProcess```.
+
+La función ```SPR_setPosition``` establece la posición del sprite en píxeles; veamos los parámetros que recibe:
+
+* _sprite_: Puntero al Sprite a cambiar.
+* _x_: Posición X en píxeles.
+* _y_: Posición Y en píxeles.
+
+Una vez que hemos terminado de ver la función ```main```, vamos a centrarnos en ver las funciones para los controles sincronos y asíncronos. Veamos estos últimos primero; que son controlados por la función ```asyncReadInput```, que hemos establecido al inicio como función controladora. Veamos fragmento de esta función:
+
+```c
+void asyncReadInput(u16 joy,u16 changed,u16 state){
+
+    if(joy == JOY_1){
+        if(changed & state &  BUTTON_A){
+                 shaPrio=(shaPrio==TRUE)? FALSE:TRUE;
+                 SPR_setPriority(sha,shaPrio);
+        }
+        if(changed & state &  BUTTON_B){
+                 elliPrio=(elliPrio==TRUE)? FALSE:TRUE;
+                 SPR_setPriority(elli,elliPrio);
+        }
+    }
+}
+```
+
+Vemos como la función, comprueba si ha pulsado el controlador 1 (```JOY_1```), y si pulsa el botón A, se establece la prioridad del sprite _sha_; mientras que si se pulsa el botón B, se cambia la prioridad del sprite _elli_.
+
+La prioridad de un Sprite, se puede establacer con la función ```SPR_setPriority```, que recibe los siguientes parámetros:
+
+* _sprite_: Puntero al sprite a modificar.
+* _prio_: Recibe el valor ```TRUE``` para indicar prioridad alta, o ```FALSE``` para indicar prioridad baja.
+
+Por último, y no menos importante, podemos ver como se leen los controles sincronos a partir de la función ```readInput```; la cual es quien reaccionará en función de los controles que hemos utilizado.
+
+Veamos un fragmento de esta función:
+
+```c
+void readInput(){
+    int inputValue = JOY_readJoypad(JOY_1);
+
+    if(inputValue & BUTTON_DOWN){
+        SPR_setAnim(sha,SHA_DOWN);
+        sha_y++;
+    }else{
+        if(inputValue & BUTTON_UP){
+            SPR_setAnim(sha,SHA_UP);
+            sha_y--;
+...
+```
+
+En este fragmento, podemos ver como se lee en primer lugar, los botones pulsados por el controlador 1 usando la función ```JOY_readJoypad``` (recuerda que puedes saber más sobre de las funciones para leer la entrada, en el capítulo de controles); a continuación, se comprueba que botón se ha pulsado; los cuales para este caso, solo utilizamos los de las direcciones.
+
+En cada caso, se establece la animación, y se modifica la variable con la posición. En este caso, solo se establecen 4 direcciones y solo se puede ir a una a la vez. En próximos ejemplos estableceremos para usar 8 direcciones.
+
+Una vez hemos visto el código del ejemplo, podemos compilarlo y ejecutarlo en un emulador. Obteniendo la siguiente pantalla:
+
+<div class="image">
+<img id="arq" src="9sprites/img/ej6.png" alt="Ejemplo 6: Sprites" title="Ejemplo 6: Sprites"/> </div>
+<p>Ejemplo 6: Sprites</p>
+
+Con este ejemplo, hemos visto ya como añadir Sprites, mostrarlos en nuestro juego, y poder interactuar con él a partir de los controles. Además, de ya tener un juego más completo a partir del uso de fondos y sprites junto con los controles.
+
+En el siguiente capítulo, nos centraremos en la física que podemos calcular con las distintas opciones que nos provee SGDK.
+
 ## Referencias
 
 * [https://megacatstudios.com/blogs/retro-development/sega-genesis-mega-drive-vdp-graphics-guide-v1-2a-03-14-17](https://megacatstudios.com/blogs/retro-development/sega-genesis-mega-drive-vdp-graphics-guide-v1-2a-03-14-17).
