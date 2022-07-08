@@ -215,7 +215,7 @@ La macro ```TILE_ATTR``` permite establecer los atributos de un tilemap; veamos 
 * _pal_: Paleta a utilizar (```PAL0```,```PAL1```,```PAL2```,```PAL3```)
 * _prio_: Indica la prioridad ```TRUE``` para alta o ```FALSE``` para baja.
 * _FlipV_: Indica si hay volteo vertical ```TRUE``` para voltear o ```FALSE``` para desactivarlo.
-* _FlipH_: Indica si hay volteo vertical ```TRUE``` para voltear o ```FALSE``` para desactivarlo.
+* _FlipH_: Indica si hay volteo horizontal ```TRUE``` para voltear o ```FALSE``` para desactivarlo.
 
 El motor de Sprites de SGDK, es el encargado de alojar automáticamente los distintos Tiles de los Sprites en la VRAM; sin embargo, esto puede dar lugar a fragmentar la VRAM; debido a huecos que haya entre distintos Sprites. Para evitarlo, se puede usar la función ```SPR_addSpriteSafe```; sin embargo, tenemos que tener cuidado ya que puede ser más lenta.
 
