@@ -190,9 +190,11 @@ Después, ya comenzamos a añadir elementos a la pantalla, como pueden ser los f
 
 ```c
 u16 index = TILE_USERINDEX;
-VDP_drawImageEx(BG_B, &bg_b, TILE_ATTR_FULL(PAL0,FALSE,FALSE,FALSE,index),0,0,TRUE,CPU);
+VDP_drawImageEx(BG_B, &bg_b,
+     TILE_ATTR_FULL(PAL0,FALSE,FALSE,FALSE,index),0,0,TRUE,CPU);
 index+=bg_b.tileset->numTile;
-VDP_drawImageEx(BG_A, &bg_a, TILE_ATTR_FULL(PAL1,FALSE,FALSE,FALSE,index),0,0,TRUE,CPU);
+VDP_drawImageEx(BG_A, &bg_a, 
+     TILE_ATTR_FULL(PAL1,FALSE,FALSE,FALSE,index),0,0,TRUE,CPU);
 index+=bg_a.tileset->numTile;
 ```
 
@@ -200,7 +202,8 @@ Pero a continuación, podremos ver como añadir Sprites a partir de una definici
 Veamos como se añade un nuevo Sprite a partir de su definición:
 
 ```c
- sha = SPR_addSprite(&shaSprt,sha_x,sha_y,TILE_ATTR(PAL2,TRUE,FALSE,FALSE));
+ sha = SPR_addSprite(&shaSprt,sha_x,sha_y,
+                TILE_ATTR(PAL2,TRUE,FALSE,FALSE));
 ```
 
 Vemos en el fragmento anterior, que se utiliza la función ```SPR_addSprite```; esta función, permite crear un Sprite a partir de un recurso; vamos a ver los distintos parámetros de la que se compone:
@@ -270,7 +273,8 @@ while(1)
         readInput();
         SPR_setPosition(sha,sha_x,sha_y);
         SPR_update();
-        //For versions prior to SGDK 1.60 use VDP_waitVSync instead.
+        //For versions prior to SGDK 1.60 use
+        // VDP_waitVSync instead.
         SYS_doVBlankProcess();
     }
 ```
