@@ -102,7 +102,7 @@ A la hora de trabajar con Sprites en SGDK, es importante saber como trabajar con
 
 Una de las primeras características que tenemos que tener en cuenta, es que a la hora de poder trabajar con Sprites, es que se calcula su posición en píxeles no en Tiles. Aunque si se dibujan y se calcula cada frame a nivel de Tile. Por ello es importante siempre conocer la posición de un sprite tanto la coordenada X e Y en píxeles.
 
-Por otro lado, tenemos que tener en cuenta que los Sprites se dibujan en su propio plano; y por lo tanto tienen una prioridad; de tal forma, que se puede establacer. Veamos de nuevo el esquema de prioridades de los distintos planos.
+Por otro lado, tenemos que tener en cuenta que los Sprites se dibujan en su propio plano; y por lo tanto tienen una prioridad; de tal forma, que se puede establecer. Veamos de nuevo el esquema de prioridades de los distintos planos.
 
 <div class="image">
 <img id="arq" src="9sprites/img/esquemaplanos.png" alt="Esquema de Prioridad de los Fondos" title="Esquema de Prioridad de los Fondos"/> </div>
@@ -184,7 +184,7 @@ SPR_init();
 VDP_setScreenWidth320();
 ```
 
-Donde podemos observar como se inicializan los controles, estableciendo la función callback para los controles asíncronos con la función ```JOY_setEventHandler``` (para más información, consulta el capítulo de controles). Además, de inicializar el motor de Sprites con la función ```SPR_init``` y posteriormente establacemos el ancho a una resolución de 320px.
+Donde podemos observar como se inicializan los controles, estableciendo la función callback para los controles asíncronos con la función ```JOY_setEventHandler``` (para más información, consulta el capítulo de controles). Además, de inicializar el motor de Sprites con la función ```SPR_init``` y posteriormente establecemos el ancho a una resolución de 320px.
 
 Después, ya comenzamos a añadir elementos a la pantalla, como pueden ser los fondos; de igual forma que hemos visto en el ejemplo del capítulo anterior:
 
@@ -311,7 +311,7 @@ void asyncReadInput(u16 joy,u16 changed,u16 state){
 
 Vemos como la función, comprueba si ha pulsado el controlador 1 (```JOY_1```), y si pulsa el botón A, se establece la profundidad del sprite _sha_ frente al sprite _elli_; mientras que si se pulsa el botón B, se cambia la profundidad del sprite _elli_ respecto al sprite _sha_.
 
-La profundidad del Sprite, se puede establacer con la función ```SPR_setZ```, que recibe los siguientes parámetros:
+La profundidad del Sprite, se puede establecer con la función ```SPR_setZ```, que recibe los siguientes parámetros:
 
 * _sprite_: Puntero al sprite a modificar.
 * _Z_: Indica la profundidad del Sprite.
