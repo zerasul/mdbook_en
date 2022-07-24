@@ -150,6 +150,183 @@ Una vez ya conocemos los distintos tipos de datos que podemos utilizar y como op
 
 ## Física y colisiones
 
+A la hora de trabajar con distintos Sprites, es importante conocer si un Sprite esta a tocando a otro, o incluso si un Sprite esta tocando el suelo. Por ello es importante conocer como podemos ver si dos o más sprites estan colisionando para poder calcular por ejemplo cuando han atacado a nuestro personaje, o por el contrario, si nuestro personaje esta atacando, cuando destruir al enemigo,etc.
+
+No existe un único método para calcular la colisión entre dos Sprites por lo que aquí mostraremos solo algunos de ellos. En primer lugar, hablaremos de las cajas de colisión o comunmente llamados colliders; y después veremos como calcular la colisión entre ellos.
+
+Una caja de colisión o collider, es un área que representa dentro de un Sprite que la colisión puede ocurrir dentro de dicha área. Normalmente se representa con un rectángulo o con un círculo. Si usamos SGDK, podemos definir estas áreas a la hora de importar un recurso usando _rescomp_. Por ejemplo:
+
+```
+SPRITE shaSprt "sprt/sha.png" 3 4 NONE 6 BOX
+SPRITE elliSprt "sprt/elliready.png" 4 4 NONE 5 BOX
+```
+
+Vemos en el anterior fragmento, que se definen ambas como ```BOX``` esto indica a rescomp que se va a utilizar un área en forma de rectángulo para calcular la colisión. Dicha información es almacenada en una estructura de tipo ```BoxCollision```; la cual se define de la siguiente forma:
+
+```c
+struct BoxCollision{
+    s8 x;
+    s8 y;
+    s8 w;
+    s8 h;
+};
+```
+
+Las propiedades de esta estructura son:
+
+* _x_: Posición X en píxeles.
+* _y_: Posición y en píxeles.
+* _w_: ancho del rectángulo en píxeles.
+* _h_: alto del rectángulo en píxeles.
+
+También puede definirse que la área de colisión, sea un círculo. definiendo dentro del fichero _.res_ el valor de ```CIRCLE```; este generará una estructura de tipo ```CircleCollision```; el cual se define con los siguientes valores.
+
+```c
+struct circleCollision{
+    s8 x;
+    s8 y;
+    u16 ray;
+};
+```
+
+Las propiedades de esta estructura son:
+
+* _x_: posición x del centro en píxeles.
+* _y_: posición y del centro en píxeles.
+* _ray_: rádio de la circunferencia.
+
+Con estos datos, podemos calcular fácilmente las colisiones entre distintos coliders; vamos a ver algunos ejemplos entre los distintos casos.
+
+### Punto contra Rectángulo
+
+En este primer caso, vamos a comprobar cuando un punto esta dentro de un rectángulo; de tal forma por ejemplo, que podamos detectar cuando se llega a algun punto o si el personaje esta tocando el suelo.
+
+<div class="image">
+<img id="arq" src="10fisicas/img/pointvsbox.png" alt="Colisión punto contra caja" title="Colisión punto contra caja"/> </div>
+<p>Colisión punto contra caja</p>
+
+Como vemos en la imagen anterior, tenemos que detectar que dicho punto esta dentro del rectángulo o caja; para ello, podemos usar la siguiente formula.
+
+```c#
+if (point_x >= box_x1) and
+   (point_x <= box_x2) and
+   (point_y >= box_y1) and
+   (point_y <= box_y2) then
+...
+```
+
+Donde:
+
+* ```point_x```: posición X del punto en píxeles.
+* ```point_y```: posición Y del punto en píxeles.
+* ```box_x1```: posición X del inicio de la caja. Es decir, la propiedad X de la estructura ```BoxCollision```.
+* ```box_y1```: posición Y del inicio de la caja. Es decir, la propiedad Y de la estructura ```BoxCollision```.
+* ```box_x2```: posición X del final de la caja. Es decir, la propiedad X más la propiedad W de la estructura ```BoxCollision```.
+* ```box_y2```: posición Y del final de la caja. Es decir, la propiedad Y más la propiedad H de la estructura ```BoxCollision```.
+
+Como podemos ver, es simplemente comprobar que el punto esta dentro de los parámetros definidos del rectángulo o caja.
+
+### Rectángulo contra Rectángulo
+
+Otro ejemplo más común, es el comprobar que dos rectángulos o cajas se superponen; de esta forma podemos comprobar colisiones entre dos Sprites de forma más sencilla.
+
+<div class="image">
+<img id="arq" src="10fisicas/img/boxvsbox.png" alt="Colisión caja contra caja" title="Colisión caja contra caja"/> </div>
+<p>Colisión caja contra caja</p>
+
+Como podemos ver en la imagen anterior, tenemos que comprobar cuando se superponen la caja de colisión de dos o más Sprites. Para ello podemos seguir la siguiente formula muy parecida a la usada de punto contra caja.
+
+```c#
+if (box1_x1 <= box2_x2) and
+   (box1_x2 >= box2_x1) and
+   (box1_y1 <= box2_y2) and
+   (box1_y2 >= box2_y1)
+then
+...
+```
+
+Donde:
+
+* ```box1_x1```: posición X del inicio de la primera caja. Es decir, la propiedad X de la estructura ```BoxCollision```.
+* ```box1_y1```: posición Y del inicio de la primera caja. Es decir, la propiedad Y de la estructura ```BoxCollision```.
+* ```box1_x2```: posición X del final de la primera caja. Es decir, la propiedad X más la propiedad W de la estructura ```BoxCollision```.
+* ```box1_y2```: posición Y del final de la primera caja. Es decir, la propiedad Y más la propiedad H de la estructura ```BoxCollision```.
+* ```box2_x1```: posición X del inicio de la segunda caja. Es decir, la propiedad X de la estructura ```BoxCollision```.
+* ```box2_y1```: posición Y del inicio de la segunda caja. Es decir, la propiedad Y de la estructura ```BoxCollision```.
+* ```box2_x2```: posición X del final de la segunda caja. Es decir, la propiedad X más la propiedad W de la estructura ```BoxCollision```.
+* ```box2_y2```: posición Y del final de la segunda caja. Es decir, la propiedad Y más la propiedad H de la estructura ```BoxCollision```.
+
+En este caso, se trata de comprobar si ambas áreas se superponen.
+
+### Punto contra Círculo
+
+También se puede comprobar cuando un punto esta dentro de un círculo; de esta forma podemos calcular por ejemplo cuando un Sprite con un área de colisión circular toca un punto o esta por encima de dicho punto etc.
+
+<div class="image">
+<img id="arq" src="10fisicas/img/pointvscircle.png" alt="Colisión punto contra círculo" title="Colisión punto contra círculo"/> </div>
+<p>Colisión punto contra círculo</p>
+
+Para comprobar que un punto pertenece a un circulo, podemos basarnos en el teorema de pitágoras para poder calcular la distancia entre el punto y el centro de la circunferencia es correcta.
+
+```c
+distancia^2= X diferencia^2 + Y diferencia^2
+```
+
+Teniendo en cuenta que la diferencia es el restar cada coordenada del centro del circulo con el punto. Pudiendo implementar esta formula y comprobar la colisión de la siguiente manera:
+
+```c#
+delta_x = circle_x - point_x
+delta_y = circle_y - point_y
+limit = circle_radius
+
+if (delta_x * delta_x) +
+   (delta_y * delta_y) <= (limit * limit)
+then
+   ...
+```
+
+Donde:
+
+* ```circle_x```: es la posición X del centro del circulo en píxeles. Es la propiedad X en la estructura ```CircleCollision```.
+* ```circle_y```: es la posición Y del centro del circulo en píxeles. Es la propiedad Y en la estructura ```CircleCollision```.
+* ```point_x```: posición X del punto en píxeles.
+* ```point_y```: posición Y del punto en píxeles.
+* ```circle_radius```: es el rádio de la circunferencia. Es la propiedad ray en la estructura ```circleCollision```.
+
+En este caso hemos podido comprobar la distancia de un punto con respecto al centro del circulo y ver que es menor que el rádio.
+
+### Círculo contra Círculo
+
+El último ejemplo que veremos, es ver si dos círculos se superponen; de esta forma podemos detectar si dos Sprites con este tipo de colisión, se superponen y por lo tanto tienen algun tipo de acción, etc.
+
+<div class="image">
+<img id="arq" src="10fisicas/img/circlevscircle.png" alt="Colisión círculo contra círculo" title="Colisión círculo contra círculo"/> </div>
+<p>Colisión círculo contra círculo</p>
+
+Como podemos ver en la anterior imagen, vemos que se pueden superponer áreas de cada circulo y tenemos que ser capaces de poder detectarlas para poder decidir que hacer con dicha colisión. Veamos una formula basada en el anterior caso.
+
+```c#
+delta_x = circle2_x - circle1_x
+delta_y = circle2_y - circle1_y
+limit = circle2_radius + circle1_radius
+
+if (delta_x * delta_x) +
+   (delta_y * delta_y) <= (limit * limit)
+then
+...
+```
+
+Donde:
+
+* ```circle1_x```: Posición X del centro del primer círculo. Propiedad X de la estructura ```circleCollision```.
+* ```circle1_y```: Posición Y del centro del primer círculo. Propiedad Y de la estructura ```circleCollision```.
+* ```circle2_x```: Posición X del centro del segundo círculo. Propiedad X de la estructura ```circleCollision```.
+* ```circle2_y```: Posición Y del centro del segundo círculo. Propiedad Y de la estructura ```circleCollision```.
+* ```circle1_radius```: Rádio de la primera circunferencia. Propiedad Ray de la estructura ```circleCollision```.
+* ```circle2_radius```: Rádio de la segunda circunferencia. Propiedad Ray de la estructura ```circleCollision```.
+
+Aunque existen más combinaciones como por ejemplo una caja contra círculo, estos se pueden calcular realizando combinaciones. Además, es importante ver que hemos estudiado las formulas y estas incluyen multiplicaciones de tal forma que en la medida de lo posible, transformar dichas multiplicaciones, por desplazamientos.
+
 ## Ejemplo de colisión de Sprites
 
 ## Referencias
