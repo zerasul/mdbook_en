@@ -329,6 +329,79 @@ Aunque existen más combinaciones como por ejemplo una caja contra círculo, est
 
 ## Ejemplo de colisión de Sprites
 
+Una vez hemos visto la teoría de como poder calcular las colisiones, podemos ver el ejemplo de este capítulo. En este caso, vamos a tomar de base el ejemplo anterior, pero añadiendo la verificación de colisiones.
+
+Puedes encontrar el ejemplo de esta sección en el repositorio de ejemplos que acompaña a este libro; en este caso, se encuentra en la carpeta _ej7.collisions_; que encontraras tanto el código fuente como los recursos de este ejemplo.
+
+Para poder ver mejor las colisiones, hemos modificado los Sprites para dibujar el contorno de las cajas de colisión. Puedes ver esos Sprites modificados en la carpeta _res_ del ejemplo.
+
+La principal diferencia con el anterior ejemplo, es que se ha añadido la función ```checkCollision``` que recibe dos Sprites, y devuelve un int. Esta función será llamada en cada Frame ya que estará incluida en el bucle infinito.
+
+Veamos esta función; para mayor comprensión vamos a estudiarla por fragmentos.
+
+```c
+int checkCollision(Sprite* sprt1, Sprite* sprt2){
+
+    BoxCollision collision1 =
+        sprt1->frame->collision->hit.box;
+    BoxCollision collision2 = 
+        sprt2->frame->collision->hit.box;
+```
+
+Como podemos ver en este primer fragmento, lo primero que hacemos es obtener por cada Sprite, la información de la caja de colisión. En este caso, en ambos Sprites, se trata de dos cajas de colisión; en el caso de usar el tipo Círculo, se utilizaría otra variable. Como vemos también, se almacenan en dos variables de tipo ```BoxCollision```; los cuales tienen la información del área de colisión.
+
+Una vez obtenidos dichas variables, calculamos cada punto necesario para comprobar si ambas cajas se superponen; veamos el fragmento.
+
+```c
+   
+   s8 box1_x1 = collision1.x;
+   s8 box1_y1 = collision1.y;
+   s8 box1_x2 = collision1.x+collision1.w;
+   s8 box1_y2 = collision1.y+collision1.h;
+
+   s8 box2_x1 = collision2.x;
+   s8 box2_y1 = collision2.y;
+   s8 box2_x2 = collision2.x+collision2.w;
+   s8 box2_y2 = collision2.y+collision2.h;
+```
+
+Vemos como en cada caso se calcula tanto la posición x1,y1 y la posición x2,y2 que corresponden al punto inicial y final del rectángulo que conforma la caja de colisión. Una vez se tiene cada punto, ya podemos realizar la comprobación:
+
+```c
+   
+   if ((box1_x1 <= box2_x2) &&
+            (box1_x2 >= box2_x1) &&
+            (box1_y1 <= box2_y2) &&
+            (box1_y2 >= box2_y1)){
+                return TRUE;
+            }else{
+                return FALSE;
+            }
+```
+
+Vemos como si la comprobación es correcta se devolverá ```TRUE``` (o 1); mientras si no se cumple, se devolverá ```FALSE``` (o 0); por lo que no habría colisión. Por último, mostraremos el fragmento de código donde se realiza la llamada a la función ```checkCollision```:
+
+```c
+
+SPR_update();
+int collision = checkCollision(sha, elli);
+sprintf(buffer, "Collision: %d", collision);
+VDP_drawText(buffer,3,3);
+...
+```
+
+Vemos como en cada iteración del bucle, se comprueba la colisión entre los Sprites ```sha``` y ```elli``` de esta forma, se muestra por pantalla cuando ambos Sprites colisionan.
+
+Por último, ya solo nos queda compilar y ejecutar el ejemplo; ya sea de forma manual, o usando la extensión _Genesis Code_, con el comando _Genesis Code: compile & Run Project_. Si todo va correctamente, nos mostrará el siguiente resultado:
+
+<div class="image">
+<img id="arq" src="10fisicas/img/ejemplo7.png" alt="Ejemplo 7: Colisiones" title="Ejemplo 7: Colisiones"/> </div>
+<p>Ejemplo 7: Colisiones</p>
+
+Tras ver este ejemplo, ya podemos ver como usar la físicas y matemáticas a la hora de trabajar con Sega Mega Drive. Desde las distintas instrucciones aritméticas que podemos hacer con el Motorola 68000, hasta pasar por repasar las colisiones entre Sprites y como podemos implementarlos en nuestros juegos.
+
+En el siguiente capítulo, ya trataremos como Sega mega Drive gestiona los colores y las distintas paletas que podemos utilizar y cambiar.
+
 ## Referencias
 
 * [https://wiki.neogeodev.org/index.php?title=68k_instructions_timings](https://wiki.neogeodev.org/index.php?title=68k_instructions_timings)
