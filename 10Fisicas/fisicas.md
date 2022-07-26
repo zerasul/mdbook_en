@@ -1,6 +1,6 @@
 # 10. Fisica y matemáticas en Mega Drive
 
-Hay un aspecto importante a la hora de trabjar con ordenadores, que tenemos que tener en cuenta. Sobre todo a la hora de crear videojuegos que tienen distintas interacciones. Y es que un computador no es más que una calculadora que realiza cálculos en números binarios[^51].
+Hay un aspecto importante a la hora de trabajar con ordenadores, que tenemos que tener en cuenta. Sobre todo a la hora de crear videojuegos que tienen distintas interacciones. Y es que un computador no es más que una calculadora que realiza cálculos en números binarios[^51].
 
 Por ello, tenemos que tener en cuenta que en cada arquitectura y procesador, puede tener distintos comportamientos a la hora de realizar cálculos; ya sea desde una simple suma, hasta operaciones más costosas como el acceder a memoria o la propia división o multiplicación.
 
@@ -37,7 +37,7 @@ _Tabla3: Operaciones y coste del procesador Motorola 68000_
 
 Podemos observar que tanto la multiplicación; como la división son operaciones muy costosas por lo que realizarlas puede ser poco eficiente (158 y 70 ciclos respectivamente). Por lo tanto, es necesario evitar utilizar estas operaciones.
 
-Una alternativa a multiplicar, es utilizar desplazamientos tanto a la derecha como a la izquierda; como podemos ver en la tabla anterior, un desplazamiento puede tener hasta 8 ciclos de reloj para completarse; por lo es mucho más eficiente a la hora de realizar una multiplicación o división.
+Una alternativa a multiplicar, es utilizar desplazamientos tanto a la a la izquierda; como podemos ver en la tabla anterior, un desplazamiento puede tener hasta 8 ciclos de reloj para completarse; por lo es mucho más eficiente a la hora de realizar una multiplicación o división.
 
 Veamos un ejemplo:
 
@@ -74,7 +74,7 @@ Tras ver las operaciones aritméticas y como optimizarlas, vamos a mostrar otro 
 
 A la hora de trabajar con los distintos tipos de datos; necesitamos conocer como se almacenaran en memoria y como se puede utilizar; por ejemplo a la hora de trabajar con números.
 
-Por ello, vamos a mostrar los distintos tipos de datos numéricos que nos provee SGDK; aunque podemos seguir utilizando los clásicos de C (Ya que son deficiniciones a partir de estos); veamos una tabla con los distintos tipos de datos y cuanto ocupa en memoria.
+Por ello, vamos a mostrar los distintos tipos de datos numéricos que nos provee SGDK; aunque podemos seguir utilizando los clásicos de C (Ya que son definiciones a partir de estos); veamos una tabla con los distintos tipos de datos y cuanto ocupa en memoria.
 
 | **Tipo SGDK** |  **Tipo (C)**  | **Descripción**             | **Rango**               |
 |---------------|:--------------:|-----------------------------|-------------------------|
@@ -150,9 +150,9 @@ Una vez ya conocemos los distintos tipos de datos que podemos utilizar y como op
 
 ## Física y colisiones
 
-A la hora de trabajar con distintos Sprites, es importante conocer si un Sprite esta a tocando a otro, o incluso si un Sprite esta tocando el suelo. Por ello es importante conocer como podemos ver si dos o más sprites estan colisionando para poder calcular por ejemplo cuando han atacado a nuestro personaje, o por el contrario, si nuestro personaje esta atacando, cuando destruir al enemigo,etc.
+A la hora de trabajar con distintos Sprites, es importante conocer si un Sprite esta tocando a otro, o incluso si un Sprite esta tocando el suelo. Por ello es importante conocer como podemos ver si dos o más sprites estan colisionando para poder calcular por ejemplo cuando han atacado a nuestro personaje, o por el contrario, si nuestro personaje esta atacando, cuando destruir al enemigo,etc.
 
-No existe un único método para calcular la colisión entre dos Sprites por lo que aquí mostraremos solo algunos de ellos. En primer lugar, podemos comprobar cuando algún Sprite colisiona usando SGDK, y un registro especial que tiene el VDP para indicar dicha situación:
+No existe un único método para calcular la colisión entre dos Sprites por lo que aquí mostraremos sólo algunos de ellos. En primer lugar, podemos comprobar cuando algún Sprite colisiona usando SGDK, y un registro especial que tiene el VDP para indicar dicha situación:
 
 ```c
 GET_VDPSTATUS(VDP_SPRCOLLISION_FLAG)
