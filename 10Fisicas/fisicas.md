@@ -152,50 +152,21 @@ Una vez ya conocemos los distintos tipos de datos que podemos utilizar y como op
 
 A la hora de trabajar con distintos Sprites, es importante conocer si un Sprite esta a tocando a otro, o incluso si un Sprite esta tocando el suelo. Por ello es importante conocer como podemos ver si dos o más sprites estan colisionando para poder calcular por ejemplo cuando han atacado a nuestro personaje, o por el contrario, si nuestro personaje esta atacando, cuando destruir al enemigo,etc.
 
-No existe un único método para calcular la colisión entre dos Sprites por lo que aquí mostraremos solo algunos de ellos. En primer lugar, hablaremos de las cajas de colisión o comunmente llamados colliders; y después veremos como calcular la colisión entre ellos.
-
-Una caja de colisión o collider, es un área que representa dentro de un Sprite que la colisión puede ocurrir dentro de dicha área. Normalmente se representa con un rectángulo o con un círculo. Si usamos SGDK, podemos definir estas áreas a la hora de importar un recurso usando _rescomp_. Por ejemplo:
-
-```
-SPRITE shaSprt "sprt/sha.png" 3 4 NONE 6 BOX
-SPRITE elliSprt "sprt/elliready.png" 4 4 NONE 5 BOX
-```
-
-Vemos en el anterior fragmento, que se definen ambas como ```BOX``` esto indica a rescomp que se va a utilizar un área en forma de rectángulo para calcular la colisión. Dicha información es almacenada en una estructura de tipo ```BoxCollision```; la cual se define de la siguiente forma:
+No existe un único método para calcular la colisión entre dos Sprites por lo que aquí mostraremos solo algunos de ellos. En primer lugar, podemos comprobar cuando algún Sprite colisiona usando SGDK, y un registro especial que tiene el VDP para indicar dicha situación:
 
 ```c
-struct BoxCollision{
-    s8 x;
-    s8 y;
-    s8 w;
-    s8 h;
-};
+GET_VDPSTATUS(VDP_SPRCOLLISION_FLAG)
 ```
 
-Las propiedades de esta estructura son:
+La macro ```GET_VDPSTATUS``` nos devolverá distinto de 0, cuando dos o más sprites colisionan; aunque este método nos permite indicar cuando se colicionan los Sprites, tenemos que comprobar uno a uno, cual de ellos ha sido y puede ser poco eficiente.
 
-* _x_: Posición X en píxeles.
-* _y_: Posición y en píxeles.
-* _w_: ancho del rectángulo en píxeles.
-* _h_: alto del rectángulo en píxeles.
+Para comprobar mejor como los Sprites pueden colisionar, hablaremos de las cajas de colisión o comunmente llamados colliders; y después veremos como calcular la colisión entre ellos.
 
-También puede definirse que la área de colisión, sea un círculo. definiendo dentro del fichero _.res_ el valor de ```CIRCLE```; este generará una estructura de tipo ```CircleCollision```; el cual se define con los siguientes valores.
+Una caja de colisión o collider, es un área que representa dentro de un Sprite que la colisión puede ocurrir dentro de dicha área. Normalmente se representa con un rectángulo o con un círculo. 
 
-```c
-struct circleCollision{
-    s8 x;
-    s8 y;
-    u16 ray;
-};
-```
+Normalmente, se suelen definir en forma de caja (BOX) o en forma de círculo (CIRCLE); con SGDK, se pueden definir el tipo de collider que tendrá a la hora de importar sprites con _rescomp_; sin embargo, esta funcionalidad a día de hoy no esta del todo implementada.
 
-Las propiedades de esta estructura son:
-
-* _x_: posición x del centro en píxeles.
-* _y_: posición y del centro en píxeles.
-* _ray_: rádio de la circunferencia.
-
-Con estos datos, podemos calcular fácilmente las colisiones entre distintos coliders; vamos a ver algunos ejemplos entre los distintos casos.
+Vamos a centrarnos en los distintos ejemplos de colliders que se pueden utilizar para calcular las colisiones. Con estos datos, podemos calcular fácilmente las colisiones entre distintos coliders; vamos a ver algunos ejemplos entre los distintos casos.
 
 ### Punto contra Rectángulo
 
@@ -219,10 +190,10 @@ Donde:
 
 * ```point_x```: posición X del punto en píxeles.
 * ```point_y```: posición Y del punto en píxeles.
-* ```box_x1```: posición X del inicio de la caja. Es decir, la propiedad X de la estructura ```BoxCollision```.
-* ```box_y1```: posición Y del inicio de la caja. Es decir, la propiedad Y de la estructura ```BoxCollision```.
-* ```box_x2```: posición X del final de la caja. Es decir, la propiedad X más la propiedad W de la estructura ```BoxCollision```.
-* ```box_y2```: posición Y del final de la caja. Es decir, la propiedad Y más la propiedad H de la estructura ```BoxCollision```.
+* ```box_x1```: posición X del inicio de la caja.
+* ```box_y1```: posición Y del inicio de la caja.
+* ```box_x2```: posición X del final de la caja.
+* ```box_y2```: posición Y del final de la caja.
 
 Como podemos ver, es simplemente comprobar que el punto esta dentro de los parámetros definidos del rectángulo o caja.
 
@@ -247,14 +218,14 @@ then
 
 Donde:
 
-* ```box1_x1```: posición X del inicio de la primera caja. Es decir, la propiedad X de la estructura ```BoxCollision```.
-* ```box1_y1```: posición Y del inicio de la primera caja. Es decir, la propiedad Y de la estructura ```BoxCollision```.
-* ```box1_x2```: posición X del final de la primera caja. Es decir, la propiedad X más la propiedad W de la estructura ```BoxCollision```.
-* ```box1_y2```: posición Y del final de la primera caja. Es decir, la propiedad Y más la propiedad H de la estructura ```BoxCollision```.
-* ```box2_x1```: posición X del inicio de la segunda caja. Es decir, la propiedad X de la estructura ```BoxCollision```.
-* ```box2_y1```: posición Y del inicio de la segunda caja. Es decir, la propiedad Y de la estructura ```BoxCollision```.
-* ```box2_x2```: posición X del final de la segunda caja. Es decir, la propiedad X más la propiedad W de la estructura ```BoxCollision```.
-* ```box2_y2```: posición Y del final de la segunda caja. Es decir, la propiedad Y más la propiedad H de la estructura ```BoxCollision```.
+* ```box1_x1```: posición X del inicio de la primera caja.
+* ```box1_y1```: posición Y del inicio de la primera caja.
+* ```box1_x2```: posición X del final de la primera caja.
+* ```box1_y2```: posición Y del final de la primera caja.
+* ```box2_x1```: posición X del inicio de la segunda caja.
+* ```box2_y1```: posición Y del inicio de la segunda caja.
+* ```box2_x2```: posición X del final de la segunda caja.
+* ```box2_y2```: posición Y del final de la segunda caja.
 
 En este caso, se trata de comprobar si ambas áreas se superponen.
 
@@ -287,11 +258,11 @@ then
 
 Donde:
 
-* ```circle_x```: es la posición X del centro del circulo en píxeles. Es la propiedad X en la estructura ```CircleCollision```.
-* ```circle_y```: es la posición Y del centro del circulo en píxeles. Es la propiedad Y en la estructura ```CircleCollision```.
+* ```circle_x```: es la posición X del centro del circulo en píxeles.
+* ```circle_y```: es la posición Y del centro del circulo en píxeles.
 * ```point_x```: posición X del punto en píxeles.
 * ```point_y```: posición Y del punto en píxeles.
-* ```circle_radius```: es el rádio de la circunferencia. Es la propiedad ray en la estructura ```circleCollision```.
+* ```circle_radius```: es el rádio de la circunferencia.
 
 En este caso hemos podido comprobar la distancia de un punto con respecto al centro del circulo y ver que es menor que el rádio.
 
@@ -318,12 +289,12 @@ then
 
 Donde:
 
-* ```circle1_x```: Posición X del centro del primer círculo. Propiedad X de la estructura ```circleCollision```.
-* ```circle1_y```: Posición Y del centro del primer círculo. Propiedad Y de la estructura ```circleCollision```.
-* ```circle2_x```: Posición X del centro del segundo círculo. Propiedad X de la estructura ```circleCollision```.
-* ```circle2_y```: Posición Y del centro del segundo círculo. Propiedad Y de la estructura ```circleCollision```.
-* ```circle1_radius```: Rádio de la primera circunferencia. Propiedad Ray de la estructura ```circleCollision```.
-* ```circle2_radius```: Rádio de la segunda circunferencia. Propiedad Ray de la estructura ```circleCollision```.
+* ```circle1_x```: Posición X del centro del primer círculo.
+* ```circle1_y```: Posición Y del centro del primer círculo.
+* ```circle2_x```: Posición X del centro del segundo círculo.
+* ```circle2_y```: Posición Y del centro del segundo círculo.
+* ```circle1_radius```: Rádio de la primera circunferencia.
+* ```circle2_radius```: Rádio de la segunda circunferencia.
 
 Aunque existen más combinaciones como por ejemplo una caja contra círculo, estos se pueden calcular realizando combinaciones. Además, es importante ver que hemos estudiado las formulas y estas incluyen multiplicaciones de tal forma que en la medida de lo posible, transformar dichas multiplicaciones, por desplazamientos.
 
@@ -335,34 +306,59 @@ Puedes encontrar el ejemplo de esta sección en el repositorio de ejemplos que a
 
 Para poder ver mejor las colisiones, hemos modificado los Sprites para dibujar el contorno de las cajas de colisión. Puedes ver esos Sprites modificados en la carpeta _res_ del ejemplo.
 
-La principal diferencia con el anterior ejemplo, es que se ha añadido la función ```checkCollision``` que recibe dos Sprites, y devuelve un int. Esta función será llamada en cada Frame ya que estará incluida en el bucle infinito.
+Se ha creado una estructura, para almacenar los datos de la caja de colisión; en este ejemplo usaremos una caja rectangular para comprobar la colisión.
+
+```c
+typedef struct {
+    s8 x;
+    s8 y;
+    s8 w;
+    s8 h;
+}BoxCollider;
+```
+
+Donde las propiedades de esta estructura son:
+
+* _x_: Coordenada X inicial en píxeles de la esquina superior izquierda.
+* _y_: Coordenada Y inicial en píxeles de la esquina superior izquierda.
+* _w_: Ancho en píxeles del rectángulo.
+* _h_: Ancho en píxeles del rectángulo.
+
+Además, se ha añadido la función ```checkCollision``` que recibe dos Sprites, y devuelve un int. Esta función será llamada en cada Frame ya que estará incluida en el bucle infinito.
 
 Veamos esta función; para mayor comprensión vamos a estudiarla por fragmentos.
 
 ```c
 int checkCollision(Sprite* sprt1, Sprite* sprt2){
 
-    BoxCollision collision1 =
-        sprt1->frame->collision->hit.box;
-    BoxCollision collision2 = 
-        sprt2->frame->collision->hit.box;
+    BoxCollider sprt1Collider;
+    sprt1Collider.x=sprt1->x+4;
+    sprt1Collider.y=sprt1->y+4;
+    sprt1Collider.w=20;
+    sprt1Collider.h=26;
+
+    BoxCollider sprt2Collider;
+    sprt2Collider.x=sprt2->x+7;
+    sprt2Collider.y=sprt2->y+6;
+    sprt2Collider.w=18;
+    sprt2Collider.h=21;
 ```
 
-Como podemos ver en este primer fragmento, lo primero que hacemos es obtener por cada Sprite, la información de la caja de colisión. En este caso, en ambos Sprites, se trata de dos cajas de colisión; en el caso de usar el tipo Círculo, se utilizaría otra variable. Como vemos también, se almacenan en dos variables de tipo ```BoxCollision```; los cuales tienen la información del área de colisión.
+Como podemos ver en este primer fragmento, se crean las estructuras de cada Collider correspondiente a cada Sprite; esta vez se ha puesto un valor fijo pero dependiendo de cada caso, podria cambiar por animación, frame,etc.
 
 Una vez obtenidos dichas variables, calculamos cada punto necesario para comprobar si ambas cajas se superponen; veamos el fragmento.
 
 ```c
    
-   s8 box1_x1 = collision1.x;
-   s8 box1_y1 = collision1.y;
-   s8 box1_x2 = collision1.x+collision1.w;
-   s8 box1_y2 = collision1.y+collision1.h;
+   s8 box1_x1 = sprt1Collider.x;
+    s8 box1_y1 = sprt1Collider.y;
+    s8 box1_x2 = sprt1Collider.x+sprt1Collider.w;
+    s8 box1_y2 = sprt1Collider.y+sprt1Collider.h;
 
-   s8 box2_x1 = collision2.x;
-   s8 box2_y1 = collision2.y;
-   s8 box2_x2 = collision2.x+collision2.w;
-   s8 box2_y2 = collision2.y+collision2.h;
+    s8 box2_x1 = sprt2Collider.x;
+    s8 box2_y1 = sprt2Collider.y;
+    s8 box2_x2 = sprt2Collider.x+sprt2Collider.w;
+    s8 box2_y2 = sprt2Collider.y+sprt2Collider.h;
 ```
 
 Vemos como en cada caso se calcula tanto la posición x1,y1 y la posición x2,y2 que corresponden al punto inicial y final del rectángulo que conforma la caja de colisión. Una vez se tiene cada punto, ya podemos realizar la comprobación:
@@ -408,3 +404,4 @@ En el siguiente capítulo, ya trataremos como Sega mega Drive gestiona los color
 * [https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html](https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html)
 * [https://ccia.ugr.es/~jfv/ed1/c/cdrom/cap2/cap24.htm](https://ccia.ugr.es/~jfv/ed1/c/cdrom/cap2/cap24.htm)
 * [https://plutiedev.com/basic-collision](https://plutiedev.com/basic-collision)
+* [https://danibus.wordpress.com/2019/10/13/leccion-10-colisiones/](https://danibus.wordpress.com/2019/10/13/leccion-10-colisiones/)
