@@ -132,6 +132,14 @@ Se está trabajando en una versión para Nintendo Switch. Puede encontrarse más
 
 [^30]: Demons of Astebord es un juego publicado y desarrollado por neofid-studios. Todos los derechos reservados.
 
+### Metal Dragon
+
+Metal Dragon [^31] es un juego para Sega Mega Drive que tiene una estética de película de acción de los años 80/90; en este juego tienes que rescatar a la hija del presidente y enfrentarte a un sinfin de enemigos.
+
+Este juego es de 1 jugador y hay versión para Sega Mega Drive, como para MSX. Además de ser un estudio Español el que ha desarrollado este juego y recientemente esta publicando su juego en la revista _beep_ para Japón. Además de publicar otros juegos como _Life On mars_.
+
+[^31]: Metal Dragon ha sido desarrollado por el estudio español Kai Magazine Software. Todos los derechos reservados.
+
 ## Instalación del SGDK
 
 Una vez conocidos tanto la historia del SGDK, sus componentes y visto algunos juegos realizados con el mismo, vamos a pasar a dar nuestros primeros pasos.
@@ -140,9 +148,9 @@ En este caso, vamos a ver la instalación del mismo en los distintos Sistemas Op
 
 ### Windows
 
-El primer Sistema Operativo que vamos a ver para instalar SGDK, es Microsoft Windows [^31]; en este caso, veremos las distintas instrucciones necesarias para instalar SGDK.
+El primer Sistema Operativo que vamos a ver para instalar SGDK, es Microsoft Windows [^32]; en este caso, veremos las distintas instrucciones necesarias para instalar SGDK.
 
-En primer lugar, necesitaremos descargar una serie de dependencias que se requieren para usar SGDK como por ejemplo el entorno de ejecución Java (JRE [^32]) que nos permitirá utilizar las herramientas como rescomp. Puede instalarse tanto la versión de Oracle, como la versión de _openjdk_ [^33]. Dejamos la URL para poder descargar la versión de Java correspondiente:
+En primer lugar, necesitaremos descargar una serie de dependencias que se requieren para usar SGDK como por ejemplo el entorno de ejecución Java (JRE [^33]) que nos permitirá utilizar las herramientas como rescomp. Puede instalarse tanto la versión de Oracle, como la versión de _openjdk_ [^34]. Dejamos la URL para poder descargar la versión de Java correspondiente:
 
 [https://www.java.com/es/download/](https://www.java.com/es/download/)
 
@@ -166,10 +174,10 @@ Recuerda que la variable ```GDK``` es opcional y puede sustituirse por la ruta d
 
 Más adelante, veremos como utilizar el SGDK de distintas formas.
 
-[^31]: Microsoft Windows es una marca registrada de Microsoft Corporation.
+[^32]: Microsoft Windows es una marca registrada de Microsoft Corporation.
 
-[^32]: JRE (Java Runtime Environment); entorno de ejecución para poder ejecutar aplicaciones desarrolladas para la máquina virtual Java (JVM).
-[^33]: OpenJdk; es una implementación del ecosistema Java de código abierto.
+[^33]: JRE (Java Runtime Environment); entorno de ejecución para poder ejecutar aplicaciones desarrolladas para la máquina virtual Java (JVM).
+[^34]: OpenJdk; es una implementación del ecosistema Java de código abierto.
 
 ### Linux
 
@@ -179,7 +187,7 @@ Puedes encontrar este proyecto en su repositorio de Github:
 
 [https://github.com/kubilus1/gendev](https://github.com/kubilus1/gendev)
 
-Para utilizar este proyecto, necesitaremos instalar una serie de dependencias; las cuales podemos instalar usando el gestor de paquetes de vuestra distribución; para nuestro caso, usaremos una distribución basada en Debian [^34] (Ubuntu).
+Para utilizar este proyecto, necesitaremos instalar una serie de dependencias; las cuales podemos instalar usando el gestor de paquetes de vuestra distribución; para nuestro caso, usaremos una distribución basada en Debian [^35] (Ubuntu).
 
 Necesitarás instalar las siguientes dependencias:
 
@@ -198,7 +206,7 @@ En el caso de java, usaremos _openjdk_:
 sudo apt install texinfo default-jre
 ```
 
-[^34]: Debian y Ubuntu son distribuciones Linux de código abierto. Ubuntu está mantenida por Canonical Ltd.
+[^35]: Debian y Ubuntu son distribuciones Linux de código abierto. Ubuntu está mantenida por Canonical Ltd.
 
 Una vez instaladas las dependencias, descargaremos el paquete _.deb_ (o el tar); del repositorio de GENDEV. En el caso de instalar usando el paquete .deb, lo instalaremos con la siguiente instrucción:
 
@@ -272,6 +280,7 @@ Con la instrucción anterior, se compilará y generará la ROM de Mega Drive.
 * Make: [https://www.gnu.org/software/make/](https://www.gnu.org/software/make/).
 * Bitmap Bureau: [https://bitmapbureau.com/](https://bitmapbureau.com/).
 * Neofid-Studios: [https://neofid-studios.com/](https://neofid-studios.com/).
+* Kai Magazine Software: [https://kai-magazine-software.fwscart.com/](https://kai-magazine-software.fwscart.com/)
 * Open JDK: [https://openjdk.java.net/](https://openjdk.java.net/).
 * MarsDev: [https://github.com/andwn/marsdev](https://github.com/andwn/marsdev).
 * Docker: [https://www.docker.com/](https://www.docker.com/).

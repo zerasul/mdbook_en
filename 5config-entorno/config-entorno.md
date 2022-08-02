@@ -18,12 +18,12 @@ Aunque cada desarrollador utilizará distintas herramientas, en este libro vamos
 
 ### Visual Studio Code
 
-Visual Studio Code[^35] (no confundir con Visual Studio), es un editor de texto enriquecido que nos va a permitir desarrollar nuestro juego de forma sencilla.
+Visual Studio Code[^36] (no confundir con Visual Studio), es un editor de texto enriquecido que nos va a permitir desarrollar nuestro juego de forma sencilla.
 
 Este editor tiene distintas características como:
 
 * Resaltado de sintaxis.
-* Autocompletado inteligente (usando intellisense[^36]).
+* Autocompletado inteligente (usando intellisense[^37]).
 * Depuración integrada (requiere configuración avanzada ver capítulo 16).
 * Integración con sistemas de control de versiones (GIT).
 * Ampliable y modularizable gracias a las distintas extensiones que se pueden instalar.
@@ -42,8 +42,8 @@ Para aquellos que no estén familiarizados con este editor de texto, os dejamos 
 
 Con Visual Studio code, se puede desarrollar fácilmente y se pueden ampliar sus funcionalidades de forma muy sencilla, gracias al repositorio de extensiones que incluye (o incluso instalándolas manualmente).
 
-[^35]: Visual Studio Code es una marca registrada de Microsoft Corporation Ltd.
-[^36]: intellisense es una marca registrada de Microsoft Corporation ltd.
+[^36]: Visual Studio Code es una marca registrada de Microsoft Corporation Ltd.
+[^37]: intellisense es una marca registrada de Microsoft Corporation ltd.
 
 En este libro, vamos a recomendar algunas de ellas; aunque es solo una recomendación; ya que pueden usarse las que más guste al lector.
 
@@ -121,7 +121,7 @@ Las opciones disponibles son:
 
 ## Emulador
 
-A la hora de desarrollar nuestro juego, es importante poder probar el progreso de este y aunque podemos usar un hardware real usando un cartucho FlashCart como _Everdrive_[^37], no es nada práctico, tener que estar transfiriendo la ROM cada vez a la tarjeta SD. Por ello, se utilizan emuladores para pode ejecutar la rom creada y ver los resultados.
+A la hora de desarrollar nuestro juego, es importante poder probar el progreso de este y aunque podemos usar un hardware real usando un cartucho FlashCart como _Everdrive_[^38], no es nada práctico, tener que estar transfiriendo la ROM cada vez a la tarjeta SD. Por ello, se utilizan emuladores para pode ejecutar la rom creada y ver los resultados.
 
 Además, algunos de estos emuladores tienen herramientas que nos pueden ayudar a depurar nuestros juegos; como depuración tanto del 68K como del z80, visor de los gráficos en el VDP, visor de Planos o Sprites,etc.
 
@@ -129,7 +129,7 @@ Vamos a ver un par de ejemplos de emulador; es importante destacar que el lector
 
 Es importante saber, que aunque usemos un emulador, nunca se podrá emular el hardware 100%; por lo que aunque podamos emular el juego, si es interesante poder probarlo en un hardware; es más, a ser posibles en distintos modelos de Mega Drive.
 
-[^37]: Everdrive: es un Cartucho FlashCart con capacidad de poder cargar roms usando una tarjeta SD o MicroSD.
+[^38]: Everdrive: es un Cartucho FlashCart con capacidad de poder cargar roms usando una tarjeta SD o MicroSD.
 
 ### Gens KMod
 
@@ -196,9 +196,9 @@ A la hora de trabajar en un videojuego, es igualmente importante trabajar el có
 
 GIMP (Gnu Image Manipulation Program), es un programa de edición de imágenes en forma de mapa de bits; este programa es de código abierto y tiene una licencia GPLv3.
 
-La primera versión de este programa salió en el año 1995 en la universidad de Berkley; y desde entonces se ha convertido en parte del proyecto GNU [^38]. GIMP, nos va a ayudar a modificar las imagenes para poder usarlas en nuestros proyectos.
+La primera versión de este programa salió en el año 1995 en la universidad de Berkley; y desde entonces se ha convertido en parte del proyecto GNU [^39]. GIMP, nos va a ayudar a modificar las imagenes para poder usarlas en nuestros proyectos.
 
-[^38]: Proyecto GNU: [https://www.gnu.org/home.es.html](https://www.gnu.org/home.es.html)
+[^39]: Proyecto GNU: [https://www.gnu.org/home.es.html](https://www.gnu.org/home.es.html)
 
 Permite modificar imágenes digitalizadas a través de sus muchas herramientas que trae integrado como pueden ser recortar, escalar, modificar las propiedades de la imagen (reordenar la paleta). GIMP, es compatible con muchos formatos de imágenes (BMP, PNG, JPG, TIFF, PSD); por lo que puede ser una buena herramienta para convertir en los formatos que necesitemos.
 
@@ -265,13 +265,13 @@ Podemos descargar TILED, desde su página web oficial:
 
 ## Referencias
 
-* [https://code.visualstudio.com/](https://code.visualstudio.com/)
-* [https://marketplace.visualstudio.com/items?itemName=zerasul.genesis-code](https://marketplace.visualstudio.com/items?itemName=zerasul.genesis-code)
-* [https://zerasul.github.io/genesis-code-docs](https://zerasul.github.io/genesis-code-docs)
-* [http://www.gens.me/](http://www.gens.me/)
-* [https://segaretro.org/Gens_KMod](https://segaretro.org/Gens_KMod)
-* [https://www.retrodev.com/blastem/](https://www.retrodev.com/blastem/)
-* [https://www.gimp.org/](https://www.gimp.org/)
-* [https://www.aseprite.org/](https://www.aseprite.org/)
-* [https://elmundodeubuntu.blogspot.com/2015/11/aseprite-editor-de-sprites.html](https://elmundodeubuntu.blogspot.com/2015/11/aseprite-editor-de-sprites.html)
-* [https://www.mapeditor.org/](https://www.mapeditor.org/)
+* Visual Studio Code: [https://code.visualstudio.com/](https://code.visualstudio.com/)
+* Extensión Genesis Code: [https://marketplace.visualstudio.com/items?itemName=zerasul.genesis-code](https://marketplace.visualstudio.com/items?itemName=zerasul.genesis-code)
+* Documentación Genesis Code: [https://zerasul.github.io/genesis-code-docs](https://zerasul.github.io/genesis-code-docs)
+* Emulador Gens: [http://www.gens.me/](http://www.gens.me/)
+* Gens KMod: [https://segaretro.org/Gens_KMod](https://segaretro.org/Gens_KMod)
+* Blastem: [https://www.retrodev.com/blastem/](https://www.retrodev.com/blastem/)
+* Gimp: [https://www.gimp.org/](https://www.gimp.org/)
+* Aseprite: [https://www.aseprite.org/](https://www.aseprite.org/)
+* Blog sobre asesprite: [https://elmundodeubuntu.blogspot.com/2015/11/aseprite-editor-de-sprites.html](https://elmundodeubuntu.blogspot.com/2015/11/aseprite-editor-de-sprites.html)
+* Tiled: [https://www.mapeditor.org/](https://www.mapeditor.org/)

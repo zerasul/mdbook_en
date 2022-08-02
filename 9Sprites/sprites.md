@@ -350,6 +350,6 @@ En el siguiente capítulo, nos centraremos en la física que podemos calcular co
 
 ## Referencias
 
-* [https://megacatstudios.com/blogs/retro-development/sega-genesis-mega-drive-vdp-graphics-guide-v1-2a-03-14-17](https://megacatstudios.com/blogs/retro-development/sega-genesis-mega-drive-vdp-graphics-guide-v1-2a-03-14-17).
-* [https://github.com/Stephane-D/SGDK/blob/master/bin/rescomp.txt](https://github.com/Stephane-D/SGDK/blob/master/bin/rescomp.txt).
-* [http://charas-project.net/index.php](http://charas-project.net/index.php)
+* Mega Cat Studios: [https://megacatstudios.com/blogs/retro-development/sega-genesis-mega-drive-vdp-graphics-guide-v1-2a-03-14-17](https://megacatstudios.com/blogs/retro-development/sega-genesis-mega-drive-vdp-graphics-guide-v1-2a-03-14-17).
+* SGDK (rescomp): [https://github.com/Stephane-D/SGDK/blob/master/bin/rescomp.txt](https://github.com/Stephane-D/SGDK/blob/master/bin/rescomp.txt).
+* Charas Project (Generador Sprites): [http://charas-project.net/index.php](http://charas-project.net/index.php)

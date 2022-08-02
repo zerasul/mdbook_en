@@ -14,16 +14,16 @@ En primer lugar, antes de entrar en más conceptos, vamos a estudiar como se ges
 
 Veamos las características de los gráficos para Sega Mega Drive:
 
-* Todo gráfico o imagen, se dibuja dividido por Tiles [^48], de un tamaño de 8x8 píxeles.
+* Todo gráfico o imagen, se dibuja dividido por Tiles [^49], de un tamaño de 8x8 píxeles.
 * Solo se pueden almacenar 4096 Tiles (64Kb de VRAM).
-* Las imágenes, están almacenadas en formato indexado [^49] no como RGB [^50].
+* Las imágenes, están almacenadas en formato indexado [^50] no como RGB [^51].
 * Sólo se pueden almacenar 4 paletas de 16 colores cada una.
 * Normalmente, sólo se pueden mostrar 61 colores en pantalla.
 * En cada paleta, el primer color, se considera transparente.
 
-[^48]: Un Tile es un fragmento de una imagen que se muestra como si fuese un mosaico; por lo que una imágen está compuesta por una serie de Tiles.
-[^49]: Una imagen en formato indexado, almacena una paleta con los distintos colores que contiene; después cada píxel, solo tiene información del color que representa en dicha paleta.
-[^50]: RGB (Red Green Blue) es un formato que se define en cada píxel almacenar el color rojo, verde y azul de tal forma que se pueda ver cada color combinando estos tres.
+[^49]: Un Tile es un fragmento de una imagen que se muestra como si fuese un mosaico; por lo que una imágen está compuesta por una serie de Tiles.
+[^50]: Una imagen en formato indexado, almacena una paleta con los distintos colores que contiene; después cada píxel, solo tiene información del color que representa en dicha paleta.
+[^51]: RGB (Red Green Blue) es un formato que se define en cada píxel almacenar el color rojo, verde y azul de tal forma que se pueda ver cada color combinando estos tres.
 
 Es importante conocer estas características, a la hora de trabajar con imágenes en Mega Drive; para no perder calidad o algún color, si la paleta no está bien referenciada.
 
@@ -271,7 +271,7 @@ Con este ejemplo, ya podemos ver como cargar imágenes usando recomp, y dibujarl
 
 ## Referencias
 
-* [https://github.com/Stephane-D/SGDK](https://github.com/Stephane-D/SGDK).
-* [https://danibus.wordpress.com/](https://danibus.wordpress.com/).
-* [https://www.ohsat.com/tutorial/mdmisc/creating-graphics-for-md/](https://www.ohsat.com/tutorial/mdmisc/creating-graphics-for-md/).
-* [https://segaretro.org/images/a/a2/Genesis_Software_Manual.pdf](https://segaretro.org/images/a/a2/Genesis_Software_Manual.pdf).
+* SGDK: [https://github.com/Stephane-D/SGDK](https://github.com/Stephane-D/SGDK).
+* Danibus (Aventuras en Mega Drive): [https://danibus.wordpress.com/](https://danibus.wordpress.com/).
+* Ohsat Games: [https://www.ohsat.com/tutorial/mdmisc/creating-graphics-for-md/](https://www.ohsat.com/tutorial/mdmisc/creating-graphics-for-md/).
+* Manual Software Mega Drive: [https://segaretro.org/images/a/a2/Genesis_Software_Manual.pdf](https://segaretro.org/images/a/a2/Genesis_Software_Manual.pdf).
