@@ -22,7 +22,7 @@ Como hemos comentado en la introducción, este libro pretende ser una guía para
 
 Este libro; no pretende ser un libro de introducción a la programación ya que se utilizan conceptos avanzados a la hora de adentrarse en el mundo del Homebrew y se supone que el usuario esta familiarizado con dichos conceptos.
 
-Además, este libro no pretende ser tampoco un libro sobre diseño de videojuegos; ya que no es el objetivo del mismo. Existen mucha bibliografía al respecto y nos centraremos principalmente en diseñar y crear ejemplos para comprender los entresijos de la _"negrita"_ de Sega.
+Además, este libro no pretende ser tampoco un libro sobre diseño de videojuegos; ya que no es el objetivo del mismo. Existe mucha bibliografía al respecto y nos centraremos principalmente en diseñar y crear ejemplos para comprender los entresijos de la _"negrita"_ de Sega.
 
 ### Estructura del libro
 
@@ -40,7 +40,7 @@ Para poder tener una mejor compresión de cada uno de los capítulos a tratar en
 
 Para cada capítulo, se mostrará un ejemplo con el que trabajar con las distintas herramientas que se comentarán en este libro.
 
-Otra parte importante es que habrás podido ver que este libro esta bajo una licencia Creative Commons. Por lo que este libro está disponible para todo el mundo y Puede ser mejorado y modificado. Si detectas alguna errata o posible mejora del mismo, no dudes en enviarme cualquier sugerencia al repositorio de código de este libro.
+Otra parte importante es que habrás podido ver que este libro esta bajo una licencia Creative Commons. Por lo que este libro está disponible para todo el mundo y puede ser mejorado y modificado. Si detectas alguna errata o posible mejora del mismo, no dudes en enviarme cualquier sugerencia al repositorio de código de este libro.
 
 ## Objetivos
 
