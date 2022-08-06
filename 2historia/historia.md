@@ -2,17 +2,17 @@
 
 La Sega Mega Drive, fue la tercera consola de videojuegos publicada por la misma tras la SG-1000 y la Master System, Sega impulsó el uso de un procesador de 16 bits; por lo que publicó podemos decir el primer sistema de entretenimiento de 16 bits en el mercado. Tratando de superar el éxito de la NES [^4] de Nintendo.
 
-Sega Trató de superar con los modelos Mark 2 y Mark 3 de la Sega Master System con los 8 bits, pero no tuvo gran aceptación en Japón; no siendo el mismo caso en Europa.
+Sega trató de superar con los modelos Mark 2 y Mark 3 de la Sega Master System con los 8 bits, pero no tuvo gran aceptación en Japón; no siendo el mismo caso en Europa.
 
 El 29 de Octubre de 1988, Sega Lanzo la Sega Mega Drive que es conocida durante su desarrollo como "Mark V" a través de la revista _beep!_. Sin embargo, no tuvo mucho éxito al principio y solo se vendieron unas 400.000 unidades.
 
-Más adelante, Sega América trató de hablar con Atari para que distribuyera Mega Drive en América; sin embargo lo rechazaron (se centraron en lanzar Atari ST). Fue entonces, cuando Sega distribuyo bajo su propia subsidiaria Sega of America, la Sega Mega Drive con el nombre de Sega Genesis. La Sega Genesis, fue lanzada el 9 de enero de 1989.
+Más adelante, Sega América trató de hablar con Atari para que distribuyera Mega Drive en américa; sin embargo lo rechazaron (se centraron en lanzar Atari ST). Fue entonces, cuando Sega distribuyó bajo su propia subsidiaria Sega of America, la Sega Mega Drive con el nombre de Sega Genesis. La Sega Genesis, fue lanzada el 9 de enero de 1989.
 
 En Europa, La Sega Mega Drive se lanzó el 30 de noviembre de 1990; aprovechando el éxito tenido con la Sega Master System y que ya había publicados más juegos como _Altered Beast_, _Golden Axe_,etc...
 
 Fue en el año 1992, cuando Sega lanzó grandes éxitos de su catálogo; como Sonic 2 y se puso a la venta el primer modelo de Sega CD. Sin embargo, no tuvo mucho éxito por carecer de poco catálogo y un elevado precio.
 
-En 1993, Sega presento la Mega Drive 2 con un rediseño de la misma. Sin embargo, ese año Nintendo superó a Sega en plena guerra de los 16 bits.
+En 1993, Sega presentó la Mega Drive 2 con un rediseño de la misma. Sin embargo, ese año Nintendo superó a Sega en plena guerra de los 16 bits.
 
 En el año 1994, aparecieron varios sistemas (3DO, Jaguar,etc...) Sega Japón estaba con el proyecto "Saturn" mientras Sega América trató de comercializar el periférico 32X. Al final de ese año con la aparición del juego _Donkey Kong country_ para la SNES[^5], hicieron que la Sega Mega Drive fuera decayendo. No sin antes dar grandes títulos de dicha consola como el _Ristar_ o _Rocket Knigth Adventures_ [^6].
 
