@@ -171,7 +171,7 @@ Una vez hemos podido ver como se tratan las imágenes y como importarlas usando 
 Este ejemplo, podemos verlo en el repositorio de ejemplos que acompaña a este libro, con el nombre de _ej5.backgrounds_; el cual podemos observar, que vamos a mostrar 2 fondos como los que siguen:
 
 <div class="image">
-<img id="arq" src="8fondos/img/fondosEjemplo.png" alt="Fondos para el ejemplo" title="Fondos a usar para el ejemplo"/> </div>
+<img id="arq" src="8fondos/img/fondosejemplo.png" alt="Fondos para el ejemplo" title="Fondos a usar para el ejemplo"/> </div>
 <p>Fondos a Usar para el ejemplo</p>
 
 Como vemos en la figura anterior, tenemos 2 imágenes; la primera un fondo azul imitando al cielo; y la segunda un fondo de baldosas amarillas con un fondo negro.

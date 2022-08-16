@@ -42,7 +42,7 @@ Sega Mega Drive, ha tenido una serie de periféricos no solo a nivel de controla
 
 Hemos de diferenciar que en Sega mega Drive, principalmente se utilizaban los controladores de 3 o 6 botones.
 
-![Controlador de 3 Botones](2historia/img/controller3button.jpg "Controlador de 3 Botones")
+![Controlador de 3 Botones](2historia/img/controller3Button.jpg "Controlador de 3 Botones")
 <p class="centered">Controlador de 3 Botones Europeo</p>
 
 ### Power Base Converter

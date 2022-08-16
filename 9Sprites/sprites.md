@@ -15,7 +15,7 @@ Vamos a comentar que es un Sprite realmente; se trata de una imagen que represen
 Normalmente, un Sprite esta compuesto por una serie de imágenes que representan distintos frames de una animación; además de poder representar varias animaciones dentro de una imagen. Esto se conoce como Hoja de Sprite o _spritesheet_.
 
 <div class="image">
-<img id="arq" src="9sprites/img/nadia.png" alt="Hoja de Sprites" title="Hoja de Sprites"/> </div>
+<img id="arq" src="9Sprites/img/nadia.png" alt="Hoja de Sprites" title="Hoja de Sprites"/> </div>
 <p>Hoja de Sprites</p>
 
 Como podemos ver en la anterior imagen, vemos que se compone de distintos frames de distintas animaciones; normalmente cada animación corresponde a una fila, y cada frame a cada columna.
@@ -105,7 +105,7 @@ Una de las primeras características que tenemos que tener en cuenta, es que a l
 Por otro lado, tenemos que tener en cuenta que los Sprites se dibujan en su propio plano; y por lo tanto tienen una prioridad; de tal forma, que se puede establecer. Veamos de nuevo el esquema de prioridades de los distintos planos.
 
 <div class="image">
-<img id="arq" src="9sprites/img/esquemaplanos.png" alt="Esquema de Prioridad de los Fondos" title="Esquema de Prioridad de los Fondos"/> </div>
+<img id="arq" src="9Sprites/img/esquemaplanos.png" alt="Esquema de Prioridad de los Fondos" title="Esquema de Prioridad de los Fondos"/> </div>
 <p>Esquema de Prioridad de los Fondos</p>
 
 Vemos como el plano de Sprites, puede ser dibujado con baja o alta prioridad; de tal forma, que podemos hacer que el sprite este detras de algún plano, para poder dar una mayor sensación de profundidad.
@@ -113,7 +113,7 @@ Vemos como el plano de Sprites, puede ser dibujado con baja o alta prioridad; de
 Por otro lado, como podemos ver, un Sprite se compone de distintas animaciones que pueden indicar distintas acciones que puede realizar el personaje (moverse en las distintas direcciones, atacar, saltar); por ello tenemos que tener en cuenta dichas animaciones. En una hoja de Sprites, cada fila corresponde a una animación; y cada columna, corresponde a un Frame de cada animación. Veamos un ejemplo:
 
 <div class="image">
-<img id="arq" src="9sprites/img/anim.png" alt="Hoja de Sprites con animaciones" title="Hoja de Sprites con animaciones"/> </div>
+<img id="arq" src="9Sprites/img/anim.png" alt="Hoja de Sprites con animaciones" title="Hoja de Sprites con animaciones"/> </div>
 <p>Hoja de Sprites con animaciones</p>
 
 Como vemos en la anterior imagen, se compone de 5 animaciones de 3 frames cada uno. Observamos que para SGDK, la primera animación es la número 0. Por lo que siempre tenemos que tener en cuenta esto para cambiar de animación cuando sea necesario. Esto también se aplica a los Frames; por lo que el primer frame de una animación, es el número 0.
@@ -127,7 +127,7 @@ Una vez hemos visto como trabajar con Sprites en SGDK, vamos a ver un ejemplo. E
 Este ejemplo, consistirá en trabajar con dos sprites y ver como podemos moverlos, cambiar animación, prioridad,etc. Estos dos Sprites, se componen de dos hojas de Sprites de 72x160 y 96x160 Píxeles cada una. Veamos estas dos Hojas de Sprite.
 
 <div class="image">
-<img id="arq" src="9sprites/img/sprites.png" alt="Hojas de Sprites de ejemplo" title="Hojas de Sprites de ejemplo"/> </div>
+<img id="arq" src="9Sprites/img/sprites.png" alt="Hojas de Sprites de ejemplo" title="Hojas de Sprites de ejemplo"/> </div>
 <p>Hojas de Sprites de ejemplo</p>
 
 Como podemos ver en las imágenes, se tratan de dos hojas de Sprites, con distintas animaciones y frames. En este caso se tratan de frames de distintos tamaños. El personaje de la izquierda, cada frame tiene 32x32 píxeles (4x4 tiles); mientras que el personaje de la derecha, tiene 24x32 píxeles (3x4 Tiles); por lo que tenemos que tener en cuenta esto a la hora de importar ambos recursos. Para importar estos recursos, usaremos un fichero _.res_, para definir cada uno de ellos.
@@ -341,7 +341,7 @@ En cada caso, se establece la animación, y se modifica la variable con la posic
 Una vez hemos visto el código del ejemplo, podemos compilarlo y ejecutarlo en un emulador. Obteniendo la siguiente pantalla:
 
 <div class="image">
-<img id="arq" src="9sprites/img/ej6.png" alt="Ejemplo 6: Sprites" title="Ejemplo 6: Sprites"/> </div>
+<img id="arq" src="9Sprites/img/ej6.png" alt="Ejemplo 6: Sprites" title="Ejemplo 6: Sprites"/> </div>
 <p>Ejemplo 6: Sprites</p>
 
 Con este ejemplo, hemos visto ya como añadir Sprites, mostrarlos en nuestro juego, y poder interactuar con él a partir de los controles. Además, de ya tener un juego más completo a partir del uso de fondos y sprites junto con los controles.
