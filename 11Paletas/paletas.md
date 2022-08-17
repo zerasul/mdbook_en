@@ -82,7 +82,7 @@ A la hora de trabajar con planos, no se puede acceder al modo HighLight; ya que 
 
 Cuando se trabaja con Sprites, tenemos que tener en cuenta las siguientes características:
 
-* Si la paleta utilizada es una de las 3 primeras, (```PAL0```, ```PAL2```, ```PAL3```), se comportará igual que los planos (con prioridad color normal, sin prioridad Shadow).
+* Si la paleta utilizada es una de las 3 primeras, (```PAL0```, ```PAL1```, ```PAL2```), se comportará igual que los planos (con prioridad color normal, sin prioridad Shadow).
 * Si la paleta utilizada es la cuarta (```PAL3```), tenemos que tener en cuenta los siguientes casos:
     * Si el fondo del Sprite tiene color Normal:
         * Los colores 14 y 15 de la paleta se mostrarán en modo _HighLight_.
@@ -98,6 +98,8 @@ Es importante saber que a la hora de trabajar con estos modos, puede cambiar el 
 
 
 ## Manejo de Paletas y colores en CRAM
+
+
 
 ## Ejemplo con Efectos de transparencia y destacados
 

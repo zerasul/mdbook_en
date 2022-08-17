@@ -131,7 +131,7 @@ Esta función devuelve un valor entero que nos va a permitir comparar con distin
 * ```JOY_TYPE_JUSTIFIER```: Sega Justifier gun.
 * ```JOY_TYPE_UNKNOWN```: Desconocido o no conectado.
 
-**NOTA**: Las funciones anteriormente mencionadas, solo actualizarán la información, si se llama a la función ```JOY_Init()``` o ```JOPY_Reset()``` para inicializar el sistema de controles de SGDK; no es necesario llamarlas manualmente ya que estas funciones se llaman automáticamente al cargar el SGDK.
+**NOTA**: Las funciones anteriormente mencionadas, solo actualizarán la información, si se llama a la función ```JOY_Init()``` o ```JOY_Reset()``` para inicializar el sistema de controles de SGDK; no es necesario llamarlas manualmente ya que estas funciones se llaman automáticamente al cargar el SGDK.
 
 ### Síncronos
 
