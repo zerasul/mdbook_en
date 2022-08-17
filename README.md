@@ -18,7 +18,7 @@ Este libro contiene lo mínimo e imprescindible para poder crear juegos a partir
 8. [Fondos](8fondos/fondos.md).
 9. [Sprites](9Sprites/sprites.md).
 10. [Física y Matemáticas](10Fisicas/fisicas.md).
-11. Paletas de Colores.
+11. [Paletas de Colores](11Paletas/paletas.md).
 12. Tilesets.
 13. Scroll.
 14. Sonido y Música.
