@@ -99,6 +99,25 @@ Es importante saber que a la hora de trabajar con estos modos, puede cambiar el 
 
 ## Manejo de Paletas y colores en CRAM
 
+Otro aspecto a tener en cuenta, es a la hora de trabajar con los distintos colores y como podemos manejar los distintos colores almacenados en la CRAM (Color RAM).
+
+En este apartado, vamos a mostrar algunas funciones útiles que posteriormente algunas usaremos en un ejemplo.
+
+Es importante saber que el contenido de las 4 paletas se almacena en la CRAM y que puede se accedida por un índice, desde el 0 al 63. Para acceder, podemos hacerlo a través de la función ```PAL_getColor```. La cual recibe el siguiente parámetro:
+
+* _index_: índice de 0 a 63 para acceder al color de la CRAM.
+
+Esta función devuelve el valor RGB del color que hay en dicha posición de la CRAM.
+
+También se puede establecer el color que hay en una posición en concreto. En este caso se usará la función ```PAL_setColor``` la cual recibe los siguientes parámetros:
+
+* _index_: Índice de la CRAM (0 a 63), para poder establecer el color a sustituir.
+* _value_: Valor RGB del color a utilizar. En este caso, se pueden utilizar las funciones ```RGB8_8_8_TO_VDPCOLOR``` o similar, para establecer el valor del color.
+
+Un aspecto a tener en cuenta, es que estas funciones modifican el valor de la CRAM que se encuentra junto al VDP; por lo tanto, el valor del color debe escribirse y si se utiliza tanto la CPU, como el DMA tenemos que tener en cuenta que puede haber un cuello de botella.
+
+Puedes encontrar más información acerca de las funciones para modificar los colores de la CRAM tanto por CPU como por DMA, dentro de la propia documentación del SGDK.
+
 
 
 ## Ejemplo con Efectos de transparencia y destacados
