@@ -4,7 +4,7 @@ La Sega Mega Drive, fue la tercera consola de videojuegos publicada por la misma
 
 Sega trató de superar con los modelos Mark 2 y Mark 3 de la Sega Master System con los 8 bits, pero no tuvo gran aceptación en Japón; no siendo el mismo caso en Europa.
 
-El 29 de Octubre de 1988, Sega Lanzo la Sega Mega Drive que es conocida durante su desarrollo como "Mark V" a través de la revista _beep!_. Sin embargo, no tuvo mucho éxito al principio y solo se vendieron unas 400.000 unidades.
+El 29 de Octubre de 1988, Sega lanzó la Sega Mega Drive que es conocida durante su desarrollo como "Mark V" a través de la revista _beep!_. Sin embargo, no tuvo mucho éxito al principio y solo se vendieron unas 400.000 unidades.
 
 Más adelante, Sega América trató de hablar con Atari para que distribuyera Mega Drive en américa; sin embargo lo rechazaron (se centraron en lanzar Atari ST). Fue entonces, cuando Sega distribuyó bajo su propia subsidiaria Sega of America, la Sega Mega Drive con el nombre de Sega Genesis. La Sega Genesis, fue lanzada el 9 de enero de 1989.
 
