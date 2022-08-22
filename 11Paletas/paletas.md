@@ -116,7 +116,103 @@ Un aspecto a tener en cuenta, es que estas funciones modifican el valor de la CR
 
 Puedes encontrar más información acerca de las funciones para modificar los colores de la CRAM tanto por CPU como por DMA, dentro de la propia documentación del SGDK.
 
-## Ejemplo con Efectos de transparencia y destacados
+## Ejemplo con Efectos de Shadow y Paletas
+
+En este capítulo hemos estado trabajando con las paletas de colores y los efectos que podemos hacer en ellas. Por ello, el ejemplo que vamos a estudiar, usaremos las distintas paletas de colores y su correspondientes efectos Shadow.
+
+En este ejemplo, vamos a utilizar las caráteristicas de la prioridad, para poder simular un efecto de luces; simulando en este caso, la luz de unas farolas, y ver como afecta a los distintos Sprites,con las distintas características que pueda tener.
+
+El ejemplo que vamos a estudiar, llamado _ej8.colors_, lo puedes encontrar en el repositorio de ejemplos que acompaña a este libro. Recordamos que dicho repositorio; lo puedes encontrar en la siguiente dirección:
+
+[https://github.com/zerasul/mdbook-examples](https://github.com/zerasul/mdbook-examples)
+
+En este caso, vamos a mostrar un fondo que hemos generado nosotros usando distintos recursos que hemos encontrado por Internet; puedes ver dichos recursos y dar crédito a los autores en las referencias de este capítulo. Veamos el fondo que vamos a mostrar:
+
+<div class="image">
+<img id="arq" src="11Paletas/img/fondo1.png" alt="Fondo Ejemplo" title="Fondo Ejemplo"/> </div>
+<p>Fondo Ejemplo</p>
+
+Como podemos ver en la imágen, vemos un paisaje nocturo donde podemos observar 3 farolas. La Idea del ejemplo, es mostrar que debajo de cada farola haya un haz de luz pero fuera de estas se note un color más oscuro. Este efecto lo podemos realizar usando un mapa de prioridad.
+
+Esto se puede realizar, usando otra imágen, con las zonas que queremos iluminar; de esta forma, al poner ambas imágenes se mostrarán las zonas que esten pintadas en la segunda imagen, más claras que las que no; utilizando el efecto Shadow.
+
+Veamos la imágen del mapa de prioridades:
+
+<div class="image">
+<img id="arq" src="11Paletas/img/fondo2.png" alt="Mapa Prioridad" title="Mapa Prioridad"/> </div>
+<p>Mapa Prioridad</p>
+
+Como vemos en esta imagen, las zonas moradas, serán las que se mostrarán más claras que las que estan de color negro, que coinciden con la posición de las farolas del primer fondo. Este efecto es debido a que a nivel de plano, los tiles con prioridad se mostrarán de forma normal, mientras que los Tiles que esten pintados sin prioridad, tendrán el efecto shadow; de ahí que tenga el efecto de iluminación. Veamos como se realiza este efecto a nivel de código para establecer la prioridad solo de las zonas que estan marcadas.
+
+Cada fondo se carga usando un fichero _.res_ con la definición de ambas imágenes:
+
+```res
+IMAGE bg_color1 "gfx/fondocolor1.png" NONE
+IMAGE bg_prio "gfx/fondocolor2.png" NONE
+```
+
+En el código fuente, puedes encontrar la función ```drawPriorityMap```, la cual nos va a dibujar en el plano A el mapa de prioridades, a partir de la segunda imágen. Este recibe la imagen que contiene las prioridades por parámetro; veamos un fargmento con la función:
+
+```c
+    u16 tilemap_buff[MAXTILES];
+    u16* priority_map_pointer = &tilemap_buff[0];
+
+    for(int j=0; j<MAXTILES;j++) tilemap_buff[j]=0;
+
+    u16 *shadow_tilemap = bg_map->tilemap->tilemap;
+    u16 numTiles = MAXTILES;
+    while(numTiles--){
+        if(*shadow_tilemap){
+            *priority_map_pointer |= TILE_ATTR_PRIORITY_MASK;
+        }
+        priority_map_pointer++;
+        shadow_tilemap++;
+    }
+    VDP_setTileMapDataRectEx(BG_A,&tilemap_buff[0],0,
+    0,0,MAP_WITH,MAP_HEIGHT,MAP_WITH,CPU);
+```
+
+En primer lugar, podemos observar como se inicializa a vacío un buffer que utilizaremos para dibujar la imagen; posteriormente, vamos a ir recorriendo cada Tile del mapa de prioridad, y comparándola con una máscara especial.
+
+La máscara ```TILE_ATTR_PRIORITY_MASK```; permite almacenar en cada Tile, solo la información de prioridad; de tal forma que no se mostrará nada por pantalla; esto es importante para poder mostrar el fondo de atrás con los distintos efectos.
+
+Una vez se ha rellenado el mapa de prioridades, se pinta en el plano A, usando la función ```VDP_setTileMapDataRectEx```; la cual nos va a permitir dibujar un rectángulo como mapa de Tiles por pantalla.
+
+Una vez hemos dibujado este mapa, podemos dibujar el otro fondo de la forma que ya conocemos; pero sin prioridad:
+
+```c
+VDP_drawImageEx(BG_B, &bg_color1,
+    TILE_ATTR_FULL(PAL0,FALSE,FALSE,FALSE,index), 0,0,TRUE,CPU);
+```
+
+Vemos como esta imágen la dibujamos en el plano B sin prioridad y usamos la paleta 0.
+
+Además en este caso, vamos a mostrar un Sprite que dibujaremos sin prioridad, y que podemos mover a la izquierda o a la derecha. El cual lo dibujamos sin prioridad, y usaremos la Paleta 1.
+
+```c
+ zera = SPR_addSprite(&zera_spr,
+        zera_x,
+        zera_y,
+        TILE_ATTR(PAL1,FALSE,FALSE,FALSE));
+```
+
+Por último y más importante, tenemos que activar el modo Shadow HighLight; usando la función ```VDP_setHilightShadow```, estableciendo el valor a 1.
+
+```c
+    VDP_setHilightShadow(1);
+```
+
+Si todo ha ido bien, podemos ver una imágen parecida a esta:
+
+<div class="image">
+<img id="arq" src="11Paletas/img/ej8.png" alt="Ejemplo 8: Colores y Shadow" title="Ejemplo 8: Colores y Shadow"/> </div>
+<p>Ejemplo 8: Colores y Shadow</p>
+
+Como vemos en la imágen, en cada farola se muestra una parte iluminada; esto es debido a que dichas zonas se estan pintando Tiles con Prioridad; de tal forma que se muestran de forma normal; el resto de Tiles que no tienen prioridad, se muestran en modo Shadow. De tal forma, que podemos ver como dicho modo con los planos se comporta como hemos comentado en este capítulo.
+
+También vemos que a nivel de Sprite, si vamos moviendo a nuestro personaje, es afectado tambien por el modo Shadow; de esta forma podemos dar la sensación de una iluminación que es afectada por nuestro personaje. Obviamente, podemos trabajar tambien con el modo HighLight, usando la Paleta 3, y jugando con los colores 14 y 15. Pero eso lo podemos ver en ejemplos más adelante.
+
+Con este ejemplo, ya hemos podido ver como funcionan las paletas de colores y los modos Shadow y HighLight.
 
 ## Referencias
 
@@ -124,4 +220,3 @@ Puedes encontrar más información acerca de las funciones para modificar los co
 * Danibus (Aventuras en Mega Drive): [https://danibus.wordpress.com/2019/09/13/14-aventuras-en-megadrive-highlight-and-shadow/](https://danibus.wordpress.com/2019/09/13/14-aventuras-en-megadrive-highlight-and-shadow/)
 * Open Game Art (Night Background): [https://opengameart.org/content/background-night](https://opengameart.org/content/background-night)
 * Open Game Art (Nature TileSet): [https://opengameart.org/content/nature-tileset](https://opengameart.org/content/nature-tileset)
-* Open Game Art (FireBlast): [https://opengameart.org/content/fire-blast](https://opengameart.org/content/fire-blast)
