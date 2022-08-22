@@ -142,7 +142,7 @@ Veamos la imágen del mapa de prioridades:
 <img id="arq" src="11Paletas/img/fondo2.png" alt="Mapa Prioridad" title="Mapa Prioridad"/> </div>
 <p>Mapa Prioridad</p>
 
-Como vemos en esta imagen, las zonas moradas, serán las que se mostrarán más claras que las que estan de color negro, que coinciden con la posición de las farolas del primer fondo. Este efecto es debido a que a nivel de plano, los tiles con prioridad se mostrarán de forma normal, mientras que los Tiles que esten pintados sin prioridad, tendrán el efecto shadow; de ahí que tenga el efecto de iluminación. Veamos como se realiza este efecto a nivel de código para establecer la prioridad solo de las zonas que estan marcadas.
+Como vemos en esta imagen, las zonas marcadas, serán las que se mostrarán más claras que las que estan de color negro, que coinciden con la posición de las farolas del primer fondo. Este efecto es debido a que a nivel de plano, los tiles con prioridad se mostrarán de forma normal, mientras que los Tiles que esten pintados sin prioridad, tendrán el efecto shadow; de ahí que tenga el efecto de iluminación. Veamos como se realiza este efecto a nivel de código para establecer la prioridad solo de las zonas que estan marcadas.
 
 Cada fondo se carga usando un fichero _.res_ con la definición de ambas imágenes:
 
@@ -163,13 +163,15 @@ En el código fuente, puedes encontrar la función ```drawPriorityMap```, la cua
     u16 numTiles = MAXTILES;
     while(numTiles--){
         if(*shadow_tilemap){
-            *priority_map_pointer |= TILE_ATTR_PRIORITY_MASK;
+            *priority_map_pointer |= 
+                TILE_ATTR_PRIORITY_MASK;
         }
         priority_map_pointer++;
         shadow_tilemap++;
     }
-    VDP_setTileMapDataRectEx(BG_A,&tilemap_buff[0],0,
-    0,0,MAP_WITH,MAP_HEIGHT,MAP_WITH,CPU);
+    VDP_setTileMapDataRectEx(BG_A,
+    &tilemap_buff[0],0,0,0,
+    MAP_WITH,MAP_HEIGHT,MAP_WITH,CPU);
 ```
 
 En primer lugar, podemos observar como se inicializa a vacío un buffer que utilizaremos para dibujar la imagen; posteriormente, vamos a ir recorriendo cada Tile del mapa de prioridad, y comparándola con una máscara especial.
@@ -182,7 +184,8 @@ Una vez hemos dibujado este mapa, podemos dibujar el otro fondo de la forma que 
 
 ```c
 VDP_drawImageEx(BG_B, &bg_color1,
-    TILE_ATTR_FULL(PAL0,FALSE,FALSE,FALSE,index), 0,0,TRUE,CPU);
+    TILE_ATTR_FULL(PAL0,FALSE,FALSE,FALSE,index),
+     0,0,TRUE,CPU);
 ```
 
 Vemos como esta imágen la dibujamos en el plano B sin prioridad y usamos la paleta 0.
