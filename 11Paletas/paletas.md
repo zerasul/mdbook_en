@@ -95,8 +95,6 @@ Además, para los Sprites en modo Shadow, mostrará solo los píxeles del fondo 
 
 Es importante saber que a la hora de trabajar con estos modos, puede cambiar el comportamiento dependiendo del emulador a utilizar. Por lo que puede ser interesante probarlo en hardware real, además de probarlo en algún emulador como _Blastem_ o _Kega Fusion_.
 
-
-
 ## Manejo de Paletas y colores en CRAM
 
 Otro aspecto a tener en cuenta, es a la hora de trabajar con los distintos colores y como podemos manejar los distintos colores almacenados en la CRAM (Color RAM).
@@ -118,11 +116,12 @@ Un aspecto a tener en cuenta, es que estas funciones modifican el valor de la CR
 
 Puedes encontrar más información acerca de las funciones para modificar los colores de la CRAM tanto por CPU como por DMA, dentro de la propia documentación del SGDK.
 
-
-
 ## Ejemplo con Efectos de transparencia y destacados
 
 ## Referencias
 
 * Paleta de Colores Mega Drive: [https://en.wikipedia.org/wiki/List_of_monochrome_and_RGB_color_formats#9-bit_RGB](https://en.wikipedia.org/wiki/List_of_monochrome_and_RGB_color_formats#9-bit_RGB)
 * Danibus (Aventuras en Mega Drive): [https://danibus.wordpress.com/2019/09/13/14-aventuras-en-megadrive-highlight-and-shadow/](https://danibus.wordpress.com/2019/09/13/14-aventuras-en-megadrive-highlight-and-shadow/)
+* Open Game Art (Night Background): [https://opengameart.org/content/background-night](https://opengameart.org/content/background-night)
+* Open Game Art (Nature TileSet): [https://opengameart.org/content/nature-tileset](https://opengameart.org/content/nature-tileset)
+* Open Game Art (FireBlast): [https://opengameart.org/content/fire-blast](https://opengameart.org/content/fire-blast)
