@@ -14,7 +14,7 @@ Este libro, pretende ser una guía para poder aprender los conceptos y herramien
 
 [^2]: Sonic & Knuckles es un videojuego que pertenece a Sega Inc. Todos los derechos reservados.
 
-[^3]: World of Illusion: es un videojuego desarrollado por Disney Para sega Mega Drive. Todos los derechos reservados.
+[^3]: World of Illusion: es un videojuego desarrollado por Disney para Sega Mega Drive. Todos los derechos reservados.
 
 ## ¿Qué es y para que sirve este libro?
 
