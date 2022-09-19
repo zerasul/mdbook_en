@@ -61,8 +61,8 @@ En primer lugar, podemos ver el include de la cabecera _genesis.h_; este fichero
 Si nos centramos en la función ```main``` vemos que se realiza una llamada a la función ```VDP_drawText(const char * text,u16 x, u16 y)```; esta función, llama al chip gráfico VDP y nos va a permitir escribir un texto por pantalla, usando una fuente por defecto (o pre-cargando una fuente personalizada). Vemos que tiene 3 parámetros:
 
 * str: cadena de caracteres con la información a mostrar.
-* x: posición X donde se mostrará el texto. la coordenada X indica la columna donde se mostrará el texto. Esta expresado el Tiles.
-* y: posición Y donde se mostrará el texto. la coordenada Y indica la fila donde se mostrará el texto. Esta expresado el Tiles.
+* x: posición X donde se mostrará el texto. la coordenada X indica la columna donde se mostrará el texto. Esta expresado en Tiles.
+* y: posición Y donde se mostrará el texto. la coordenada Y indica la fila donde se mostrará el texto. Esta expresado en Tiles.
 
 Tanto la posición X e Y, están expresados en Tiles. Un tile es un recuadro de 8x8 pixeles que se pinta por pantalla; el VDP trabaja en esta unidad y por lo tanto debemos de tener en cuenta esta dimensión. En el ejemplo vemos que pintaremos en la posición 10,13 es decir, (80px,104px).
 
@@ -78,7 +78,7 @@ Tras finalizar de escribir nuestro código, podemos dar el siguiente paso; gener
 
 En este paso, se generarán todos los ficheros necesarios, y al final tendremos un fichero llamado _rom.bin_ con nuestra ROM preparada para ser ejecutada en un emulador, o en un hardware Real.
 
-Para Compilar nuestro juego, es necesario tener configurado correctamente SGDK; ya sea usando las variables de entorno, o con la configuración de _Genesis Code_. Además de tener configurada correctamente la ruta donde se encuentra nuestro emulador.
+Para compilar nuestro juego, es necesario tener configurado correctamente SGDK; ya sea usando las variables de entorno, o con la configuración de _Genesis Code_. Además de tener configurada correctamente la ruta donde se encuentra nuestro emulador.
 
 Se utilizará el comando _Genesis Code: compile & Run Project_, para generar la ROM y posteriormente ejecutar un emulador con la Rom Generada. Existen otros comandos para Compilar (_Genesis Code: Compile Project_) o compilar para depuración (_Genesis Code: Compile For Debugging_). En este ejemplo, usaremos la opción de _Compile & Run Project_.
 
@@ -116,7 +116,7 @@ Si todo ha ido correctamente, podemos ver como se generará la ROM en la carpeta
 
 ## Cabecera de una ROM
 
-A la hora de crear la ROM de nuestro juego, se deben de añadir una serie de datos que forman parte del juego. Algunos se generan automáticamente y otros se pueden personalizar. SGDK, genera esta cabecera pero podemos añadir datos sobre el juego; como por ejemplo el título del juego, versión o incluso con qué dispositivos es compatible.
+A la hora de crear la ROM de nuestro juego, se deben de añadir una serie de datos sobre el juego. Algunos se generan automáticamente y otros se pueden personalizar. SGDK, genera esta cabecera pero podemos añadir datos sobre el juego; como por ejemplo el título del juego, versión o incluso con qué dispositivos es compatible.
 
 Vemos que es interesante hablar sobre este apartado y ver las distintas opciones que podemos encontrar a la hora de generar la cabecera de la ROM ya que es necesario sobre todo para poder probarlo correctamente en un hardware real, una vez queramos tener nuestra ROM finalizada.
 

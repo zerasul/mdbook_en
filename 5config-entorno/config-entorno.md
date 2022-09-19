@@ -121,7 +121,7 @@ Las opciones disponibles son:
 
 ## Emulador
 
-A la hora de desarrollar nuestro juego, es importante poder probar el progreso de este y aunque podemos usar un hardware real usando un cartucho FlashCart como _Everdrive_[^38], no es nada práctico, tener que estar transfiriendo la ROM cada vez a la tarjeta SD. Por ello, se utilizan emuladores para pode ejecutar la rom creada y ver los resultados.
+A la hora de desarrollar nuestro juego, es importante poder probar el progreso de este y aunque podemos usar un hardware real usando un cartucho FlashCart como _Everdrive_[^38], no es nada práctico, tener que estar transfiriendo la ROM cada vez a la tarjeta SD. Por ello, se utilizan emuladores para poder ejecutar la rom creada y ver los resultados.
 
 Además, algunos de estos emuladores tienen herramientas que nos pueden ayudar a depurar nuestros juegos; como depuración tanto del 68K como del z80, visor de los gráficos en el VDP, visor de Planos o Sprites,etc.
 

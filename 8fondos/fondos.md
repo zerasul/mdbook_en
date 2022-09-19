@@ -95,6 +95,7 @@ Podemos importar los siguientes tipos de recurso:
 
 * _BITMAP_: Mapa de Bits.
 * _PALETTE_: Paleta de Colores.
+* _TILEMAP_: Mapa de Tiles (a partir de la versión 1.80).
 * _TILESET_: Tileset; contiene un conjunto de tiles que puede usarse para generar imágenes o sprites.
 * _MAP_: Recurso tipo Mapa; contiene una paleta, un tileset y la información del mapa (a partir de SGDK 1.60).
 * _IMAGE_: Recurso tipo imagen; contiene una paleta, un tileset y un tilemap.
@@ -128,7 +129,7 @@ Como hemos podido ver, se pueden importar tanto Paletas, como imágenes, como re
 
 Una paleta es la información de los 16 colores que podemos almacenar para usarlo en los distintos gráficos. Es importante, que toda imagen que usemos para SGDK, debe estar almacenada como indexado de 4 u 8 bpp.
 
-**NOTA**: En futuras versiones de SGDK, se podrán usar imágenes RGB con una información adicional para la paleta.
+**NOTA**: A partir de la versión 1.80, se podrán usar imágenes RGB con una información adicional para la paleta. Simplemente añadir en los primeros píxeles una muestra de la paleta a utilizar. Para más información, consultar la documentación de SGDK.
 
 Para definir un recurso de paleta para rescomp; se usa la siguiente sintaxis:
 
@@ -204,16 +205,14 @@ Una vez hemos visto como se han importado estos recursos, vamos a centrarnos en 
 
 int main()
 {
-   
+    VDP_setScreenWidth320();    
+    u16 ind = TILE_USERINDEX;
+    VDP_drawImageEx(BG_B,&bg_a,TILE_ATTR_FULL(PAL0,FALSE,FALSE,FALSE,ind),0,0,TRUE,CPU);
+    ind+=bg_a.tileset->numTile;
+    VDP_drawImageEx(BG_A,&bg_b,TILE_ATTR_FULL(PAL1,FALSE,FALSE,FALSE,ind),0,0,TRUE,CPU);
+    ind+=bg_b.tileset->numTile;
     while(1)
     {
-        
-        VDP_setScreenWidth320();
-        u16 ind = TILE_USERINDEX;
-        VDP_drawImageEx(BG_B,&bg_a,TILE_ATTR_FULL(PAL0,FALSE,FALSE,FALSE,ind),0,0,TRUE,CPU);
-        ind+=bg_a.tileset->numTile;
-        VDP_drawImageEx(BG_A,&bg_b,TILE_ATTR_FULL(PAL1,FALSE,FALSE,FALSE,ind),0,0,TRUE,CPU);
-        ind+=bg_b.tileset->numTile;
         //For versions prior to SGDK 1.60 use VDP_waitVSync instead.
         SYS_doVBlankProcess();
     }
