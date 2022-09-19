@@ -14,11 +14,11 @@ Quiero agradecer a todos los que me habéis apoyado para hacer este libro y segu
 
 Por supuesto, no me he olvidado de aquellos que me han apoyado siempre.
 
-Quiero dedicar este libro, a la asociación La Jaquería cuyo esfuerzo en seguir haciendo cosas en Almería, sigue cada día más fuerte.
+Quiero dedicar este libro, a la asociación La Jaquería cuyo esfuerzo en seguir haciendo cosas en Almería, sigue cada día más fuerte. Además de una mención especial al club de desarrollo retro que me ha ayudado a escribir este libro.
 
 También agradecer a mis queridos amigos de Canarias, Jesús y Yurena, que siempre los tengo en mente y espero que disfruten de este libro que va para ellos principalmente.
 
-No puedo olvidarme por supuesto, a mi gente del WoW (ahora de Microsoft), como pueden ser Laikhas, Sharedia, Suzu (o Xuxu) e Hydrargiros. Que siempre me han tenido que aguantar tantos años después.
+No puedo olvidarme por supuesto, a mi gente del WoW (ahora de Microsoft), como pueden ser Laikhas, Sharedia, Suzu (o Xuxu) e Hydrargiros; además de la gente de la hermandad Leyendas del Olvidado. Que siempre me han tenido que aguantar tantos años después.
 
 Sin olvidar a mi familia que tanto me ha dado y ahora soy yo quien quiere devolverles el favor. No olvidando por el que tuve mi primera mega Drive y por el que creo que fue por el que seguí el camino de la tecnología; mi primo Jose Luís Egea "Tronko".
 
