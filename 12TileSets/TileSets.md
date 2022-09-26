@@ -39,4 +39,5 @@ Tiled es una herramienta de código abierto, que nos va a permitir trabajar a pa
 
 ## Referencias
 
-* Tileset Ejemplo: [https://opengameart.org/content/forest-tileset-new-and-old](https://opengameart.org/content/forest-tileset-new-and-old)
+* Tileset Ejemplo: [https://opengameart.org/content/forest-tileset-new-and-old](https://opengameart.org/content/forest-tileset-new-and-old).
+* Tiled: [https://www.mapeditor.org/](https://www.mapeditor.org/).
