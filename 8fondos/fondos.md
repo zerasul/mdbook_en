@@ -206,7 +206,7 @@ Una vez hemos visto como se han importado estos recursos, vamos a centrarnos en 
 int main()
 {
     VDP_setScreenWidth320();    
-    u16 ind = TILE_USERINDEX;
+    u16 ind = TILE_USER_INDEX;
     VDP_drawImageEx(BG_B,&bg_a,TILE_ATTR_FULL(PAL0,FALSE,FALSE,FALSE,ind),0,0,TRUE,CPU);
     ind+=bg_a.tileset->numTile;
     VDP_drawImageEx(BG_A,&bg_b,TILE_ATTR_FULL(PAL1,FALSE,FALSE,FALSE,ind),0,0,TRUE,CPU);
@@ -222,7 +222,9 @@ int main()
 
 Veamos en detalle el anterior ejemplo; en primer lugar, incluimos la cabecera de la librería LibMD, seguido de la cabecera de los recursos generados con rescomp. Además, podemos observar la llamada a una función ```VDP_setScreenWidth320```; la cual establece la resolución horizontal a 320px (por defecto es esta resolución).
 
-Seguidamente, podemos observar que se guarda en una variable el valor de ```TILE_USERINDEX```; esta constante nos va a indicar el índice donde se va a poder acceder a la memoria donde están almacenados los tiles. Esto es importante para no mostrar tiles que no necesitemos en ese momento o zonas de memoria vacia que pueda dar error; ya que las primeras posiciones de la memoria de vídeo, SGDK las utiliza para inicializar las paletas etc...
+Seguidamente, podemos observar que se guarda en una variable el valor de ```TILE_USER_INDEX```; esta constante nos va a indicar el índice donde se va a poder acceder a la memoria donde están almacenados los tiles. Esto es importante para no mostrar tiles que no necesitemos en ese momento o zonas de memoria vacia que pueda dar error; ya que las primeras posiciones de la memoria de vídeo, SGDK las utiliza para inicializar las paletas etc...
+
+**NOTA**: Si utilizas una versión de SGDK inferior a 1.80, debes usar la variable ```TILE_USERINDEX```.
 
 A continuación, podemos ver la llamada a la función ```VDP_drawImageEx```; la cual nos permitirá dibujar una imagen dentro de un fondo; veamos cuales son los parámetros de esta función:
 

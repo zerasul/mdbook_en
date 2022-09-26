@@ -241,12 +241,27 @@ Tanto la función ```SPR_addSprite``` como ```SPR_addSpriteSafe```, devuelven un
 
 Puede encontrar más información en la propia documentación de SGDK.
 
-Una vez añadidos los dos sprites, tenemos que asignar las paletas de los recursos, a cada una de las paletas disponibles en Sega Mega Drive. Recordemos que cada paleta tiene 16 colores y que el primero, corresponde a un color transparente. Para establecer la paleta, usaremos la función ```VDP_setPalette```. La cual recibe los siguientes parámetros:
+Una vez añadidos los dos sprites, tenemos que asignar las paletas de los recursos, a cada una de las paletas disponibles en Sega Mega Drive. Recordemos que cada paleta tiene 16 colores y que el primero, corresponde a un color transparente. Dependiendo de nuestra versión de SGDK, podemos usar distintas funciones. Si se tiene la versión 1.80 o superior, podemos usar la siguiente función ```PAL_setPalette```. La cual recibe los siguientes parámetros:
+
+* _pal_: Número de paleta a utilizar (```PAL0```,```PAL1```,```PAL2```,```PAL3```).
+* _data_: Datos con la paleta puede ser la del propio recurso, o establecer una personalizada.
+* _tm_: Método de transferencia para almacenar la paleta usando ```CPU``` o ```DMA```.
+
+Si por el contrario tenemos una versión de SGDK inferior a 1.80, podemos usar la función ```VDP_setPalette```; para establecer la paleta a un Sprite. La cual recibe los siguientes parámetros:
 
 * _pal_: Paleta a utilizar (```PAL0```,```PAL1```,```PAL2```,```PAL3```).
 * _data_: Datos con la paleta. Puede ser la del propio recurso, o establecer una personalizada.
 
 Como en el propio ejemplo, que establece la paleta ```PAL3``` con los datos de la paleta del recurso importado:
+
+
+Para SGDK 1.80 o superior:
+
+```c
+PAL_setPalette(PAL3, elliSprt.palette->data, DMA);
+```
+
+Para versiones inferiores a 1.80:
 
 ```c
 VDP_setPalette(PAL3,elliSprt.palette->data);
