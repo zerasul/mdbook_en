@@ -34,6 +34,18 @@ Aunque se pueden utilizar distintas herramientas para trabajar con TileSets y ge
 
 Tiled es una herramienta de código abierto, que nos va a permitir trabajar a partir de Tilesets (o conjuntos de patrones); aunque ya hemos hablado de ella anteriormente, aquí vamos a ver más en detalle como utilizarla para generar a partir de Tilesets, nuestros TileMaps para importarlos a Sega Mega Drive.
 
+<div class="image">
+<img id="arq" src="12TileSets/img/Tiled.png" alt="Tiled" title="Tiled"/> </div>
+<p>Tiled</p>
+
+Como podemos ver en la anterior imagen, Tiled permite crear mapas a partir de un conjunto de patrones. Estos conjuntos de patrones e información del mapa, se pueden importar a nuestro juego de Mega Drive usando distintas herramientas.
+
+Vamos a centrarnos en como crear un mapa usando Tiled; concretamente a partir del ejemplo de TileSet anterior, podamos generar un nuevo mapa. Para ello, se importa un nuevo _conjunto de patrones_, a Tiled y se guarda con el formato _.tsx_; un fichero tsx, almacena la informacion de un conjunto de patrones. Que se le puede indicar el tamaño de cada Tile (Un Tile recuerda que es un fragmento de la imagen); en este caso, usaremos el tamaño de 8x8 px.
+
+A la hora de generar un mapa, podemos hacerlo con distintas capas. Cada capa puede contener distintos elementos que tengamos en los distintos conjuntos de patrones. De tal forma que podamos enriquezer nuestro mapa con más elementos.
+
+
+
 ## Ejemplos con TileSets
 
 
