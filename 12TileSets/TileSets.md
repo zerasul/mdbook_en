@@ -267,7 +267,7 @@ TILESET tilesetBosque "tilesetbosque.png" 0
 Es importante que a la hora de cargar el Tileset el parametro de optimización no este activado para no tener problemas a la hora de cargar los índices del tilemap. Una vez importados estos recursos con rescomp, ya podemos crear un fichero .h, con la información obtenida del fichero TMX.
 
 ```c
-u16 map1[1120]={481,482,483,484,485,482,483,484,485,482,483,...};
+u16 map1[1120]={481,482,483,484,...};
 ```
 
 Una vez importada la información, ya podemos pasar a nuestro ejemplo:
@@ -276,7 +276,8 @@ Veamos un fragmento:
 
 ```c
     u16 ind = TILE_USER_INDEX;
-    VDP_loadTileSet(&tilesetBosque,TILE_USER_INDEX,CPU);
+    VDP_loadTileSet(&tilesetBosque,
+        TILE_USER_INDEX,CPU);
     PAL_setPalette(PAL0,palbosque.data,CPU);
     int i,j;
     for (i = 0; i < 40; i++)
@@ -284,8 +285,9 @@ Veamos un fragmento:
         for (j = 0; j < 28; j++)
          {
              VDP_setTileMapXY(BG_A,
-              TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE,
-                    (ind) + map1b[(i) + 40 * j])
+              TILE_ATTR_FULL(PAL0, FALSE,
+                 FALSE, FALSE,
+                (ind-1) + map1b[(i) + 40 * j])
                 ,i,j);
          }
         }
