@@ -20,7 +20,7 @@ Este libro contiene lo mínimo e imprescindible para poder crear juegos a partir
 10. [Física y Matemáticas](10Fisicas/fisicas.md).
 11. [Paletas de Colores](11Paletas/paletas.md).
 12. [Tilesets](12TileSets/TileSets.md).
-13. Scroll.
+13. [Scroll](13Scroll/scroll.md).
 14. Sonido y Música.
 15. SRAM y otros.
 16. Debug.
