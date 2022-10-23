@@ -68,9 +68,9 @@ Para ello, podemos cargar la información de los dos recursos, usando un fichero
 
 ```
 PALETTE palbosque   "tilesetbosque.png"
-TILESET mapabosque  "tilesetbosque.png" NONE NONE
-TILEMAP map1  "mapabosque.tmx" "Capa de patrones 1" NONE NONE
-TILEMAP map1b  "mapabosque.tmx" "Capa de patrones 2" NONE NONE
+TILESET mapabosque  "tilesetbosque.tsx" NONE NONE
+TILEMAP map1  "mapabosque.tmx" "Capa de patrones 1" NONE NONE 16
+TILEMAP map1b  "mapabosque.tmx" "Capa de patrones 2" NONE NONE 16
 ```
 
 Podemos ver que en ese ejemplo, cargamos una paleta, un Tileset y dos Tilemap; uno por cada capa definida en el fichero tmx.
@@ -111,7 +111,7 @@ En primer lugar, veremos como se importa un tilemap a partir de una imagen:
     * 0/NONE: No realiza ninguna optimización.
     * 1/ALL: Ignora los tiles duplicados y espejados.
     * 2/DUPLICATE: Ignora los tiles duplicados.
-* map_base: indica la base del tilemap; es util para definir la prioridad, paleta y tileBase.
+* map_base: indica la base del tilemap; es util para definir la prioridad, paleta y tileBase. Este es importante para poder cargar el offset de los tiles a cargar.
 
 En el caso de utilizar un fichero TMX, podemos importar el recurso de la siguiente forma:
 
@@ -129,7 +129,7 @@ En el caso de utilizar un fichero TMX, podemos importar el recurso de la siguien
     * 0/NONE: No realiza ninguna optimización.
     * 1/ALL: Ignora los tiles duplicados y espejados.
     * 2/DUPLICATE: Ignora los tiles duplicados.
-* map_base: indica la base del tilemap; es util para definir la prioridad, paleta y tileBase.
+* map_base: indica la base del tilemap; es util para definir la prioridad, paleta y tileBase. Este es importante para poder cargar el offset de los tiles a cargar.
 
 **NOTA:** Si se quieren cargar los Tiles con baja prioridad, se puede establecer el nombre de la capa con el sufijo "low" o sufijo "high".
 **NOTA2:** También puede realizarse la carga de la información de la prioridad nombrando la capa con el sufijo "priority".
@@ -178,12 +178,12 @@ En este ejemplo, vamos a cargar un Tilset, y luego los correspondientes TileMaps
 
 ```res
 PALETTE palbosque   "tilesetbosque.png"
-TILESET mapabosque  "tilesetbosque.png" NONE NONE
-TILEMAP map1  "mapabosque.tmx" "Capa de patrones 1" NONE NONE
-TILEMAP map1b  "mapabosque.tmx" "Capa de patrones 2" NONE NONE
+TILESET mapabosque  "tilesetbosque.tsx" NONE NONE
+TILEMAP map1  "mapabosque.tmx" "Capa de patrones 1" NONE NONE 16
+TILEMAP map1b  "mapabosque.tmx" "Capa de patrones 2" NONE NONE 16
 ```
 
-Podemos ver que tenemos una paleta, que almacenará la información de los colores, un Tileset, con la información del tileset a cargar, que vemos que no tiene compresión ni optimización. Además que cargamos 2 TileMaps; los cuales corresponden al mismo fichero TMX, pero a distintas capas de tal forma que cargaremos distintas capas en este fichero.
+Podemos ver que tenemos una paleta, que almacenará la información de los colores, un Tileset, con la información del tileset a cargar, que vemos que no tiene compresión ni optimización. Además que cargamos 2 TileMaps; los cuales corresponden al mismo fichero TMX, pero a distintas capas de tal forma que cargaremos distintas capas en este fichero. Podemos observar que definimos el Tile Base a 16 que indica el offset a tener a la hora de cargar la información de los Tiles (que corresponde al valor inicial del espacio de VRAM para el usuario).
 
 Veamos el código fuente de este ejemplo:
 
@@ -198,12 +198,10 @@ int main()
     u16 ind = TILE_USER_INDEX;
     VDP_loadTileSet(&mapabosque, ind, DMA);
     PAL_setPalette(PAL0,palbosque.data,DMA);
-    VDP_setTileMapEx(BG_B,&map1,
-    TILE_ATTR_FULL(PAL0,FALSE,FALSE,FALSE,ind),
-    0,0,0,0,map1.w,map1.h,DMA);
-    VDP_setTileMapEx(BG_A,&map1b,
-    TILE_ATTR_FULL(PAL0,FALSE,FALSE,FALSE,ind),
-    0,0,0,0,map1b.w,map1b.h,DMA);
+    VDP_setTileMap(BG_B,&map1,
+    0,0,map1.w,map1.h,DMA);
+    VDP_setTileMap(BG_A,&map1b,
+    0,0,map1b.w,map1b.h,DMA);
     while(1)
     {
         //For versions prior to SGDK 1.60 use VDP_waitVSync instead.
@@ -228,13 +226,10 @@ La primera función que observamos es ```VDP_loadTileSet``` la cual carga la inf
 
 En nuestro ejemplo se utiliza DMA para transferir la información; recuerda no sobrecargar el DMA ya que comparte bus con la CPU y podría haber cuellos de botella.
 
-Por otro lado, vamos a ver como se carga la información de los Tilemap, usando la función ```VDP_setTileMapEx```; esta función permite cargar la información del tilemap, además de recibir la información de la paleta y prioridad; veamos los parámetros de esta función:
+Por otro lado, vamos a ver como se carga la información de los Tilemap, usando la función ```VDP_setTileMap```; esta función permite cargar la información del tilemap, la información de la paleta y prioridad, lo cargará del mapbase definido con rescomp; veamos los parámetros de esta función:
 
 * _Plano_: Indica el plano a utilizar; puede ser ```BG_A```o ```BG_B```.
 * _tilemap*_: Puntero al recurso donde se almacena este TileMap.
-* _mapbase_: Indica cual sera el Tile Base para cargar la información de la prioridad, paleta,etc. Se puede utilizar la macro ```TILE_ATTR_FULL```.
-* _sx_: posición X en Tiles dentro del plano.
-* _sy_: Posición Y en Tiles dentro del plano.
 * _x_: posición x del mapa en Tiles.
 * _y_: posición y del mapa en Tiles.
 * _w_: ancho en Tiles.
@@ -245,7 +240,7 @@ Por otro lado, vamos a ver como se carga la información de los Tilemap, usando 
     * DMA_QUEUE: Se utilizará la cola de DMA.
     * DMA_QUEUE_COPY: Se utilizará cola de DMA como copia. 
 
-Existen variantes de esta función que cargan la información de la paleta o prioridad, de la información obtenida por rescomp, como ```VDP_setTileMap```. Puedes ver como utilizar esta función, en la documentación de SGDK.
+Existen variantes de esta función que cargan la información de la paleta o prioridad,  como ```VDP_setTileMapEx```, que se le puede indicar el mapbase. Puedes ver como utilizar esta función, en la documentación de SGDK.
 
 Una vez tenemos este ejemplo listo, ya podemos compilar y ejecutar para ver como se carga el fondo:
 
@@ -270,7 +265,7 @@ Es importante que a la hora de cargar el Tileset el parametro de optimización n
 u16 map1[1120]={481,482,483,484,...};
 ```
 
-Una vez importada la información, ya podemos pasar a nuestro ejemplo:
+Con esta información, podemos almacenar cada Tile en una posición de un array para despues pintarla en pantalla.
 
 Veamos un fragmento:
 
@@ -280,29 +275,46 @@ Veamos un fragmento:
         TILE_USER_INDEX,CPU);
     PAL_setPalette(PAL0,palbosque.data,CPU);
     int i,j;
+    u16 tileMap1[1120];
+    u16 tileMap1b[1120];
     for (i = 0; i < 40; i++)
         {
         for (j = 0; j < 28; j++)
          {
-             VDP_setTileMapXY(BG_A,
-              TILE_ATTR_FULL(PAL0, FALSE,
-                 FALSE, FALSE,
-                (ind-1) + map1b[(i) + 40 * j])
-                ,i,j);
+             tileMap1[(i) + 40 * j]=
+                TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, 
+                    (ind-1) + map1b[(i) + 40 * j]);
+             tileMap1b[(i) + 40 * j]=
+                TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE,
+                 (ind-1) + map1[(i) + 40 * j]);
          }
         }
+    VDP_setTileMapDataRect(
+        BG_A,tileMap1,0,0,40,28,40,CPU);
+    VDP_setTileMapDataRect(
+        BG_B,tileMap1b,0,0,40,28,40,CPU);
 ```
 
-Podemos ver como al principio cargamos la información del tileset de igual forma que el ejemplo anterior; pero esta vez en vez de cargar el TileMap, pintamos a mano  indicando en cada posición el Tile a pintar. Obviamente, esta no es la forma más eficiente de pintar pero es util a modo de demostración.
+Observamos como se han definido dos arrays de tipo u16, que contienen 1120 posiciones; uno por cada Tile a almacenar; seguidamente se rellenan esos Tiles, usando la información almacenada en el fichero .h, y usando la macro ```TILE_ATTR_FULL```para ir cargando en cada Tile la información de la paleta, prioridad,etc. 
 
-La función ```VDP_setTileMapXY``` que permite pintar Tile en una posición a partir de un Tileset cargado en memoria. En este caso podemos ver que tiene los siguientes parámetros:
+Después de cargar cada Tile, dibujamos por pantalla cada capa, usando la función ```VDP_setTileMapDataRect```.
 
-* _Plano_: plano donde se dibujara; puede ser ```BG_A```o ```BG_B```.
-* _tileBase_: Tile a dibujar; puede usarse la macro ```TILE_ATTR_FULL```.
-* _x_: posición X en Tiles.
-* _y_: posición Y en Tiles.
+La función ```VDP_setTileMapDataRect```, dibuja por pantalla un tilemap como un rectángulo; por lo que podemos dibujar áreas de pantalla, con los Tiles almacenados; puede recibir los siguientes parámetros:
 
-Vemos que para calcular el Tile a mostrar, usamos una formula que se trata de ir buscando en el array que hemos creado en el fichero .h, la coordenada correspondiente, en Tiles. De tal forma que se dibujará cada Tile en su posición. Pueden usarse otras funciones para dibujar Tiles, como ```VDP_setTileMapDataRect```; que permite dibujar un área como rectángulo; para más información, puedes consultar la documentación de SGDK.
+* _Plane_: Plano a dibujar puede ser ```BG_A``` o ```BG_B```.
+* _data_: Puntero a la primera posición donde se encuentran los datos.
+* _x_: Posición x donde comenzar (En tiles).
+* _y_: Posición y donde comenzar (En tiles).
+* _w_: Ancho a dibujar en tiles.
+* _h_: Alto a dibujar en tiles.
+* _wm_: Ancho del tilemap de origen a dibujar en Tiles.
+* _tm_: método de transferencia; permite utilizar la CPU, o los distintos valores de DMA; puede tener los siguientes valores:
+    * CPU: se utilizará la CPU.
+    * DMA: se utilizará DMA.
+    * DMA_QUEUE: Se utilizará la cola de DMA.
+    * DMA_QUEUE_COPY: Se utilizará cola de DMA como copia. 
+
+Vemos que para calcular el Tile a mostrar, usamos una formula que se trata de ir buscando en el array que hemos creado en el fichero .h, y posteriormente se muestran todos los tiles por pantalla. Existen otras funciones para realizar estos datos como ```VDP_setTileMapXY```, que permite dibujar en una coordenada en concreto; para más información acerca de como usar estas funciones, puedes consultar la documentación de SGDK.
 
 Una vez que hemos terminado de revisar el código, ya podemos compilar y ejecutar este ejemplo:
 
