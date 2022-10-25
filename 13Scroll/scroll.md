@@ -53,15 +53,19 @@ Se permite un plano de 512x256px con la configuración habitual; de tal forma qu
 
 ### Scroll por Tile
 
+Al igual que el desplazamiento por líneas, se pue derealizar por Tiles; aunque en este caso en unidades de 2 Tiles; esto permitirá realizar movimiento tanto verticalmente, como horizontalmente.
+
+Toda la información de desplazamiento tanto vertical como horizontal, se almacena en la VRAM y es accesible por el VDP.
+
 ## Ejemplo usando Scroll
 
 ### Scroll por lineas
 
 ### Scroll por plano
 
-### Scroll usando MAP
-
 ### Scroll por Tile
+
+### Scroll usando MAP
 
 ## Referencias
 
