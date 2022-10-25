@@ -132,6 +132,7 @@ En el caso de utilizar un fichero TMX, podemos importar el recurso de la siguien
 * map_base: indica la base del tilemap; es util para definir la prioridad, paleta y tileBase. Este es importante para poder cargar el offset de los tiles a cargar.
 
 **NOTA:** Si se quieren cargar los Tiles con baja prioridad, se puede establecer el nombre de la capa con el sufijo "low" o sufijo "high".
+
 **NOTA2:** También puede realizarse la carga de la información de la prioridad nombrando la capa con el sufijo "priority".
 
 
@@ -194,7 +195,7 @@ Veamos el código fuente de este ejemplo:
 
 int main()
 {
-    //Versions prior to SGDK 1.80 use TILE_USERINDEX
+
     u16 ind = TILE_USER_INDEX;
     VDP_loadTileSet(&mapabosque, ind, DMA);
     PAL_setPalette(PAL0,palbosque.data,DMA);
@@ -204,7 +205,6 @@ int main()
     0,0,map1b.w,map1b.h,DMA);
     while(1)
     {
-        //For versions prior to SGDK 1.60 use VDP_waitVSync instead.
         SYS_doVBlankProcess();
     }
     return (0);
@@ -282,10 +282,12 @@ Veamos un fragmento:
         for (j = 0; j < 28; j++)
          {
              tileMap1[(i) + 40 * j]=
-                TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, 
-                    (ind-1) + map1b[(i) + 40 * j]);
+                TILE_ATTR_FULL(PAL0, FALSE,
+                 FALSE, FALSE, 
+                (ind-1) + map1b[(i) + 40 * j]);
              tileMap1b[(i) + 40 * j]=
-                TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE,
+                TILE_ATTR_FULL(PAL0, FALSE,
+                 FALSE, FALSE,
                  (ind-1) + map1[(i) + 40 * j]);
          }
         }
