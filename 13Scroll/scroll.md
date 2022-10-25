@@ -23,6 +23,7 @@ Además, dependiendo de la porción de pantalla desplazada, podemos encontrar do
 
 * Línea: El VDP permite desplazar horizontalmente hasta 224 líneas; aunque verticalmente, tiene capacidad de desplazar algunas porciones.
 * Plano: El VDP permite desplazar tanto horizontalmente, como verticalmente, un plano completo.
+* Tile: Se puede realizar desplazamiento de los distintos Tiles de una línea.
 
 En este apartado, vamos a centrarnos en estos tipos de Scroll y veremos como puede realizarse en cada una de las direcciones propuestas.
 
@@ -50,6 +51,8 @@ Como podemos ver en el esquema, la parte visible solo tiene por ejemplo 320px de
 
 Se permite un plano de 512x256px con la configuración habitual; de tal forma que podemos almacenar más imágen de la visible, y posteriormente desplazarlo tanto horizontalmente, como verticalmente.
 
+### Scroll por Tile
+
 ## Ejemplo usando Scroll
 
 ### Scroll por lineas
@@ -58,9 +61,12 @@ Se permite un plano de 512x256px con la configuración habitual; de tal forma qu
 
 ### Scroll usando MAP
 
+### Scroll por Tile
+
 ## Referencias
 
 * Scroll (Sega Retro): [https://segaretro.org/Sega_Mega_Drive/Scrolling](https://segaretro.org/Sega_Mega_Drive/Scrolling)
 * VDP Scrolling (Mega Drive Wiki): [https://wiki.megadrive.org/index.php?title=VDP_Scrolling](https://wiki.megadrive.org/index.php?title=VDP_Scrolling)
 * Scroll por líneas (Danibus): [https://danibus.wordpress.com/2019/10/08/leccion-9-scroll-por-lineas/](https://danibus.wordpress.com/2019/10/08/leccion-9-scroll-por-lineas/)
 * Scroll por planos (Danibus): [https://danibus.wordpress.com/2019/10/10/leccion-9-scroll-3-mas-alla-de-los-512px/](https://danibus.wordpress.com/2019/10/10/leccion-9-scroll-3-mas-alla-de-los-512px/)
+* Scroll por Tiles (Danibus): [https://danibus.wordpress.com/2019/10/08/leccion-9-scroll-por-tiles/](https://danibus.wordpress.com/2019/10/08/leccion-9-scroll-por-tiles/)
