@@ -59,9 +59,9 @@ De esta forma, puede aumentar el número de colores y mostrar distintos efectos 
 
 Podemos ver en la imagen anterior, como la misma paleta de colores, puede estar en modo HighLight o modo shadow ampliando el número de colores a poder mostrar con solo una paleta. Sin embargo, estos colores no son siempre ampliables por tres (es decir, que de 16 colores pasa a 48). Sino que depende de varios casos, se mostrarán más o menos colores.
 
-En este apartado, vamos a mostrar como trabajan estos modos en la Sega mega Drive. Ya que dependiendo de lo que se va a mostrar y dela prioridad del mismo, se tiene un comportamiento u otro. Vamos a ver como se comporta estos modos en planos y Sprites.
+En este apartado, vamos a mostrar como trabajan estos modos en la Sega mega Drive. Ya que dependiendo de lo que se va a mostrar y de la prioridad del mismo, se tiene un comportamiento u otro. Vamos a ver como se comporta estos modos en planos y Sprites.
 
-Para activar el modo HighLight/Shadow, puede usarse la función ```VDP_setHilightShadow``` la cual se indica si se activa o no. Recibe por parametro con valor 1 o 0. Por ejemplo:
+Para activar el modo HighLight/Shadow, puede usarse la función ```VDP_setHilightShadow``` la cual se indica si se activa o no. Recibe por parámetro con valor 1 o 0. Por ejemplo:
 
 ```c
 VDP_setHilightShadow(1);
@@ -151,7 +151,7 @@ IMAGE bg_color1 "gfx/fondocolor1.png" NONE
 IMAGE bg_prio "gfx/fondocolor2.png" NONE
 ```
 
-En el código fuente, puedes encontrar la función ```drawPriorityMap```, la cual nos va a dibujar en el plano A el mapa de prioridades, a partir de la segunda imágen. Este recibe la imagen que contiene las prioridades por parámetro; veamos un fargmento con la función:
+En el código fuente, puedes encontrar la función ```drawPriorityMap```, la cual nos va a dibujar en el plano A el mapa de prioridades, a partir de la segunda imágen. Este recibe la imagen que contiene las prioridades por parámetro; veamos un fragmento con la función:
 
 ```c
     u16 tilemap_buff[MAXTILES];

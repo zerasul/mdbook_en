@@ -35,7 +35,7 @@ También es importante saber que los Sprites se almacenaran en la VRAM por lo qu
 
 ## Importar Recursos de Sprites
 
-Tras conocer como La Sega Mega Drive trabaja con Sprites y sobre todo ver las limitaciones que nos provee el hardware, vamos a ver como podemos importar los recursos de Sprites para nuestros juegos. Para ello, gracias a la herramienta que integra SGDK, usaremos _recomp_.
+Tras conocer como La Sega Mega Drive trabaja con Sprites y sobre todo ver las limitaciones que nos provee el hardware, vamos a ver como podemos importar los recursos de Sprites para nuestros juegos. Para ello, gracias a la herramienta que integra SGDK, usaremos _rescomp_.
 
 Como vimos en el anterior capítulo, con rescomp podemos importar recursos de distintos tipos para poder utilizarlos en SGDK. En este apartado, vamos a ver como importar un Sprite y dividir los distintos frames que compone. Recordamos que se deben definir cada recurso en un fichero con extensión _.res_.
 

@@ -95,7 +95,7 @@ Habrá podido ver, que no hemos incluido los tipos de datos numéricos con decim
 
 El procesador Motorola 68000 no tiene soporte para punto flotante por lo tanto, no se pueden realizar cálculos con números decimales; por ello se deben de implementar todos los cálculos con números enteros y realizar transformaciones para trabajar con ellos.
 
-Por ello SGDK, trae una serie de datos preparados para trabajar con punto flotante; estos tipos de datos son el ```FIX16``` y el ```FIX232```; que corresponderían a los tipos ```float``` y ```double``` de C; veamos una tabla con sus datos:
+Por ello SGDK, trae una serie de datos preparados para trabajar con punto flotante; estos tipos de datos son el ```FIX16``` y el ```FIX32```; que corresponderían a los tipos ```float``` y ```double``` de C; veamos una tabla con sus datos:
 
 | **Tipo SGDK** | **Tipo (C)** | **Descripción** | **Rango**               |
 |---------------|:------------:|-----------------|-------------------------|
@@ -322,7 +322,7 @@ Donde las propiedades de esta estructura son:
 * _x_: Coordenada X inicial en píxeles de la esquina superior izquierda.
 * _y_: Coordenada Y inicial en píxeles de la esquina superior izquierda.
 * _w_: Ancho en píxeles del rectángulo.
-* _h_: Ancho en píxeles del rectángulo.
+* _h_: Alto en píxeles del rectángulo.
 
 Además, se ha añadido la función ```checkCollision``` que recibe dos Sprites, y devuelve un int. Esta función será llamada en cada Frame ya que estará incluida en el bucle infinito.
 
