@@ -152,6 +152,166 @@ Una vez hemos podido explicar el código y como funciona este ejemplo, ya podemo
 
 ### Scroll por plano
 
+Hemos podido ver el desplazamiento por líneas; pero en muchas ocasiones, necesitamos desplazar el plano ya que puede llegar a ser más grande que lo que mostramos por pantalla; además, de que la imagen a mostrar, puede ser que un escenario sea mucho más grande que lo que se puede almacenar en un plano.
+
+Recordamos que el VDP, permite almacenar un plano de hasta 512x256px; pero en ROM, se puede almacenar información mucho más grande. En este aspecto, vamos a mostrar una imagen mucho mayor, y se irá desplazando a medida que lo necesitemos.
+
+Este ejemplo puedes encontrarlo en el repositorio de ejemplos bajo el nombre de _ej12.planescroll_; en este ejemplo, usaremos un plano fijo, y un segundo plano, que iremos desplazando horizontalmente cuando fuese necesario.
+
+En este ejemplo, no solo desplazaremos el plano; sino que iremos generando los Tiles necesarios conforme fuese necesario de tal forma que vamos a ir descubriendo el escenario poco a poco. Vamos a ver las imágenes que usaremos como planos.
+
+El primer plano, que usaremos como cielo; se trata de una imágen estática que dibujaremos en el plano B.
+
+<div class="image">
+<img id="arq" src="13Scroll/img/Sky_pale.png" alt="Imagen de Fondo 1" title="Imagen de Fondo 1"/> </div>
+<p>Imagen de Fondo 1 (Open Game Art)</p>
+
+Después, tendremos el fondo que iremos desplazando; que se trata de una imagen de 640x224 píxeles; que almacenaremos en memoria ROM y que iremos mostrando conforme sea necesaria.
+
+<div class="image">
+<img id="arq" src="13Scroll/img/map1.png" alt="Imagen de Fondo 2" title="Imagen de Fondo 2"/> </div>
+<p>Imagen de Fondo 2 (Open Game Art)</p>
+
+Como vemos en la anterior imagen, el color de fondo rojo, será el color transparente (es el primer color de la paletas de colores). Con estos dos fondos y un Sprite, es con lo que vamos a trabajar.
+
+Una vez que tengamos las imágenes, vamos a revisar el código; que hemos decidido dividir en tres partes; la función principal, la función de manejo de los controles y por último una función para actualizar la pantalla cuando sea necesaria.
+
+Comenzaremos hablando de la función principal; donde inicializaremos todas las variables y dibujaremos los fondos. Veamos un fragmento:
+
+```c
+struct{
+    Sprite* elliSprt;
+    u16 x;
+    u16 y;
+    u16 offset;
+}player;
+
+u16 xord;
+u16 countpixel;
+u16 col_update;
+u16 ind;
+```
+
+Vemos que se inicializan una serie de variables globales; vamos a mostrar su utilidad:
+
+* Un Struct llamado player, con información del jugador; como el Sprite a utilizar, x, y y el offset a desplazar.
+* xord: Indica si se necesita desplazar o no.
+* countpixel: Esta variable nos va a ayudar a que se genere un nuevo Tile cuando sea necesario; recuerda que el movimiento de los Sprites es a nivel de pixel, mientras los fondos a nivel de Tiles.
+* col_update: Indica si hay que actualizar una columna o no; será necesario para generar una nueva columna.
+* ind: Indice para calcular los Tiles a almacenar en VRAM.
+
+Con estas variables, vamos a realizar el desplazamiento; pero antes lo que realizaremos será dibujar ambos planos, y dibujar los Sprites necesarios.
+
+```c
+SPR_init();
+    ind = TILE_USER_INDEX;
+    VDP_drawImageEx(BG_B,&sky,
+        TILE_ATTR_FULL(PAL0,FALSE,
+        FALSE,FALSE,ind)
+            ,0,0,TRUE,CPU);
+    ind+= sky.tileset->numTile;
+    VDP_drawImageEx(BG_A,&map1,
+        TILE_ATTR_FULL(PAL1,FALSE,
+            FALSE,FALSE,ind),
+            0,0,TRUE,CPU);
+    player.elliSprt=SPR_addSprite(&elli,
+        20,135,
+        TILE_ATTR(PAL2,FALSE,FALSE,FALSE));
+    SPR_setAnim(player.elliSprt,IDLE);
+    PAL_setPalette(PAL2,elli.palette->data,CPU);
+```
+
+Una vez dibujada la pantalla y los Sprites, pasaremos a configurar el modo de Scroll:
+
+```c
+ VDP_setScrollingMode(HSCROLL_PLANE,VSCROLL_PLANE);
+```
+
+Como vemos en el fragmento anterior, configuraremos tanto el desplazamiento horizontal como el vertical, como desplazamiento de Plano. Después dentro del bucle del juego, llamaremos al resto de funciones y se actualizará la tabla de Sprites.
+
+Vamos a ver como funcionan el resto de funciones; en este caso la función ```void inputHandle()```, que gestiona la entrada de los botones. En este caso, se trata de que cuando el personaje se mueva a la derecha y llegue a cierto punto, se desplace y pueda avanzar por el escenario; sin embargo en este caso solo implementaremos el desplazamiento hacia la izquierda por lo que si el Sprite se mueve en dirección contraria no avanzará.
+
+Veamos un fragmento de la función:
+
+```c
+ if(value & BUTTON_RIGHT){
+    SPR_setAnim(player.elliSprt, RIGTH);
+        if(player.x>220){
+        xord=1;
+    }else{
+        player.x+=2;
+        xord=0;
+    } 
+ }
+```
+
+En este fragmento, podemos ver que si se ha pulsado el botón derecha y el personaje esta a más de 220 píxeles a la derecha, se pondrá la variable ```xord``` a 1; indicando que habrá un desplazamiento. Además de que se actualizará la animación del Sprite.
+
+En caso contrario, se pondrá la variable ```xord``` a cero indicando que no hay desplazamiento; además de actualizar posición y animación del Sprite.
+
+Veamos la siguiente función; se trata de la función ```void updatePhisics()```, que actualizará todo lo necesario para realizar el desplazamiento. Veamos un Fragmento:
+
+```c
+SPR_setPosition(player.elliSprt,player.x,player.y);
+if(xord>0){
+    player.offset+=2;
+    countpixel++;
+    if(countpixel>7) countpixel=0;
+}
+```
+En este caso, vemos que si la variable ```xord``` es mayor que cero, se actualizará el desplazamiento y el contador de pixeles; de tal forma que si el contador es mayor que 7, se necesitará calcular un nuevo Tile. Veamos un último fragmento para ver como generamos dicho Tile al final del plano.
+
+```c
+if(player.offset>640) player.offset=0;
+    if(countpixel==0){
+        col_update=(((player.offset+320)
+                >>3)&79);
+        VDP_setMapEx(BG_A,map1.tilemap,
+        TILE_ATTR_FULL(PAL1,FALSE,FALSE,
+            FALSE,ind),col_update,0,
+            col_update,0,1,28);
+    }
+    VDP_setHorizontalScroll(BG_A,-player.offset);
+```
+
+Vemos como al inicio, se comprueba que el offset no sea mayor que el tamaño del plano; si ocurre, se vuelve a inicializar el offset a cero para dar sensación de infinito. Una vez hecho esto, comprobaremos que ```countpixel```, sea cero; si es así se calculará la columna a actualizar; veamos esa formula:
+
+```c
+col_update=(((player.offset+320)>>3)&79);
+```
+
+En este caso se calcula el offset sumando 320 y haciendo un desplazamiento hacia la derecha de 3 posiciones (que será lo mismo que dividir por 8; pero más eficiente ya que la operación de división en el Motorola 68000, puede durar hasta 158 ciclos). Por último, se generará una nueva columna al final del Plano; veamos ese fragmento:
+
+```c
+VDP_setMapEx(BG_A,map1.tilemap,
+    TILE_ATTR_FULL(PAL1,FALSE,FALSE,
+        FALSE,ind),col_update,0,
+        col_update,0,1,28);
+```
+
+Vemos que se llama a la función ```VDP_setMapEx``` que permite actualizar un fragmento del plano y colocar un nuevo fragmento usando el TileMap de la propia imagen. Veamos los parámetros de esta función:
+
+* _plane_: Indica el plano a actualizar; puede ser ```BG_A```, ```BG_B```.
+* _TileMap_: Puntero a la información del TileMap.
+* _baseTile_: Tile Base; puede usarse la macro ```TILE_ATTR_FULL```, para generar esta información.
+* _x_: posición x en Tiles.
+* _y_: posición y en Tiles.
+* _xm_: posición x en el TileMap.
+* _ym_: Posición y en el TileMap.
+* _wm_: Ancho en Tiles del Tilemap a mostrar.
+* _hm_: Alto en Tiles del Tilemap a mostrar.
+
+Por último, para este ejemplo, vamos a realizar el desplazamiento propiamente dicho. que usaremos la función ```VDP_setHorizontalScroll```; que realiza un desplazamiento horizontal del plano; recibe los siguientes parámetros:
+
+* _plano_: plano a actualizar; puede ser  ```BG_A```, ```BG_B```.
+* _offset_: Desplazamiento a realizar.
+
+Tras ver la última función, ya podemos compilar y ejecutar el ejemplo de tal forma que podemos ver, si pulsamos a la derecha y el personaje llega a cierto punto, como se va desplazando el plano.
+
+<div class="image">
+<img id="arq" src="13Scroll/img/ej12.png" alt="Ejemplo 12: Scroll por plano" title="Ejemplo 12: Scroll por plano"/> </div>
+<p>Ejemplo 12: Scroll por plano</p>
+
 ### Scroll por Tile
 
 ### Scroll usando MAP
