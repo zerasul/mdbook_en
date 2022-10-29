@@ -71,7 +71,7 @@ Recuerda; que todos los ejemplos que mencionamos en este libro, los tienes dispo
 
 ### Scroll por lineas
 
-En este primer ejemplo, vamos a centrarnos en realizar desplazamiento por líneas; recordamos que se pueden realizar desplazamiento de las 224 líneas horizontales que tenemos disponibles.
+En este primer ejemplo, vamos a centrarnos en realizar desplazamiento por líneas; recordamos que se pueden realizar desplazamiento de las 224 líneas horizontales que tenemos disponibles. Este ejemplo corresponde a la carpeta _ej11.linescroll_; que encontrarás en el repositorio de ejemplos.
 
 Para este ejemplo, usaremos una imagen con un logo recordando a la pantalla de inicio de Sonic por ejemplo; esta es la imagen.
 
