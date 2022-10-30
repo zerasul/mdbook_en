@@ -314,14 +314,173 @@ Tras ver la última función, ya podemos compilar y ejecutar el ejemplo de tal f
 
 ### Scroll por Tile
 
+Aun queda un modo de Desplazamiento o Scroll que ver; se trata de la capacidad de desplazar a nivel de Tile o conjunto de Tiles el plano; esto puede ser util para crear distintos efectos y poder dar una mayor experiencia al jugador. Vamos a ver por ejemplo, como hacer un efecto de lluvia, usando desplazamiento por Tiles. En este caso, vamos a usar el ejemplo que se encuentra en el repositorio de ejemplos; dentro de la carpeta con nombre _ej13.tilescroll_. En este ejemplo, vamos a crear un efecto lluvia, usando un TileMap y desplazamiento de 2 Tiles Verticalmente.
+
+En primer lugar, vamos a usar un fondo, y un TileMap que generaremos a partir de un pequeño TileSet; por lo que importaremos cada recurso usando _rescomp_ con la información de los recursos a importar:
+
+```res
+PALETTE rainplt "rain.png"
+TILESET rain "rain.png" NONE NONE
+IMAGE city "city3.png" NONE NONE
+```
+
+Vemos que importamos una imagen, un tileSet y la correspondiente paleta. El fondo a utilizar recuerda a una ciudad por la noche; mostramos la imagen del fondo.
+
+<div class="image">
+<img id="arq" src="13Scroll/img/city3.png" alt="Fondo ejemplo 13" title="Fondo ejemplo 13"/> </div>
+<p>Fondo ejemplo 13 (Open Game Art)</p>
+
+Una vez vista esta imagen, vamos a revisar el código fuente; comenzaremos viendo, como dibujar cada fondo; uno como imagen, y el otro usaremos el TileSet _rain_, para generar un TileMap para simular la lluvia. Veamos un fragmento:
+
+```c
+ u16 ind = TILE_USER_INDEX;
+VDP_loadTileSet(&rain,ind,DMA);
+PAL_setPalette(PAL1,rainplt.data,CPU);
+u16 tileMap[2048];
+int i;
+for(i=0;i<2048;i++){
+    tileMap[i]=TILE_ATTR_FULL(
+        PAL1,FALSE,
+        FALSE,FALSE,ind);
+}
+VDP_setTileMapDataRect(BG_A,tileMap,
+0,0,40,32,40,DMA_QUEUE);
+```
+
+Como puede observar, creamos un TileMap a partir de los Tiles; que componen el TileSet que hemos cargado; y dibujamos la pantalla, usando un rectangulo de 40x32 Tiles (Todo el espacio disponible a lo Alto). Una vez cargado el TileMap en el fondo A, dibujaremos la imágen en el fondo B; ambos con baja prioridad; por lo que el fondo B estará detras del fondo A; dando sensación de profundidad.
+
+```c
+VDP_drawImageEx(BG_B,&city,
+    TILE_ATTR_FULL(PAL0,FALSE,
+        FALSE,FALSE,ind),0,0,TRUE,CPU);
+```
+
+Tras haber dibujado ambos fondos, ya solo nos queda realizar el desplazamiento; por lo que configuraremos el modo de Scroll.
+
+```c
+VDP_setScrollingMode(HSCROLL_PLANE,VSCROLL_2TILE);  
+```
+
+Hemos configurado el Scroll horizontal, como de tipo plano (en este ejemplo no desplazaremos horizontalmente); y el scroll vertical como ```VSCROLL_2TILE``` que indica que se realizá desplazamiento cada 2 Tiles; ya que en Mega Drive no se puede realizar scroll vertical de 1 solo Tile.
+
+Una vez configurado, pasaremos a cargar un vector con los valores de Desplazamiento:
+
+```c
+s16 scrollVector[20];
+  
+for(i=0;i<20;i++){
+    scrollVector[i]=0;
+}
+```
+
+Este array de 20 posiciones, (1 por columna desplazada), nos permitirá cargar el valor que se va a ir desplazando cada una de las columnas. Una vez cargado, pasaremos a realizar dentro del bucle del juego, el desplazamiento.
+
+```c
+while(1)
+    {
+        for(i=0;i<20;i++){
+            scrollVector[i]-=5;
+        }
+        VDP_setVerticalScrollTile(BG_A,
+            0,scrollVector,20,CPU);
+        SYS_doVBlankProcess();
+    }
+```
+
+Veras que se realiza un desplazamiento cada 5 unidades; que será el numero de Tiles que se desplazará por cada tramo; además de que vemos que usamos la función ```VDP_setVerticalScrollTile```; es la que realiza el desplazamiento. Esta función recibe los siguientes parámetros:
+
+* _plane_: Fondo a desplazar los Tiles; puede ser  ```BG_A```, ```BG_B```.
+* _firstcol_: Primera columna a desplazar.
+* _scroll_: Array con los valores a desplazar.
+* nTiles: Numero de Columnas a desplazar.
+* _tm_: método de transferencia; permite utilizar la CPU, o los distintos valores de DMA; puede tener los siguientes valores:
+    * CPU: se utilizará la CPU.
+    * DMA: se utilizará DMA.
+    * DMA_QUEUE: Se utilizará la cola de DMA.
+    * DMA_QUEUE_COPY: Se utilizará cola de DMA como copia.
+
+Tras revisar las funciones y comprobar que el código es correcto, ya podemos compilar y ejecutar este ejemplo. Podrás ver como la lluvia va desplazandose sobre la ciudad; aunque en este caso estamos desplazando todas las posiciones a la vez, y puede dar la sensación de desplazamiento de plano, podemos cambiar dichos valores y hacer más pruebas para comprobar su uso.
+
+<div class="image">
+<img id="arq" src="13Scroll/img/ej13.png" alt="Ejemplo 13" title="Ejemplo 13"/> </div>
+<p>Ejemplo 13</p>
+
 ### Scroll usando MAP
+
+Aún queda por comentar una forma de realizar scroll; como habras podido ver, en el ejemplo de desplazamiento por plano, es bastante engorroso tener que calcular el siguiente Tile a mostrar; por ello, se pueden usar unas funciones alternativas, gracias a la estructura ```Map```.
+
+Esta estructura fue añadida dentro de la versión 1.60 de SGDK; por lo que solo se podrá usar este ejemplo en dicha versión o superior; un Map, es una estructura que almacena una gran cantidad de información acerca de una imágen o escenario; por lo que usar este tipo de funciones tenemos que tener cuidado para no realizar cuellos de botella con la CPU o DMA.
+
+Para este ejemplo, vamos a reutilizar el ejemplo 12 para desplazar un plano, pero lo realizaremos será una modificación para utilizar Map, en vez de realizar nosotros el desplazamiento.
+
+Vamos a comenzar, mostrando como vamos a importar los recursos; ya que ya no serán dos imágenes; sino una imágen, un tileset, una paleta y por último un Map.
+
+```res
+PALETTE pltmap "map1.png"
+TILESET map_tileset "map1.png" NONE ALL
+MAP map1 "map1.png" map_tileset NONE 0 
+IMAGE sky "Sky_pale.png" NONE 
+```
+
+Como habras podido ver, cargamos una paleta, un Tileset y un Mapa a partir de la imágen que queremos mostrar. Veamos como se importa un recurso de tipo Map:
+
+```
+MAP name "file" tileset-ref compression offset
+```
+
+* _name_: nombre del recurso
+* _file_: Fichero a cargar; puede ser una imagen, o un fichero TMX de Tiled.
+* _tileset-ref_: Referencia al Tileset.
+* _compression_: Tipo de compresión:
+    * -1/BEST/AUTO: Usa la mejor compresión posible.
+    * 0/NONE: Ninguna compresión
+    * 1/APLIB: Utiliza compresión con APLIB.
+    * 2/FAST/LZ4W: compresión usando lz4.
+* _mapbase_: Tileset Base u offset.
+
+**NOTA**: Recuerda que para cargar ficheros TMX, necesitaras SGDK versión 1.80 o superior.
+
+Una vez cargados los recursos con rescomp, ya podemos crear el mapa y realizar Scroll; veamos como se crea el mapa.
+
+```c
+Map* map=MAP_create(&map1,BG_A,
+    TILE_ATTR_FULL(PAL1,FALSE,
+        FALSE,FALSE,ind));
+```
+
+La función ```Map_create```; crea un nuevo struct Map; que nos permitirá tener la información de dicho mapa y podremos usar los recursos que tiene; vamos a ver sus parámetros:
+
+* _map_: Puntero a la definición del mapa cargado por rescomp.
+* _plane_: Fondo a desplazar los Tiles; puede ser  ```BG_A```, ```BG_B```.
+* _TileBase_: Tile Base a usar; se puede usar la macro ```TILE_ATTR_FULL```, para cargar la información del Tile.
+
+**NOTA**: Es muy importante saber, que esta función utiliza el DMA, para poder cargar la información en VRAM; por lo que no es recomendable, cargar varios mapas en un mismo frame.
+
+Esta función, devuelve un puntero a una estrcutura ```Map``` con toda la información del mapa o escenario a mostrar.
+
+Tras ver; como crear un mapa, vamos a pasar a como realizar Scroll; en este caso se utiliza la función ``` MAP_scrollTo```; que realiza el Scroll del mapa y recalcula los Tiles conforme se van necesitando. Ya no es necesario contar los Tiles e ir generando los Tiles fuera de pantalla; ya lo realiza esta función. Veamos los parámetros que recibe:
+
+* _map_: Puntero con la información del mapa creado (que devuelve la función ```Map_create```).
+* _x_: Desplazamiento en eje X (En pixeles).
+* _y_: Desplazamiento en eje Y (En pixeles).
+
+Esta función, es llamada dentro de ```updatePhisics```; que ya no se realiza con ninguna condición; sino cuando se modifica la variable ```offset```
+
+Ya podemos compilar y ejecutar este ejemplo; el cual veremos que tiene un comportamiento análogo al ejemplo 12. Sin embargo, la lógica es mucho más sencilla. Puedes encontrar más información acerca de la estructura Map y las funciones que lo utilizan en la documentación de SGDK.
+
+<div class="image">
+<img id="arq" src="13Scroll/img/ej12.png" alt="Ejemplo 14" title="Ejemplo 14"/> </div>
+<p>Ejemplo 14</p>
+
+Tras ver este último ejemplo, ya podemos concluir este capítulo; donde hemos podido ver como funciona el Scroll o desplazamiento, que permite crear distintos efectos y dar una mejor sensación a nuestros juegos.
 
 ## Referencias
 
-* Scroll (Sega Retro): [https://segaretro.org/Sega_Mega_Drive/Scrolling](https://segaretro.org/Sega_Mega_Drive/Scrolling)
-* VDP Scrolling (Mega Drive Wiki): [https://wiki.megadrive.org/index.php?title=VDP_Scrolling](https://wiki.megadrive.org/index.php?title=VDP_Scrolling)
-* Scroll por líneas (Danibus): [https://danibus.wordpress.com/2019/10/08/leccion-9-scroll-por-lineas/](https://danibus.wordpress.com/2019/10/08/leccion-9-scroll-por-lineas/)
-* Scroll por planos (Danibus): [https://danibus.wordpress.com/2019/10/10/leccion-9-scroll-3-mas-alla-de-los-512px/](https://danibus.wordpress.com/2019/10/10/leccion-9-scroll-3-mas-alla-de-los-512px/)
-* Scroll por Tiles (Danibus): [https://danibus.wordpress.com/2019/10/08/leccion-9-scroll-por-tiles/](https://danibus.wordpress.com/2019/10/08/leccion-9-scroll-por-tiles/)
-* TileSet Nature (Open Game Art): [https://opengameart.org/content/nature-tileset](https://opengameart.org/content/nature-tileset)
-* Street Backgrounds (Open Game Art): [https://opengameart.org/content/pixel-art-street-backgrounds](https://opengameart.org/content/pixel-art-street-backgrounds)
+* SGDK: [https://github.com/Stephane-D/SGDK](https://github.com/Stephane-D/SGDK).
+* Scroll (Sega Retro): [https://segaretro.org/Sega_Mega_Drive/Scrolling](https://segaretro.org/Sega_Mega_Drive/Scrolling).
+* VDP Scrolling (Mega Drive Wiki): [https://wiki.megadrive.org/index.php?title=VDP_Scrolling](https://wiki.megadrive.org/index.php?title=VDP_Scrolling).
+* Scroll por líneas (Danibus): [https://danibus.wordpress.com/2019/10/08/leccion-9-scroll-por-lineas/](https://danibus.wordpress.com/2019/10/08/leccion-9-scroll-por-lineas/).
+* Scroll por planos (Danibus): [https://danibus.wordpress.com/2019/10/10/leccion-9-scroll-3-mas-alla-de-los-512px/](https://danibus.wordpress.com/2019/10/10/leccion-9-scroll-3-mas-alla-de-los-512px/).
+* Scroll por Tiles (Danibus): [https://danibus.wordpress.com/2019/10/08/leccion-9-scroll-por-tiles/](https://danibus.wordpress.com/2019/10/08/leccion-9-scroll-por-tiles/).
+* TileSet Nature (Open Game Art): [https://opengameart.org/content/nature-tileset](https://opengameart.org/content/nature-tileset).
+* Street Backgrounds (Open Game Art): [https://opengameart.org/content/pixel-art-street-backgrounds](https://opengameart.org/content/pixel-art-street-backgrounds).
