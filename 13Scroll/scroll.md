@@ -79,13 +79,14 @@ Para este ejemplo, usaremos una imagen con un logo recordando a la pantalla de i
 <img id="arq" src="13Scroll/img/logo.png" alt="Imagen de ejemplo" title="Imagen de ejemplo"/> </div>
 <p>Imagen de ejemplo</p>
 
-Lo que vamos a realizar es realizar un desplazamiento de cada línea; las líneas pares iran hacia un lado, y las impares, hacia el otro. Veamos como podemos realizarlo.
+Lo que vamos a realizar es realizar un desplazamiento de cada línea; las líneas pares irán hacia un lado, y las impares, hacia el otro. Veamos como podemos realizarlo.
 
 En primer lugar, necesitaremos dibujar la imágen en el plano a utilizar:
 
 ```c
 VDP_drawImageEx(BG_B,&logo,
-    TILE_ATTR_FULL(PAL0,FALSE,FALSE,FALSE,index)
+    TILE_ATTR_FULL(PAL0,FALSE,
+     FALSE,FALSE,index)
     ,0,0,TRUE,DMA);
 ```
 
@@ -102,7 +103,8 @@ Una vez dibujado, vamos a configurar que tipo de Scroll vamos a utilizar tanto h
 Recuerda que en este caso, vamos a realizar un desplazamiento por línea horizontalmente, por lo que tendremos que configurar el Scroll de la siguiente forma:
 
 ```c
-VDP_setScrollingMode(HSCROLL_LINE,VSCROLL_PLANE);
+VDP_setScrollingMode(
+    HSCROLL_LINE,VSCROLL_PLANE);
 ```
 
 Una vez configurado, vamos a cargar los desplazamientos que tendrá cada línea de esta forma que necesitaremos una variable por línea; por lo que crearemos un array para almacenar todos los desplazamientos.
@@ -224,7 +226,8 @@ SPR_init();
 Una vez dibujada la pantalla y los Sprites, pasaremos a configurar el modo de Scroll:
 
 ```c
- VDP_setScrollingMode(HSCROLL_PLANE,VSCROLL_PLANE);
+ VDP_setScrollingMode(
+    HSCROLL_PLANE,VSCROLL_PLANE);
 ```
 
 Como vemos en el fragmento anterior, configuraremos tanto el desplazamiento horizontal como el vertical, como desplazamiento de Plano. Después dentro del bucle del juego, llamaremos al resto de funciones y se actualizará la tabla de Sprites.
@@ -252,7 +255,8 @@ En caso contrario, se pondrá la variable ```xord``` a cero indicando que no hay
 Veamos la siguiente función; se trata de la función ```void updatePhisics()```, que actualizará todo lo necesario para realizar el desplazamiento. Veamos un Fragmento:
 
 ```c
-SPR_setPosition(player.elliSprt,player.x,player.y);
+SPR_setPosition(player.elliSprt
+    ,player.x,player.y);
 if(xord>0){
     player.offset+=2;
     countpixel++;
@@ -358,7 +362,8 @@ VDP_drawImageEx(BG_B,&city,
 Tras haber dibujado ambos fondos, ya solo nos queda realizar el desplazamiento; por lo que configuraremos el modo de Scroll.
 
 ```c
-VDP_setScrollingMode(HSCROLL_PLANE,VSCROLL_2TILE);  
+VDP_setScrollingMode(
+    HSCROLL_PLANE,VSCROLL_2TILE);  
 ```
 
 Hemos configurado el Scroll horizontal, como de tipo plano (en este ejemplo no desplazaremos horizontalmente); y el scroll vertical como ```VSCROLL_2TILE``` que indica que se realizá desplazamiento cada 2 Tiles; ya que en Mega Drive no se puede realizar scroll vertical de 1 solo Tile.
