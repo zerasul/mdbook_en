@@ -142,7 +142,7 @@ Este juego es de 1 jugador y hay versión para Sega Mega Drive, como para MSX. A
 
 ### 1985 World Cup 
 
-1985 World cup  [^32] es un juego para Sega Mega Drive que nos permite revivir los grandes títulos de futbol como el  World Cup Italia 90. Donde se enfrentarán frente a frente jugadores de todo el mundo.
+1985 World cup  [^32] es un juego para Sega Mega Drive que nos permite revivir los grandes títulos de futbol como el  _World Cup Italia 90_. Donde se enfrentarán frente a frente jugadores de todo el mundo.
 
 Este juego permite jugar hasta 2 jugadores en la misma máquina, y además tiene una característica única; tiene integrado el llamado Mega Wi-fi; por que se permite conectar a internet via Wi-fi; y poder jugar en línea; sin necesidad de Modem; solo el propio cartucho.
 
