@@ -146,9 +146,9 @@ Para ello, simplemente en nuestro juego, utilizar dicho comando, y seleccionar e
 
 Para más información de como importar ficheros Tmx, usando Genesis Code, consulta la documentación de dicha extensión.
 
-También podemos obtener la información a mano; para ello, podemos abrir el fichero TMX con un editor de texto y obtener la información (Sólo si la información esta como CSV [^55] y sin comprimir).
+También podemos obtener la información a mano; para ello, podemos abrir el fichero TMX con un editor de texto y obtener la información (Sólo si la información esta como CSV [^56] y sin comprimir).
 
-[^55]: CSV (Comma Seppàrated Values); formato de fichero que almacena cada dato separado por ",".
+[^56]: CSV (Comma Seppàrated Values); formato de fichero que almacena cada dato separado por ",".
 
 <div class="image">
 <img id="arq" src="12TileSets/img/tmx.png" alt="Fichero TMX" title="Fichero TMX"/> </div>

@@ -54,9 +54,9 @@ Este fragmento de código en C, podemos ver el hola mundo para Sega Mega Drive. 
 
 En primer lugar, podemos ver el include de la cabecera _genesis.h_; este fichero de cabecera nos provee de acceso a todas las funciones y datos que nos da la librería LibMD que incluye SGDK.
 
-**NOTA**: Dependiendo de la configuración elegida, puede que necesite incluir algunas rutas en la configuración del plugin de C/C++ [^40] de Visual Studio Code para tener acceso a todas las funcionalidades.
+**NOTA**: Dependiendo de la configuración elegida, puede que necesite incluir algunas rutas en la configuración del plugin de C/C++ [^41] de Visual Studio Code para tener acceso a todas las funcionalidades.
 
-[^40]: Puede ver la configuración de los ficheros include para C/C++, en la configuración de VsCode.
+[^41]: Puede ver la configuración de los ficheros include para C/C++, en la configuración de VsCode.
 
 Si nos centramos en la función ```main``` vemos que se realiza una llamada a la función ```VDP_drawText(const char * text,u16 x, u16 y)```; esta función, llama al chip gráfico VDP y nos va a permitir escribir un texto por pantalla, usando una fuente por defecto (o pre-cargando una fuente personalizada). Vemos que tiene 3 parámetros:
 
@@ -74,7 +74,7 @@ Dentro del bucle, vemos una llamada a la función ```SYS_doVBlankProcess``` esta
 
 ## Compilar y ejecutar nuestro proyecto
 
-Tras finalizar de escribir nuestro código, podemos dar el siguiente paso; generar la ROM [^41], y ejecutarla en un emulador.
+Tras finalizar de escribir nuestro código, podemos dar el siguiente paso; generar la ROM [^42], y ejecutarla en un emulador.
 
 En este paso, se generarán todos los ficheros necesarios, y al final tendremos un fichero llamado _rom.bin_ con nuestra ROM preparada para ser ejecutada en un emulador, o en un hardware Real.
 
@@ -112,7 +112,7 @@ Si todo ha ido correctamente, podemos ver como se generará la ROM en la carpeta
 <img id="arq" src="6holamundo/img/hello.png" alt="Hello" title="Hello"/> </div>
 <p>Hello Sega en Mega Drive</p>
 
-[^41]: ROM (Read Only Memory): se trata de una memoria de solo lectura que normalmente se encuentra dentro del cartucho en una EPROM (o Flash en las versiones más modernas).
+[^42]: ROM (Read Only Memory): se trata de una memoria de solo lectura que normalmente se encuentra dentro del cartucho en una EPROM (o Flash en las versiones más modernas).
 
 ## Cabecera de una ROM
 
@@ -219,7 +219,7 @@ Indica si esta ROM tiene soporte para Modem y que servicios dispone.
 
 **region**
 
-Indica las regiones en la que es compatible la ROM (Japón, Europa o America); con los siguientes valores [^42] :
+Indica las regiones en la que es compatible la ROM (Japón, Europa o America); con los siguientes valores [^43] :
 
 | Clave | Descripción   |
 |-------|---------------|
@@ -230,7 +230,7 @@ _Tabla 2: Valores de las regiones de la ROM_
 
 Puede ser compatible en varias regiones; por lo que puede tener el valor ```JUE``` indicando que es compatible con Japón, Europa y America.
 
-[^42]: Estos valores corresponden a la forma tradicional; existe una forma posterior que fue adoptada por SEGA; para más información, comprueba las referencias de este capítulo.
+[^43]: Estos valores corresponden a la forma tradicional; existe una forma posterior que fue adoptada por SEGA; para más información, comprueba las referencias de este capítulo.
 
 **NOTA**: Tener siempre en cuenta que aunque la ROM sea compatible con otras regiones, se debe también definir el Sistema de color PAL o NTSC.
 

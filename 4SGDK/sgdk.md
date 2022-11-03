@@ -113,7 +113,7 @@ Una parte importante de SGDK, es que se utiliza para juegos ya comerciales que p
 
 Xeno Crisis [^29], es un juego de perspectiva isométrica, que nos permite luchar contra hordas y hordas de Aliens mientras sobrevivimos en distintas habitaciones y zonas.
 
-Permite jugar 2 jugadores en la Sega Mega Drive; aunque también existen ya versiones para Steam (PC), Swich e incluso versiones para Xbox y Playstation. También se trabaja en una versión para Neo-Geo y DreamCast.
+Permite jugar 2 jugadores en la Sega Mega Drive; aunque también existen ya versiones para Steam (PC), Switch e incluso versiones para Xbox y Playstation. También se trabaja en una versión para Neo-Geo y DreamCast.
 
 Puedes consultar las versiones de este juego en el kickstarter del mismo:
 [https://www.kickstarter.com/projects/1676714319/xeno-crisis-a-new-game-for-the-sega-genesis-mega-d/](https://www.kickstarter.com/projects/1676714319/xeno-crisis-a-new-game-for-the-sega-genesis-mega-d/)
@@ -140,6 +140,14 @@ Este juego es de 1 jugador y hay versión para Sega Mega Drive, como para MSX. A
 
 [^31]: Metal Dragon ha sido desarrollado por el estudio español Kai Magazine Software. Todos los derechos reservados.
 
+### 1985 World Cup 
+
+1985 World cup  [^32] es un juego para Sega Mega Drive que nos permite revivir los grandes títulos de futbol como el  World Cup Italia 90. Donde se enfrentarán frente a frente jugadores de todo el mundo.
+
+Este juego permite jugar hasta 2 jugadores en la misma máquina, y además tiene una característica única; tiene integrado el llamado Mega Wi-fi; por que se permite conectar a internet via Wi-fi; y poder jugar en línea; sin necesidad de Modem; solo el propio cartucho.
+
+[^32]: 1985 World cup ha sido publicado por Nape Games. Todos los derechos reservados.
+
 ## Instalación del SGDK
 
 Una vez conocidos tanto la historia del SGDK, sus componentes y visto algunos juegos realizados con el mismo, vamos a pasar a dar nuestros primeros pasos.
@@ -148,9 +156,9 @@ En este caso, vamos a ver la instalación del mismo en los distintos Sistemas Op
 
 ### Windows
 
-El primer Sistema Operativo que vamos a ver para instalar SGDK, es Microsoft Windows [^32]; en este caso, veremos las distintas instrucciones necesarias para instalar SGDK.
+El primer Sistema Operativo que vamos a ver para instalar SGDK, es Microsoft Windows [^33]; en este caso, veremos las distintas instrucciones necesarias para instalar SGDK.
 
-En primer lugar, necesitaremos descargar una serie de dependencias que se requieren para usar SGDK como por ejemplo el entorno de ejecución Java (JRE [^33]) que nos permitirá utilizar las herramientas como rescomp. Puede instalarse tanto la versión de Oracle, como la versión de _openjdk_ [^34]. Dejamos la URL para poder descargar la versión de Java correspondiente:
+En primer lugar, necesitaremos descargar una serie de dependencias que se requieren para usar SGDK como por ejemplo el entorno de ejecución Java (JRE [^34]) que nos permitirá utilizar las herramientas como rescomp. Puede instalarse tanto la versión de Oracle, como la versión de _openjdk_ [^35]. Dejamos la URL para poder descargar la versión de Java correspondiente:
 
 [https://www.java.com/es/download/](https://www.java.com/es/download/)
 
@@ -174,10 +182,10 @@ Recuerda que la variable ```GDK``` es opcional y puede sustituirse por la ruta d
 
 Más adelante, veremos como utilizar el SGDK de distintas formas.
 
-[^32]: Microsoft Windows es una marca registrada de Microsoft Corporation.
+[^33]: Microsoft Windows es una marca registrada de Microsoft Corporation.
 
-[^33]: JRE (Java Runtime Environment); entorno de ejecución para poder ejecutar aplicaciones desarrolladas para la máquina virtual Java (JVM).
-[^34]: OpenJdk; es una implementación del ecosistema Java de código abierto.
+[^34]: JRE (Java Runtime Environment); entorno de ejecución para poder ejecutar aplicaciones desarrolladas para la máquina virtual Java (JVM).
+[^35]: OpenJdk; es una implementación del ecosistema Java de código abierto.
 
 ### Linux
 
@@ -187,7 +195,7 @@ Puedes encontrar este proyecto en su repositorio de Github:
 
 [https://github.com/kubilus1/gendev](https://github.com/kubilus1/gendev)
 
-Para utilizar este proyecto, necesitaremos instalar una serie de dependencias; las cuales podemos instalar usando el gestor de paquetes de vuestra distribución; para nuestro caso, usaremos una distribución basada en Debian [^35] (Ubuntu).
+Para utilizar este proyecto, necesitaremos instalar una serie de dependencias; las cuales podemos instalar usando el gestor de paquetes de vuestra distribución; para nuestro caso, usaremos una distribución basada en Debian [^36] (Ubuntu).
 
 Necesitarás instalar las siguientes dependencias:
 
@@ -206,7 +214,7 @@ En el caso de java, usaremos _openjdk_:
 sudo apt install texinfo default-jre
 ```
 
-[^35]: Debian y Ubuntu son distribuciones Linux de código abierto. Ubuntu está mantenida por Canonical Ltd.
+[^36]: Debian y Ubuntu son distribuciones Linux de código abierto. Ubuntu está mantenida por Canonical Ltd.
 
 Una vez instaladas las dependencias, descargaremos el paquete _.deb_ (o el tar); del repositorio de GENDEV. En el caso de instalar usando el paquete .deb, lo instalaremos con la siguiente instrucción:
 
@@ -281,6 +289,7 @@ Con la instrucción anterior, se compilará y generará la ROM de Mega Drive.
 * Bitmap Bureau: [https://bitmapbureau.com/](https://bitmapbureau.com/).
 * Neofid-Studios: [https://neofid-studios.com/](https://neofid-studios.com/).
 * Kai Magazine Software: [https://kai-magazine-software.fwscart.com/](https://kai-magazine-software.fwscart.com/)
+* Nape Games: [https://www.napegames.com/](https://www.napegames.com/)
 * Open JDK: [https://openjdk.java.net/](https://openjdk.java.net/).
 * MarsDev: [https://github.com/andwn/marsdev](https://github.com/andwn/marsdev).
 * Docker: [https://www.docker.com/](https://www.docker.com/).

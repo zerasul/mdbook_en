@@ -1,6 +1,6 @@
 # 10. Fisica y matemáticas en Mega Drive
 
-Hay un aspecto importante a la hora de trabajar con ordenadores, que tenemos que tener en cuenta. Sobre todo a la hora de crear videojuegos que tienen distintas interacciones. Y es que un computador no es más que una calculadora que realiza cálculos en números binarios[^52].
+Hay un aspecto importante a la hora de trabajar con ordenadores, que tenemos que tener en cuenta. Sobre todo a la hora de crear videojuegos que tienen distintas interacciones. Y es que un computador no es más que una calculadora que realiza cálculos en números binarios[^53].
 
 Por ello, tenemos que tener en cuenta que en cada arquitectura y procesador, puede tener distintos comportamientos a la hora de realizar cálculos; ya sea desde una simple suma, hasta operaciones más costosas como el acceder a memoria o la propia división o multiplicación.
 
@@ -8,7 +8,7 @@ En este tema, vamos a hablar de como el motorola 68000 trabaja y los distintas o
 
 Este tema puede ser algo complicado de entender; pero es necesario para poder crear de la forma más eficiente posible, nuestro videojuego sin tener perdida de frames, o que se congele la pantalla.
 
-[^52]: El Sistema binario, es un sistema de numeración en base 2; por lo que solo se pueden tener dos valores 0 o 1.
+[^53]: El Sistema binario, es un sistema de numeración en base 2; por lo que solo se pueden tener dos valores 0 o 1.
 
 ## Aritmética en Motorola 68000
 
@@ -16,7 +16,7 @@ Vamos a comenzar hablando sobre el procesador Motorola 68000; ya que este es el 
 
 Vamos a mostrar en este apartado, como se realizan algunas operaciones aritméticas y como se pueden realizar de forma más eficiente.
 
-Comenzamos comentando como trabaja el procesador m68k; se trata de un procesador que tiene registros de 32bits y que puede trabajar con ellos gracias a dos ALU [^53] que tiene. Es importante conocer las limitaciones que nos provee este procesador; si bien puede trabajar perfectamente con cualquier operación matemática, si que no puede por ejemplo trabajar con números decimales, o la eficiencia a la hora de trabajar con las distintas operaciones matemáticas.
+Comenzamos comentando como trabaja el procesador m68k; se trata de un procesador que tiene registros de 32bits y que puede trabajar con ellos gracias a dos ALU [^54] que tiene. Es importante conocer las limitaciones que nos provee este procesador; si bien puede trabajar perfectamente con cualquier operación matemática, si que no puede por ejemplo trabajar con números decimales, o la eficiencia a la hora de trabajar con las distintas operaciones matemáticas.
 
 Un microprocesador, no tarda lo mismo a la hora de realizar una suma, o de realizar una multiplicación o división; normalmente la duración de estas operaciones, se realizan por ciclos (la duración de un ciclo de un procesador es 1/F; donde F es la frecuencia del reloj). Vamos a mostrar el coste en ciclos que puede llegar a tardar las distintas operaciones aritméticas.
 
@@ -63,12 +63,12 @@ a>>1; //3
 
 Desplazando a la derecha, podemos ver que se puede dividir por 2. Por lo que puede ser más eficiente a la hora de trabajar con estas operaciones aritméticas.
 
-**NOTA**: Es importante saber si el compilador utilizado, puede transformar las operaciones de multiplicación o división en operaciones más eficientes [^54].
+**NOTA**: Es importante saber si el compilador utilizado, puede transformar las operaciones de multiplicación o división en operaciones más eficientes [^55].
 
 Tras ver las operaciones aritméticas y como optimizarlas, vamos a mostrar otro apartado a tener en cuenta a la hora de programar para Sega Mega Drive; se trata del uso de los distintos tipos de datos para poder ir optimizando el uso de memoria; ya que esta es importante a la hora de trabajar con sistemas con pocos recursos (64kb de memoria RAM).
 
-[^53]: (ALU); Unidad Aritmético Lógica; es el componente de un microprocesador encargado de realizar distintas operaciones matemáticas.
-[^54]: Las distintas operaciones u optimizaciones que se pueden utilizar, dependerá del compilador y la versión de este. Consulta la documentación de Gcc para más información.
+[^54]: (ALU); Unidad Aritmético Lógica; es el componente de un microprocesador encargado de realizar distintas operaciones matemáticas.
+[^55]: Las distintas operaciones u optimizaciones que se pueden utilizar, dependerá del compilador y la versión de este. Consulta la documentación de Gcc para más información.
 
 ## Números y tipo de Datos en SGDK
 

@@ -14,16 +14,16 @@ En primer lugar, antes de entrar en más conceptos, vamos a estudiar como se ges
 
 Veamos las características de los gráficos para Sega Mega Drive:
 
-* Todo gráfico o imagen, se dibuja dividido por Tiles [^49], de un tamaño de 8x8 píxeles.
+* Todo gráfico o imagen, se dibuja dividido por Tiles [^50], de un tamaño de 8x8 píxeles.
 * Solo se pueden almacenar 4096 Tiles (64Kb de VRAM).
-* Las imágenes, están almacenadas en formato indexado [^50] no como RGB [^51].
+* Las imágenes, están almacenadas en formato indexado [^51] no como RGB [^52].
 * Sólo se pueden almacenar 4 paletas de 16 colores cada una.
 * Normalmente, sólo se pueden mostrar 61 colores en pantalla.
 * En cada paleta, el primer color, se considera transparente.
 
-[^49]: Un Tile es un fragmento de una imagen que se muestra como si fuese un mosaico; por lo que una imágen está compuesta por una serie de Tiles.
-[^50]: Una imagen en formato indexado, almacena una paleta con los distintos colores que contiene; después cada píxel, solo tiene información del color que representa en dicha paleta.
-[^51]: RGB (Red Green Blue) es un formato que se define en cada píxel almacenar el color rojo, verde y azul de tal forma que se pueda ver cada color combinando estos tres.
+[^50]: Un Tile es un fragmento de una imagen que se muestra como si fuese un mosaico; por lo que una imágen está compuesta por una serie de Tiles.
+[^51]: Una imagen en formato indexado, almacena una paleta con los distintos colores que contiene; después cada píxel, solo tiene información del color que representa en dicha paleta.
+[^52]: RGB (Red Green Blue) es un formato que se define en cada píxel almacenar el color rojo, verde y azul de tal forma que se pueda ver cada color combinando estos tres.
 
 Es importante conocer estas características, a la hora de trabajar con imágenes en Mega Drive; para no perder calidad o algún color, si la paleta no está bien referenciada.
 
