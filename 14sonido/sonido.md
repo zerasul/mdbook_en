@@ -283,6 +283,8 @@ Una vez que hemos terminado de revisar los botones y de como funciona cada caso,
 <img id="arq" src="14sonido/img/ej15.png" alt="Ejemplo 15: Música y Sonido" title="Ejemplo 15: Música y Sonido"/> </div>
 <p>Ejemplo 15: Música y Sonido</p>
 
+Quiero dar las gracias a Diego Escudero por dejanos las melodias para este ejemplo.
+
 ## Referencias
 
 * Arquitectura Mega Drive: [https://www.copetti.org/writings/consoles/mega-drive-genesis/](https://www.copetti.org/writings/consoles/mega-drive-genesis/)
