@@ -63,7 +63,7 @@ printc:                        ; Routine to print C register as ASCII decimal
 
 En el fragmento anterior, vemos un poco de ensamblador para el z80 (en este caso, es para ZX Sepectrum); la creación de un programa para el Z80 para orquestar los chips de sonido, es lo que comunmente se llama Driver de sonido.
 
-Existen varias implementaciones de Drivers para sonido para Sega Mega Drive; como puede ser GEMS [^59], MUCOM88 [^60] o XGM. Cada uno ha sido utilizado en varios juegos y utilizado para componenr música ya que traian herramientas para ello, como un tracker [^61] para componer.
+Existen varias implementaciones de Drivers para sonido para Sega Mega Drive; como puede ser GEMS [^59], MUCOM88 [^60], 4PCM o XGM. Cada uno ha sido utilizado en varios juegos y utilizado para componenr música ya que traian herramientas para ello, como un tracker [^61] para componer.
 
 [^59]: GEMS (Genesis Editor for Music and Sound effects), es un driver de sonido para Sega Mega Drive desarrollado por Recreational Brainware. 
 [^60]: MUCOM88, es un driver de sonido desarrollado por Yuzo Koshiro, considerado uno de los mayores compositores de música para videojuegos (compositor de la Banda sonora de Streets of Rage).
@@ -107,6 +107,181 @@ Este programa no es Software libre y tiene un coste de 9,99$; es uno de los más
 <p>Deflemask</p>
 
 ## Ejemplo con música y Sonido
+
+Tras ver como se compone el sistema de sonido; los Drivers y como crear el sonido, vamos a crear un ejemplo, en el que podamos reproducir distintos sonidos y música en función de los distintos botones que pulsemos. Este ejemplo, lo puedes encontrar en el repositorio de ejemplos que acompaña a este libro. Este ejemplo corresponde a la carpeta _ej15.musicandsound_; donde podemos encontrar tanto el código como los recursos.
+
+En primer lugar, vamos a mostrar como se puede importar los recursos de música o los efectos de sonido; utilizando la herramienta de _rescomp_ la cual es la encargada de leer los ficheros y pasarlos a binario. Tenemos que diferenciar, que los archivos con música estan en formato VGM, mientras que los ficheros con efectos de sonido, tienen formato WAV.
+
+Comenzaremos mostrando como se puede importar un fichero VGM para utilizarlo con el driver XGM.
+
+```res
+XGM name "file" timing options
+```
+
+Donde:
+
+* _name_: Nombre del recurso para referenciarlo.
+* _file_: Ruta dentro de la carpeta _res_ al fichero que contiene la música.
+* _timing_: Indica el tempo a cargar; dependiendo del tipo de sistema puede tener el siguiente valor:
+    * -1/AUTO: (NTSC o PAL dependiendo de la información almacenada en el VGM).
+    * 0/NTSC: Indica que el sistema será NTSC.
+    * 1/PAL: Indica que el sistema será PAL.
+* _options_: parámetros adicionales para la herramienta de parseo.
+
+Como has podido ver, se le pueden pasar más parámetros adicionales para la herramienta _xgmtool_; esta herramienta es la que se utiliza para pasar del fichero VGM, a binario. Si necesitas más información sobre xgmtool, puedes consultar la documentación de SGDK.
+
+Si por otro lado queremos importar un fichero con un efecto de sonido, podemos importar un fichero Wav; con dicho sonido. Vamos a ver como podemos importar un fichero Wav usando _rescomp_.
+
+```res
+WAV name wav-file driver out-rate far
+```
+
+Donde:
+
+* _name_: Nombre del recursos para referenciarlo.
+* _wav-file_: Ruta del fichero wav dentro de la carpeta res.
+* _driver_: Driver de sonido a utilizar; puede ser:
+    * 0/PCM: Driver de 1 solo canal de 8 bits.
+    * 1/2/2ADPCM: Driver de 2 canales a 4 bits.
+    * 3/4/4PCM: 4 canales a 8 bits.
+    * 5/6/XGM: 4 canales con 8 bits.
+* _out-rate_: Rate de salida para decodificar la salida. Solo utilizado para Z80_DRIVER_PCM.
+* _far_: Parámetro adicional para añadir información al final de la ROM (usado para Bank-switch).
+
+Una vez hemos podido ver como se pueden importar cada uno de los recursos, vamos a mostrar que recursos de sonido vamos a importar en este ejemplo:
+
+```res
+XGM music1 "music/infiltration_phase.vgm" AUTO
+XGM music2 "music/guaguas2.vgm" AUTO
+WAV sound1 "sound/Explosion2.wav" XGM 
+WAV sound2 "sound/Jump4.wav" XGM 
+WAV sound3 "sound/Teleport4.wav" XGM
+```
+
+Donde podemos comprobar que importamos 2 ficheros vgm, y tres efectos de audio. Puedes consultar el resto de recursos importados en la propia carpeta _res_ del ejemplo.
+
+Una vez importados los recursos, ya podemos centrarnos en el código; este juego realizará las siguientes acciones:
+
+* Botón A: Reproduce la música 1.
+* Botón B: Reproduce la música 2.
+* Botón C: Reproduce el efecto de sonido actual.
+* Botón Start: Para de reproducir Sonido.
+* Botón Izquierda: Selecciona el anterior efecto de sonido.
+* Botón derecha: Selecciona el siguiente efecto de sonido.
+
+Teniendo esto en cuenta, vamos a proceder a mostrar parte del código fuente:
+
+```c
+u8 sound;
+const u8* sounds[3];
+```
+
+Estas dos variables globales, las usaremos para referenciar que sonido hemos recolectado y almacenar la información de los efectos de sonido.
+
+```c
+sound=1;
+sounds[0]=sound1;
+sounds[1]=sound2;
+sounds[2]=sound3;
+```
+
+Como podemos ver se ha inicializado los tres efectos de sonido y se ha establecido la variable a 1. De tal forma que cargaremos el primer sonido por defecto.
+
+Tras ver las variables globales y como las vamos a inicializar, pasaremos a revisar la función ```inputHandler```; la cual es la encargada de gestionar cada vez que pulsamos un botón en el controlador. Vamos a revisar esta función:
+
+```c
+void inputHandler(u16 joy, u16 changed, u16 state){
+
+    if(joy == JOY_1){
+...
+```
+
+Recordamos que esta función obtendrá los valores de los botones que se han pulsado; de esta forma, podemos comprobar una a una que botones estan pulsados y realizar cada acción; vamos a ver que ocurre en cada botón:
+
+```c
+if(changed & state & BUTTON_A){
+
+    if(XGM_isPlaying()){
+        XGM_stopPlay();
+    }
+    XGM_startPlay(music1);         
+}
+```
+
+Al pulsar el botón A, se va a parar la música anterior y se volverá a reproducir la primera melodia. Como puedes ver, se utilizan varias funciones que son propias del uso del dirver XGM. Veamos estas funciones.
+
+La función ```XGM_isPlaying```, devuelve distinto de cero si el driver XGM, esta reproduciendo una canción.
+
+La función ```XGM_stopPlay```, para la reproducción de la música actual del driver XGM.
+
+La función ```XGM_startPlay```, reproduce un recurso de música utilizando el driver XGM. Recibe por parámetro el recurso que hemos importado usando _rescomp_.
+
+Podemos comprobar que al pulsar el botón B, ocurre lo mismo pero reproduce la segunda canción:
+
+```c
+if(changed & state & BUTTON_B){
+    if(XGM_isPlaying()){
+        XGM_stopPlay();
+    }
+    XGM_startPlay(music2);
+}
+```
+
+En el caso de pulsar el botón C, se reproducirá el sonido actual; veamos el fragmento de código:
+
+```c
+if(changed & state & BUTTON_C){
+    XGM_setPCM(sound,sounds[sound-1],sizeof(sounds[sound-1]));
+    XGM_startPlayPCM(sound,14,SOUND_PCM_CH4);
+}
+```
+
+Podemos observar que se utilizan dos nuevas funciones, para poder reproducir un efecto de sonido. Veamos estas funciones.
+
+La función ```XGM_setPCM``` inicializa el sonido a reproducir utilizando el Driver XGM; recibe los siguientes parámetros:
+* _id_: Identificador que tendrá este sonido.
+* _sound_: Sonido a inicializar (nombre del recurso importado con rescomp).
+* _length_: longitud del sonido a reproducir.
+
+La función ```XGM_startPlayPCM``` reproduce un efecto de sonido previamente inicializado; recibe los siguientes parámetros:
+
+* _id_: Identificador asignado en el anterior paso.
+* _prioridad_: define la prioridad con la que se reproducirá el sonido puede tener un valor de entre 0 y 15; siendo 0 la menor y 15 la mayor.
+* _channel_: canal a reproducir el sonido; puede seleccionar los distintos canales permitidos por el driver XGM. En este caso, ```SOUND_PCM_CH4``` indica que se utilizará el canal 4 como PCM. Consulta la documentación de SGDK, para saber todos los canales disponibles.
+
+Una vez hemos visto que ocurre al pulsar el botón C, vamos a ver que ocurre cuando se pulsa el botón Start.
+
+```c
+if(changed & state & BUTTON_START){
+    XGM_stopPlay();
+    XGM_stopPlayPCM(SOUND_PCM_CH4);
+}
+```
+
+En este caso se trata de parar la reproducción tanto de la música, como del efecto de sonido que este reproduciencose. Para ello se utilizan dos funciones; ```XGM_stopPlay``` que para la reproducción de la música actual.
+
+Por otro lado, la función ```XGM_stopPlayPCM```; para la reproducción del efecto de sonido que se este reproduciendo en un canal especifico; recibe los siguientes parámetros:
+
+* _channel_: canal que parará la reproducción del sonido. Tiene los mismos datos que en la anterior función. Consulta la documentación de SGDK, para saber todos los canales disponibles.
+
+Por otro lado, al pulsar los botones izquierda o derecha, se seleccionará el anterior o siguiente efecto de sonido; pero no lo reproducirá.
+
+```c
+ if(changed & state & BUTTON_RIGHT){
+    sound++;
+    if(sound==4) sound=1;
+}else if (changed & state & BUTTON_LEFT)
+{
+    sound--;
+    if(sound==0) sound=3;
+}
+```
+
+Una vez que hemos terminado de revisar los botones y de como funciona cada caso, ya podemos compilar y ejecutar nuestro ejemplo. Dejamos para el lector, el poder revisar como mostramos la pantalla cargando una imágen y un TileSet. Si todo va correctamente, podrás ver y oir este ejemplo en el emulador.
+
+<div class="image">
+<img id="arq" src="14sonido/img/ej15.png" alt="Ejemplo 15: Música y Sonido" title="Ejemplo 15: Música y Sonido"/> </div>
+<p>Ejemplo 15: Música y Sonido</p>
 
 ## Referencias
 
