@@ -10,6 +10,8 @@ Por supuesto que existen lenguajes más modernos. Pero queremos recordar que nor
 
 Este libro, pretende ser una guía para poder aprender los conceptos y herramientas para crear un videojuego totalmente funcional para Sega Mega Drive, utilizando herramientas modernas.
 
+**NOTA:** Este libro y su contenido no esta afiliado con la compañía SEGA inc, ni con ninguna de sus filiales.
+
 [^1]: Sega Mega Drive / Sega Genesis es una marca registrada de Sega Inc.
 
 [^2]: Sonic & Knuckles es un videojuego que pertenece a Sega Inc. Todos los derechos reservados.

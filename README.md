@@ -22,7 +22,7 @@ Este libro contiene lo mínimo e imprescindible para poder crear juegos a partir
 12. [Tilesets](12TileSets/TileSets.md).
 13. [Scroll](13Scroll/scroll.md).
 14. [Sonido y Música](14sonido/sonido.md).
-15. SRAM y otros.
+15. [SRAM e interrupciones](15SRAM/sram.md).
 16. Debug.
 
 ---
