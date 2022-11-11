@@ -4,7 +4,7 @@ Hasta ahora hemos estado trabajando principalmente con la parte visual; como mos
 
 Por ello, es importante conocer como añadir sonido a nuestro juego; desde los distintos efectos como el ataque, voz del personaje o incluso algún efecto más sofisticado, es importante poder añadirlos y disfrutarlos una vez nuestro juego esta en marcha.
 
-No podemos olvidar la música; ya que para muchos la banda sonora de juegos de Mega Drive, ha sidno nuestra infancia y hoy en día solo con escuchar un par de acordes, ya nos transporta a aquella época. De ahí la gran importancia de la música en un videojuego.
+No podemos olvidar la música; ya que para muchos la banda sonora de juegos de Mega Drive, ha sido nuestra infancia y hoy en día solo con escuchar un par de acordes, ya nos transporta a aquella época. De ahí la gran importancia de la música en un videojuego.
 
 En este capítulo, vamos a mostrar como la Mega Drive es capaz de reproducir sonido e incluso música y como podemos añadirla a nuestro juego y tener una mejor experiencia del mismo.
 
@@ -51,14 +51,14 @@ Como hemos estado hablando, el sistema de sonido, se compone de los dos chips (Y
 Esto requiere conocer y programar el procesador Zilog Z80, normalmente esta programación no se hace como estamos acostumbrados en este libro con el lenguaje de programación C. Sino que se utiliza lenguaje ensamblador para el Z80.
 
 ```asm
-printc:                        ; Routine to print C register as ASCII decimal
+printc:               ; Routine to print C register as ASCII decimal
  ld a,c
- call dtoa2d                   ; Split A register into D and E
+ call dtoa2d          ; Split A register into D and E
 
- ld a,d                        ; Print first digit in D
- cp '0'                        ; Don't bother printing leading 0
+ ld a,d               ; Print first digit in D
+ cp '0'               ; Don't bother printing leading 0
  jr z,printc2
- rst 16                        ; Spectrum: Print the character in 'A'
+ rst 16               ; Spectrum: Print the character in 'A'
 ```
 
 En el fragmento anterior, vemos un poco de ensamblador para el z80 (en este caso, es para ZX Sepectrum); la creación de un programa para el Z80 para orquestar los chips de sonido, es lo que comunmente se llama Driver de sonido.
@@ -190,7 +190,8 @@ Como podemos ver se ha inicializado los tres efectos de sonido y se ha estableci
 Tras ver las variables globales y como las vamos a inicializar, pasaremos a revisar la función ```inputHandler```; la cual es la encargada de gestionar cada vez que pulsamos un botón en el controlador. Vamos a revisar esta función:
 
 ```c
-void inputHandler(u16 joy, u16 changed, u16 state){
+void inputHandler(u16 joy, u16 changed,
+         u16 state){
 
     if(joy == JOY_1){
 ...
@@ -231,8 +232,10 @@ En el caso de pulsar el botón C, se reproducirá el sonido actual; veamos el fr
 
 ```c
 if(changed & state & BUTTON_C){
-    XGM_setPCM(sound,sounds[sound-1],sizeof(sounds[sound-1]));
-    XGM_startPlayPCM(sound,14,SOUND_PCM_CH4);
+    XGM_setPCM(sound,sounds[sound-1]
+        ,sizeof(sounds[sound-1]));
+    XGM_startPlayPCM(sound,14,
+        SOUND_PCM_CH4);
 }
 ```
 
