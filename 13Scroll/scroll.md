@@ -1,6 +1,6 @@
 # 13. Scroll
 
-Hasta ahora, hemos estado trabajando con fondos e imágenes que ocupaban todo el ancho de la pantalla; pero que ocurre si una imágen es más grande que lo que permite la pantalla; y si nuestro escenario va cambiando conforme nuestro personaje o personajes se mueven, en estos casos se utiliza el llamado Scroll o desplazamiento.
+Hasta ahora, hemos estado trabajando con fondos e imágenes que ocupaban todo el ancho de la pantalla; pero que ocurre si una imagen es más grande que lo que permite la pantalla; y si nuestro escenario va cambiando conforme nuestro personaje o personajes se mueven, en estos casos se utiliza el llamado Scroll o desplazamiento.
 
 Un Scroll o desplazamiento, no es más que la posibilidad de ir desplazando los elementos de un plano en una dirección; de tal forma que podemos dar la sensación de movimiento.
 
@@ -10,9 +10,9 @@ Además, veremos los distintos ejemplos, con distintos casos de uso con el Scrol
 
 ## Scroll o Desplazamiento
 
-Como hemos comentado el Scroll o desplazamiento, es la capacidad de desplazar partes de la imágen que estamos mostrando; para el caso de la Sega Mega Drive, se trata de la capacidad de desplazar los tiles de cada plano en distintas direcciones.
+Como hemos comentado el Scroll o desplazamiento, es la capacidad de desplazar partes de la imagen que estamos mostrando; para el caso de la Sega Mega Drive, se trata de la capacidad de desplazar los tiles de cada plano en distintas direcciones.
 
-El VDP; permite realizar distintos tipos de desplazamiento, de los dos planos (A y B); ya sea dependiendo de la dirección (Horizontal o vertical) o de la porción de pantalla (por línea o por columna); esto permite realizar distintos efectos y dar una mejor sensación de movimiento. Este efecto es comunmente conocido como Parallax.
+El VDP; permite realizar distintos tipos de desplazamiento, de los dos planos (A y B); ya sea dependiendo de la dirección (Horizontal o vertical) o de la porción de pantalla (por línea o por columna); esto permite realizar distintos efectos y dar una mejor sensación de movimiento. Este efecto es comúnmente conocido como Parallax.
 
 Podemos diferenciar tanto el Scroll por dirección, que podremos encontrar de dos tipos:
 
@@ -45,9 +45,9 @@ Esto es debido a que el VDP, permite almacenar planos de mayor capacidad que la 
 <img id="arq" src="13Scroll/img/esquemascroll.png" alt="Esquema desplazamiento" title="Esquema desplazamiento"/> </div>
 <p>Esquema desplazamiento</p>
 
-Como podemos ver en el esquema, la parte visible solo tiene por ejemplo 320px de ancho; y SGDK, reserva hasta 640px de ancho para poder almacenar el resto de imágen; lo que quede de la imagen seguira almacenada en la ROM y tendrá que ser desplazada a la parte oculta para poder realizar un desplazamiento.
+Como podemos ver en el esquema, la parte visible solo tiene por ejemplo 320px de ancho; y SGDK, reserva hasta 640px de ancho para poder almacenar el resto de imagen; lo que quede de la imagen seguirá almacenada en la ROM y tendrá que ser desplazada a la parte oculta para poder realizar un desplazamiento.
 
-Se permite un plano de 512x256px con la configuración habitual; de tal forma que podemos almacenar más imágen de la visible, y posteriormente desplazarlo tanto horizontalmente, como verticalmente.
+Se permite un plano de 512x256px con la configuración habitual; de tal forma que podemos almacenar más imagen de la visible, y posteriormente desplazarlo tanto horizontalmente, como verticalmente.
 
 ### Scroll por Tile
 
@@ -59,7 +59,7 @@ Toda la información de desplazamiento tanto vertical como horizontal, se almace
 
 ## Ejemplo usando Scroll
 
-Hemos podido ver la teoria de como realizar Scroll por línea, plano o Tiles; por lo que para poder entender mejor como se realizan estos desplazamientos, vamos a ver tres ejemplos:
+Hemos podido ver la teoría de como realizar Scroll por línea, plano o Tiles; por lo que para poder entender mejor como se realizan estos desplazamientos, vamos a ver tres ejemplos:
 
 * Ejemplo de desplazamiento por líneas; vamos a ver deformar un logo para hacer un efecto usando desplazamiento
 * Ejemplo de desplazamiento de plano; en este caso, vamos a realizar el famoso efecto paralax para que podamos ver como desplazamos el plano, para mostrar un mapa mayor.
@@ -81,7 +81,7 @@ Para este ejemplo, usaremos una imagen con un logo recordando a la pantalla de i
 
 Lo que vamos a realizar es realizar un desplazamiento de cada línea; las líneas pares irán hacia un lado, y las impares, hacia el otro. Veamos como podemos realizarlo.
 
-En primer lugar, necesitaremos dibujar la imágen en el plano a utilizar:
+En primer lugar, necesitaremos dibujar la imagen en el plano a utilizar:
 
 ```c
 VDP_drawImageEx(BG_B,&logo,
@@ -90,7 +90,7 @@ VDP_drawImageEx(BG_B,&logo,
     ,0,0,TRUE,DMA);
 ```
 
-Una vez dibujado, vamos a configurar que tipo de Scroll vamos a utilizar tanto horizontalmente, como vericalmente; para ello, utilizaremos la función ```VDP_setScrollingMode```; la cual permite configurar que tipo o modo de Scroll utilizaremos; veamos que parámetros recibe esta función:
+Una vez dibujado, vamos a configurar que tipo de Scroll vamos a utilizar tanto horizontalmente, como verticalmente; para ello, utilizaremos la función ```VDP_setScrollingMode```; la cual permite configurar que tipo o modo de Scroll utilizaremos; veamos que parámetros recibe esta función:
 
 * _HScrollMode_: Modo a utilizar para desplazamiento horizontal. Puede tomar los siguientes valores:
     * ```HSCROLL_LINE```: Incida que será un desplazamiento horizontal por líneas.
@@ -162,7 +162,7 @@ Este ejemplo puedes encontrarlo en el repositorio de ejemplos bajo el nombre de 
 
 En este ejemplo, no solo desplazaremos el plano; sino que iremos generando los Tiles necesarios conforme fuese necesario de tal forma que vamos a ir descubriendo el escenario poco a poco. Vamos a ver las imágenes que usaremos como planos.
 
-El primer plano, que usaremos como cielo; se trata de una imágen estática que dibujaremos en el plano B.
+El primer plano, que usaremos como cielo; se trata de una imagen estática que dibujaremos en el plano B.
 
 <div class="image">
 <img id="arq" src="13Scroll/img/Sky_pale.png" alt="Imagen de Fondo 1" title="Imagen de Fondo 1"/> </div>
@@ -263,6 +263,7 @@ if(xord>0){
     if(countpixel>7) countpixel=0;
 }
 ```
+
 En este caso, vemos que si la variable ```xord``` es mayor que cero, se actualizará el desplazamiento y el contador de pixeles; de tal forma que si el contador es mayor que 7, se necesitará calcular un nuevo Tile. Veamos un último fragmento para ver como generamos dicho Tile al final del plano.
 
 ```c
@@ -351,7 +352,7 @@ VDP_setTileMapDataRect(BG_A,tileMap,
 0,0,40,32,40,DMA_QUEUE);
 ```
 
-Como puede observar, creamos un TileMap a partir de los Tiles; que componen el TileSet que hemos cargado; y dibujamos la pantalla, usando un rectangulo de 40x32 Tiles (Todo el espacio disponible a lo Alto). Una vez cargado el TileMap en el fondo A, dibujaremos la imágen en el fondo B; ambos con baja prioridad; por lo que el fondo B estará detras del fondo A; dando sensación de profundidad.
+Como puede observar, creamos un TileMap a partir de los Tiles; que componen el TileSet que hemos cargado; y dibujamos la pantalla, usando un rectángulo de 40x32 Tiles (Todo el espacio disponible a lo Alto). Una vez cargado el TileMap en el fondo A, dibujaremos la imagen en el fondo B; ambos con baja prioridad; por lo que el fondo B estará detrás del fondo A; dando sensación de profundidad.
 
 ```c
 VDP_drawImageEx(BG_B,&city,
@@ -366,7 +367,7 @@ VDP_setScrollingMode(
     HSCROLL_PLANE,VSCROLL_2TILE);  
 ```
 
-Hemos configurado el Scroll horizontal, como de tipo plano (en este ejemplo no desplazaremos horizontalmente); y el scroll vertical como ```VSCROLL_2TILE``` que indica que se realizá desplazamiento cada 2 Tiles; ya que en Mega Drive no se puede realizar scroll vertical de 1 solo Tile.
+Hemos configurado el Scroll horizontal, como de tipo plano (en este ejemplo no desplazaremos horizontalmente); y el scroll vertical como ```VSCROLL_2TILE``` que indica que se realiza desplazamiento cada 2 Tiles; ya que en Mega Drive no se puede realizar scroll vertical de 1 solo Tile.
 
 Una vez configurado, pasaremos a cargar un vector con los valores de Desplazamiento:
 
@@ -404,7 +405,7 @@ Veras que se realiza un desplazamiento cada 5 unidades; que será el numero de T
     * DMA_QUEUE: Se utilizará la cola de DMA.
     * DMA_QUEUE_COPY: Se utilizará cola de DMA como copia.
 
-Tras revisar las funciones y comprobar que el código es correcto, ya podemos compilar y ejecutar este ejemplo. Podrás ver como la lluvia va desplazandose sobre la ciudad; aunque en este caso estamos desplazando todas las posiciones a la vez, y puede dar la sensación de desplazamiento de plano, podemos cambiar dichos valores y hacer más pruebas para comprobar su uso.
+Tras revisar las funciones y comprobar que el código es correcto, ya podemos compilar y ejecutar este ejemplo. Podrás ver como la lluvia va desplazándose sobre la ciudad; aunque en este caso estamos desplazando todas las posiciones a la vez, y puede dar la sensación de desplazamiento de plano, podemos cambiar dichos valores y hacer más pruebas para comprobar su uso.
 
 <div class="image">
 <img id="arq" src="13Scroll/img/ej13.png" alt="Ejemplo 13" title="Ejemplo 13"/> </div>
@@ -412,13 +413,13 @@ Tras revisar las funciones y comprobar que el código es correcto, ya podemos co
 
 ### Scroll usando MAP
 
-Aún queda por comentar una forma de realizar scroll; como habras podido ver, en el ejemplo de desplazamiento por plano, es bastante engorroso tener que calcular el siguiente Tile a mostrar; por ello, se pueden usar unas funciones alternativas, gracias a la estructura ```Map```.
+Aún queda por comentar una forma de realizar scroll; como habrás podido ver, en el ejemplo de desplazamiento por plano, es bastante engorroso tener que calcular el siguiente Tile a mostrar; por ello, se pueden usar unas funciones alternativas, gracias a la estructura ```Map```.
 
-Esta estructura fue añadida dentro de la versión 1.60 de SGDK; por lo que solo se podrá usar este ejemplo en dicha versión o superior; un Map, es una estructura que almacena una gran cantidad de información acerca de una imágen o escenario; por lo que usar este tipo de funciones tenemos que tener cuidado para no realizar cuellos de botella con la CPU o DMA.
+Esta estructura fue añadida dentro de la versión 1.60 de SGDK; por lo que solo se podrá usar este ejemplo en dicha versión o superior; un Map, es una estructura que almacena una gran cantidad de información acerca de una imagen o escenario; por lo que usar este tipo de funciones tenemos que tener cuidado para no realizar cuellos de botella con la CPU o DMA.
 
 Para este ejemplo, vamos a reutilizar el ejemplo 12 para desplazar un plano, pero lo realizaremos será una modificación para utilizar Map, en vez de realizar nosotros el desplazamiento.
 
-Vamos a comenzar, mostrando como vamos a importar los recursos; ya que ya no serán dos imágenes; sino una imágen, un tileset, una paleta y por último un Map.
+Vamos a comenzar, mostrando como vamos a importar los recursos; ya que ya no serán dos imágenes; sino una imagen, un tileset, una paleta y por último un Map.
 
 ```res
 PALETTE pltmap "map1.png"
@@ -427,7 +428,7 @@ MAP map1 "map1.png" map_tileset NONE 0
 IMAGE sky "Sky_pale.png" NONE 
 ```
 
-Como habras podido ver, cargamos una paleta, un Tileset y un Mapa a partir de la imágen que queremos mostrar. Veamos como se importa un recurso de tipo Map:
+Como podemos observar, cargamos una paleta, un Tileset y un Mapa a partir de la imagen que queremos mostrar. Veamos como se importa un recurso de tipo Map:
 
 ```
 MAP name "file" tileset-ref compression offset

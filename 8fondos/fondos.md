@@ -21,7 +21,7 @@ Veamos las características de los gráficos para Sega Mega Drive:
 * Normalmente, sólo se pueden mostrar 61 colores en pantalla.
 * En cada paleta, el primer color, se considera transparente.
 
-[^50]: Un Tile es un fragmento de una imagen que se muestra como si fuese un mosaico; por lo que una imágen está compuesta por una serie de Tiles.
+[^50]: Un Tile es un fragmento de una imagen que se muestra como si fuese un mosaico; por lo que una imagen está compuesta por una serie de Tiles.
 [^51]: Una imagen en formato indexado, almacena una paleta con los distintos colores que contiene; después cada píxel, solo tiene información del color que representa en dicha paleta.
 [^52]: RGB (Red Green Blue) es un formato que se define en cada píxel almacenar el color rojo, verde y azul de tal forma que se pueda ver cada color combinando estos tres.
 
@@ -108,7 +108,7 @@ Durante los próximos capítulos, veremos cada uno de estos recursos y como se u
 
 Veamos un ejemplo de definición de recurso:
 
-```
+```res
 TILESET moontlset "moontlset.png" 0
 PALETTE moontlset_pal "moontlset.png" 0
 ```
@@ -133,7 +133,7 @@ Una paleta es la información de los 16 colores que podemos almacenar para usarl
 
 Para definir un recurso de paleta para rescomp; se usa la siguiente sintaxis:
 
-```
+```res
 PALETTE pal1 "imagen.png"
 ```
 
@@ -146,7 +146,7 @@ Donde:
 
 Una imagen para SGDK, contiene un tileset, una paleta y un tilemap de una imagen, normalmente estática. Veamos un ejemplo con las opciones disponibles para definir un recurso de tipo imagen en rescomp:
 
-```
+```res
 IMAGE img1 "img_file" BEST NONE [mapbase]
 ```
 
@@ -159,7 +159,7 @@ Donde:
     * 0/NONE: No usa ninguna compresión.
     * 1/APLIB: algoritmo aplib (buena compresión, pero más lento).
     * 2/FAST/LZ4W: Algoritmo LZ4 (menor compresión, pero más rápido).
-* _NONE_: Indica la optimización que se puede realizar al importar la imágen. Puede tener los siguientes valores:
+* _NONE_: Indica la optimización que se puede realizar al importar la imagen. Puede tener los siguientes valores:
     * 0/NONE: No realiza ninguna optimización.
     * 1/ALL: Elimina los tiles duplicados y los espejados.
     * 2/DUPLICATE: Elimina solo los tiles duplicados.
@@ -189,7 +189,7 @@ Podemos observar en la anterior imagen, que el primer color es el negro y que es
 
 Una vez se tienen las dos imágenes, vamos a centrarnos en importar ambas imágenes usando la herramienta rescomp. Por lo tanto tenemos que definir un fichero _.res_ con el siguiente contenido:
 
-```
+```res
 IMAGE bg_a "gfx/bga.bmp" NONE 
 IMAGE bg_b "gfx/bgb.bmp" NONE
 ```
@@ -222,7 +222,7 @@ int main()
 
 Veamos en detalle el anterior ejemplo; en primer lugar, incluimos la cabecera de la librería LibMD, seguido de la cabecera de los recursos generados con rescomp. Además, podemos observar la llamada a una función ```VDP_setScreenWidth320```; la cual establece la resolución horizontal a 320px (por defecto es esta resolución).
 
-Seguidamente, podemos observar que se guarda en una variable el valor de ```TILE_USER_INDEX```; esta constante nos va a indicar el índice donde se va a poder acceder a la memoria donde están almacenados los tiles. Esto es importante para no mostrar tiles que no necesitemos en ese momento o zonas de memoria vacia que pueda dar error; ya que las primeras posiciones de la memoria de vídeo, SGDK las utiliza para inicializar las paletas etc...
+Seguidamente, podemos observar que se guarda en una variable el valor de ```TILE_USER_INDEX```; esta constante nos va a indicar el índice donde se va a poder acceder a la memoria donde están almacenados los tiles. Esto es importante para no mostrar tiles que no necesitemos en ese momento o zonas de memoria vacía que pueda dar error; ya que las primeras posiciones de la memoria de vídeo, SGDK las utiliza para inicializar las paletas etc...
 
 **NOTA**: Si utilizas una versión de SGDK inferior a 1.80, debes usar la variable ```TILE_USERINDEX```.
 
@@ -241,7 +241,7 @@ Hemos podido ver que para definir el Tile base por el que cargar la imagen, se p
 * PalIndex: Índice de la paleta a utilizar. Puede ser ```PAL0```, ```PAL2```, ```PAL2```, ```PAL3```. Para indicar las 4 paletas disponibles.
 * Prioridad: Indica la prioridad por la que se cargará. ```TRUE``` para prioridad alta, o ```FALSE```; para prioridad baja.
 * VFLIP: Espejado Vertical. Indica si estará espejado verticalmente (```TRUE``` para espejado o ```FALSE``` en caso contrario).
-* HFLIP: ESpejado Hortizontal. Indica si estará espejado horizontalmente  (```TRUE``` para espejado o ```FALSE``` en caso contrario).
+* HFLIP: ESpejado Horizontal. Indica si estará espejado horizontalmente  (```TRUE``` para espejado o ```FALSE``` en caso contrario).
 * index: Indica el índice del que se guardará en la memoria de vídeo. Se utilizará la variable de indices para almacenarlo en memoria.
 
 Como podemos ver en el ejemplo, vemos que se carga en el Plano B, el recurso llamado bg_a y que se guardará en la paleta ```PAL0```; es decir, la primera paleta disponible. Además, de que estará con baja prioridad; y que se cargará usando CPU y no DMA.

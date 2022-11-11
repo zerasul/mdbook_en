@@ -28,7 +28,7 @@ u16 vdpRedColor =
 
 ```
 
-La macro ```RGB8_8_8_TO_VDPCOLOR```, permite transformar un color RGB definido por 3 parametros (rojo, verde, azul) a el color equivalente para VDP. Cada uno de los parámetros tiene un valor de 0 a 255. Esto puede ser interesante para modificar colores del entorno o hacer algún efecto con el mismo.
+La macro ```RGB8_8_8_TO_VDPCOLOR```, permite transformar un color RGB definido por 3 parámetros (rojo, verde, azul) a el color equivalente para VDP. Cada uno de los parámetros tiene un valor de 0 a 255. Esto puede ser interesante para modificar colores del entorno o hacer algún efecto con el mismo.
 
 
 También existen equivalentes en otros formatos:
@@ -77,7 +77,6 @@ A la hora de trabajar con planos, no se puede acceder al modo HighLight; ya que 
 * Si los Tiles no tienen prioridad, se mostrará el modo shadow.
 * Si un Tile con prioridad se solapa con otro sin prioridad, se mostrarán con el color normal.
 
-
 ### Sprites
 
 Cuando se trabaja con Sprites, tenemos que tener en cuenta las siguientes características:
@@ -91,7 +90,7 @@ Cuando se trabaja con Sprites, tenemos que tener en cuenta las siguientes caract
         * El color 14 de la paleta se mostrará en modo Normal.
         * El color 15 de la paleta no se mostrará. Esto nos puede ayudar a simular transparencias.
 
-Además, para los Sprites en modo Shadow, mostrará solo los píxeles del fondo más oscurezidos. Esto nos puede ayudar a simular sombras. Veremos más adelante en los ejemplos como realizar estos efectos.
+Además, para los Sprites en modo Shadow, mostrará solo los píxeles del fondo más oscurecidos. Esto nos puede ayudar a simular sombras. Veremos más adelante en los ejemplos como realizar estos efectos.
 
 Es importante saber que a la hora de trabajar con estos modos, puede cambiar el comportamiento dependiendo del emulador a utilizar. Por lo que puede ser interesante probarlo en hardware real, además de probarlo en algún emulador como _Blastem_ o _Kega Fusion_.
 
@@ -120,7 +119,7 @@ Puedes encontrar más información acerca de las funciones para modificar los co
 
 En este capítulo hemos estado trabajando con las paletas de colores y los efectos que podemos hacer en ellas. Por ello, el ejemplo que vamos a estudiar, usaremos las distintas paletas de colores y su correspondientes efectos Shadow.
 
-En este ejemplo, vamos a utilizar las caráteristicas de la prioridad, para poder simular un efecto de luces; simulando en este caso, la luz de unas farolas, y ver como afecta a los distintos Sprites,con las distintas características que pueda tener.
+En este ejemplo, vamos a utilizar las características de la prioridad, para poder simular un efecto de luces; simulando en este caso, la luz de unas farolas, y ver como afecta a los distintos Sprites,con las distintas características que pueda tener.
 
 El ejemplo que vamos a estudiar, llamado _ej8.colors_, lo puedes encontrar en el repositorio de ejemplos que acompaña a este libro. Recordamos que dicho repositorio; lo puedes encontrar en la siguiente dirección:
 
@@ -132,17 +131,17 @@ En este caso, vamos a mostrar un fondo que hemos generado nosotros usando distin
 <img id="arq" src="11Paletas/img/fondo1.png" alt="Fondo Ejemplo" title="Fondo Ejemplo"/> </div>
 <p>Fondo Ejemplo</p>
 
-Como podemos ver en la imágen, vemos un paisaje nocturo donde podemos observar 3 farolas. La Idea del ejemplo, es mostrar que debajo de cada farola haya un haz de luz pero fuera de estas se note un color más oscuro. Este efecto lo podemos realizar usando un mapa de prioridad.
+Como podemos ver en la imagen, vemos un paisaje nocturno donde podemos observar 3 farolas. La Idea del ejemplo, es mostrar que debajo de cada farola haya un haz de luz pero fuera de estas se note un color más oscuro. Este efecto lo podemos realizar usando un mapa de prioridad.
 
-Esto se puede realizar, usando otra imágen, con las zonas que queremos iluminar; de esta forma, al poner ambas imágenes se mostrarán las zonas que esten pintadas en la segunda imagen, más claras que las que no; utilizando el efecto Shadow.
+Esto se puede realizar, usando otra imagen, con las zonas que queremos iluminar; de esta forma, al poner ambas imágenes se mostrarán las zonas que estén pintadas en la segunda imagen, más claras que las que no; utilizando el efecto Shadow.
 
-Veamos la imágen del mapa de prioridades:
+Veamos la imagen del mapa de prioridades:
 
 <div class="image">
 <img id="arq" src="11Paletas/img/fondo2.png" alt="Mapa Prioridad" title="Mapa Prioridad"/> </div>
 <p>Mapa Prioridad</p>
 
-Como vemos en esta imagen, las zonas marcadas, serán las que se mostrarán más claras que las que estan de color negro, que coinciden con la posición de las farolas del primer fondo. Este efecto es debido a que a nivel de plano, los tiles con prioridad se mostrarán de forma normal, mientras que los Tiles que esten pintados sin prioridad, tendrán el efecto shadow; de ahí que tenga el efecto de iluminación. Veamos como se realiza este efecto a nivel de código para establecer la prioridad solo de las zonas que estan marcadas.
+Como vemos en esta imagen, las zonas marcadas, serán las que se mostrarán más claras que las que están de color negro, que coinciden con la posición de las farolas del primer fondo. Este efecto es debido a que a nivel de plano, los tiles con prioridad se mostrarán de forma normal, mientras que los Tiles que estén pintados sin prioridad, tendrán el efecto shadow; de ahí que tenga el efecto de iluminación. Veamos como se realiza este efecto a nivel de código para establecer la prioridad solo de las zonas que están marcadas.
 
 Cada fondo se carga usando un fichero _.res_ con la definición de ambas imágenes:
 
@@ -151,7 +150,7 @@ IMAGE bg_color1 "gfx/fondocolor1.png" NONE
 IMAGE bg_prio "gfx/fondocolor2.png" NONE
 ```
 
-En el código fuente, puedes encontrar la función ```drawPriorityMap```, la cual nos va a dibujar en el plano A el mapa de prioridades, a partir de la segunda imágen. Este recibe la imagen que contiene las prioridades por parámetro; veamos un fragmento con la función:
+En el código fuente, puedes encontrar la función ```drawPriorityMap```, la cual nos va a dibujar en el plano A el mapa de prioridades, a partir de la segunda imagen. Este recibe la imagen que contiene las prioridades por parámetro; veamos un fragmento con la función:
 
 ```c
     u16 tilemap_buff[MAXTILES];
@@ -188,7 +187,7 @@ VDP_drawImageEx(BG_B, &bg_color1,
      0,0,TRUE,CPU);
 ```
 
-Vemos como esta imágen la dibujamos en el plano B sin prioridad y usamos la paleta 0.
+Vemos como esta imagen la dibujamos en el plano B sin prioridad y usamos la paleta 0.
 
 Además en este caso, vamos a mostrar un Sprite que dibujaremos sin prioridad, y que podemos mover a la izquierda o a la derecha. El cual lo dibujamos sin prioridad, y usaremos la Paleta 1.
 
@@ -205,15 +204,15 @@ Por último y más importante, tenemos que activar el modo Shadow HighLight; usa
     VDP_setHilightShadow(1);
 ```
 
-Si todo ha ido bien, podemos ver una imágen parecida a esta:
+Si todo ha ido bien, podemos ver una imagen parecida a esta:
 
 <div class="image">
 <img id="arq" src="11Paletas/img/ej8.png" alt="Ejemplo 8: Colores y Shadow" title="Ejemplo 8: Colores y Shadow"/> </div>
 <p>Ejemplo 8: Colores y Shadow</p>
 
-Como vemos en la imágen, en cada farola se muestra una parte iluminada; esto es debido a que dichas zonas se estan pintando Tiles con Prioridad; de tal forma que se muestran de forma normal; el resto de Tiles que no tienen prioridad, se muestran en modo Shadow. De tal forma, que podemos ver como dicho modo con los planos se comporta como hemos comentado en este capítulo.
+Como vemos en la imagen, en cada farola se muestra una parte iluminada; esto es debido a que dichas zonas se están pintando Tiles con Prioridad; de tal forma que se muestran de forma normal; el resto de Tiles que no tienen prioridad, se muestran en modo Shadow. De tal forma, que podemos ver como dicho modo con los planos se comporta como hemos comentado en este capítulo.
 
-También vemos que a nivel de Sprite, si vamos moviendo a nuestro personaje, es afectado tambien por el modo Shadow; de esta forma podemos dar la sensación de una iluminación que es afectada por nuestro personaje. Obviamente, podemos trabajar tambien con el modo HighLight, usando la Paleta 3, y jugando con los colores 14 y 15. Pero eso lo podemos ver en ejemplos más adelante.
+También vemos que a nivel de Sprite, si vamos moviendo a nuestro personaje, es afectado también por el modo Shadow; de esta forma podemos dar la sensación de una iluminación que es afectada por nuestro personaje. Obviamente, podemos trabajar también con el modo HighLight, usando la Paleta 3, y jugando con los colores 14 y 15. Pero eso lo podemos ver en ejemplos más adelante.
 
 Con este ejemplo, ya hemos podido ver como funcionan las paletas de colores y los modos Shadow y HighLight.
 

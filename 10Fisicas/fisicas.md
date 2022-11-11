@@ -4,7 +4,7 @@ Hay un aspecto importante a la hora de trabajar con ordenadores, que tenemos que
 
 Por ello, tenemos que tener en cuenta que en cada arquitectura y procesador, puede tener distintos comportamientos a la hora de realizar cálculos; ya sea desde una simple suma, hasta operaciones más costosas como el acceder a memoria o la propia división o multiplicación.
 
-En este tema, vamos a hablar de como el motorola 68000 trabaja y los distintas operaciones que puede realizar. Además de entrar en detalle en trabajo con punto flotante, e incluso veremos al final como implementar la colisión entre distintos Sprites usando SGDK.
+En este tema, vamos a hablar de como el Motorola 68000 trabaja y los distintas operaciones que puede realizar. Además de entrar en detalle en trabajo con punto flotante, e incluso veremos al final como implementar la colisión entre distintos Sprites usando SGDK.
 
 Este tema puede ser algo complicado de entender; pero es necesario para poder crear de la forma más eficiente posible, nuestro videojuego sin tener perdida de frames, o que se congele la pantalla.
 
@@ -12,7 +12,7 @@ Este tema puede ser algo complicado de entender; pero es necesario para poder cr
 
 ## Aritmética en Motorola 68000
 
-Vamos a comenzar hablando sobre el procesador Motorola 68000; ya que este es el procesador principal de la Sega Mega Drive y aunque también posee un procesador Zilog Z80, nos centraremos en el motorola. Recuerda que puedes ver más información sobre la arquitectura y como funciona estos procesadores en la Sega Mega Drive en el capítulo 3.
+Vamos a comenzar hablando sobre el procesador Motorola 68000; ya que este es el procesador principal de la Sega Mega Drive y aunque también posee un procesador Zilog Z80, nos centraremos en el Motorola. Recuerda que puedes ver más información sobre la arquitectura y como funciona estos procesadores en la Sega Mega Drive en el capítulo 3.
 
 Vamos a mostrar en este apartado, como se realizan algunas operaciones aritméticas y como se pueden realizar de forma más eficiente.
 
@@ -51,7 +51,7 @@ a<<1; //6
 
 ```
 
-Vemos como en el anterior ejemplo, ambas operaciones son equivalentes; puesto que multiplicar por 2, es lo mismo que desplazar 1 a la izquierda. Esto tambien puede aplicarse a la división.
+Vemos como en el anterior ejemplo, ambas operaciones son equivalentes; puesto que multiplicar por 2, es lo mismo que desplazar 1 a la izquierda. Esto también puede aplicarse a la división.
 
 ```c
 
@@ -87,7 +87,7 @@ Por ello, vamos a mostrar los distintos tipos de datos numéricos que nos provee
 
 _Tabla 4: Tipo de datos en SGDK y su equivalente en C._
 
-Vemos como hay distintos tipos de datos disponibles para los enteros por ello, tenemos que tener en cuenta siempre el valor que puede contener para evitar desbortamientos y que se realice un comportamiento inesperado.
+Vemos como hay distintos tipos de datos disponibles para los enteros por ello, tenemos que tener en cuenta siempre el valor que puede contener para evitar desbordamientos y que se realice un comportamiento inesperado.
 
 Habrá podido ver, que no hemos incluido los tipos de datos numéricos con decimales; esto se debe a que el procesador Motorola 68000, no tenia soporte para punto flotante; sin embargo, si que podemos utilizarlo con SGDK.
 
@@ -111,7 +111,7 @@ Hay que tener en cuenta, que los tipos de datos ```fix16``` o ```fix32``` no son
 fix16 a = 1.24;
 ```
 
-Es una instrucción erronea; ya que se tiene que transformar el valor a dicho tipo; por ello podemos utilizar las distintas funciones que nos provee SGDK. Por ejemplo para declarar un tipo como ```fix16``` o ```fix32```.
+Es una instrucción errónea; ya que se tiene que transformar el valor a dicho tipo; por ello podemos utilizar las distintas funciones que nos provee SGDK. Por ejemplo para declarar un tipo como ```fix16``` o ```fix32```.
 
 ```c
 fix16 a = FIX16(1.24);
@@ -135,8 +135,8 @@ En el anterior fragmento; si es una instrucción correcta para declarar en este 
 | fix32Sub(a,b)         | Realiza la resta de dos fix32                                                 |
 | fix16Mul(a,b)         | Realiza el producto de dos fix16                                              |
 | fix32Mul(a,b)         | Realiza el producto de dos fix32                                              |
-| fix16sqrt(a)          | Realiza la raiz cuardara de un fix16                                          |
-| fix32sqrt(a)          | Realiza la raiz cuadrada de un fix32                                          |
+| fix16sqrt(a)          | Realiza la raíz cuadrada de un fix16                                          |
+| fix32sqrt(a)          | Realiza la raíz cuadrada de un fix32                                          |
 | sinFix16(v)           | Realiza el seno del angulo en radianes representado en el rango de 0 a 1024   |
 | cosFix32(v)           | Realiza el coseno del angulo en radianes representado en el rango de 0 a 1024 |
 
@@ -150,7 +150,7 @@ Una vez ya conocemos los distintos tipos de datos que podemos utilizar y como op
 
 ## Física y colisiones
 
-A la hora de trabajar con distintos Sprites, es importante conocer si un Sprite esta tocando a otro, o incluso si un Sprite esta tocando el suelo. Por ello es importante conocer como podemos ver si dos o más sprites estan colisionando para poder calcular por ejemplo cuando han atacado a nuestro personaje, o por el contrario, si nuestro personaje esta atacando, cuando destruir al enemigo,etc.
+A la hora de trabajar con distintos Sprites, es importante conocer si un Sprite esta tocando a otro, o incluso si un Sprite esta tocando el suelo. Por ello es importante conocer como podemos ver si dos o más sprites están colisionando para poder calcular por ejemplo cuando han atacado a nuestro personaje, o por el contrario, si nuestro personaje esta atacando, cuando destruir al enemigo,etc.
 
 No existe un único método para calcular la colisión entre dos Sprites por lo que aquí mostraremos sólo algunos de ellos. En primer lugar, podemos comprobar cuando algún Sprite colisiona usando SGDK, y un registro especial que tiene el VDP para indicar dicha situación:
 
@@ -158,11 +158,11 @@ No existe un único método para calcular la colisión entre dos Sprites por lo 
 GET_VDPSTATUS(VDP_SPRCOLLISION_FLAG)
 ```
 
-La macro ```GET_VDPSTATUS``` nos devolverá distinto de 0, cuando dos o más sprites colisionan; aunque este método nos permite indicar cuando se colicionan los Sprites, tenemos que comprobar uno a uno, cual de ellos ha sido y puede ser poco eficiente.
+La macro ```GET_VDPSTATUS``` nos devolverá distinto de 0, cuando dos o más sprites colisionan; aunque este método nos permite indicar cuando se colisionan los Sprites, tenemos que comprobar uno a uno, cual de ellos ha sido y puede ser poco eficiente.
 
-Para comprobar mejor como los Sprites pueden colisionar, hablaremos de las cajas de colisión o comunmente llamados colliders; y después veremos como calcular la colisión entre ellos.
+Para comprobar mejor como los Sprites pueden colisionar, hablaremos de las cajas de colisión o comúnmente llamados colliders; y después veremos como calcular la colisión entre ellos.
 
-Una caja de colisión o collider, es un área que representa dentro de un Sprite que la colisión puede ocurrir dentro de dicha área. Normalmente se representa con un rectángulo o con un círculo. 
+Una caja de colisión o collider, es un área que representa dentro de un Sprite que la colisión puede ocurrir dentro de dicha área. Normalmente se representa con un rectángulo o con un círculo.
 
 Normalmente, se suelen definir en forma de caja (BOX) o en forma de círculo (CIRCLE); con SGDK, se pueden definir el tipo de collider que tendrá a la hora de importar sprites con _rescomp_; sin embargo, esta funcionalidad a día de hoy no esta del todo implementada.
 
@@ -170,7 +170,7 @@ Vamos a centrarnos en los distintos ejemplos de colliders que se pueden utilizar
 
 ### Punto contra Rectángulo
 
-En este primer caso, vamos a comprobar cuando un punto esta dentro de un rectángulo; de tal forma por ejemplo, que podamos detectar cuando se llega a algun punto o si el personaje esta tocando el suelo.
+En este primer caso, vamos a comprobar cuando un punto esta dentro de un rectángulo; de tal forma por ejemplo, que podamos detectar cuando se llega a algún punto o si el personaje esta tocando el suelo.
 
 <div class="image">
 <img id="arq" src="10Fisicas/img/pointvsbox.png" alt="Colisión punto contra caja" title="Colisión punto contra caja"/> </div>
@@ -237,7 +237,7 @@ También se puede comprobar cuando un punto esta dentro de un círculo; de esta 
 <img id="arq" src="10Fisicas/img/pointvscircle.png" alt="Colisión punto contra círculo" title="Colisión punto contra círculo"/> </div>
 <p>Colisión punto contra círculo</p>
 
-Para comprobar que un punto pertenece a un circulo, podemos basarnos en el teorema de pitágoras para poder calcular la distancia entre el punto y el centro de la circunferencia es correcta.
+Para comprobar que un punto pertenece a un circulo, podemos basarnos en el teorema de Pitágoras para poder calcular la distancia entre el punto y el centro de la circunferencia es correcta.
 
 ```c
 distancia^2= X diferencia^2 + Y diferencia^2
@@ -262,13 +262,13 @@ Donde:
 * ```circle_y```: es la posición Y del centro del circulo en píxeles.
 * ```point_x```: posición X del punto en píxeles.
 * ```point_y```: posición Y del punto en píxeles.
-* ```circle_radius```: es el rádio de la circunferencia.
+* ```circle_radius```: es el radio de la circunferencia.
 
-En este caso hemos podido comprobar la distancia de un punto con respecto al centro del circulo y ver que es menor que el rádio.
+En este caso hemos podido comprobar la distancia de un punto con respecto al centro del circulo y ver que es menor que el radio.
 
 ### Círculo contra Círculo
 
-El último ejemplo que veremos, es ver si dos círculos se superponen; de esta forma podemos detectar si dos Sprites con este tipo de colisión, se superponen y por lo tanto tienen algun tipo de acción, etc.
+El último ejemplo que veremos, es ver si dos círculos se superponen; de esta forma podemos detectar si dos Sprites con este tipo de colisión, se superponen y por lo tanto tienen algún tipo de acción, etc.
 
 <div class="image">
 <img id="arq" src="10Fisicas/img/circlevscircle.png" alt="Colisión círculo contra círculo" title="Colisión círculo contra círculo"/> </div>
@@ -293,8 +293,8 @@ Donde:
 * ```circle1_y```: Posición Y del centro del primer círculo.
 * ```circle2_x```: Posición X del centro del segundo círculo.
 * ```circle2_y```: Posición Y del centro del segundo círculo.
-* ```circle1_radius```: Rádio de la primera circunferencia.
-* ```circle2_radius```: Rádio de la segunda circunferencia.
+* ```circle1_radius```: Radio de la primera circunferencia.
+* ```circle2_radius```: Radio de la segunda circunferencia.
 
 Aunque existen más combinaciones como por ejemplo una caja contra círculo, estos se pueden calcular realizando combinaciones. Además, es importante ver que hemos estudiado las formulas y estas incluyen multiplicaciones de tal forma que en la medida de lo posible, transformar dichas multiplicaciones, por desplazamientos.
 
@@ -344,7 +344,7 @@ int checkCollision(Sprite* sprt1, Sprite* sprt2){
     sprt2Collider.h=21;
 ```
 
-Como podemos ver en este primer fragmento, se crean las estructuras de cada Collider correspondiente a cada Sprite; esta vez se ha puesto un valor fijo pero dependiendo de cada caso, podria cambiar por animación, frame,etc.
+Como podemos ver en este primer fragmento, se crean las estructuras de cada Collider correspondiente a cada Sprite; esta vez se ha puesto un valor fijo pero dependiendo de cada caso, podría cambiar por animación, frame,etc.
 
 Una vez obtenidos dichas variables, calculamos cada punto necesario para comprobar si ambas cajas se superponen; veamos el fragmento.
 

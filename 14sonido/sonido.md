@@ -8,7 +8,7 @@ No podemos olvidar la música; ya que para muchos la banda sonora de juegos de M
 
 En este capítulo, vamos a mostrar como la Mega Drive es capaz de reproducir sonido e incluso música y como podemos añadirla a nuestro juego y tener una mejor experiencia del mismo.
 
-Comezaremos hablando del sistema de sonido que trae la Sega Mega Drive, y como funcionan los distintos elementos que la componen. Además, hablaremos de como se puede crear esta música y por último, veremos algún ejemplo de como añadir música y sonido a nuestros juegos, usando SGDK.
+Comenzaremos hablando del sistema de sonido que trae la Sega Mega Drive, y como funcionan los distintos elementos que la componen. Además, hablaremos de como se puede crear esta música y por último, veremos algún ejemplo de como añadir música y sonido a nuestros juegos, usando SGDK.
 
 ## Sistema de Sonido de la Sega Mega Drive
 
@@ -17,24 +17,24 @@ Comenzaremos hablando del Sistema de Sonido de la Sega Mega Drive; como hemos po
 * Chip Yamaha YM2612; con sonido FM[^57] (6 canales).
 * Chip PSG (SN76496); sonido 8 bits con capacidad de emitir 3 ondas de pulso y 1 canal de ruido. Esta dentro del VDP.
 
-Estos dos chips, son orquestados por el procesador Zilog z80; este es quien envia o recibe la información del sonido, ayudandose de la Ram de sonido (8Kb); a través del bus de 8 bits que conecta ambos chips.
+Estos dos chips, son orquestados por el procesador Zilog z80; este es quien envía o recibe la información del sonido, ayudandose de la Ram de sonido (8Kb); a través del bus de 8 bits que conecta ambos chips.
 
-[^57]: Sonido FM; se refiere al sonido generado a través de la variación de su frencuencia; de tal forma que se genera una señal variando dicha frecuencia.
+[^57]: Sonido FM; se refiere al sonido generado a través de la variación de su frecuencia; de tal forma que se genera una señal variando dicha frecuencia.
 
 ### Yamaha 2612
 
 Comenzaremos hablando del Yamaha YM2612; el cual es el chip encargado principalmente de emitir sonido FM o samples, de tal forma que tenemos hasta 6 canales para reproducir música o sonido.
 
-Permite emitir hasta 5 señales FM a la vez, y una de samples aunque hay que tener cuidado a la hora de mezclar estas señales. Es importante, que a la hora de trabajar con este chip, no se creen cuellos de botella a la hora de mezclar los sonidos o incluso que se mezclen erroneamente.
+Permite emitir hasta 5 señales FM a la vez, y una de samples aunque hay que tener cuidado a la hora de mezclar estas señales. Es importante, que a la hora de trabajar con este chip, no se creen cuellos de botella a la hora de mezclar los sonidos o incluso que se mezclen erróneamente.
 
 
 ### PSG
 
-Además del chip de sonido Yamaha YM2612, La Sega Mega Drive, tiene un chip de sonido para sonido 8 bits gracias al chip SN76496 de Texas Instruments[^58] ,  permite emitir sonido por varios canales y además, de ser el chip utilizado para emitir sonido en modo Retrocompatibilidad (Master System).
+Además del chip de sonido Yamaha YM2612, La Sega Mega Drive, tiene un chip de sonido para sonido 8 bits gracias al chip SN76496 de Texas Instruments[^58] ,  permite emitir sonido por varios canales y además, de ser el chip utilizado para emitir sonido en modo retrocompatibilidad (Master System).
 
 [^58]: Texas Instruments es una marca Registrada. Todos los derechos reservados.
 
-Este chip permite emitir sonido por 4 canales; 3 para generación de ondas (tonos), y otro para ruido (noise). Este chip esta incluido dentro del propip VDP, y permite ser utilizado junto al YM2612 como sistema de sonido para la Sega Mega Drive.
+Este chip permite emitir sonido por 4 canales; 3 para generación de ondas (tonos), y otro para ruido (noise). Este chip esta incluido dentro del propio VDP, y permite ser utilizado junto al YM2612 como sistema de sonido para la Sega Mega Drive.
 
 ### Z80
 
@@ -61,17 +61,17 @@ printc:               ; Routine to print C register as ASCII decimal
  rst 16               ; Spectrum: Print the character in 'A'
 ```
 
-En el fragmento anterior, vemos un poco de ensamblador para el z80 (en este caso, es para ZX Sepectrum); la creación de un programa para el Z80 para orquestar los chips de sonido, es lo que comunmente se llama Driver de sonido.
+En el fragmento anterior, vemos un poco de ensamblador para el z80 (en este caso, es para ZX Sepectrum); la creación de un programa para el Z80 para orquestar los chips de sonido, es lo que comúnmente se llama Driver de sonido.
 
-Existen varias implementaciones de Drivers para sonido para Sega Mega Drive; como puede ser GEMS [^59], MUCOM88 [^60], 4PCM o XGM. Cada uno ha sido utilizado en varios juegos y utilizado para componenr música ya que traian herramientas para ello, como un tracker [^61] para componer.
+Existen varias implementaciones de Drivers para sonido para Sega Mega Drive; como puede ser GEMS [^59], MUCOM88 [^60], 4PCM o XGM. Cada uno ha sido utilizado en varios juegos y utilizado para componer música ya que traían herramientas para ello, como un tracker [^61] para componer.
 
-[^59]: GEMS (Genesis Editor for Music and Sound effects), es un driver de sonido para Sega Mega Drive desarrollado por Recreational Brainware. 
+[^59]: GEMS (Genesis Editor for Music and Sound effects), es un driver de sonido para Sega Mega Drive desarrollado por Recreational Brainware.
 [^60]: MUCOM88, es un driver de sonido desarrollado por Yuzo Koshiro, considerado uno de los mayores compositores de música para videojuegos (compositor de la Banda sonora de Streets of Rage).
 [^61]: Music Tracker, es un secuenciador para componer música de forma electrónica; ya sea con un sintetizador, o con un programa de ordenador.
 
 ### XGM
 
-Aunque hemos nombrado varios Drivers, vamos a centrarnos en el Driver _XGM_; este driver es uno de los utilizados por SGDK, y que viene por defecto. Aunque podemos utilizar otros, en este caso, solo vamos a centrarnos en este Driver. Fue desarrollado para usarse integramente con el procesador z80; por lo que podemos utilizar el Motorola 68000 para otros usos. Ha sido desarrollado para usarse con el SGDK ya que ha sido hecho por el propio Stephane Dallongeville (el propio autor de SGDK).
+Aunque hemos nombrado varios Drivers, vamos a centrarnos en el Driver _XGM_; este driver es uno de los utilizados por SGDK, y que viene por defecto. Aunque podemos utilizar otros, en este caso, solo vamos a centrarnos en este Driver. Fue desarrollado para usarse íntegramente con el procesador z80; por lo que podemos utilizar el Motorola 68000 para otros usos. Ha sido desarrollado para usarse con el SGDK ya que ha sido hecho por el propio Stephane Dallongeville (el propio autor de SGDK).
 
 Entre sus características, tiene:
 
@@ -80,13 +80,13 @@ Entre sus características, tiene:
 * Permite enviar sonido FM y PSG a la vez, utilizando los canales tanto para enviar sonido o los distintos samples; pudiendo llegar hasta 13 canales de sonido (5FM + 4PCM + 4PSG).
 * Permite reproducir efectos de sonido en formato PCM con 16 niveles de prioridad; esto es útil a la hora de trabajar con distintas fuentes.
 
-Es importante conocer, que se esta trabajando en una segunda versión de este Driver; el XGM2. Este driver incluye mejoras con respecto a la anterior versión ya que tenia bastantes problemas a la hora de compilar y generar los ficheros binarios; ya que consumian mucho espacio en la ROM (20/25% de la ROM podía ser la música). Por ello Stef, esta trabajando en esta nueva versión que esperemos este pronto disponible.
+Es importante conocer, que se esta trabajando en una segunda versión de este Driver; el XGM2. Este driver incluye mejoras con respecto a la anterior versión ya que tenia bastantes problemas a la hora de compilar y generar los ficheros binarios; ya que consumían mucho espacio en la ROM (20/25% de la ROM podía ser la música). Por ello Stef, esta trabajando en esta nueva versión que esperemos este pronto disponible.
 
 ## Crear música y Sonido
 
-Hemos estado hablando de los Drivers que son los encargados de dar las instrucciones al procesador Z80 para orquestar los distintos chips de sonido; pero otro aspecto muy importante, es hablar sobre como podemos crear la música de nuestro juego. Para ello, se suelen utilizar Trackers o secuencisadores, para crear las distintas instrucciones que después el Driver leerá y procederá a ejecutar en los chips de sonido.
+Hemos estado hablando de los Drivers que son los encargados de dar las instrucciones al procesador Z80 para orquestar los distintos chips de sonido; pero otro aspecto muy importante, es hablar sobre como podemos crear la música de nuestro juego. Para ello, se suelen utilizar Trackers o secuenciadores, para crear las distintas instrucciones que después el Driver leerá y procederá a ejecutar en los chips de sonido.
 
-Aunque muchos Drivers ya tenian integrados algunos editores, como el _GEMS_ o el _MUCOM88_. Hoy en día se utilizan programas más modernos y sofisticados para poder crear la música en nuestro ordenador de forma mucho más sencilla.
+Aunque muchos Drivers ya tenían integrados algunos editores, como el _GEMS_ o el _MUCOM88_. Hoy en día se utilizan programas más modernos y sofisticados para poder crear la música en nuestro ordenador de forma mucho más sencilla.
 
 ### Deflemask
 
@@ -100,7 +100,7 @@ En este libro, comentaremos el uso de Deflemask; que es uno de los más utilizad
 [^62]: MIDI; estándar tecnológico que describe un protocolo, interfaz y conectores para poder utilizar instrumentos musicales para que se comuniquen con el ordenador. 
 [^63]: VGM; formato de audio de música para distintos dispositivos; pensado principalmente para videojuegos.
 
-Este programa no es Software libre y tiene un coste de 9,99$; es uno de los más utilizadas para este tema, por lo que no es para nada un mal precio. Además de que hay muchisimos tutoriales por internet acerca de este software para creación musical.
+Este programa no es Software libre y tiene un coste de 9,99$; es uno de los más utilizadas para este tema, por lo que no es para nada un mal precio. Además de que hay muchísimos tutoriales por internet acerca de este software para creación musical.
 
 <div class="image">
 <img id="arq" src="14sonido/img/deflemask.png" alt="Deflemask" title="Deflemask"/> </div>
@@ -110,7 +110,7 @@ Este programa no es Software libre y tiene un coste de 9,99$; es uno de los más
 
 Tras ver como se compone el sistema de sonido; los Drivers y como crear el sonido, vamos a crear un ejemplo, en el que podamos reproducir distintos sonidos y música en función de los distintos botones que pulsemos. Este ejemplo, lo puedes encontrar en el repositorio de ejemplos que acompaña a este libro. Este ejemplo corresponde a la carpeta _ej15.musicandsound_; donde podemos encontrar tanto el código como los recursos.
 
-En primer lugar, vamos a mostrar como se puede importar los recursos de música o los efectos de sonido; utilizando la herramienta de _rescomp_ la cual es la encargada de leer los ficheros y pasarlos a binario. Tenemos que diferenciar, que los archivos con música estan en formato VGM, mientras que los ficheros con efectos de sonido, tienen formato WAV.
+En primer lugar, vamos a mostrar como se puede importar los recursos de música o los efectos de sonido; utilizando la herramienta de _rescomp_ la cual es la encargada de leer los ficheros y pasarlos a binario. Tenemos que diferenciar, que los archivos con música están en formato VGM, mientras que los ficheros con efectos de sonido, tienen formato WAV.
 
 Comenzaremos mostrando como se puede importar un fichero VGM para utilizarlo con el driver XGM.
 
@@ -126,7 +126,7 @@ Donde:
     * -1/AUTO: (NTSC o PAL dependiendo de la información almacenada en el VGM).
     * 0/NTSC: Indica que el sistema será NTSC.
     * 1/PAL: Indica que el sistema será PAL.
-* _options_: parámetros adicionales para la herramienta de parseo.
+* _options_: parámetros adicionales para la herramienta que importa los ficheros VGM.
 
 Como has podido ver, se le pueden pasar más parámetros adicionales para la herramienta _xgmtool_; esta herramienta es la que se utiliza para pasar del fichero VGM, a binario. Si necesitas más información sobre xgmtool, puedes consultar la documentación de SGDK.
 
@@ -197,7 +197,7 @@ void inputHandler(u16 joy, u16 changed,
 ...
 ```
 
-Recordamos que esta función obtendrá los valores de los botones que se han pulsado; de esta forma, podemos comprobar una a una que botones estan pulsados y realizar cada acción; vamos a ver que ocurre en cada botón:
+Recordamos que esta función obtendrá los valores de los botones que se han pulsado; de esta forma, podemos comprobar una a una que botones están pulsados y realizar cada acción; vamos a ver que ocurre en cada botón:
 
 ```c
 if(changed & state & BUTTON_A){
@@ -209,7 +209,7 @@ if(changed & state & BUTTON_A){
 }
 ```
 
-Al pulsar el botón A, se va a parar la música anterior y se volverá a reproducir la primera melodia. Como puedes ver, se utilizan varias funciones que son propias del uso del dirver XGM. Veamos estas funciones.
+Al pulsar el botón A, se va a parar la música anterior y se volverá a reproducir la primera melodia. Como puedes ver, se utilizan varias funciones que son propias del uso del driver XGM. Veamos estas funciones.
 
 La función ```XGM_isPlaying```, devuelve distinto de cero si el driver XGM, esta reproduciendo una canción.
 
@@ -261,7 +261,7 @@ if(changed & state & BUTTON_START){
 }
 ```
 
-En este caso se trata de parar la reproducción tanto de la música, como del efecto de sonido que este reproduciencose. Para ello se utilizan dos funciones; ```XGM_stopPlay``` que para la reproducción de la música actual.
+En este caso se trata de parar la reproducción tanto de la música, como del efecto de sonido que este reproduciéndose. Para ello se utilizan dos funciones; ```XGM_stopPlay``` que para la reproducción de la música actual.
 
 Por otro lado, la función ```XGM_stopPlayPCM```; para la reproducción del efecto de sonido que se este reproduciendo en un canal especifico; recibe los siguientes parámetros:
 
@@ -280,13 +280,13 @@ Por otro lado, al pulsar los botones izquierda o derecha, se seleccionará el an
 }
 ```
 
-Una vez que hemos terminado de revisar los botones y de como funciona cada caso, ya podemos compilar y ejecutar nuestro ejemplo. Dejamos para el lector, el poder revisar como mostramos la pantalla cargando una imágen y un TileSet. Si todo va correctamente, podrás ver y oir este ejemplo en el emulador.
+Una vez que hemos terminado de revisar los botones y de como funciona cada caso, ya podemos compilar y ejecutar nuestro ejemplo. Dejamos para el lector, el poder revisar como mostramos la pantalla cargando una imagen y un TileSet. Si todo va correctamente, podrás ver y oir este ejemplo en el emulador.
 
 <div class="image">
 <img id="arq" src="14sonido/img/ej15.png" alt="Ejemplo 15: Música y Sonido" title="Ejemplo 15: Música y Sonido"/> </div>
 <p>Ejemplo 15: Música y Sonido</p>
 
-Quiero dar las gracias a Diego Escudero por dejanos las melodias para este ejemplo.
+Quiero dar las gracias a Diego Escudero por dejarnos las melodías para este ejemplo.
 
 ## Referencias
 

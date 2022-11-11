@@ -26,7 +26,7 @@ Aunque se pueden tener distintos Sprites para representar distintos objetos, ten
 * La posición en pantalla de los Sprites se definen en píxeles y no en Tiles.
 * Podemos tener un total de 80 Sprites en pantalla.
 * Solo se pueden tener 20 Sprites por línea horizontal.
-* El tamaño de cada Sprite por hardware puede ser de entre 1 y 4 Tiles. Sin embargo, SGDK permite almacenar mayores combinandolos.
+* El tamaño de cada Sprite por hardware puede ser de entre 1 y 4 Tiles. Sin embargo, SGDK permite almacenar mayores combinándolos.
 * El tamaño máximo de Sprite para SGDK es de 16x16 (128x128 píxeles) Tiles; sin embargo, se pueden ampliar realizando combinaciones de Sprites.
 * Cada Sprite puede usar como máximo 16 colores, ya que estará asociado a una de las cuatro paletas disponibles.
 * Cada frame debería ser divisible por 8 (para poder dividir cada animación).
@@ -52,7 +52,7 @@ Donde:
 * _path_: Ruta del recurso relativa al directorio _res_; estará entre comillas dobles. En este ejemplo _"sprt/zeraready.bmp"_.
 * _width_: Tamaño en Tiles del ancho de cada frame. Debe ser menor que 32. En este ejemplo indica 2 Tiles (16 px).
 * _height_: Tamaño en Tiles del alto de cada frame Debe ser menor que 32. En este ejemplo indica 4 Tiles (32px).
-* _compression_: Indica si la imágen puede estar comprimida; puede tomar los siguientes valores:
+* _compression_: Indica si la imagen puede estar comprimida; puede tomar los siguientes valores:
     * -1/BEST/AUTO: Usa la mejor compresión.
     * 0/NONE: No usa ninguna compresión (por defecto).
     * 1/APLIB: algoritmo aplib (buena compresión, pero más lento).
@@ -73,7 +73,7 @@ Además de las anteriores propiedades, hay que tener en cuenta las siguientes ca
 * Una animación, no puede contener más de 255 frames.
 * No se pueden tener frames de más de 248x248 píxeles (32x32 Tiles).
 * No se pueden usar más de 16 Hardware Sprites por frame.
-* Rescomp detecta solo las filas donde hay animaciones; ignora las filas vacias.
+* Rescomp detecta solo las filas donde hay animaciones; ignora las filas vacías.
 * Por defecto, la colisión (collider) se calcula con el 75% de cada frame.
 
 Cuando rescomp, va a procesar un recurso tipo _SPRITE_, el mismo realiza los cortes de las distintas animaciones y optimiza tanto a nivel de frame, como a nivel de hardware, para poder almacenar de la manera más óptima en la VRAM.
@@ -92,7 +92,7 @@ Para poder usar el motor de Sprites, podemos usar a nivel de código dos funcion
 
 * ```SPR_init```: Inicializa el motor de Sprites con los valores por defecto. Normalmente, reserva 420 Tiles en VRAM. Además, inicializa el hardware para almacenar los Sprites. Existe otra función llamada ```SPR_initEx``` que permite pasar por parámetro el número de Tiles Reservados.
 
-* ```SPR_update```: Actualiza y muestra los Sprites activos. Gracias a esta función, cada vez que se llama recalculara los Sprites activos y cambiará de frame aquellos que lo necesiten. Es importante que esta función este antes de la llamada a ```SYS_doVBlankProcess```, para que se actualicen los frames.
+* ```SPR_update```: Actualiza y muestra los Sprites activos. Gracias a esta función, cada vez que se llama recalculará los Sprites activos y cambiará de frame aquellos que lo necesiten. Es importante que esta función este antes de la llamada a ```SYS_doVBlankProcess```, para que se actualicen los frames.
 
 Más adelante, veremos más funciones que podremos utilizar, sobre todo al ver el ejemplo de esta sección.
 
@@ -227,7 +227,7 @@ Tanto la función ```SPR_addSprite``` como ```SPR_addSpriteSafe```, devuelven un
 * _status_: Estado interno con información de como se alojará el sprite.
 * _visibility_: Indica la información del frame actual y como se mostrará en el VDP.
 * _spriteDef_: Puntero a la definición.
-* _onFrameChange_: Indica la función personalizada que puede lanzarse en cada cambio de Frame. Puede establecerse con la funcion ```SPR_setFrameChangeCallback```.
+* _onFrameChange_: Indica la función personalizada que puede lanzarse en cada cambio de Frame. Puede establecerse con la función ```SPR_setFrameChangeCallback```.
 * _animation_: Puntero a la animación seleccionada.
 * _frame_: Puntero al Frame actual.
 * _animInd_: Índice a la animación actual.
