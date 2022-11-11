@@ -1,9 +1,17 @@
 ---
 title:
 - type: main
-  text:  Desarrollo HomeBrew para Sega Mega Drive
+  text: Desarrollo HomeBrew para Sega Mega Drive
 creator:
 - role: author
   text: Víctor Suárez García
-rights: Creative Commons Non-Commercial Share Alike 4.0
+contributor:
+- role: rev
+  text: Emilio Berenguel
+rights: (C) 2022 Víctor Suárez. Creative Commons Non-Commercial Share Alike 4.0
 language: es-ES
+subject: Como crear tu juego para Sega Mega Drive en el Siglo XXI.
+description: Crear un videojuego para una consola de los años 90 es posible y utilizando software libre gracias a herramientas como SGDK. En estos 16 capítulos encontrarás información de como programar para Sega Mega Drive.
+identifier:
+- scheme: ISBN-10
+  text: ISBN-10 978-3-16-148410-0
