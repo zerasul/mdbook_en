@@ -76,7 +76,7 @@ void savePlayerProgress(){
 
 Como podemos ver, hacemos un checksum (de forma sencilla); sumando los valores almacenados y almacenándolos en la memoria; de tal forma, que después en la lectura podamos comprobar que se ha realizado correctamente.
 
-Vamos a ver como sería la operación inversa. Leer desde la memoria SRAM.En este caso, vamos a utilizar las siguientes funciones ```SRAM_readByte```, ```SRAM_readWord``` o ```SRAM_readLong```. Veamos cada una de estas funciones:
+Vamos a ver como sería la operación inversa. Leer desde la memoria SRAM. En este caso, vamos a utilizar las siguientes funciones ```SRAM_readByte```, ```SRAM_readWord``` o ```SRAM_readLong```. Veamos cada una de estas funciones:
 
 La función ```SRAM_readByte``` lee un byte desde la memoria SRAM. Recibe el siguiente parámetro:
 
