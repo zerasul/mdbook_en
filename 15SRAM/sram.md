@@ -111,10 +111,54 @@ Obviamente, quedaría por comprobar que el checksum leído es correcto con el ca
 
 ## Interrupciones
 
+Hemos hablado de como utilizar la SRAM; pero ahora nos quedaría hablar de otro aspecto importante a la hora de trabajar con Sega Mega Drive.
+
+En los ejemplos, has podido ver que hemos ido haciendo cada acción, y después hemos esperado a que termine de repintar la pantalla; debido al uso de la función ```SYS_doVBlankProcess()```, la cual gestiona el repintado de pantalla y el hardware hasta que se ha terminado de pintar completamente la pantalla.
+
+Tenemos que tener en cuenta que esta consola esta pensada para ser usada en televisores CRT; es decir, que se van pintando por cada línea y de arriba a abajo; por lo que en cada pasada, se debe esperar a que tanto el VDP como la televisión, acaben de pintar.
+
+Durante este tiempo de pintado, la CPU puede estar muy ociosa; de tal forma que puede ser interesante este tiempo para poder realizar operaciones y optimizar el tiempo de la CPU; ya que si se tarda mucho en realizar todas las operaciones antes de esperar al pintado, puede ocurrir una bajada en las imágenes por segundo (50 para PAL y 60 para NTSC); por lo que es mejor optimizar el uso de la CPU.
+
+Para ello, podemos utilizar las interrupciones; las cuales nos van a permitir ejecutar código durante estos periodos que se esta terminando de pintar la pantalla. Estas interrupciones, son lanzadas por el VDP al terminar de pintar tanto un conjunto de líneas, como la propia pantalla. Veamos un esquema.
+
+<div class="image">
+<img id="arq" src="15SRAM/img/hblank.jpg" alt="Interrupciones Mega Drive" title="Interrupciones Mega Drive"/> </div>
+<p>Interrupciones Mega Drive</p>
+
+Como podemos ver en el esquema, por cada vez que se pinta una línea, se lanza una interrupción _HBlank_, cuando se reposiciona para pintar la siguiente. En este tiempo, se puede utilizar para actualizar parte de nuestro código como puede ser actualizar las paletas.
+
+Por otro lado, podemos observar que cuando se termina de pintar la pantalla, se lanza otra interrupción la _VBlank_, la cual también podemos utilizar para actualizar partes de nuestro juego como pueden ser los fondos y/o paleta; de esta forma podemos crear animaciones en los propios fondos.
+
+Siempre has de saber, que tanto HBlank como VBLank tiene un corto periodo de tiempo para ejecutar código por lo que no podemos utilizar operaciones muy complejas. Por ello, tenemos que tener mucho cuidado a la hora de utilizar estas interrupciones.
+
+Veamos como se puede utilizar cada una de estas interrupciones.
+
 ### HBlank
+
+La Interrupción HBlank, ocurre cada vez que pinta una línea; aunque en muchas ocasiones no es necesario utilizar una función de interrupción por cada línea; por ello, Mega Drive dispone de un registro de interrupción ($0A), que va a actuar de contador e ira decrementándose hasta llegar a cero.
+
+Cuando este registro llega a cero, es cuando se llamará a la función de interrupción asociada. Esto podemos controlarlo a nivel de SGDK; por lo que podemos controlar que código ejecutaremos.
+
+Es muy importante a tener en cuenta que el tiempo que pasa desde que se lanza la interrupción hasta que se empieza a pintar la siguiente línea, es muy corto por lo que estas funciones no pueden ser muy pesadas.
+
+Veamos que funciones tiene SGDK para trabajar con este tipo de interrupción.
+
+La función ```VDP_setHIntCounter```, permite establecer el valor del contador de interrupción para que se ejecute cada X líneas hay que tener en cuenta que el contador llega hasta el valor 0 por lo que un valor de 5 será desde 5 hasta 0 (5+1); recibe el siguiente parámetro:
+
+* _value_: Valor a establecer indicando cuantas líneas van a pintarse hasta lanzar la interrupción; si se establece a 0, será en cada línea (scanLine).
+
+Por otro lado, la función ```VDP_setHInterrupt```, activa a o desactiva la interrupción _Hblank_ de tal forma que no se lanzará la función de interrupción. Recibe el siguiente parámetro:
+
+* _value_: se activa si es distinto de cero o se desactiva si se le pasa un cero.
+
+Por último, para establecer la función que se utilizará para la interrupción HBlank, se usará la función ```SYS_setHIntCallback```, que recibe el siguiente parámetro:
+
+* _CB_: Puntero a función callback será una función que no tendrá parámetros y no devuelve nada; aunque es necesario que tenga como prefijo ```HINTERRUPT_CALLBACK```. Es importante saber que esta función no puede realizar operaciones muy pesadas; aunque puede cambiar la paleta de colores (CRAM), Scroll o algún otro efecto.
 
 ### VBlank
 
 ## Ejemplo con Interrupciones
 
 ## Referencias
+
+* Sega/Mega Drive Interrupts: [https://segaretro.org/Sega_Mega_Drive/Interrupts](https://segaretro.org/Sega_Mega_Drive/Interrupts).
