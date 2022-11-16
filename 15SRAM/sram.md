@@ -68,7 +68,8 @@ void savePlayerProgress(){
     SRAM_writeByte(0,player.lives);
     SRAM_writeByte(1,player.scene);
     SRAM_writeByte(2,player.score);
-    u32 checksum= player.lives+player.scene+player.score;
+    u32 checksum= player.lives+
+        player.scene+player.score;
     player.checksum=checksum;
     SRAM_writeByte(6,player.checksum);
 }
