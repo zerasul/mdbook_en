@@ -158,8 +158,110 @@ Por último, para establecer la función que se utilizará para la interrupción
 
 ### VBlank
 
+Tras ver la interrupción horizontal, podemos ver la interrupción vertical; que ocurre cuando se termina de pintar toda la pantalla; esta interrupción es mucho mayor el tiempo que tarda en realizarse. Por ello, se puede utilizar para realizar más cambios que para las interrupciones horizontales.
+
+Vamos a ver como podemos utilizar esta interrupción, y las funciones que nos provee SGDK para trabajar con este tipo de interrupción. Es importante conocer, que para este tipo de interrupción es muy util realizar todas las operaciones que están relacionadas con el VDP como actualizar los fondos o los propios Sprites.
+
+Es muy importante tener esto en cuenta ya que realizar estos cambios en el hilo principal, es mucho mas costoso; por lo que tenemos que evitar realizar estos cambios en dicho hilo.
+
+Comenzaremos por la función ```SYS_setVBlankCallback``` que establece la función que establece la función que se ejecutará en la interrupción de _VBlank_. Esta función utiliza el tiempo que hay cuando se llama a ```SYS_doVBlankProcess``` y aprovecha el tiempo mientras se esta pintando la pantalla. Recibe los siguientes parámetros:
+
+* _CB_: puntero a la función de interrupción. Esta función no recibe ningún parámetro ni devuelve ningún dato.
+
+También existe la función ```SYS_setVIntCallback``` que establece también la función de interrupción funcionando de igual manera que la anterior. Pero en este caso, desde que se lanza la propia interrupción y se acaba de pintar la pantalla. Recibe los siguientes parámetros:
+
+* _CB_: puntero a la función de interrupción. Esta función no recibe ningún parámetro ni devuelve ningún dato.
+
 ## Ejemplo con Interrupciones
+
+Ya hemos podido ver las distintas funciones para trabajar con interrupciones; por lo que podemos pasar a realizar un ejemplo de uso con estas funciones. Puedes encontrar el ejemplo de este capítulo, en el repositorio de ejemplos; que puedes encontrar en la siguiente dirección:
+
+[https://github.com/zerasul/mdbook-examples](https://github.com/zerasul/mdbook-examples)
+
+La carpeta en la que encontrarás el ejemplo es _ej16.interrupts_; en la cual encontraras un ejemplo sencillo, en el que podremos controlar a un personaje. En este caso, vamos a cambiar la forma de interactuar con el juego.
+
+En primer lugar, trabajaremos con una serie de variables donde almacenaremos el estado del jugador; para ello utilizaremos el siguiente ```struct```:
+
+```c
+struct{
+    Sprite* sprite;
+    u16 x;
+    u16 y;
+    u8 anim;
+}player;
+```
+
+En este caso, almacenaremos el Sprite a utilizar, posición de x e y, además de la animación actual (utilizaremos una serie de constantes para establecerla). Vamos a definir las siguientes dos funciones:
+
+```c
+void vblank_int_function();
+void handleInput();
+```
+
+La primera función ```vblank_int_function``` es la que utilizaremos como función para la interrupción _hBlank_ de tal forma, que la utilizaremos para actualizar la pantalla (fondos, Sprites,etc).
+
+Por otro lado, la función ```handleInput``` utilizaremos para gestionar los controles (de forma síncrona).
+
+Veamos el inicio de la función principal:
+
+```c
+ SYS_disableInts();
+u16 ind = TILE_USER_INDEX;
+VDP_drawImageEx(BG_A,&back1,
+    TILE_ATTR_FULL(PAL0,FALSE,FALSE,FALSE,ind)
+    ,0,0,TRUE,CPU);
+ind+=back1.tileset->numTile;
+player.x=30;
+player.y=20;
+player.anim=IDLE;
+PAL_setPalette(PAL1,
+    player_sprt.palette->data,CPU);
+player.sprite = SPR_addSprite(&player_sprt,
+    player.x,player.y,
+    TILE_ATTR(PAL1,FALSE,FALSE,FALSE));
+SYS_enableInts();
+```
+
+Vemos que al inicio de la inicialización, deshabilitamos las interrupciones con la función ```SYS_disableInts``` y ```SYS_enableInts``` que activa las interrupciones. Siempre es importante deshabilitar las interrupciones cuando se esta cargando información (añadiendo sprites, fondos,etc).
+
+Una vez añadido el fondo y el sprite, ya podemos activar la función de la interrupción _VBlank_; que lo realizaremos con la función ```SYS_setVBlankCallback```; estableciendo el puntero a la función.
+
+Si revisamos la función de interrupción ```vblank_int_function```, podemos ver que se realiza en esta función:
+
+```c
+void vblank_int_function(){
+
+    SPR_setPosition(player.sprite,player.x,player.y);
+    SPR_setAnim(player.sprite,player.anim);
+    SPR_update();
+}
+```
+
+En esta función, vemos que se actualiza la posición del Sprite, su animación y se actualizan los Sprites. Esto se realiza en el tiempo que se termina de pintar la pantalla.
+
+Ahora podemos pasar a revisar la función ```handleInput``` que va a gestionar los controles. Veamos un fragmento:
+
+```c
+u16 value = JOY_readJoypad(JOY_1);
+
+if(value & BUTTON_RIGHT){
+    player.anim= RIGHT;
+    player.x++;
+}else{
+...
+```
+
+Podemos observar que se comprueba el valor leído del mando 1 (```JOY_1```), y se actualiza el estado del struct. De tal forma, que se actualizará cuando se realice la interrupción _VBlank_. De esta forma, el juego es mucho mas eficiente ya que toda operación con el VDP, se puede realizar en la función de interrupción; mientras que el hilo principal, sirve para actualizar el estado a pintar.
+
+Ahora podemos compilar y ejecutar el ejemplo, donde podemos ver como se puede mover el personaje; de tal forma que es más eficiente que en otros ejemplos. Ya hemos podido ver el contenido de este capítulo; donde hemos visto dos aspectos importantes a la hora de trabajar creando juegos; el uso de la SRAM por si queremos almacenar el progreso del juego, y por otro lado el uso de interrupciones.
+
+<div class="image">
+<img id="arq" src="15SRAM/img/ej16.png" alt="Ejemplo 16" title="Ejemplo 16"/> </div>
+<p>Ejemplo 16: Interrupciones</p>
 
 ## Referencias
 
 * Sega/Mega Drive Interrupts: [https://segaretro.org/Sega_Mega_Drive/Interrupts](https://segaretro.org/Sega_Mega_Drive/Interrupts).
+* SGDK: [https://github.com/Stephane-D/SGDK](https://github.com/Stephane-D/SGDK).
+* Danibus (github): [https://github.com/danibusvlc/aventuras-en-megadrive](https://github.com/danibusvlc/aventuras-en-megadrive).
+* DragonDrive (PCM Flash): [https://dragonbox.de/](https://dragonbox.de/)
