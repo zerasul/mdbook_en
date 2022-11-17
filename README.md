@@ -23,7 +23,7 @@ Este libro contiene lo mínimo e imprescindible para poder crear juegos a partir
 13. [Scroll](13Scroll/scroll.md).
 14. [Sonido y Música](14sonido/sonido.md).
 15. [SRAM e interrupciones](15SRAM/sram.md).
-16. Debug.
+16. [Debug](16Debug/debug.md).
 
 ---
 
