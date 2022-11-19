@@ -143,7 +143,7 @@ Por último, ya podemos ejecutar la depuración en el propio editor de Visual St
 
 ## Ejemplo de depuración usando KLog
 
-Tras ver las herramientas y como poder depurar, vamos a mostrar el ejemplo de esta sección y de como poder utilizar las trazas correctamente; para ello, vamos a crear un ejemplo muy sencillo que nos mandará una traza cuando pulsemos un botón (A, B o C). Recuerda que este ejemplo, lo puedes encontrar en el repositorio de ejemplos que acompaña a este libro; correspondiente a la carpeta _ej17.debug_.
+Tras ver las herramientas y como poder depurar, vamos a mostrar el ejemplo de esta sección y de como poder utilizar las trazas correctamente; para ello, vamos a crear un ejemplo muy sencillo que nos mandará una traza cuando pulsemos un botón (A, B o C). Recuerda que este ejemplo, lo puedes encontrar en el repositorio de ejemplos que acompaña a este libro; correspondiente a la carpeta _ej17.klog_.
 
 En primer lugar definimos la función que gestionará los controles. para este ejemplo de forma asíncrona; que será la función ```handleAsyncInput```. En esta función, vamos a revisar cuando se pulsa el botón A, B o C; guardando cada botón en una variable. Veamos un fragmento:
 
