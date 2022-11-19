@@ -273,5 +273,5 @@ Podemos descargar TILED, desde su página web oficial:
 * Blastem: [https://www.retrodev.com/blastem/](https://www.retrodev.com/blastem/)
 * Gimp: [https://www.gimp.org/](https://www.gimp.org/)
 * Aseprite: [https://www.aseprite.org/](https://www.aseprite.org/)
-* Blog sobre asesprite: [https://elmundodeubuntu.blogspot.com/2015/11/aseprite-editor-de-sprites.html](https://elmundodeubuntu.blogspot.com/2015/11/aseprite-editor-de-sprites.html)
+* Blog sobre Aseprite: [https://elmundodeubuntu.blogspot.com/2015/11/aseprite-editor-de-sprites.html](https://elmundodeubuntu.blogspot.com/2015/11/aseprite-editor-de-sprites.html)
 * Tiled: [https://www.mapeditor.org/](https://www.mapeditor.org/)
