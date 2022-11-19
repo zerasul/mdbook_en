@@ -62,7 +62,7 @@ Para poder comprender los contenidos de este libro, necesitarás conocer los sig
 * Lenguaje de Programación C.
 * Bash Script o CMD (Windows).
 * Git
-* Herramientas de dibujo de Pixel Art como asersprite.
+* Herramientas de dibujo de Pixel Art como Aseprite.
 
 Por supuesto, no te preocupes si no entiendes alguna parte del código, ya que cada capítulo trae referencias para poder comprender el código fuente o cualquier otra referencia tratada.
 

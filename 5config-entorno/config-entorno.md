@@ -212,17 +212,17 @@ Puede descargarse GIMP, desde su página web Oficial:
 
 [https://www.gimp.org/](https://www.gimp.org/)
 
-### AserSrprite
+### Aseprite
 
 A la hora de crear nuestro gráficos, con programas como GIMP, no son muy usables; por eso se utilizan otros programas para poder crear los Sprites o los patrones necesarios para nuestro juego.
 
-Para ello, se utilizan programas como AserSprite el cual es un programa que nos va a permitir crear nuestros sprites y sus animaciones, de forma sencilla.
+Para ello, se utilizan programas como Aseprite el cual es un programa que nos va a permitir crear nuestros sprites y sus animaciones, de forma sencilla.
 
 Además, también nos va a permitir manejar la paleta de colores para nuestros gráficos. Por lo que podremos ver en todo momento los colores que estamos utilizando para crear nuestros gráficos.
 
-Además, Asersrite permite exportar nuestras animaciones de forma sencilla en distintos formatos, o crear un patron que podamos utilizar posteriormente en nuestro juego.
+Además, Aseprite permite exportar nuestras animaciones de forma sencilla en distintos formatos, o crear un patron que podamos utilizar posteriormente en nuestro juego.
 
-AserSprite no es código abierto, y tiene un coste de 19.99$; el cual se puede adquirir desde su página web.
+Aseprite no es código abierto, y tiene un coste de 19.99$; el cual se puede adquirir desde su página web.
 
 [https://www.aseprite.org/](https://www.aseprite.org/)
 
@@ -236,8 +236,8 @@ Entre sus muchas características, podemos ver:
 * Suavizado de lineas al dibujar.
 
 <div class="image">
-<img id="arq" src="5config-entorno/img/asersprite.png" alt="Asersprite" title="Asersprite"/> </div>
-<p>Asersprite</p>
+<img id="arq" src="5config-entorno/img/asersprite.png" alt="Aseprite" title="Aseprite"/> </div>
+<p>Aseprite</p>
 
 ### TILED
 
