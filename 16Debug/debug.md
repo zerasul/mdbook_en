@@ -100,7 +100,7 @@ Para ello, vamos a ver un ejemplo usando Visual Studio Code, con la extensión _
 "name": "Debug with gdb remote",
 "request": "launch",
 "type": "cppdbg",
-"program": "${workspaceRoot}\\out\\rom.out",
+"program": "%CD%\\out\\rom.out",
 "miDebuggerServerAddress": "localhost:6868",
 "sourceFileMap": {
   "d:\\apps\\sgdk\\src\\": "${env:GDK}\\src\\",
@@ -115,7 +115,8 @@ Para ello, vamos a ver un ejemplo usando Visual Studio Code, con la extensión _
 "miDebuggerPath": "${env:GDK}\\bin\\gdb.exe",
 "setupCommands": [
     {
-        "text": "set directories '${workspaceFolder};$cwd;$cdir'"
+        "text": 
+        "set directories '${workspaceFolder};$cwd;$cdir'"
     }
 ],
 ...
@@ -179,4 +180,5 @@ Tras ver nuestro último ejemplo, ya damos por finalizado nuestro viaje por la c
 * Gens KMod: [https://segaretro.org/Gens_KMod](https://segaretro.org/Gens_KMod).
 * Blastem: [https://www.retrodev.com/blastem/nightlies/](https://www.retrodev.com/blastem/nightlies/).
 * GNU GDB: [https://www.sourceware.org/gdb/](https://www.sourceware.org/gdb/).
+* Artículo sobre Depuración: [https://zerasul.me/blog/debug](https://zerasul.me/blog/debug).
 * Visual Studio Code C Debug: [https://code.visualstudio.com/docs/cpp/cpp-debug](https://code.visualstudio.com/docs/cpp/cpp-debug).

@@ -1,6 +1,6 @@
 # 15. SRAM e interrupciones
 
-Ya estamos acercándonos a la recta final de este libro. Hemos estado revisando tanto la parte visual, como el sonido. Además de estudiar de estudiar toda la arquitectura de la Sega Mega Drive; vamos a estudiar un apartado importante; tanto para guardar los progresos de nuestro juego, tanto para manejar las distintas interrupciones que podemos utilizar a la hora de dibujar la pantalla.
+Ya estamos acercándonos a la recta final de este libro. Hemos estado revisando tanto la parte visual, como el sonido. Además de estudiar toda la arquitectura de la Sega Mega Drive; vamos a revisar un apartado importante; tanto para guardar los progresos de nuestro juego, tanto para manejar las distintas interrupciones que podemos utilizar a la hora de dibujar la pantalla.
 
 En primer lugar, tenemos que saber como vamos a almacenar los datos y tener en cuenta que no todos los tipos de cartucho a utilizar. Por otro lado, veremos el uso de funciones de interrupción para poder actualizar los recursos de nuestro juego usando dichas interrupciones.
 
