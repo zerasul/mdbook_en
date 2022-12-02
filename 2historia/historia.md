@@ -180,7 +180,7 @@ La cuarta entrega, salió en el año 2020; pero ya para sistemas modernos (PC,Pl
 
 ### World of Illusion
 
-En los años 90, la compañía Disney, publico también varios títulos de sus personajes de animación para Sega mega Drive.
+En los años 90, la compañía Disney, publicó también varios títulos de sus personajes de animación para Sega mega Drive.
 
 Desde el famoso _QuackShot_, otro también conocido es el _Castle of Illusion_ considerado en su versión de 8 Bits como uno de los mejores para Sega Master System.
 

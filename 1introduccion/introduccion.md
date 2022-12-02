@@ -34,7 +34,7 @@ La primera parte del libro, trata sobre una introducción a la Mega Drive como s
 
 En la segunda parte, hablaremos de como comenzar a hacer nuestro juego, mostrando los conceptos básicos; desde el Hola Mundo, hasta terminar con el uso de Sprites sin olvidar el sonido.
 
-Por último, se hablará de conceptos más avanzados como la utilización de Scroll, Tilesets e incluso hablar de herramientas para nuestro desarrollo como la depuración (Debug) e incluso usar la SRAM para guardar información de nuestro juego.
+Por último, se hablará de conceptos más avanzados como la utilización de Scroll, Tilesets e incluso hablar de herramientas para nuestro desarrollo como la depuración (Debug) además de poder usar la SRAM para guardar información de nuestro juego.
 
 Para poder tener una mejor compresión de cada uno de los capítulos a tratar en este libro, se comentarán distintos ejemplos y pequeños fragmentos de código que estarán disponibles Online dentro del repositorio de código en Github:
 
