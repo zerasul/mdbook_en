@@ -222,7 +222,7 @@ La primera función que observamos es ```VDP_loadTileSet``` la cual carga la inf
     * DMA_QUEUE: Se utilizará la cola de DMA.
     * DMA_QUEUE_COPY: Se utilizará cola de DMA como copia.
 
-**NOTA**: El recurso Tileset si esta comprimido, será descomprimido en memoria.
+**NOTA**: El recurso Tileset si esta comprimido, primero se descomprime en memoria.
 
 En nuestro ejemplo se utiliza DMA para transferir la información; recuerda no sobrecargar el DMA ya que comparte bus con la CPU y podría haber cuellos de botella.
 
@@ -297,11 +297,11 @@ Veamos un fragmento:
         BG_B,tileMap1b,0,0,40,28,40,CPU);
 ```
 
-Observamos como se han definido dos arrays de tipo u16, que contienen 1120 posiciones; uno por cada Tile a almacenar; seguidamente se rellenan esos Tiles, usando la información almacenada en el fichero .h, y usando la macro ```TILE_ATTR_FULL```para ir cargando en cada Tile la información de la paleta, prioridad,etc.
+Observamos como se han definido dos arrays de tipo u16, que contienen 1120 posiciones; uno por cada Tile a almacenar; seguidamente se rellenan esos Tiles, usando la información almacenada en el fichero .h, y usando la macro ```TILE_ATTR_FULL``` para ir cargando en cada Tile la información de la paleta, prioridad,etc.
 
 Después de cargar cada Tile, dibujamos por pantalla cada capa, usando la función ```VDP_setTileMapDataRect```.
 
-La función ```VDP_setTileMapDataRect```, dibuja por pantalla un tilemap como un rectángulo; por lo que podemos dibujar áreas de pantalla, con los Tiles almacenados; puede recibir los siguientes parámetros:
+La función ```VDP_setTileMapDataRect```, muestra por pantalla un tilemap como un rectángulo; por lo que podemos dibujar áreas de pantalla, con los Tiles almacenados; puede recibir los siguientes parámetros:
 
 * _Plane_: Plano a dibujar puede ser ```BG_A``` o ```BG_B```.
 * _data_: Puntero a la primera posición donde se encuentran los datos.
@@ -314,7 +314,7 @@ La función ```VDP_setTileMapDataRect```, dibuja por pantalla un tilemap como un
     * CPU: se utilizará la CPU.
     * DMA: se utilizará DMA.
     * DMA_QUEUE: Se utilizará la cola de DMA.
-    * DMA_QUEUE_COPY: Se utilizará cola de DMA como copia. 
+    * DMA_QUEUE_COPY: Se utilizará cola de DMA como copia.
 
 Vemos que para calcular el Tile a mostrar, usamos una formula que se trata de ir buscando en el array que hemos creado en el fichero .h, y posteriormente se muestran todos los tiles por pantalla. Existen otras funciones para realizar estos datos como ```VDP_setTileMapXY```, que permite dibujar en una coordenada en concreto; para más información acerca de como usar estas funciones, puedes consultar la documentación de SGDK.
 
@@ -324,7 +324,7 @@ Una vez que hemos terminado de revisar el código, ya podemos compilar y ejecuta
 <img id="arq" src="12TileSets/img/ej10.png" alt="Ejemplo 10: Uso de TileSets a mano" title="Ejemplo 10: Uso de TileSets a mano"/> </div>
 <p>Ejemplo 10: Uso de TileSets a mano</p>
 
-Como podemos ver, el resultado es casi el mismo (puede cambiar por la forma de cargar la paleta); y ya hemos podido ver como utilizar TileSets y TileMaps en Sega MegaDrive, utilizando herramientas externas como pueden ser _Tiled_, y como la última versión de SGDK 1.80, permite cargar ficheros con formato TMX hechos con Tiled.
+Como podemos ver, el resultado es casi el mismo (puede cambiar por la forma de cargar la paleta); y ya hemos podido ver como utilizar TileSets y TileMaps en Sega MegaDrive, utilizando herramientas externas como pueden ser _Tiled_, y como la última versión de SGDK 1.80, permite cargar ficheros con formato TMX realizados con la misma herramienta.
 
 ## Referencias
 

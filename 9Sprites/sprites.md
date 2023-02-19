@@ -4,7 +4,7 @@ Ya tenemos nuestro primer ejemplo más colorido con algunos fondos. Pero hace fa
 
 Un Sprite, es un mapa de bits (normalmente) que representa un objeto en el juego y sin necesidad de cálculos adicionales por parte de la CPU; ya sea el jugador, enemigos, objetos que podemos interactuar, etc. Los Sprites pueden ser estáticos, o tener animaciones que nos pueden ayudar a dar vida a nuestro juego.
 
-Por ello, en este capítulo, vamos a hablar sobre los Sprites; comenzando a hablar sobre que son, y como podemos utilizarlos en nuestros juegos en Sega Mega Drive. Hablaremos de como se constituyen los Sprites en Mega Drive, seguido de como importar los recursos de Sprites, usando rescomp, y de como se utilizan por SGDK y el motor de Sprites que integra.
+Por ello, en este capítulo, vamos a hablar sobre los Sprites; comenzando a hablar sobre que son, y como podemos utilizarlos en nuestros juegos en Sega Mega Drive. Hablaremos de como se constituyen los Sprites en Mega Drive, seguido de como importar los recursos de Sprites, usando _rescomp_, y de como se utilizan por SGDK y el motor de Sprites que integra.
 
 Por último, vamos a mostrar un ejemplo de utilización de Sprites con SGDK.
 
@@ -35,9 +35,9 @@ También es importante saber que los Sprites se almacenaran en la VRAM por lo qu
 
 ## Importar Recursos de Sprites
 
-Tras conocer como La Sega Mega Drive trabaja con Sprites y sobre todo ver las limitaciones que nos provee el hardware, vamos a ver como podemos importar los recursos de Sprites para nuestros juegos. Para ello, gracias a la herramienta que integra SGDK, usaremos _rescomp_.
+Tras conocer como La Sega Mega Drive trabaja con Sprites y sobre todo ver las limitaciones que nos provee el hardware, vamos a ver como podemos importar los recursos de Sprites para nuestros juegos. Para ello usaremos la herramienta que integra SGDK, usaremos _rescomp_.
 
-Como vimos en el anterior capítulo, con rescomp podemos importar recursos de distintos tipos para poder utilizarlos en SGDK. En este apartado, vamos a ver como importar un Sprite y dividir los distintos frames que compone. Recordamos que se deben definir cada recurso en un fichero con extensión _.res_.
+Como vimos en el anterior capítulo, con _rescomp_ podemos importar recursos de distintos tipos para poder utilizarlos en SGDK. En este apartado, vamos a ver como importar un Sprite y dividir los distintos frames que compone. Recordamos que se deben definir cada recurso en un fichero con extensión _.res_.
 
 Veamos un ejemplo:
 
@@ -73,10 +73,10 @@ Además de las anteriores propiedades, hay que tener en cuenta las siguientes ca
 * Una animación, no puede contener más de 255 frames.
 * No se pueden tener frames de más de 248x248 píxeles (32x32 Tiles).
 * No se pueden usar más de 16 Hardware Sprites por frame.
-* Rescomp detecta solo las filas donde hay animaciones; ignora las filas vacías.
+* _Rescomp_ detecta solo las filas donde hay animaciones; ignora las filas vacías.
 * Por defecto, la colisión (collider) se calcula con el 75% de cada frame.
 
-Cuando rescomp, va a procesar un recurso tipo _SPRITE_, el mismo realiza los cortes de las distintas animaciones y optimiza tanto a nivel de frame, como a nivel de hardware, para poder almacenar de la manera más óptima en la VRAM.
+Cuando _rescomp_, va a procesar un recurso tipo _SPRITE_, el mismo realiza los cortes de las distintas animaciones y optimiza tanto a nivel de frame, como a nivel de hardware, para poder almacenar de la manera más óptima en la VRAM.
 
 Al procesar el recurso Sprite, generará (si no se ha especificado la opción _-noheader_), un fichero .h con la referencia a los recursos.
 
@@ -84,7 +84,7 @@ Al procesar el recurso Sprite, generará (si no se ha especificado la opción _-
 
 A la hora de trabajar con Sprites animados, es siempre bastante engorroso realizar los distintos cambios de Frame para hacer las animaciones más fluidas; de tal forma que pueda dar una mejor sensación de movimiento a la hora de trabajar con los distintos frames de un Sprite.
 
-Gracias a SGDK, podemos utilizar un pequeño motor de Sprites que integra; de esta forma no necesitaremos estar calculando "cuando" es necesario cambiar de frame nuestro Sprite. Como hemos podido ver en el anterior apartado, podemos definir el tiempo entre animaciones; este parámetro será usado por el motor de Sprites para ejecutar el cambio entre los distintos frames.
+Gracias a SGDK, podemos utilizar un pequeño motor de Sprites que integra; de esta forma no necesitaremos estar calculando _"cuando"_ es necesario cambiar de frame nuestro Sprite. Como hemos podido ver en el anterior apartado, podemos definir el tiempo entre animaciones; este parámetro será usado por el motor de Sprites para ejecutar el cambio entre los distintos frames.
 
 El motor de Sprites de SGDK, se basa en guardar una lista con todos los Sprites activos, de tal forma que solo se interactúa con aquellos que están en dicha lista.
 
@@ -118,7 +118,7 @@ Por otro lado, como podemos ver, un Sprite se compone de distintas animaciones q
 
 Como vemos en la anterior imagen, se compone de 5 animaciones de 3 Frames cada uno. Observamos que para SGDK, la primera animación es la número 0. Por lo que siempre tenemos que tener en cuenta esto para cambiar de animación cuando sea necesario. Esto también se aplica a los Frames; por lo que el primer Frame de una animación, es el número 0.
 
-Por último, como hemos podido ver a la hora de importar los recursos de Sprites con rescomp, se puede definir la velocidad de cambio de animación a través de un número. Este número es manipulable y por lo tanto, podemos utilizarlo; siempre es importante saber que a mayor tiempo, es más lento el cambio. Es decir, que el valor de 1 indica que se cambiará de animación en cada frame por lo tanto, serían 50/60 veces por segundo.
+Por último, como hemos podido ver a la hora de importar los recursos de Sprites con _rescomp_, se puede definir la velocidad de cambio de animación a través de un número. Este número es manipulable y por lo tanto, podemos utilizarlo; siempre es importante saber que a mayor tiempo, es más lento el cambio. Es decir, que el valor de 1 indica que se cambiará de animación en cada frame por lo tanto, serían 50/60 veces por segundo.
 
 ## Ejemplo con Sprites en SGDK
 
@@ -158,7 +158,7 @@ Comenzaremos por incluir los recursos en nuestro código, seguido de la definici
 #define SHA_STAY 4
 ```
 
-Como podemos ver en el anterior fragmento, importamos tanto la librería ```genesis.h```, además de los ficheros cabecera generados con rescomp.h. Por otro lado, también vemos una serie de constantes, que corresponden a los índices de las animaciones de un Sprite; esto es recomendable para hacer el código más legible.
+Como podemos ver en el anterior fragmento, importamos tanto la librería ```genesis.h```, además de los ficheros cabecera (_.h_) generados con _rescomp_. Por otro lado, también vemos una serie de constantes, que corresponden a los índices de las animaciones de un Sprite; esto es recomendable para hacer el código más legible.
 
 Seguidamente, definiremos las variables globales necesarias para nuestro juego:
 
@@ -191,10 +191,12 @@ Después, ya comenzamos a añadir elementos a la pantalla, como pueden ser los f
 ```c
 u16 index = TILE_USERINDEX;
 VDP_drawImageEx(BG_B, &bg_b,
-     TILE_ATTR_FULL(PAL0,FALSE,FALSE,FALSE,index),0,0,TRUE,CPU);
+     TILE_ATTR_FULL(PAL0,FALSE,FALSE,FALSE
+        ,index),0,0,TRUE,CPU);
 index+=bg_b.tileset->numTile;
 VDP_drawImageEx(BG_A, &bg_a, 
-     TILE_ATTR_FULL(PAL1,FALSE,FALSE,FALSE,index),0,0,TRUE,CPU);
+     TILE_ATTR_FULL(PAL1,FALSE,FALSE,FALSE,
+        index),0,0,TRUE,CPU);
 index+=bg_a.tileset->numTile;
 ```
 
@@ -258,7 +260,8 @@ Como en el propio ejemplo, que establece la paleta ```PAL3``` con los datos de l
 Para SGDK 1.80 o superior:
 
 ```c
-PAL_setPalette(PAL3, elliSprt.palette->data, DMA);
+PAL_setPalette(PAL3, elliSprt.palette->data,
+           DMA);
 ```
 
 Para versiones inferiores a 1.80:
@@ -305,7 +308,8 @@ La función ```SPR_setPosition``` establece la posición del sprite en píxeles;
 Una vez que hemos terminado de ver la función ```main```, vamos a centrarnos en ver las funciones para los controles síncronos y asíncronos. Veamos estos últimos primero; que son controlados por la función ```asyncReadInput```, que hemos establecido al inicio como función controladora. Veamos fragmento de esta función:
 
 ```c
-void asyncReadInput(u16 joy,u16 changed,u16 state){
+void asyncReadInput(u16 joy,
+          u16 changed,u16 state){
 
     if(joy == JOY_1){
         if(changed & state &  BUTTON_A){

@@ -1,6 +1,6 @@
 # 5. Configurar Entorno de Desarrollo
 
-Ya hemos podido ver, el marco de trabajo o librerías, que vamos a utilizar para desarrollar nuestros videojuegos para Sega Mega Drive. Sin embargo, para poder trabajar de forma más eficiente, necesitaremos instalar y configurar una serie de herramientas que nos ayudaran a acelerar el proceso de creación de nuestro juego.
+Ya hemos podido ver, el marco de trabajo o librerías que vamos a utilizar para desarrollar nuestros videojuegos para Sega Mega Drive. Sin embargo, para poder trabajar de forma más eficiente, necesitaremos instalar y configurar una serie de herramientas que nos ayudaran a acelerar el proceso de creación de nuestro juego.
 
 En este capítulo, vamos a ver las herramientas que se pueden utilizar a la hora de crear no sólo el código de nuestro juego; sino también, todos los recursos necesarios para el mismo; como pueden ser las imágenes, sonidos, etc.
 
@@ -110,6 +110,7 @@ Las opciones disponibles son:
 
 * custom-makefile: Permite usar un fichero MakeFile personalizado para generar la rom. Si no se especifica, utilizará el del propio SGDK.
 * Docker Tag: Indica el nombre de la imagen Docker con SGDK. Si no se indica, se utilizará el nombre de _sgdk_.
+* Doragasu Image: Comprueba que la imagen Docker utilizada esta basada en las creadas por _Doragasu_.
 * GDK: sobrescribe la variable de entorno GDK apuntando a la instalación de SGDK (solo Windows).
 * GENDEV: sobrescribe la variable de entorno GENDEV apuntando a la instalación de Gendev (solo Linux).
 * Gens path: Indica la ruta del ejecutable donde se encuentre el emulador que se va a utilizar.

@@ -176,7 +176,7 @@ Los modelos 2 y 3 de la mega drive, tenían sonido estéreo por la salida de tel
 
 Una parte importante a la hora de tener una videoconsola, es poder utilizar periféricos y controladores. La Sega Mega Drive, tenía incorporados dos puertos tipo Atari (tipo DB9); estos puertos, permitían conectar tanto los controladores de 3 como de 6 botones; además de otros periféricos.
 
-Además, en los primeros modelos de Mega Drive, en la parte posterior, se permitía conectar un puerto serie. Este era usado por el Mega Modem para poder conectar la Sega Mega Drive a Internet a través de la línea telefónica.
+En los primeros modelos de Mega Drive en la parte posterior, se permitía conectar un puerto serie. Este era usado por el Mega Modem para poder conectar la Sega Mega Drive a Internet a través de la línea telefónica.
 
 En principio, solo se permitían conectar 2 controladores a la Mega Drive por los distintos puertos que tenía disponible la Mega Drive. Sin embargo, había cartuchos especiales (J-CART), que tenían dos puertos adicionales en el propio cartucho; permitiendo hasta 4 jugadores.
 

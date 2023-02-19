@@ -49,7 +49,7 @@ Si has trabajado con la programación anteriormente, habrás tenido que depurar 
 
 Como podemos ver en el esquema, se disponen de distintos elementos; algunos en la máquina local, que sería el computador en el que estamos trabajando, y otros en una máquina remota que sería en este caso la propia Mega Drive o un emulador.
 
-Si nos centramos en la máquina local, podemos ver que tenemos el editor, que puede ser cualquier editor de código o entorno de desarrollo integrado, con capacidad de conectarse a un depurador; en la imagen puedes ver que se trata de Visual Studio Code.
+Si nos centramos en la máquina local, podemos ver que tenemos el editor, que puede ser cualquier editor de código o entorno de desarrollo integrado, con capacidad de conectarse a un depurador; en la imagen puedes ver que se trata de _Visual Studio Code_.
 
 Por otro lado, necesitaremos utilizar un programa que nos permita conectarnos a una máquina remota (o local) para poder obtener la información necesaria para depurar; como la memoria, instrucción actual, ejecución paso a paso,etc. Para ello, utilizaremos el depurador GDB [^65]; el cual nos va a permitir conectarnos a un emulador (Normalmente utilizando un puerto de red), para poder depurar nuestro juego. SGDK, incluye GDB para poder depurar nuestros juegos.
 
@@ -112,11 +112,12 @@ Para ello, vamos a ver un ejemplo usando Visual Studio Code, con la extensión _
 "externalConsole": false,
 "MIMode": "gdb",
 "launchCompleteCommand": "exec-continue",
-"miDebuggerPath": "${env:GDK}\\bin\\gdb.exe",
+"miDebuggerPath": "${env:GDK}\\gdb.exe",
 "setupCommands": [
     {
         "text": 
-        "set directories '${workspaceFolder};$cwd;$cdir'"
+        "set directories '${workspaceFolder}
+            ;$cwd;$cdir'"
     }
 ],
 ...
@@ -172,7 +173,7 @@ Si ya compilamos y ejecutamos este ejemplo, al pulsar una tecla, podemos ver en 
 <img id="arq" src="16Debug/img/blastemconsole.png" alt="Consola Depuración Blastem" title="Consola Depuración Blastem"/> </div>
 <p>Ejemplo 17: Consola Depuración Blastem</p>
 
-Tras ver nuestro último ejemplo, ya damos por finalizado nuestro viaje por la consola de 16 bits; y esperemos que al lector le haya gustado. Además de que esperemos que esto te anime a crear tus propios juegos y publicar más software casero o "homeBrew". Además de darte las gracias personalmente, por tu lectura.
+Tras ver nuestro último ejemplo, ya damos por finalizado nuestro viaje por la consola de 16 bits; y esperemos que al lector le haya gustado. Además de que esperemos que esto te anime a crear tus propios juegos y publicar más software casero o "homeBrew". Por supuesto no me olvido de darte las gracias personalmente por tu lectura.
 
 ## Referencias
 

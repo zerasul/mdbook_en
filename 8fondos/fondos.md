@@ -2,9 +2,9 @@
 
 Hemos podido ya empezar a ver nuestros primeros juegos; pero nos falta el poder ver más colorido y poder jugar con las distintas características que nos ofrece la Sega Mega Drive.
 
-Uno de los apartados más significativos a la hora de trabajar con juegos, son los fondos. Estos fondos son imágenes que podemos superponer, para poder dar una sensación de profundidad. Sega Mega Drive, permite trabajar con varios fondos (o planos), de tal forma que podemos dar esa sensación de profundidad.
+Uno de los apartados más significativos a la hora de trabajar con juegos, son los fondos. Estos fondos son imágenes que podemos superponer, para poder dar una sensación de profundidad. Sega Mega Drive, permite trabajar con varios fondos (o planos), de tal forma que podemos dar esa de movimiento y de una mayor interacción.
 
-En este capítulo, nos centraremos en el uso de fondos o planos, a través de SGDk y el uso de herramientas para poder gestionar estos fondos; como por ejemplo la herramienta _rescomp_.
+En este capítulo, nos centraremos en el uso de fondos o planos, a través de SGDK y el uso de herramientas para poder gestionar estos fondos; como por ejemplo la herramienta _rescomp_.
 
 Comenzaremos por hablar de como gestiona las imágenes o los gráficos la Sega Mega Drive, e iremos explicando los distintos conceptos relacionados con los fondos.
 
@@ -45,7 +45,7 @@ Como hemos comentado, una parte importante es el uso de fondos o planos como tam
 
 Un fondo, no es más que un conjunto de Tiles que están almacenados en la memoria de vídeo; normalmente en cada fondo se establece en cada Tile, un índice que apunta a un Tile de la memoria de vídeo; esto se conoce como Mapa y el conjunto de Tiles almacenados en la memoria, se conoce como TileSet. Más adelante, hablaremos sobre los Tilesets y como se pueden utilizar.
 
-En este apartado, solo hablaremos sobre los fondos y como podemos utilizarlos para nuestros juegos, de forma estática.
+En este apartado, solo hablaremos sobre los fondos y como podemos utilizarlos para nuestros juegos de forma estática.
 
 Es importante saber, que un fondo se dibuja de arriba a abajo y de izquierda a derecha. De tal forma, que es más fácil de trabajar con ellos. Además, no podemos olvidar que los fondos trabajan a nivel de Tile no a nivel de píxel.
 
@@ -123,7 +123,7 @@ Por último, es importante saber, que si usamos el fichero _makefile_ que trae S
 
 ### Imágenes y Paletas con Rescomp
 
-Como hemos podido ver, se pueden importar tanto Paletas, como imágenes, como recursos. Vamos a ver que opciones y como se define los recursos de Paleta y de Imagen.
+Como hemos podido ver, se pueden importar tanto Paletas, imágenes o recursos. Vamos a ver que opciones y como se define los recursos de Paleta y de Imagen.
 
 #### Paleta
 
@@ -207,13 +207,18 @@ int main()
 {
     VDP_setScreenWidth320();    
     u16 ind = TILE_USER_INDEX;
-    VDP_drawImageEx(BG_B,&bg_a,TILE_ATTR_FULL(PAL0,FALSE,FALSE,FALSE,ind),0,0,TRUE,CPU);
+    VDP_drawImageEx(BG_B,&bg_a,
+    TILE_ATTR_FULL(PAL0,FALSE,FALSE,FALSE
+        ,ind),0,0,TRUE,CPU);
     ind+=bg_a.tileset->numTile;
-    VDP_drawImageEx(BG_A,&bg_b,TILE_ATTR_FULL(PAL1,FALSE,FALSE,FALSE,ind),0,0,TRUE,CPU);
+    VDP_drawImageEx(BG_A,&bg_b,
+    TILE_ATTR_FULL(PAL1,FALSE,FALSE,FALSE
+        ,ind),0,0,TRUE,CPU);
     ind+=bg_b.tileset->numTile;
     while(1)
     {
-        //For versions prior to SGDK 1.60 use VDP_waitVSync instead.
+        //For versions prior to SGDK 1.60
+        // use VDP_waitVSync instead.
         SYS_doVBlankProcess();
     }
     return (0);
@@ -255,10 +260,12 @@ ind+=bg_a.tileset->numTile;
 La cual indica que el índice a utilizar para guardar en la memoria de vídeo, se aumenta el valor hasta el final de los tiles que contiene la imagen. Esto es importante para no sobrescribir la memoria de vídeo. Seguidamente vemos la segunda llamada:
 
 ```c
-VDP_drawImageEx(BG_A,&bg_b,TILE_ATTR_FULL(PAL1,FALSE,FALSE,FALSE,ind),0,0,TRUE,CPU);
+VDP_drawImageEx(BG_A,&bg_b,
+TILE_ATTR_FULL(PAL1,FALSE,FALSE,FALSE
+,ind),0,0,TRUE,CPU);
 ```
 
-La cual indica que se cargará la segunda imagen en el Plano A y con baja prioridad, la cual se pintará encima del plano anterior según el esquema de prioridades. Además, podemos observar que se cargará la paleta 1, y que se utilizará la CPU para cargarlo.
+La cual indica que se cargará la segunda imagen en el Plano A y con baja prioridad, esta se pintará encima del plano anterior según el esquema de prioridades. Además, podemos observar que se cargará la paleta 1, y que se utilizará la CPU para cargarlo.
 
 Por último, podemos ver que se vuelve a aumentar el índice para almacenar en la memoria de vídeo para otras imágenes posteriormente. Además de la llamada a la función ```SYS_doVBlankProcess```; para esperar a que se termine de pintar la pantalla.
 

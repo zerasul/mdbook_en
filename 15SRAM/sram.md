@@ -1,6 +1,6 @@
 # 15. SRAM e interrupciones
 
-Ya estamos acercándonos a la recta final de este libro. Hemos estado revisando tanto la parte visual, como el sonido. Además de estudiar toda la arquitectura de la Sega Mega Drive; vamos a revisar un apartado importante; tanto para guardar los progresos de nuestro juego, tanto para manejar las distintas interrupciones que podemos utilizar a la hora de dibujar la pantalla.
+Ya estamos acercándonos a la recta final de este libro. Hemos estado revisando tanto la parte visual, como el sonido. Además de estudiar toda la arquitectura de la Sega Mega Drive; vamos a revisar un apartado importante; tanto para guardar los progresos de nuestro juego, como para manejar las distintas interrupciones que podemos utilizar a la hora de dibujar la pantalla.
 
 En primer lugar, tenemos que saber como vamos a almacenar los datos y tener en cuenta que no todos los tipos de cartucho a utilizar. Por otro lado, veremos el uso de funciones de interrupción para poder actualizar los recursos de nuestro juego usando dichas interrupciones.
 
@@ -8,7 +8,7 @@ Por último, vamos a ver un ejemplo que utilizará estas interrupciones para pod
 
 ## Guardar el progreso de nuestros juegos
 
-Muchos hemos sufrido, el no poder guardar el progreso de nuestros juegos en Mega Drive; solo algunos juegos disponían de esta capacidad de poder guardar dicho progreso en el cartucho. Esto es debido a que estos cartuchos, tenían una memoria SRAM [^64] junto con una pila de botón (que tenemos que tener cuidado que no se agote tras tantos años); también había algunos tipos especiales como Sonic 3 que tenia un tipo de memoria especial sin necesidad de Pila.
+Muchos hemos sufrido, el no poder guardar el progreso de nuestros juegos en Mega Drive; solo algunos juegos disponían de esta capacidad de poder guardar dicho progreso en el cartucho. Esto es debido a que estos cartuchos, tenían una memoria SRAM [^64] junto con una pila de botón (que tenemos que tener cuidado que no se agote tras tantos años); también había algunos tipos especiales como _Sonic 3_ que tenia un tipo de memoria especial sin necesidad de Pila.
 
 Por ello, si necesitamos almacenar información del progreso de nuestro juego, podemos utilizar esta memoria SRAM, necesitaremos un cartucho que tenga tanto la ROM, como dicha memoria estática.
 
@@ -75,7 +75,7 @@ void savePlayerProgress(){
 }
 ```
 
-Como podemos ver, hacemos un checksum (de forma sencilla); sumando los valores almacenados y almacenándolos en la memoria; de tal forma, que después en la lectura podamos comprobar que se ha realizado correctamente.
+Como podemos ver, realizaremos un checksum (de forma sencilla); sumando los valores almacenados y almacenándolos en la memoria; de tal forma, que después en la lectura podamos comprobar que se ha realizado correctamente.
 
 Vamos a ver como sería la operación inversa. Leer desde la memoria SRAM. En este caso, vamos a utilizar las siguientes funciones ```SRAM_readByte```, ```SRAM_readWord``` o ```SRAM_readLong```. Veamos cada una de estas funciones:
 
@@ -198,7 +198,7 @@ void vblank_int_function();
 void handleInput();
 ```
 
-La primera función ```vblank_int_function``` es la que utilizaremos como función para la interrupción _hBlank_ de tal forma, que la utilizaremos para actualizar la pantalla (fondos, Sprites,etc).
+La primera función ```vblank_int_function``` es la que utilizaremos como función para la interrupción _vBlank_ de tal forma, que la utilizaremos para actualizar la pantalla (fondos, Sprites,etc).
 
 Por otro lado, la función ```handleInput``` utilizaremos para gestionar los controles (de forma síncrona).
 
@@ -208,8 +208,9 @@ Veamos el inicio de la función principal:
  SYS_disableInts();
 u16 ind = TILE_USER_INDEX;
 VDP_drawImageEx(BG_A,&back1,
-    TILE_ATTR_FULL(PAL0,FALSE,FALSE,FALSE,ind)
-    ,0,0,TRUE,CPU);
+    TILE_ATTR_FULL(PAL0,FALSE,
+    FALSE,FALSE,ind),0,0,
+    TRUE,CPU);
 ind+=back1.tileset->numTile;
 player.x=30;
 player.y=20;

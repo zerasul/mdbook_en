@@ -108,7 +108,7 @@ Hay que tener en cuenta, que los tipos de datos ```fix16``` o ```fix32``` no son
 
 ```c
 
-fix16 a = 1.24;
+fix16 a = 1.24;// Error
 ```
 
 Es una instrucción errónea; ya que se tiene que transformar el valor a dicho tipo; por ello podemos utilizar las distintas funciones que nos provee SGDK. Por ejemplo para declarar un tipo como ```fix16``` o ```fix32```.
@@ -162,11 +162,11 @@ La macro ```GET_VDPSTATUS``` nos devolverá distinto de 0, cuando dos o más spr
 
 Para comprobar mejor como los Sprites pueden colisionar, hablaremos de las cajas de colisión o comúnmente llamados colliders; y después veremos como calcular la colisión entre ellos.
 
-Una caja de colisión o collider, es un área que representa dentro de un Sprite que la colisión puede ocurrir dentro de dicha área. Normalmente se representa con un rectángulo o con un círculo.
+Una caja de colisión o _collider_, es un área que representa dentro de un Sprite que la colisión puede ocurrir dentro de dicha área. Normalmente se representa con un rectángulo o con un círculo.
 
-Normalmente, se suelen definir en forma de caja (BOX) o en forma de círculo (CIRCLE); con SGDK, se pueden definir el tipo de collider que tendrá a la hora de importar sprites con _rescomp_; sin embargo, esta funcionalidad a día de hoy no esta del todo implementada.
+Suele ser frecuente el definir en forma de caja (BOX) o en forma de círculo (CIRCLE); con SGDK, se pueden definir el tipo de collider que tendrá a la hora de importar sprites con _rescomp_; sin embargo, esta funcionalidad a día de hoy no esta del todo implementada.
 
-Vamos a centrarnos en los distintos ejemplos de colliders que se pueden utilizar para calcular las colisiones. Con estos datos, podemos calcular fácilmente las colisiones entre distintos coliders; vamos a ver algunos ejemplos entre los distintos casos.
+Vamos a centrarnos en los distintos ejemplos de colliders que se pueden utilizar para calcular las colisiones. Con estos datos, podemos calcular fácilmente las colisiones entre distintos colliders; vamos a ver algunos ejemplos entre los distintos casos.
 
 ### Punto contra Rectángulo
 

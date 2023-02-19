@@ -4,7 +4,7 @@ Hasta ahora, hemos visto que es la Mega Drive y su arquitectura, conociendo cada
 
 Sin embargo, este libro trata sobre desarrollo de software casero (u HomeBrew) para Sega Mega Drive; por lo que vamos a estudiar las herramientas que necesitaremos para ello.
 
-Para desarrollar software para Mega Drive, debemos conocer como funciona el procesador Motorola 68000; además de las direcciones de memoria para acceder a periféricos, vídeo etc...
+Para desarrollar software para Mega Drive, debemos conocer como funciona el procesador Motorola 68000; además de las direcciones de memoria para acceder a periféricos, vídeo, etc...
 
 Esto era importante en los años 90 cuando se desarrollaba directamente en ensamblador, ya que no se disponía herramientas como compiladores muy avanzados que pudiesen compilar a ensamblador para esta arquitectura de forma eficiente. Por ello, se utilizaba el ensamblador directamente.
 
@@ -36,7 +36,7 @@ Sin embargo, esto es muy engorroso aunque puede ser muy óptimo el utilizar ensa
 
 Además, existe un conjunto de herramientas para poder usar este lenguaje C para Sega Mega Drive. Este conjunto de herramientas, se llama Sega Genesis Development Kit o SGDK.
 
-Sega Genesis Development Kit, es un conjunto de herramientas como un compilador, una librería, herramientas de gestión de recursos, etc. que nos va a permitir crear software (videojuegos) para Sega Mega Drive. SGDK, es gratuito y su código es libre; está liberado bajo la licencia MIT; excepto el compilador GCC [^26] que incorpora que tiene licencia GPL3.
+Sega Genesis Development Kit, es un conjunto de herramientas como un compilador, una librería, herramientas de gestión de recursos, etc. Que nos va a permitir crear software (videojuegos) para Sega Mega Drive. SGDK, es gratuito y su código es libre; está liberado bajo la licencia MIT; excepto el compilador GCC [^26] que incorpora que tiene licencia GPL3.
 
 [^26]: GCC (Gnu Compiler Collection) es un conjunto de compiladores de código abierto que se incorpora en muchas de las distribuciones GNU/Linux.
 
@@ -52,7 +52,7 @@ Durante todos estos años, ha tenido una gran aceptación por la comunidad debid
 
 La librería que nos provee SGDK, está escrita en C aunque tiene otras herramientas que están escritas en otros lenguajes como Java.
 
-Actualmente (2022), se ha publicado la versión 1.80 que incluye soporte para Mega Wifi [^27], además de otras mejoras como el poder importar ficheros _TMX_ para incluir TileSets y TileMaps generados a partir de la herramienta Tiled; veremos esta herramienta en un capítulo más adelante.
+Actualmente (2022), se ha publicado la versión 1.80 que incluye soporte para Mega Wifi [^27], además de otras mejoras como el poder importar ficheros _TMX_ para incluir TileSets y TileMaps generados a partir de la herramienta _Tiled_; veremos esta herramienta en un capítulo más adelante.
 
 [^27]: Mega Wifi, es un cartucho especial que permite conectar a internet a través de Wifi; además de traer una serie de librerías para gestionar la conectividad con la red.
 
@@ -60,7 +60,7 @@ Si quieres conocer más acerca del proyecto, puedes ver su repositorio de Github
 
 [https://www.patreon.com/SGDK](https://www.patreon.com/SGDK).
 
-Una vez hemos conocido la historia del SGDK y de que se trata, vamos a mostrar los componentes que lo componente este kit de desarrollo.
+Una vez hemos conocido la historia del SGDK y de que se trata, vamos a mostrar los componentes de este kit de desarrollo.
 
 ## Componentes del SGDK
 
@@ -93,7 +93,7 @@ Está escrita en C y puedes consultar la documentación dentro del propio SGDK, 
 
 Rescomp, es una herramienta que nos va a permitir importar todos los recursos de nuestro juego; ya sean gráficos, sprites, sonido,etc.
 
-Esta herramienta está escrita en C, sin embargo, utiliza otras herramientas ya escritas en otros lenguajes como Java.
+Esta herramienta está escrita en Java, sin embargo, utiliza otras herramientas ya escritas en otros lenguajes como C.
 
 Rescomp, se basa el leer una serie de ficheros con extensión .res, que tienen definidos una serie de parámetros de los distintos datos necesarios para cada recurso; rescomp, al leer este fichero, generará un fichero .h, e importará los recursos a nuestro juego.
 
@@ -140,7 +140,7 @@ Este juego es de 1 jugador y hay versión para Sega Mega Drive, como para MSX. A
 
 [^31]: Metal Dragon ha sido desarrollado por el estudio español Kai Magazine Software. Todos los derechos reservados.
 
-### 1985 World Cup 
+### 1985 World Cup
 
 1985 World cup  [^32] es un juego para Sega Mega Drive que nos permite revivir los grandes títulos de futbol como el  _World Cup Italia 90_. Donde se enfrentarán frente a frente jugadores de todo el mundo.
 
@@ -152,7 +152,7 @@ Este juego permite jugar hasta 2 jugadores en la misma máquina, y además tiene
 
 Una vez conocidos tanto la historia del SGDK, sus componentes y visto algunos juegos realizados con el mismo, vamos a pasar a dar nuestros primeros pasos.
 
-En este caso, vamos a ver la instalación del mismo en los distintos Sistemas Operativos más conocidos. Es importante destacar que estas instrucciones pueden cambiar en el tiempo desde que se escribió este libro; por lo que siempre es importante leer las instrucciones del propio repositorio.
+En este caso, veremos la instalación del mismo en los distintos Sistemas Operativos más conocidos. Es importante destacar que estas instrucciones pueden cambiar en el tiempo desde que se escribió este libro; por lo que siempre es importante leer las instrucciones del propio repositorio.
 
 ### Windows
 
@@ -236,7 +236,7 @@ export GENDEV=/opt/gendev/
 make -f $GEDEV/Makefile
 ```
 
-Más adelante, veremos en detalle como utilizar SGDK, utilizando GENDEV.
+Más adelante, veremos en detalle como utilizar SGDK, usando GENDEV.
 
 ### MarsDev
 
@@ -275,8 +275,10 @@ Esta instrucción generará la imagen de SGDK con todo lo necesario para crear n
 Una vez construida la imagen, si necesitamos crear una rom, podemos hacerlo con la siguiente instrucción:
 
 ```bash
-docker run --rm -v $PWD:/src/ sgdk #en windows cambiar $PWD por %CD%.
+docker run --rm -v $PWD:/src/sgdk 
 ```
+
+**NOTA**: Para sistemas windows cambiar $PWD por %CD%.
 
 Con la instrucción anterior, se compilará y generará la ROM de Mega Drive.
 

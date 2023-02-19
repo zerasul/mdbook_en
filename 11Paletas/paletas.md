@@ -2,7 +2,7 @@
 
 No podemos hablar de la Sega Mega Drive y su desarrollo, si no hablamos de los colores y como se manejan por este sistema. Hasta ahora hemos estado hablando de las paletas y como las podemos manejar a la hora de tratar con los planos o los distintos sprites en los distintos ejemplos que hemos estado mostrando.
 
-En este capítulo, vamos a mostrar los distintos colores que puede manejar la Mega Drive, y como almacenarlos en las distintas paletas que podemos  manejar a nivel de hardware. Además, vamos a mostrar como realizar distintos efectos como transparencias o destacar algun color con respecto al fondo, gracias a los colores _HighLight_ y _Shadow_.
+En este capítulo, vamos a mostrar los distintos colores que puede manejar la Mega Drive, y como almacenarlos en las distintas paletas que se dispone a nivel de hardware. Además, vamos a mostrar como realizar distintos efectos como transparencias o destacar algún color con respecto al fondo, gracias a los colores _HighLight_ y _Shadow_.
 
 Por último, veremos un ejemplo donde manejaremos los distintos efectos, y además, veremos algunas funciones avanzadas relacionadas con el pintado de pantalla que nos va a ayudar a añadir mayores efectos.
 
@@ -154,11 +154,12 @@ En el código fuente, puedes encontrar la función ```drawPriorityMap```, la cua
 
 ```c
     u16 tilemap_buff[MAXTILES];
-    u16* priority_map_pointer = &tilemap_buff[0];
+    u16* priority_map_pointer =&tilemap_buff[0];
 
-    for(int j=0; j<MAXTILES;j++) tilemap_buff[j]=0;
+    for(int j=0;j<MAXTILES;j++)tilemap_buff[j]=0;
 
-    u16 *shadow_tilemap = bg_map->tilemap->tilemap;
+    u16 *shadow_tilemap = bg_map->
+          tilemap->tilemap;
     u16 numTiles = MAXTILES;
     while(numTiles--){
         if(*shadow_tilemap){
@@ -183,8 +184,8 @@ Una vez hemos dibujado este mapa, podemos dibujar el otro fondo de la forma que 
 
 ```c
 VDP_drawImageEx(BG_B, &bg_color1,
-    TILE_ATTR_FULL(PAL0,FALSE,FALSE,FALSE,index),
-     0,0,TRUE,CPU);
+    TILE_ATTR_FULL(PAL0,FALSE,FALSE,
+    FALSE,index),0,0,TRUE,CPU);
 ```
 
 Vemos como esta imagen la dibujamos en el plano B sin prioridad y usamos la paleta 0.
@@ -210,7 +211,7 @@ Si todo ha ido bien, podemos ver una imagen parecida a esta:
 <img id="arq" src="11Paletas/img/ej8.png" alt="Ejemplo 8: Colores y Shadow" title="Ejemplo 8: Colores y Shadow"/> </div>
 <p>Ejemplo 8: Colores y Shadow</p>
 
-Como vemos en la imagen, en cada farola se muestra una parte iluminada; esto es debido a que dichas zonas se están pintando Tiles con Prioridad; de tal forma que se muestran de forma normal; el resto de Tiles que no tienen prioridad, se muestran en modo Shadow. De tal forma, que podemos ver como dicho modo con los planos se comporta como hemos comentado en este capítulo.
+Como vemos en la imagen, en cada farola se muestra una parte iluminada; esto es debido a que dichas zonas se están pintando Tiles con Prioridad; de tal forma que se muestran de forma normal; el resto de Tiles que no tienen prioridad, se muestran en modo Shadow. Con ello, confirmamos que el comportamiento con los planos, es como hemos comentado anteriormente.
 
 También vemos que a nivel de Sprite, si vamos moviendo a nuestro personaje, es afectado también por el modo Shadow; de esta forma podemos dar la sensación de una iluminación que es afectada por nuestro personaje. Obviamente, podemos trabajar también con el modo HighLight, usando la Paleta 3, y jugando con los colores 14 y 15. Pero eso lo podemos ver en ejemplos más adelante.
 

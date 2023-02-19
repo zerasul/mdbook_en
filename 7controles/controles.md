@@ -40,7 +40,7 @@ En este apartado, vamos a ver algunos de ellos para comentar sus característica
 
 ### Controlador de 3 Botones
 
-El controlador más conocido de Sega Mega Drive, disponía de una cruceta de direcciones, y además de 3 botones llamados A, B y C; además de un botón START.
+El controlador más conocido de Sega Mega Drive, disponía de una cruceta de direcciones, y además de 3 botones llamados A, B y C, y  de un último botón START.
 
 Algunos otros controladores de terceros, añadían algunas funcionalidades extra como el autodisparo u otras opciones.
 
@@ -183,9 +183,9 @@ En el ejemplo, se puede ver como se dibujará un texto o se borrará, en funció
 
     
     if (value & BUTTON_UP)
-        printChar(UP_TEXT, POSX_UP, POSY_UP);
+        printChar(UP_TEXT,POSX_UP,POSY_UP);
     else
-        printChar(EMPTY_TEXT, POSX_UP, POSY_UP);
+        printChar(EMPTY_TEXT,POSX_UP,POSY_UP);
 ```
 
 Donde vemos que si se pulsa el botón Arriba, se mostrará un texto o sino, se mostrará un texto vacío.
@@ -200,7 +200,7 @@ Hasta ahora hemos podido ver como poder leer los distintos controles usando la f
 
 Esto puede hacer a la larga que sea más engorroso y que puede hacer que se ralentice nuestro juego; por ello, gracias a que el procesador Motorola 68000 tiene interrupciones, podemos usar una función que maneje los eventos cuando pulsemos una tecla.
 
-Una interrupción, es una señal recibida por el procesador, el cual para la tarea actual, y ejecuta una función llamada subrutina de interrupción; la cual realiza una serie de acciones y una vez terminada, el procesador continua con la tarea anterior. Con una interrupción, se pueden manejar de forma óptima los eventos recibidos desde el hardware.
+Una interrupción, es una señal recibida por el procesador, el cual para la tarea actual, y ejecuta una función llamada subrutina de interrupción; además de realizar una serie de acciones y una vez terminada, el procesador continua con la tarea anterior. Con una interrupción, se pueden manejar de forma óptima los eventos recibidos desde el hardware.
 
 SGDK, nos permite crear una función para manejar los eventos de los controles de forma asíncrona; de tal forma que solo actuará si se ha pulsado una tecla:
 
@@ -230,20 +230,22 @@ Podemos ver en el fragmento anterior, que se llama a la función ```JOY_Init``` 
 Si echamos un vistazo a la función, podemos ver lo siguiente:
 
 ```c
-    void inputHandler(u16 joy,u16 changed,u16 state){
+    void inputHandler(u16 joy,u16 changed,
+            u16 state){
 
 
         if (changed & state & BUTTON_START)
 		{
-			printChar(START_TEXT, POSX_START, POSY_RIGHT);
+			printChar(START_TEXT, POSX_START,
+              POSY_RIGHT);
 		}
     ...
 ```
 Vemos que la función ```inputHandler```, recibe los tres parámetros comentados:
 
-* joy: controlador pulsado.
-* changed: botón pulsado.
-* state: estado del botón (pulsado o soltado).
+* _joy_: controlador pulsado.
+* _changed_: botón pulsado.
+* _state_: estado del botón (pulsado o soltado).
 
 Observamos como se compara la variable changed, con state y un botón; de esta forma se comprueba que sólo se realizará la acción, cuando se pulse el botón correspondiente y no cuando se suelta.
 
