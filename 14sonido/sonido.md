@@ -79,7 +79,17 @@ Entre sus características, tiene:
 * Permite enviar sonido FM y PSG a la vez, utilizando los canales tanto para enviar sonido o los distintos samples; pudiendo llegar hasta 13 canales de sonido (5FM + 4PCM + 4PSG).
 * Permite reproducir efectos de sonido en formato PCM con 16 niveles de prioridad; esto es útil a la hora de trabajar con distintas fuentes.
 
-Es importante conocer, que se esta trabajando en una segunda versión de este Driver; el XGM2. Este driver incluye mejoras con respecto a la anterior versión ya que tenia bastantes problemas a la hora de compilar y generar los ficheros binarios; ya que consumían mucho espacio en la ROM (20/25% de la ROM podía ser la música). Por ello Stef, esta trabajando en esta nueva versión que esperemos este pronto disponible.
+Es importante conocer, que se esta trabajando en una segunda versión de este Driver; el XGM2. Este driver incluye mejoras con respecto a la anterior versión ya que tenia bastantes problemas a la hora de compilar y generar los ficheros binarios; ya que consumían mucho espacio en la ROM (20/25% de la ROM podía ser la música). Por ello Stef, esta trabajando en esta nueva versión que contiene interesantes cambios:
+
+* Ejecuta 100% en el Z80 (utiliza el m68K para calcular los tiempos).
+* Soporte para pausa y reproducción de música.
+* Velocidad de ejecución (tempo) ajustable.
+* VGM input format.
+* Reduce el uso de ROM con respecto a XGM.
+* Volumen ajustable para FM y PSG.
+* 3 canales PCM para 8 bit.
+
+Puedes encontrar más información sobre el driver XGM2, en el Patreon de Stef.
 
 ## Crear música y Sonido
 
