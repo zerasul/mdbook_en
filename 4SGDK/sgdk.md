@@ -136,7 +136,7 @@ Se está trabajando en una versión para Nintendo Switch. Puede encontrarse más
 
 Metal Dragon [^31] es un juego para Sega Mega Drive que tiene una estética de película de acción de los años 80/90; en este juego tienes que rescatar a la hija del presidente y enfrentarte a un sinfin de enemigos.
 
-Este juego es de 1 jugador y hay versión para Sega Mega Drive, como para MSX. Además de ser un estudio Español el que ha desarrollado este juego y recientemente esta publicando su juego en la revista _beep_ para Japón. Además de publicar otros juegos como _Life On mars_.
+Este juego es de 1 jugador y hay versión para Sega Mega Drive, como para MSX. Además de ser un estudio Español el que ha desarrollado este juego y recientemente esta publicando su juego en la revista _beep_ para Japón. Además de publicar otros juegos como _Life On mars_ o _Life on Earth_.
 
 [^31]: Metal Dragon ha sido desarrollado por el estudio español Kai Magazine Software. Todos los derechos reservados.
 
