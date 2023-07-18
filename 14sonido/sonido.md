@@ -111,9 +111,8 @@ En este libro, comentaremos el uso de Deflemask; que es uno de los más utilizad
 
 Este programa no es Software libre y tiene un coste de 9,99$; es uno de los más utilizados para este capítulo, por lo que no es para nada un mal precio. Además de que hay muchísimos tutoriales por internet acerca de este software para creación musical.
 
-<div class="image">
-<img id="arq" src="14sonido/img/deflemask.png" alt="Deflemask" title="Deflemask"/> </div>
-<p>Deflemask</p>
+![Deflemask](14sonido/img/deflemask.png "Deflemask")
+_Deflemask_
 
 ## Ejemplo con música y Sonido
 
@@ -291,9 +290,8 @@ Por otro lado, al pulsar los botones izquierda o derecha, se seleccionará el an
 
 Una vez que hemos terminado de revisar los botones y de como funciona cada caso, ya podemos compilar y ejecutar nuestro ejemplo. Dejamos para el lector, el poder revisar como mostramos la pantalla cargando una imagen y un TileSet. Si todo va correctamente, podrás ver y oir este ejemplo en el emulador.
 
-<div class="image">
-<img id="arq" src="14sonido/img/ej15.png" alt="Ejemplo 15: Música y Sonido" title="Ejemplo 15: Música y Sonido"/> </div>
-<p>Ejemplo 15: Música y Sonido</p>
+![Ejemplo 15: Música y Sonido](14sonido/img/ej15.png "Ejemplo 15: Música y Sonido")
+_Ejemplo 15: Música y Sonido_
 
 Quiero dar las gracias a _Diego Escudero_ por dejarnos las melodías para este ejemplo.
 

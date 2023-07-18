@@ -16,9 +16,8 @@ Obviamente es importante recordar que la Sega Mega Drive, tenía 2 puertos de en
 
 Para comprender mejor el conector DE-9 y como se compone para un controlador de 3 botones:
 
-<div class="image">
-<img id="arq" src="7controles/img/de-9.png" alt="de-9" title="de-9"/> </div>
-<p>Pintout Conector DE-9</p>
+![DE-9](7controles/img/de-9.png "DE-9")
+_Pintout Conector DE-9_
 
 Donde:
 
@@ -46,9 +45,8 @@ Algunos otros controladores de terceros, añadían algunas funcionalidades extra
 
 Existieron distintos diseños dependiendo de la versión de Mega Drive (Japón/Europa o América); además de muchos otros mandos de terceros que tenían muchos otros diseños.
 
-<div class="image">
-<img id="arq" src="7controles/img/controller3Button.jpg" alt="Controlador 3 botones" title="Controlador 3 botones"/> </div>
-<p>Controlador 3 botones</p>
+![Controlador 3 Botones](7controles/img/controller3Button.jpg "Controlador 3 botones") 
+_Controlador 3 botones_
 
 ### Controlador de 6 botones
 
@@ -56,9 +54,8 @@ Otra versión del controlador para Sega Mega Drive, es el controlador de 6 boton
 
 Además, como había algunos juegos que no eran compatibles con el modo 6 botones, se añadió un botón adicional, que permitía usar el mando en modo "3 botones". Este botón llamado _MODE_, si se pulsaba al iniciar el juego, se cambiaba el modo del mismo [^47].
 
-<div class="image">
-<img id="arq" src="7controles/img/md6buttons.jpg" alt="Controlador 6 botones" title="Controlador 6 botones"/> </div>
-<p>Controlador 6 botones de la marca retro-bit.</p>
+![Controlador 6 botones](7controles/img/md6buttons.jpg "Controlador 6 botones")
+_Controlador 6 botones de la marca retro-bit._
 
 [^45]: Comix Zone es un videojuego desarrollado por Sega y publicado en el año 1995.
 [^46]: Streets of Rage 3, es la tercera entrega de la saga de Streets of rage, publicado en el año 1994.
@@ -70,9 +67,8 @@ Otro de los periféricos que podemos encontrar para Sega Mega Drive, es el famos
 
 El ratón de 2 botones, permitía usar los botones A y B; sin embargo, para usar el botón C, la propia Bola del ratón era clickable; lo cual permitía mayor compatibilidad. Sin embargo, el Sega Mouse, no llegó a Sega America por lo que solo se pudo ver en Japón y Europa. Pero si tuvo su propia versión llamada _Mega Mouse_ que tenía 3 botones y un botón start; eliminando la posibilidad de hacer click con la propia Bola del ratón.
 
-<div class="image">
-<img id="arq" src="7controles/img/SegaMouse_MD_EU.jpg" alt="Sega Mouse" title="Sega Mouse"/> </div>
-<p>Sega Mouse (Sega Retro.org)</p>
+![Sega Mouse (Segaretro.org)](7controles/img/SegaMouse_MD_EU.jpg "Sega Mouse")
+_Sega Mouse (Sega Retro.org)_
 
 [^48]: Lemmings; era un juego de estrategia, donde se controlaban unos simpáticos personajes llamados lemmings, que cada uno tenia una función y se tenía que resolver un puzzle. La versión de Mega Drive fue publicada por Sega y lanzada en el año 1992.
 [^49]: Cannon Fodder es un juego de estrategia que fue publicado para Sega Mega Drive en el año 1992.
@@ -190,9 +186,8 @@ En el ejemplo, se puede ver como se dibujará un texto o se borrará, en funció
 
 Donde vemos que si se pulsa el botón Arriba, se mostrará un texto o sino, se mostrará un texto vacío.
 
-<div class="image">
-<img id="arq" src="7controles/img/ej2.png" alt="Ejemplo 2: Controles Síncronos" title="Ejemplo 2: Controles Síncronos"/> </div>
-<p>Ejemplo 2: Controles Síncronos</p>
+![Ejemplo 2: Controles Síncronos](7controles/img/ej2.png "Ejemplo 2: Controles Síncronos")
+_Ejemplo 2: Controles Síncronos_
 
 ### Asíncronos
 
@@ -249,9 +244,8 @@ Vemos que la función ```inputHandler```, recibe los tres parámetros comentados
 
 Observamos como se compara la variable changed, con state y un botón; de esta forma se comprueba que sólo se realizará la acción, cuando se pulse el botón correspondiente y no cuando se suelta.
 
-<div class="image">
-<img id="arq" src="7controles/img/ej3.png" alt="Ejemplo 2: Controles Síncronos" title="Ejemplo 3: Controles Asíncronos"/> </div>
-<p>Ejemplo 3: Controles Asíncronos</p>
+![Ejemplo 3: Controles Asíncronos](7controles/img/ej3.png "Ejemplo 3: Controles Asíncronos")
+_Ejemplo 3: Controles Asíncronos_
 
 ### Programación con Sega Mouse
 
@@ -307,9 +301,8 @@ Vemos en el fragmento anterior, que se comprueba el tipo de controlador; el cual
 
 Una vez hemos visto el código, podemos ejecutar el ejemplo y ver como cambian el valor X e Y.
 
-<div class="image">
-<img id="arq" src="7controles/img/ej4.png" alt="Ejemplo 4: Programación Sega Mouse" title="Ejemplo 4: Programación Sega Mouse"/> </div>
-<p>Ejemplo 4: Programación Sega Mouse</p>
+![Ejemplo 4: Programación Sega Mouse](7controles/img/ej4.png "Ejemplo 4: Programación Sega Mouse")
+_Ejemplo 4: Programación Sega Mouse_
 
 ## Referencias
 

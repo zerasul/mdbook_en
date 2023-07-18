@@ -33,9 +33,8 @@ Toda esta información, de las paletas y los distintos Tiles que se vana mostrar
 
 Si se necesita conocer, los distintos colores y paletas que hay almacenadas; podemos usar algunas herramientas que nos traen emuladores como _Blastem_; pulsando la tecla <kbd>c</kbd>, podremos ver el contenido de las paletas del VDP.
 
-<div class="image">
-<img id="arq" src="8fondos/img/blastem.png" alt="Visor VDP Blastem" title="Visor VDP Blastem"/> </div>
-<p>Visor VDP Blastem</p>
+![Visor VDP Blastem](8fondos/img/blastem.png "Visor VDP Blastem")
+_Visor VDP Blastem_
 
 Más adelante, veremos como importar imágenes y gráficos para nuestro juego usando la herramienta _rescomp_ de SGDK.
 
@@ -59,17 +58,15 @@ Como hemos comentado, Sega Mega Drive tiene disponibles 2 fondos para trabajar c
 * **Fondo B**; permite dibujar un plano completo.
 * **Window**; es un plano especial, que permite escribir dentro del Plano A, el plano Window, tiene un scroll diferente del A y por lo tanto suele usarse para mostrar por ejemplo, la interfaz de usuario.
 
-<div class="image">
-<img id="arq" src="8fondos/img/planeExplorer.png" alt="Visor de Planos de Gens Kmod" title="Visor de planos de Gens KMod"/> </div>
-<p>Visor de planos de Gens Kmod</p>
+![Visor de Planos de Gens Kmod](8fondos/img/planeExplorer.png "Visor de Planos de Gens Kmod")
+_Visor de planos de Gens Kmod_
 
 En la anterior imagen, podemos ver el visor de fondos de _Gens KMod_, donde podremos visualizar cada fondo para ver como se dibuja.
 
 Además, los fondos A, B y el plano de Sprites (que veremos en el siguiente capítulo), tienen distinta prioridad; de tal forma que podemos dar esta prioridad a cada fondo dando la sensación de profundidad.
 
-<div class="image">
-<img id="arq" src="8fondos/img/esquemaplanos.png" alt="Esquema de Prioridad de los Fondos" title="Esquema de Prioridad de los Fondos"/> </div>
-<p>Esquema de Prioridad de los Fondos</p>
+[Esquema de Prioridad de los Fondos](fondos/img/esquemaplanos.png "Esquema de Prioridad de los Fondos")
+_Esquema de Prioridad de los Fondos_
 
 Como podemos ver en la anterior imagen, tanto el plano A, B y de Sprites, pueden tener una prioridad baja o alta. De tal forma, que podemos jugar indistintamente con ellos, para poder mostrarlos en distinto lugar y así; poder mostrar esa sensación de profundidad.
 
@@ -171,9 +168,7 @@ Una vez hemos podido ver como se tratan las imágenes y como importarlas usando 
 
 Este ejemplo, podemos verlo en el repositorio de ejemplos que acompaña a este libro, con el nombre de _ej5.backgrounds_; el cual podemos observar, que vamos a mostrar 2 fondos como los que siguen:
 
-<div class="image">
-<img id="arq" src="8fondos/img/fondosejemplo.png" alt="Fondos para el ejemplo" title="Fondos a usar para el ejemplo"/> </div>
-<p>Fondos a Usar para el ejemplo</p>
+![Fondos para el ejemplo](8fondos/img/fondosejemplo.png "Fondos para el ejemplo")_Fondos a Usar para el ejemplo_
 
 Como vemos en la figura anterior, tenemos 2 imágenes; la primera un fondo azul imitando al cielo; y la segunda un fondo de baldosas amarillas con un fondo negro.
 
@@ -181,9 +176,8 @@ Vamos a centrarnos en esta segunda imagen; la cual vemos ese fondo negro. Este f
 
 **NOTA**: Si utilizamos la extensión _Genesis Code_, podemos ver la paleta de dicha imagen. Si no se muestra, puede hacer click derecho en el título de la imagen y pulsar la opción _reopen With..._.
 
-<div class="image">
-<img id="arq" src="8fondos/img/bgbdetails.png" alt="Detalles Imagen 2" title="Detalles Imagen 2"/> </div>
-<p>Detalles Imagen 2</p>
+![Detalles Imagen 2](8fondos/img/bgbdetails.png "Detalles Imagen 2")
+_Detalles Imagen 2_
 
 Podemos observar en la anterior imagen, que el primer color es el negro y que es una imagen de 16 colores. Este detalle es importante, ya que se usará como color transparente.
 
@@ -271,9 +265,8 @@ Por último, podemos ver que se vuelve a aumentar el índice para almacenar en l
 
 Si compilamos y ejecutamos el ejemplo, podemos ver lo siguiente:
 
-<div class="image">
-<img id="arq" src="8fondos/img/ej5.png" alt="Ejemplo5: Fondos" title="Ejemplo5: Fondos"/> </div>
-<p>Ejemplo5: Fondos</p>
+![Ejemplo5: Fondos](8fondos/img/ej5.png "Ejemplo5: Fondos")
+_Ejemplo5: Fondos_
 
 Con este ejemplo, ya podemos ver como cargar imágenes usando recomp, y dibujarlas en los distintos planos o fondos disponibles. En los siguientes capítulos, veremos más usos de los fondos y como podemos usar más funcionalidades que nos provee SGDK.
 

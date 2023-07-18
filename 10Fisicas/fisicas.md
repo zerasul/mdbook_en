@@ -172,9 +172,8 @@ Vamos a centrarnos en los distintos ejemplos de colliders que se pueden utilizar
 
 En este primer caso, vamos a comprobar cuando un punto esta dentro de un rectángulo; de tal forma por ejemplo, que podamos detectar cuando se llega a algún punto o si el personaje esta tocando el suelo.
 
-<div class="image">
-<img id="arq" src="10Fisicas/img/pointvsbox.png" alt="Colisión punto contra caja" title="Colisión punto contra caja"/> </div>
-<p>Colisión punto contra caja</p>
+![Colisión punto contra caja](10Fisicas/img/pointvsbox.png "Colisión punto contra caja")
+_Colisión punto contra caja_
 
 Como vemos en la imagen anterior, tenemos que detectar que dicho punto esta dentro del rectángulo o caja; para ello, podemos usar la siguiente formula.
 
@@ -201,9 +200,8 @@ Como podemos ver, es simplemente comprobar que el punto esta dentro de los pará
 
 Otro ejemplo más común, es el comprobar que dos rectángulos o cajas se superponen; de esta forma podemos comprobar colisiones entre dos Sprites de forma más sencilla.
 
-<div class="image">
-<img id="arq" src="10Fisicas/img/boxvsbox.png" alt="Colisión caja contra caja" title="Colisión caja contra caja"/> </div>
-<p>Colisión caja contra caja</p>
+![Colisión caja contra caja](10Fisicas/img/boxvsbox.png "Colisión caja contra caja")
+_Colisión caja contra caja_
 
 Como podemos ver en la imagen anterior, tenemos que comprobar cuando se superponen la caja de colisión de dos o más Sprites. Para ello podemos seguir la siguiente formula muy parecida a la usada de punto contra caja.
 
@@ -233,9 +231,7 @@ En este caso, se trata de comprobar si ambas áreas se superponen.
 
 También se puede comprobar cuando un punto esta dentro de un círculo; de esta forma podemos calcular por ejemplo cuando un Sprite con un área de colisión circular toca un punto o esta por encima de dicho punto etc.
 
-<div class="image">
-<img id="arq" src="10Fisicas/img/pointvscircle.png" alt="Colisión punto contra círculo" title="Colisión punto contra círculo"/> </div>
-<p>Colisión punto contra círculo</p>
+![Colisión punto contra círculo](10Fisicas/img/pointvscircle.png "Colisión punto contra círculo")_Colisión punto contra círculo_
 
 Para comprobar que un punto pertenece a un circulo, podemos basarnos en el teorema de Pitágoras para poder calcular la distancia entre el punto y el centro de la circunferencia es correcta.
 
@@ -270,9 +266,8 @@ En este caso hemos podido comprobar la distancia de un punto con respecto al cen
 
 El último ejemplo que veremos, es ver si dos círculos se superponen; de esta forma podemos detectar si dos Sprites con este tipo de colisión, se superponen y por lo tanto tienen algún tipo de acción, etc.
 
-<div class="image">
-<img id="arq" src="10Fisicas/img/circlevscircle.png" alt="Colisión círculo contra círculo" title="Colisión círculo contra círculo"/> </div>
-<p>Colisión círculo contra círculo</p>
+![Colisión círculo contra círculo](10Fisicas/img/circlevscircle.png "Colisión círculo contra círculo")
+_Colisión círculo contra círculo_
 
 Como podemos ver en la anterior imagen, vemos que se pueden superponer áreas de cada circulo y tenemos que ser capaces de poder detectarlas para poder decidir que hacer con dicha colisión. Veamos una formula basada en el anterior caso.
 
@@ -390,9 +385,8 @@ Vemos como en cada iteración del bucle, se comprueba la colisión entre los Spr
 
 Por último, ya solo nos queda compilar y ejecutar el ejemplo; ya sea de forma manual, o usando la extensión _Genesis Code_, con el comando _Genesis Code: compile & Run Project_. Si todo va correctamente, nos mostrará el siguiente resultado:
 
-<div class="image">
-<img id="arq" src="10Fisicas/img/ejemplo7.png" alt="Ejemplo 7: Colisiones" title="Ejemplo 7: Colisiones"/> </div>
-<p>Ejemplo 7: Colisiones</p>
+![Ejemplo 7: Colisiones](10Fisicas/img/ejemplo7.png "Ejemplo 7: Colisiones")
+_Ejemplo 7: Colisiones_
 
 Tras ver este ejemplo, ya podemos ver como usar la físicas y matemáticas a la hora de trabajar con Sega Mega Drive. Desde las distintas instrucciones aritméticas que podemos hacer con el Motorola 68000, hasta pasar por repasar las colisiones entre Sprites y como podemos implementarlos en nuestros juegos.
 

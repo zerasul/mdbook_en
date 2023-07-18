@@ -12,9 +12,8 @@ Hasta ahora hemos comentado, que Sega Mega Drive, puede mostrar hasta 64 colores
 
 Sin embargo, no hemos podido ver cuantos colores en total, puede mostrar Sega Mega Drive. Sega Mega Drive, almacena los colores en una paleta de colores de 9bits RGB. Esto quiere decir, que puede mostrar 512 colores que es capaz de manejar Sega Mega Drive. Pero recordamos que solo podremos ver 64 colores por pantalla debido a las 4 paletas de 16 colores.
 
-<div class="image">
-<img id="arq" src="11Paletas/img/RGB_9bits_palette.png" alt="Paleta de Colores" title="Paleta de Colores"/> </div>
-<p>Paleta de Colores (Wikipedia)</p>
+![Paleta de Colores](11Paletas/img/RGB_9bits_palette.png "Ejemplo 7: Colisiones")
+_Paleta de Colores (Wikipedia)_
 
 Como podemos ver en la anterior imagen, se muestran los distintos colores que es capaz de mostrar la Sega Mega Drive. y es importante tener esto en cuenta, ya que a la hora de trabajar los distintos gráficos, debemos saber a que color correspondería en Sega Mega Drive si estamos trabajando con RGB desde nuestro equipo de desarrollo.
 
@@ -29,7 +28,6 @@ u16 vdpRedColor =
 ```
 
 La macro ```RGB8_8_8_TO_VDPCOLOR```, permite transformar un color RGB definido por 3 parámetros (rojo, verde, azul) a el color equivalente para VDP. Cada uno de los parámetros tiene un valor de 0 a 255. Esto puede ser interesante para modificar colores del entorno o hacer algún efecto con el mismo.
-
 
 También existen equivalentes en otros formatos:
 
@@ -51,9 +49,7 @@ El uso de estos modos, permite ampliar el número de colores, modificando el bri
 
 De esta forma, puede aumentar el número de colores y mostrar distintos efectos como puede ser el destacar un personaje u oscurecer una zona.
 
-<div class="image">
-<img id="arq" src="11Paletas/img/paletas.png" alt="Modos HighLight y Shadow" title="Modos HighLight y Shadow"/> </div>
-<p>Modos HighLight y Shadow</p>
+![Modos HighLight y Shadow](11Paletas/img/paletas.png "Modos HighLight y Shadow") _Modos HighLight y Shadow_
 
 **NOTA:**  Para aquellos que tengan la versión impresa o que lean este capítulo en escala de grises, podrán ver este y otros ejemplos en el repositorio de código fuente que acompaña este libro, a todo color.
 
@@ -127,9 +123,8 @@ El ejemplo que vamos a estudiar, llamado _ej8.colors_, lo puedes encontrar en el
 
 En este caso, vamos a mostrar un fondo que hemos generado nosotros usando distintos recursos que hemos encontrado por Internet; puedes ver dichos recursos y dar crédito a los autores en las referencias de este capítulo. Veamos el fondo que vamos a mostrar:
 
-<div class="image">
-<img id="arq" src="11Paletas/img/fondo1.png" alt="Fondo Ejemplo" title="Fondo Ejemplo"/> </div>
-<p>Fondo Ejemplo</p>
+![Fondo Ejemplo](11Paletas/img/fondo1.png "Fondo Ejemplo")
+_Fondo Ejemplo_
 
 Como podemos ver en la imagen, vemos un paisaje nocturno donde podemos observar 3 farolas. La Idea del ejemplo, es mostrar que debajo de cada farola haya un haz de luz pero fuera de estas se note un color más oscuro. Este efecto lo podemos realizar usando un mapa de prioridad.
 
@@ -137,9 +132,8 @@ Esto se puede realizar, usando otra imagen, con las zonas que queremos iluminar;
 
 Veamos la imagen del mapa de prioridades:
 
-<div class="image">
-<img id="arq" src="11Paletas/img/fondo2.png" alt="Mapa Prioridad" title="Mapa Prioridad"/> </div>
-<p>Mapa Prioridad</p>
+![Mapa Prioridad](11Paletas/img/fondo2.png "Mapa Prioridad")
+_Mapa Prioridad_
 
 Como vemos en esta imagen, las zonas marcadas, serán las que se mostrarán más claras que las que están de color negro, que coinciden con la posición de las farolas del primer fondo. Este efecto es debido a que a nivel de plano, los tiles con prioridad se mostrarán de forma normal, mientras que los Tiles que estén pintados sin prioridad, tendrán el efecto shadow; de ahí que tenga el efecto de iluminación. Veamos como se realiza este efecto a nivel de código para establecer la prioridad solo de las zonas que están marcadas.
 
@@ -207,9 +201,8 @@ Por último y más importante, tenemos que activar el modo Shadow HighLight; usa
 
 Si todo ha ido bien, podemos ver una imagen parecida a esta:
 
-<div class="image">
-<img id="arq" src="11Paletas/img/ej8.png" alt="Ejemplo 8: Colores y Shadow" title="Ejemplo 8: Colores y Shadow"/> </div>
-<p>Ejemplo 8: Colores y Shadow</p>
+![Ejemplo 8: Colores y Shadow](11Paletas/img/ej8.png "Ejemplo 8: Colores y Shadow")
+_Ejemplo 8: Colores y Shadow_
 
 Como vemos en la imagen, en cada farola se muestra una parte iluminada; esto es debido a que dichas zonas se están pintando Tiles con Prioridad; de tal forma que se muestran de forma normal; el resto de Tiles que no tienen prioridad, se muestran en modo Shadow. Con ello, confirmamos que el comportamiento con los planos, es como hemos comentado anteriormente.
 

@@ -8,7 +8,7 @@ creator:
 contributor:
 - role: rev
   text: Emilio Berenguel
-rights: (C) 2022 Víctor Suárez. Creative Commons Non-Commercial Share Alike 4.0
+rights: (C) 2023 Víctor Suárez. Creative Commons Non-Commercial Share Alike 4.0
 language: es-ES
 subject: Como crear tu juego para Sega Mega Drive en el Siglo XXI.
 description: Crear un videojuego para una consola de los años 90 es posible y utilizando software libre gracias a herramientas como SGDK. En estos 16 capítulos encontrarás información de como programar para Sega Mega Drive.

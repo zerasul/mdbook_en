@@ -10,9 +10,8 @@ Además de cada componente se comentarán sus capacidades y funciones tanto en M
 
 Para comprender mejor su arquitectura, vamos a mostrar en primer lugar, un esquema con cada uno de los componentes y como se conectan.
 
-<div class="image">
-<img id="arq" src="3Arquitectura/img/arqmegadrive.png" alt="Arquitectura Mega Drive" title="Arquitectura Mega Drive"/> </div>
-<p>Arquitectura de una Mega Drive</p>
+![Arquitectura Mega Drive](3Arquitectura/img/arqmegadrive.png "Arquitectura Mega Drive")
+_Arquitectura de una Mega Drive_
 
 Como podemos ver en la imagen anterior, La Mega Drive, se compone de una serie de elementos conectados por distintos Buses; uno de 16 bits y otro de 8 bits. Veamos los elementos que se compone:
 
@@ -68,13 +67,12 @@ La memoria ROM o propiamente dicho el "cartucho", es donde se almacenará la inf
 
 La lectura de este cartucho, se hace por el slot de la parte superior de la Mega Drive; solo hay que insertar los contactos por la ranura que podemos ver en la parte superior. Normalmente, un cartucho standard, tenía un ancho de banda de 10MB/s (aunque había algunos de 15,20-15,34 MB/s); además de tener en cuenta que el acceso del 68k a la rom normalmente tenía una velocidad de 5MB/s.
 
-El cartucho básico que estamos acostumbrados a ver en Mega Drive, tiene una capacidad de 32Mb (4MB), y además puede tener una pequeña RAM (SRAM) a través de una pila de boton CR2302. Existen cartuchos con más funcionalidades, como el conocido _Sonic & Knuckles_ que tenía la ranura superior Lock On. Además de otros cartuchos con algunas funcionalidades extendidas como puede ser el _Virtua Racing [^17]_; que ampliaba la capacidad de la Mega Drive, gracias a un chip con un DSP [^18] personalizado.
+El cartucho básico que estamos acostumbrados a ver en Mega Drive, tiene una capacidad de 32Mb (4MB), y además puede tener una pequeña RAM (SRAM) a través de una pila de botón CR2302. Existen cartuchos con más funcionalidades, como el conocido _Sonic & Knuckles_ que tenía la ranura superior Lock On. Además de otros cartuchos con algunas funcionalidades extendidas como puede ser el _Virtua Racing [^17]_; que ampliaba la capacidad de la Mega Drive, gracias a un chip con un DSP [^18] personalizado.
 
 Como hemos dicho, por defecto un cartucho de Mega Drive tiene un tamaño máximo de 32Mb, sin embargo, esto era ampliable añadiendo funcionalidad extra al cartucho, como es el caso del _Street Fighter_ el cual ampliaba el cartucho añadiendo distintos chips y usando un mapper, podía cambiar de banco de memoria ROM. Este "Mapper" conocido como _Sega Standard Mapper_, ha sido reutilizado en algunos juegos homebrew actuales y permiten ampliar el tamaño disponible.
 
-<div class="image">
-<img id="arq" src="3Arquitectura/img/cartuchopcb.png" alt="PCB ROM Mega Drive" title="PCB ROM Mega Drive"/> </div>
-<p>Cartucho ROM PCB</p>
+![PCB ROM Mega Drive](3Arquitectura/img/cartuchopcb.png "PCB ROM Mega Drive")
+_Cartucho ROM PCB_
 
 [^17]: Virtua Racing es un juego desarrollado por Sega AM2.
 [^18]: DSP; procesador digital de señales.

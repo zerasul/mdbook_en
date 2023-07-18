@@ -12,17 +12,15 @@ En primer lugar, vamos a definir correctamente que son los llamados TileSets y T
 
 Un TileSet o conjunto de patrones, es un conjunto de gráficos que componen todos los elementos que puede contener un escenario o el propio videojuego. Se suelen almacenar como un mapa de bits con todos los elementos.
 
-<div class="image">
-<img id="arq" src="12TileSets/img/tileset.png" alt="Ejemplo de TileSet (Open Game Art)" title="Ejemplo de TileSet (Open Game Art)"/> </div>
-<p>Ejemplo de TileSet (Open Game Art)</p>
+![Ejemplo de TileSet (Open Game Art)](12TileSets/img/tileset.png "Ejemplo de TileSet (Open Game Art)")
+_Ejemplo de TileSet (Open Game Art)_
 
 Como podemos ver en la imagen anterior, se pueden observar los distintos elementos gráficos. Este Tileset nos va a permitir generar escenarios con los distintos elementos que lo componen.
 
 Una vez hemos visto lo que es un TileSet, definiremos el llamado TileMap. Un TileMap, es un conjunto de referencias a elementos de un TileSet para definir un escenario o cualquier otro elemento necesario para mostrarlo en pantalla. Normalmente se utilizan índices para indicar el elemento del TileSet a mostrar. Veamos un ejemplo de un TileMap a partir del Tileset anterior.
 
-<div class="image">
-<img id="arq" src="12TileSets/img/mapabosque.png" alt="Ejemplo TileMap" title="Ejemplo TileMap"/> </div>
-<p>Ejemplo TileMap</p>
+![Ejemplo TileMap](12TileSets/img/mapabosque.png "Ejemplo TileMap")
+_Ejemplo TileMap_
 
 Observamos que a partir del anterior Tileset, se ha compuesto una nueva imagen para poder generar un escenario; en este caso una escena dentro de un bosque. Aunque se podría utilizar como una imagen estática, en este capítulo, vamos a dibujarla a partir de la información del TileSet y la información del TileMap.
 
@@ -34,9 +32,8 @@ Aunque se pueden utilizar distintas herramientas para trabajar con TileSets y ge
 
 Tiled es una herramienta de código abierto, que nos va a permitir trabajar a partir de Tilesets (o conjuntos de patrones); aunque ya hemos hablado de ella anteriormente, aquí vamos a ver más en detalle como utilizarla para generar a partir de Tilesets, nuestros TileMaps para importarlos a Sega Mega Drive.
 
-<div class="image">
-<img id="arq" src="12TileSets/img/Tiled.png" alt="Tiled" title="Tiled"/> </div>
-<p>Tiled</p>
+![Tiled](12TileSets/img/Tiled.png "Tiled")
+_Tiled_
 
 Como podemos ver en la anterior imagen, Tiled permite crear mapas a partir de un conjunto de patrones. Estos conjuntos de patrones e información del mapa, se pueden importar a nuestro juego de Mega Drive usando distintas herramientas.
 
@@ -44,9 +41,8 @@ Vamos a centrarnos en como crear un mapa usando Tiled; concretamente a partir de
 
 A la hora de generar un mapa, podemos hacerlo con distintas capas. Cada capa puede contener distintos elementos que tengamos en los distintos conjuntos de patrones. De tal forma que podamos enriquecer nuestro mapa con más elementos.
 
-<div class="image">
-<img id="arq" src="12TileSets/img/capas.png" alt="Capas" title="Capas"/> </div>
-<p>Capas</p>
+![Capas](12TileSets/img/capas.png "Capas")
+_Capas_
 
 Como podemos ver en la imagen anterior, vemos las dos capas separadas que al juntarlas y configurar el color transparente, se conforman la imagen anterior; de tal forma que la información de ambas capas se puede guardar en un TileMap que es generado por el mismo TileSet.
 
@@ -149,9 +145,8 @@ También podemos obtener la información a mano; para ello, podemos abrir el fic
 
 [^56]: CSV (Comma Separated Values); formato de fichero que almacena cada dato separado por ",".
 
-<div class="image">
-<img id="arq" src="12TileSets/img/tmx.png" alt="Fichero TMX" title="Fichero TMX"/> </div>
-<p>Fichero TMX</p>
+![Fichero TMX](12TileSets/img/tmx.png "Fichero TMX")
+_Fichero TMX_
 
 Podemos ver en la anterior imagen, que la información se encuentra en la etiqueta _data_ y que debe estar codificada como _csv_; copiaremos la lista completa de índices, y crearemos un fichero .h en la carpeta _inc_; allí guardaremos la información de la siguiente forma:
 
@@ -244,9 +239,8 @@ Existen variantes de esta función que cargan la información de la paleta o pri
 
 Una vez tenemos este ejemplo listo, ya podemos compilar y ejecutar para ver como se carga el fondo:
 
-<div class="image">
-<img id="arq" src="12TileSets/img/ej910.png" alt="Ejemplo 9: Uso de TileSets usando fichero TMX" title="Ejemplo 9: Uso de TileSets usando fichero TMX"/> </div>
-<p>Ejemplo 9: Uso de TileSets usando fichero TMX</p>
+![Ejemplo 9: Uso de TileSets usando fichero TMX](12TileSets/img/ej910.png "Ejemplo 9: Uso de TileSets usando fichero TMX")
+_Ejemplo 9: Uso de TileSets usando fichero TMX_
 
 ### Ejemplo a mano
 
@@ -320,9 +314,8 @@ Vemos que para calcular el Tile a mostrar, usamos una formula que se trata de ir
 
 Una vez que hemos terminado de revisar el código, ya podemos compilar y ejecutar este ejemplo:
 
-<div class="image">
-<img id="arq" src="12TileSets/img/ej10.png" alt="Ejemplo 10: Uso de TileSets a mano" title="Ejemplo 10: Uso de TileSets a mano"/> </div>
-<p>Ejemplo 10: Uso de TileSets a mano</p>
+![Ejemplo 10: Uso de TileSets a mano](12TileSets/img/ej10.png "Ejemplo 10: Uso de TileSets a mano")
+_Ejemplo 10: Uso de TileSets a mano_
 
 Como podemos ver, el resultado es casi el mismo (puede cambiar por la forma de cargar la paleta); y ya hemos podido ver como utilizar TileSets y TileMaps en Sega MegaDrive, utilizando herramientas externas como pueden ser _Tiled_, y como la última versión de SGDK 1.80, permite cargar ficheros con formato TMX realizados con la misma herramienta.
 

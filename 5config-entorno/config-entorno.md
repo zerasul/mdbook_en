@@ -32,9 +32,8 @@ Visual Studio Code, tiene partes del código fuente con licencia Mit; y otras ti
 
 [https://github.com/Microsoft/vscode](https://github.com/Microsoft/vscode)
 
-<div class="image">
-<img id="arq" src="5config-entorno/img/vscode.png" alt="Visual Studio Code" title="Visual Studio Code"/> </div>
-<p>Visual Studio Code</p>
+![Visual Studio Code](5config-entorno/img/vscode.png "Visual Studio Code")
+_Visual Studio Code_
 
 Para aquellos que no estén familiarizados con este editor de texto, os dejamos un enlace al manual de VsCode:
 
@@ -77,9 +76,8 @@ Si necesitas más información; acerca de Genesis Code, puedes consultar la docu
 
 Para instalar Genesis Code en Visual Studio Code, puede hacerse a través del repositorio de extensiones. Para ello, pulsaremos en el 5º icono de la izquierda y buscaremos la extensión.
 
-<div class="image">
-<img id="arq" src="5config-entorno/img/genscode.png" alt="Genesis Code" title="Instalar Genesis Code"/> </div>
-<p>Extensión Genesis Code</p>
+![Genesis Code](5config-entorno/img/genscode.png "Genesis Code")
+_Extensión Genesis Code_
 
 Una vez localizada, pulsaremos el botón _install_ (o instalar), y la extensión quedará instalada.
 
@@ -102,9 +100,8 @@ Dependiendo de la instalación que tengamos de SGDK, tenemos que configurar Gene
 
 Para acceder a la configuración de Genesis Code, accederemos a las opciones de Visual Studio Code (menú File->preferences->settings o <kbd>ctrl</kbd>+<kbd>,</kbd>), y buscaremos las opciones de Genesis Code; las cuales mostramos una captura a continuación.
 
-<div class="image">
-<img id="arq" src="5config-entorno/img/settings.png" alt="Configuración Genesis Code" title="Configuración Genesis Code"/> </div>
-<p>Configuración Genesis Code</p>
+![Configuración Genesis Code](5config-entorno/img/settings.png "Configuración Genesis Code")
+_Configuración Genesis Code_
 
 Las opciones disponibles son:
 
@@ -147,9 +144,7 @@ Para Microsoft Windows, existe una versión modificada, llamada Gens KMod, que a
 * Visor de Tiles y paletas (VDP)
 * Visor para Sonido YM2612 y PSG
 
-<div class="image">
-<img id="arq" src="5config-entorno/img/gens.png" alt="Gens KMod" title="Gens KMod"/> </div>
-<p>Gens Kmod</p>
+![Gens Kmod](5config-entorno/img/gens.png "Gens KMod")Gens Kmod</p>
 
 Puede descargarse de la siguiente dirección:
 
@@ -177,9 +172,8 @@ Este emulador tiene las siguientes características:
 * Soporte para SRAM y EEPROM.
 * Soporte para Shaders y otros filtros.
 
-<div class="image">
-<img id="arq" src="5config-entorno/img/blastem.png" alt="Blastem" title="Blastem"/> </div>
-<p>Blastem</p>
+![Blastem](5config-entorno/img/blastem.png "Blastem")
+_Blastem_
 
 Blastem, además, incluye algunas herramientas para desarrollo. Como puede ser el visor de las paletas del VDP o un depurador incluido en el propio emulador; tanto interno, como poder conectar uno externo.
 
@@ -205,9 +199,8 @@ Permite modificar imágenes digitalizadas a través de sus muchas herramientas q
 
 Además de las herramientas que trae integradas, se pueden añadir más herramientas gracias a la extensiones de este programa.
 
-<div class="image">
-<img id="arq" src="5config-entorno/img/GIMP2.png" alt="GIMP" title="GIMP"/> </div>
-<p>GIMP</p>
+![GIMP](5config-entorno/img/GIMP2.png "GIMP")
+_GIMP_
 
 Puede descargarse GIMP, desde su página web Oficial:
 
@@ -215,7 +208,7 @@ Puede descargarse GIMP, desde su página web Oficial:
 
 ### Aseprite
 
-A la hora de crear nuestro gráficos, con programas como GIMP, no son muy usables; por eso se utilizan otros programas para poder crear los Sprites o los patrones necesarios para nuestro juego.
+A la hora de crear nuestro gráficos, con programas como GIMP, no son muy usable; por eso se utilizan otros programas para poder crear los Sprites o los patrones necesarios para nuestro juego.
 
 Para ello, se utilizan programas como Aseprite el cual es un programa que nos va a permitir crear nuestros sprites y sus animaciones, de forma sencilla.
 
@@ -236,9 +229,8 @@ Entre sus muchas características, podemos ver:
 * Creación de pinceles personalizados.
 * Suavizado de lineas al dibujar.
 
-<div class="image">
-<img id="arq" src="5config-entorno/img/asersprite.png" alt="Aseprite" title="Aseprite"/> </div>
-<p>Aseprite</p>
+![Aseprite](5config-entorno/img/asersprite.png "Aseprite")
+_Aseprite_
 
 ### TILED
 
@@ -254,9 +246,8 @@ TILED, nos permite generar mapas multicapa, para poder dibujar nuestros niveles 
 
 Además. TILED permite añadir objetos para poder añadir información a cada nivel y poder gestionarlo dentro de nuestro código fuente.
 
-<div class="image">
-<img id="arq" src="5config-entorno/img/TILED.png" alt="TILED" title="TILED"/> </div>
-<p>TILED</p>
+![TILED](5config-entorno/img/TILED.png "TILED")
+_TILED_
 
 Si utiliza la extensión _Genesis Code_, puede exportar los datos de cada mapa a un fichero .h para utilizarlo en nuestros juegos. Veremos más adelante su uso en el capítulo 12.
 

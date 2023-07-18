@@ -12,9 +12,8 @@ Muchos hemos sufrido, el no poder guardar el progreso de nuestros juegos en Mega
 
 Por ello, si necesitamos almacenar información del progreso de nuestro juego, podemos utilizar esta memoria SRAM, necesitaremos un cartucho que tenga tanto la ROM, como dicha memoria estática.
 
-<div class="image">
-<img id="arq" src="15SRAM/img/sram.png" alt="Cartucho con SRAM" title="Cartucho con SRAM"/> </div>
-<p>Cartucho con SRAM (DragonDrive)</p>
+![Cartucho con SRAM](15SRAM/img/sram.png "Cartucho con SRAM")
+_Cartucho con SRAM (DragonDrive)_
 
 [^64]: SRAM: Memoria RAM estática. Es una memoria estática de acceso aleatorio; que permite una gran velocidad pero normalmente de poco tamaño.
 
@@ -122,9 +121,8 @@ Durante este tiempo de pintado, la CPU puede estar muy ociosa; de tal forma que 
 
 Para ello, podemos utilizar las interrupciones; las cuales nos van a permitir ejecutar código durante estos periodos que se esta terminando de pintar la pantalla. Estas interrupciones, son lanzadas por el VDP al terminar de pintar tanto un conjunto de líneas, como la propia pantalla. Veamos un esquema.
 
-<div class="image">
-<img id="arq" src="15SRAM/img/hblank.jpg" alt="Interrupciones Mega Drive" title="Interrupciones Mega Drive"/> </div>
-<p>Interrupciones Mega Drive</p>
+![Interrupciones Mega Drive](15SRAM/img/hblank.jpg "Interrupciones Mega Drive")
+_Interrupciones Mega Drive_
 
 Como podemos ver en el esquema, por cada vez que se pinta una línea, se lanza una interrupción _HBlank_, cuando se reposiciona para pintar la siguiente. En este tiempo, se puede utilizar para actualizar parte de nuestro código como puede ser actualizar las paletas.
 
@@ -256,9 +254,8 @@ Podemos observar que se comprueba el valor leído del mando 1 (```JOY_1```), y s
 
 Ahora podemos compilar y ejecutar el ejemplo, donde podemos ver como se puede mover el personaje; de tal forma que es más eficiente que en otros ejemplos. Ya hemos podido ver el contenido de este capítulo; donde hemos visto dos aspectos importantes a la hora de trabajar creando juegos; el uso de la SRAM por si queremos almacenar el progreso del juego, y por otro lado el uso de interrupciones.
 
-<div class="image">
-<img id="arq" src="15SRAM/img/ej16.png" alt="Ejemplo 16" title="Ejemplo 16"/> </div>
-<p>Ejemplo 16: Interrupciones</p>
+![Ejemplo 16: Interrupciones](15SRAM/img/ej16.png "Ejemplo 16")
+_Ejemplo 16: Interrupciones_
 
 ## Referencias
 

@@ -43,9 +43,8 @@ Por otro lado, también puede desplazarse un plano completo; debido por ejemplo 
 
 Esto es debido a que el VDP, permite almacenar planos de mayor capacidad que la pantalla; para poder realizar este desplazamiento. Para una mejor comprensión, veamos un esquema.
 
-<div class="image">
-<img id="arq" src="13Scroll/img/esquemascroll.png" alt="Esquema desplazamiento" title="Esquema desplazamiento"/> </div>
-<p>Esquema desplazamiento</p>
+![Esquema desplazamiento](13Scroll/img/esquemascroll.png "Esquema desplazamiento")
+_Esquema desplazamiento_
 
 Como podemos ver en el esquema, la parte visible solo tiene por ejemplo 320px de ancho; y SGDK, reserva hasta 640px de ancho para poder almacenar el resto de imagen; lo que quede de la imagen seguirá almacenada en la ROM y tendrá que ser desplazada a la parte oculta para poder realizar un desplazamiento.
 
@@ -77,9 +76,8 @@ En este primer ejemplo, vamos a centrarnos en realizar desplazamiento por línea
 
 Para este ejemplo, usaremos una imagen con un logo recordando a la pantalla de inicio de Sonic por ejemplo; esta es la imagen.
 
-<div class="image">
-<img id="arq" src="13Scroll/img/logo.png" alt="Imagen de ejemplo" title="Imagen de ejemplo"/> </div>
-<p>Imagen de ejemplo</p>
+![Imagen Ejemplo](13Scroll/img/logo.png "Imagen de Ejemplo")
+_Imagen de ejemplo_
 
 Lo que vamos a hacer es realizar un desplazamiento de cada línea; las líneas pares irán hacia un lado, y las impares, hacia el otro. Veamos como podemos realizarlo.
 
@@ -150,9 +148,8 @@ Habrás podido ver, que estamos mandando información de cada una de las líneas
 
 Una vez hemos podido explicar el código y como funciona este ejemplo, ya podemos compilar y ejecutar, para poder ver en un emulador como queda tal efecto.
 
-<div class="image">
-<img id="arq" src="13Scroll/img/ej11.png" alt="Ejemplo 11: Scroll de línea" title="Ejemplo 11: Scroll de línea"/> </div>
-<p>Ejemplo 11: Scroll de línea</p>
+![Ejemplo 11: Scroll de línea](13Scroll/img/ej11.png "Ejemplo 11: Scroll de línea")
+_Ejemplo 11: Scroll de línea_
 
 ### Scroll por plano
 
@@ -166,15 +163,13 @@ En este ejemplo, no solo desplazaremos el plano; sino que iremos generando los T
 
 El primer plano, que usaremos como cielo; se trata de una imagen estática que dibujaremos en el plano B.
 
-<div class="image">
-<img id="arq" src="13Scroll/img/Sky_pale.png" alt="Imagen de Fondo 1" title="Imagen de Fondo 1"/> </div>
-<p>Imagen de Fondo 1 (Open Game Art)</p>
+![Imagen de Fondo 1](13Scroll/img/Sky_pale.png "Imagen de Fondo 1")
+_Imagen de Fondo 1 (Open Game Art)_
 
 Después, tendremos el fondo que iremos desplazando; que se trata de una imagen de 640x224 píxeles; que almacenaremos en memoria ROM y que iremos mostrando conforme sea necesaria.
 
-<div class="image">
-<img id="arq" src="13Scroll/img/map1.png" alt="Imagen de Fondo 2" title="Imagen de Fondo 2"/> </div>
-<p>Imagen de Fondo 2 (Open Game Art)</p>
+![Imagen de Fondo 2](13Scroll/img/map1.png "Imagen de Fondo 2")
+_Imagen de Fondo 2 (Open Game Art)_
 
 Como vemos en la anterior imagen, el color de fondo rojo, será el color transparente (es el primer color de la paletas de colores). Con estos dos fondos y un Sprite, es con lo que vamos a trabajar.
 
@@ -315,9 +310,8 @@ Por último, para este ejemplo, vamos a realizar el desplazamiento propiamente d
 
 Tras ver la última función, ya podemos compilar y ejecutar el ejemplo de tal forma que podemos ver, si pulsamos a la derecha y el personaje llega a cierto punto como se realiza el  desplazamiento del plano.
 
-<div class="image">
-<img id="arq" src="13Scroll/img/ej12.png" alt="Ejemplo 12: Scroll por plano" title="Ejemplo 12: Scroll por plano"/> </div>
-<p>Ejemplo 12: Scroll por plano</p>
+![Ejemplo 12: Scroll por plano](13Scroll/img/ej12.png "Ejemplo 12: Scroll por plano")
+_Ejemplo 12: Scroll por plano_
 
 ### Scroll por Tile
 
@@ -333,9 +327,8 @@ IMAGE city "city3.png" NONE NONE
 
 Vemos que importamos una imagen, un tileSet y la correspondiente paleta. El fondo a utilizar recuerda a una ciudad por la noche; mostramos la imagen del fondo.
 
-<div class="image">
-<img id="arq" src="13Scroll/img/city3.png" alt="Fondo ejemplo 13" title="Fondo ejemplo 13"/> </div>
-<p>Fondo ejemplo 13 (Open Game Art)</p>
+![Fondo ejemplo 13](13Scroll/img/city3.png "Fondo ejemplo 13")
+_Fondo ejemplo 13 (Open Game Art)_
 
 Una vez vista esta imagen, vamos a revisar el código fuente; comenzaremos viendo, como dibujar cada fondo; uno como imagen, y el otro usaremos el TileSet _rain_, para generar un TileMap para simular la lluvia. Veamos un fragmento:
 
@@ -409,9 +402,8 @@ Veras que se realiza un desplazamiento cada 5 unidades; que será el numero de T
 
 Tras revisar las funciones y comprobar que el código es correcto, ya podemos compilar y ejecutar este ejemplo. Podrás ver como la lluvia va desplazándose sobre la ciudad; aunque en este caso estamos desplazando todas las posiciones a la vez, y puede dar la sensación de desplazamiento de plano, podemos cambiar dichos valores y hacer más pruebas para comprobar su uso.
 
-<div class="image">
-<img id="arq" src="13Scroll/img/ej13.png" alt="Ejemplo 13" title="Ejemplo 13"/> </div>
-<p>Ejemplo 13</p>
+![Ejemplo 13](13Scroll/img/ej13.png "Ejemplo 13")
+_Ejemplo 13_
 
 ### Scroll usando MAP
 
@@ -476,9 +468,8 @@ Esta función, es llamada dentro de ```updatePhisics```; que ya no se realiza co
 
 Ya podemos compilar y ejecutar este ejemplo; el cual veremos que tiene un comportamiento análogo al ejemplo 12. Sin embargo, la lógica es mucho más sencilla. Puedes encontrar más información acerca de la estructura Map y las funciones que lo utilizan en la documentación de SGDK.
 
-<div class="image">
-<img id="arq" src="13Scroll/img/ej12.png" alt="Ejemplo 14" title="Ejemplo 14"/> </div>
-<p>Ejemplo 14</p>
+![Ejemplo 14](13Scroll/img/ej12.png "Ejemplo 14")
+_Ejemplo 14_
 
 Tras ver este último ejemplo, ya podemos concluir este capítulo; donde hemos podido ver como funciona el Scroll o desplazamiento, que permite crear distintos efectos y dar una mejor sensación a nuestros juegos.
 

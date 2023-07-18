@@ -33,8 +33,8 @@ Veamos las especificaciones de la Sega Mega Drive:
 5. **Sonido**: 6 Canales FM gracias al chip de sonido el Yamaha YM2612 y un chip adicional de sonido de 4 canales de 8 bits SN76489.
 6. **Entrada/salida**: Slot de cartuchos por la parte superior, dos conectores para controladores, bus de expansión y entrada de auriculares estéreo(solo modelo 1).
 
-![Mega Drive Model 1 "Mega Drive Model 1"](2historia/img/MD1.jpg "Mega Drive Model 1")
-<p class="centered">Sega Mega Drive Modelo 1 Europea</p>
+![Mega Drive Model 1](2historia/img/MD1.jpg "Mega Drive Model 1")
+_Sega Mega Drive Modelo 1 Europea_
 
 ## Periféricos
 
@@ -43,7 +43,7 @@ Sega Mega Drive, ha tenido una serie de periféricos no solo a nivel de controla
 Hemos de diferenciar que en Sega mega Drive, principalmente se utilizaban los controladores de 3 o 6 botones.
 
 ![Controlador de 3 Botones](2historia/img/controller3Button.jpg "Controlador de 3 Botones")
-<p class="centered">Controlador de 3 Botones Europeo</p>
+_Controlador de 3 Botones Europeo_
 
 ### Power Base Converter
 
@@ -51,9 +51,8 @@ Una de las principales características de la Sega Mega Drive, es que gracias a 
 
 Sin embargo, el slot que trae para los cartuchos, no tiene el mismo formato que para los juegos de Master System. Por lo que es necesario un adaptador para poder encajar los cartuchos de la consola de 8 bits de Sega.
 
-<div class="image">
-<img src="2historia/img/SegaMegaAdaptor.jpg" alt="Power base Converter" title="Power Base Converter"/> </div>
-<p>Power Base Converter</p>
+![Power Base Converter](2historia/img/SegaMegaAdaptor.jpg "Power Base Converter")
+_Power Base Converter_
 
 ### Sega Mouse
 
@@ -82,9 +81,8 @@ Las especificaciones técnicas de la Mega CD son:
     * 128 Kb de cache para CD.
     * 64 Kb como RAM backup.
 
-<div class="image"><img src="2historia/img/megacd.png" alt="Mega CD 1" title="Mega CD 1"/>
-</div>
-<p>Sega mega CD Model 1</p>
+![Mega CD1](2historia/img/megacd.png "Mega CD 1")
+_Sega mega CD Model 1_
 
 ### 32X
 
@@ -104,10 +102,8 @@ Características de la 32X:
 * **Paleta**: 32768 colores simultáneos en pantalla.
 * **Sonido**: Se agregaban canales extra PWM digital para un total de 12 canales junto a Mega Drive (o 22 si añadimos Mega CD).
 
-<div class="image">
-<img src="2historia/img/32X_EU.jpg" alt="32X Europeo" title="32X Versión Europea"/>
-</div>
-<p>Mega Drive 32X Europeo</p>
+![32X Europeo](2historia/img/32X_EU.jpg "32X Europeo")
+_Mega Drive 32X Europeo_
 
 ### Mega Modem
 
@@ -153,11 +149,8 @@ Además, gracias al juego _Sonic & Knuckles_, se incorporó el sistema Lock On. 
 
 Además de otros títulos, no solo orientado al 2D, sino al 3D como puede ser Sonic 3D, que fue el último título publicado de sonic para este sistema (aunque también tenia versión para Saturn).
 
-<div class="image">
-<img src="2historia/img/SyK.png" title="Sonic & Knuckles con Lock On" alt="Sonic & Knuckles con Lock on"/>
-</div>
-<p>Sonic & Knuckles con Ranura Lock On</p>
-
+![Sonic & Knuckles con Lock on](2historia/img/SyK.png "Sonic & Knuckles con Lock on")
+_Sonic & Knuckles con Ranura Lock On_
 
 [^9]: _Sonic the Hedgehog_ es una Marca registrada de Sega enterprise Inc.
 
@@ -190,10 +183,8 @@ Por supuesto, una de las características de este juego, es el modo 2 Jugadores;
 
 Se trataba de un juego que mezclaba plataformas, con algunas pantallas donde controlábamos algún vehículo como puede ser una alfombra mágica, o una burbuja debajo del océano.
 
-<div class="image">
-<img src="2historia/img/woi.png" alt="World of Illusion" title="World of Illusion"/>
-</div>
-<p>World of Illusion</p>
+![World of Illusion](2historia/img/woi.png "World of Illusion")
+_World of Illusion_
 
 ## Referencias
 

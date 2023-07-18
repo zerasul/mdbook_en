@@ -22,9 +22,8 @@ El uso de ficheros de Traza (o logs); es común a la hora de trabajar con sistem
 
 Algunos emuladores como Gens KMod o Blastem, tienen un apartado para ver estas trazas y mostrarlo por dicha consola o fichero. Veamos como se podrían ver los mensajes en el emulador Gens con la modificación KMod.
 
-<div class="image">
-<img id="arq" src="16Debug/img/messages.png" alt="Pantalla Mensajes Gens KMod" title="Pantalla Mensajes Gens KMod"/> </div>
-<p>Pantalla Mensajes Gens KMod</p>
+![Pantalla Mensajes Gens KMod](16Debug/img/messages.png "Pantalla Mensajes Gens KMod")
+_Pantalla Mensajes Gens KMod_
 
 Para acceder a este apartado, puedes encontrarlo en el menú _CPU->Debug->Messages_; y aquí podremos ver los mensajes que enviemos con unas función especial que contiene SGDK.
 
@@ -43,9 +42,8 @@ Por ello, vamos a mostrar en primer lugar, como se podría hacer esta depuració
 
 Si has trabajado con la programación anteriormente, habrás tenido que depurar muchos programas; normalmente en la propia máquina y compilar el código para la misma arquitectura que estas trabajando (normalmente x86_64 o ARM); sin embargo, en este caso no vamos a trabajar con estas arquitecturas; sino con la del Motorola 68000. Por ello necesitamos una forma de depurar este código utilizando un emulador por ejemplo. (Existen formas de depurar con hardware real; pero con mucho más costosas). Veamos un esquema para entender que es lo que queremos hacer.
 
-<div class="image">
-<img id="arq" src="16Debug/img/depuracionremota.jpg" alt="Esquema Depuración Remota" title="Esquema Depuración Remota"/> </div>
-<p>Esquema Depuración Remota</p>
+![Esquema Depuración Remota](16Debug/img/depuracionremota.jpg "Esquema Depuración Remota")
+_Esquema Depuración Remota_
 
 Como podemos ver en el esquema, se disponen de distintos elementos; algunos en la máquina local, que sería el computador en el que estamos trabajando, y otros en una máquina remota que sería en este caso la propia Mega Drive o un emulador.
 
@@ -61,15 +59,13 @@ Por último, la máquina remota que puede ser un emulador, a la que GDB se conec
 
 Como hemos podido ver en otros capítulos, Gens es un emulador de código abierto que nos provee una serie de herramientas adicionales para ayudarnos al desarrollo. Por ejemplo, podemos ver el estado de los registros del procesador y como se encuentra:
 
-<div class="image">
-<img id="arq" src="16Debug/img/m68debug.png" alt="Depuración Motorola 68K" title="Depuración Motorola 68K"/> </div>
-<p>Depuración Motorola 68K</p>
+![Depuración Motorola 68K](16Debug/img/m68debug.png "Depuración Motorola 68K")
+_Depuración Motorola 68K_
 
 Esto puede ser util para ver el estado del procesador; pero no es lo que estamos buscando; ya que necesitaremos la modificación KMod, para poder definir las opciones de depuración remota. En el menú _options->Debug_, podemos establecer los puertos y opciones relacionadas con la depuración remota.
 
-<div class="image">
-<img id="arq" src="16Debug/img/debugoptgens.png" alt="Opciones de depuración Gens Kmod" title="Opciones de depuración Gens Kmod"/> </div>
-<p>Opciones de depuración Gens Kmod</p>
+![Opciones de depuración Gens Kmod](16Debug/img/debugoptgens.png "Opciones de depuración Gens Kmod")
+_Opciones de depuración Gens Kmod_
 
 Estas opciones, abrirán un puerto (por defecto el 6868); para poder depurar el procesador M68k. Este puerto será utilizando por GDB para conectarse.
 
@@ -138,9 +134,8 @@ Tras visualizar esta configuración, podemos generar la rom con opciones de depu
 
 Por último, ya podemos ejecutar la depuración en el propio editor de Visual Studio Code; si todo va correctamente, podremos ver algo como la siguiente pantalla.
 
-<div class="image">
-<img id="arq" src="16Debug/img/vscodedebug.png" alt="Depuración con VsCode" title="Depuración con VsCode"/> </div>
-<p>Depuración con VsCode</p>
+![Depuración con VsCode](16Debug/img/vscodedebug.png "Depuración con VsCode")
+_Depuración con VsCode_
 
 ## Ejemplo de depuración usando KLog
 
@@ -169,9 +164,8 @@ Como habrás podido ver, la instrucción se encuentra entre dos instrucciones de
 
 Si ya compilamos y ejecutamos este ejemplo, al pulsar una tecla, podemos ver en la consola de Blastem (o en el apartado correspondiente de Gens KMod), nuestro mensaje.
 
-<div class="image">
-<img id="arq" src="16Debug/img/blastemconsole.png" alt="Consola Depuración Blastem" title="Consola Depuración Blastem"/> </div>
-<p>Ejemplo 17: Consola Depuración Blastem</p>
+![Consola Depuración Blastem](16Debug/img/blastemconsole.png "Consola Depuración Blastem")
+_Ejemplo 17: Consola Depuración Blastem_
 
 Tras ver nuestro último ejemplo, ya damos por finalizado nuestro viaje por la consola de 16 bits; y esperemos que al lector le haya gustado. Además de que esperemos que esto te anime a crear tus propios juegos y publicar más software casero o "homeBrew". Por supuesto no me olvido de darte las gracias personalmente por tu lectura.
 
