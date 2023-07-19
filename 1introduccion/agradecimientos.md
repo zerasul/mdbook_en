@@ -1,4 +1,4 @@
-# Desarrollo HomeBrew para Sega Mega Drive
+# Desarrollo HomeBrew para 16 bits
 
 ## Prólogo y agradecimientos
 

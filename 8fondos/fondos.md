@@ -65,7 +65,7 @@ En la anterior imagen, podemos ver el visor de fondos de _Gens KMod_, donde podr
 
 Además, los fondos A, B y el plano de Sprites (que veremos en el siguiente capítulo), tienen distinta prioridad; de tal forma que podemos dar esta prioridad a cada fondo dando la sensación de profundidad.
 
-[Esquema de Prioridad de los Fondos](fondos/img/esquemaplanos.png "Esquema de Prioridad de los Fondos")
+![Esquema de Prioridad de los Fondos](8fondos/img/esquemaplanos.png "Esquema de Prioridad de los Fondos")
 _Esquema de Prioridad de los Fondos_
 
 Como podemos ver en la anterior imagen, tanto el plano A, B y de Sprites, pueden tener una prioridad baja o alta. De tal forma, que podemos jugar indistintamente con ellos, para poder mostrarlos en distinto lugar y así; poder mostrar esa sensación de profundidad.

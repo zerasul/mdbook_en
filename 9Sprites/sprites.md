@@ -104,7 +104,7 @@ Una de las primeras características que tenemos que tener en cuenta, es que a l
 Otro aspecto a tener en cuenta es, que los Sprites se dibujan en su propio plano; y por lo tanto, tienen una prioridad; de tal forma, que se puede establecer. Veamos de nuevo el esquema de prioridades de los distintos planos.
 
 ![Esquema de Prioridad de los Planos](9Sprites/img/esquemaplanos.png "Esquema de Prioridad de los Planos")
-_Esquema de Prioridad de los Planos
+_Esquema de Prioridad de los Planos_
 
 Vemos como el plano de Sprites, puede ser dibujado con baja o alta prioridad; de tal forma, que podemos hacer que el Sprite este detrás de algún plano, para poder dar una mayor sensación de profundidad.
 

@@ -1,6 +1,6 @@
 # 14. Música y Sonido
 
-Hasta ahora hemos estado trabajando principalmente con la parte visual; como mostrar fondos, sprites, colores ,fondos,etc. Pero un juego no esta completo si no tiene su sonido; tanto los efectos de sonido, como la música que nos haga mejorar la experiencia de juego.
+Por ahora, hemos estado trabajando principalmente con la parte visual; como mostrar fondos, sprites, colores ,fondos,etc. Pero un juego no esta completo si no tiene su sonido; tanto los efectos de sonido, como la música que nos haga mejorar la experiencia de juego.
 
 Por ello, es importante conocer como añadir sonido a nuestro juego; desde los distintos efectos como el ataque, voz del personaje o incluso algún efecto más sofisticado, es importante poder añadirlos y disfrutarlos una vez nuestro juego esta en marcha.
 
