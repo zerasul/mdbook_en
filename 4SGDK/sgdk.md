@@ -126,6 +126,8 @@ Demons of Astebord [^30] es un juego para Sega Mega Drive, que tiene una estéti
 
 En este caso, solo se permite 1 jugador y puede encontrarse tanto la versión de Mega Drive, como en Steam.
 
+Además, han publicado un nuevo título llamado _Astrebros_, que ya esta disponible para su compra.
+
 Se está trabajando en una versión para Nintendo Switch. Puede encontrarse más información en su página web:
 
 [https://neofid-studios.com/en/home-3/](https://neofid-studios.com/en/home-3/)
@@ -267,7 +269,7 @@ Para poder utilizar SGDK con docker, primero necesitaremos generar una imagen co
 Para generar la imagen, descargaremos la última versión de SGDK del repositorio del mismo (el mismo paso que para Windows). Una vez hecho esto, ejecutaremos la siguiente instrucción en la carpeta donde se encuentre SGDK:
 
 ```bash
-docker build -t sgk .
+docker build -t sgdk .
 ```
 
 Esta instrucción generará la imagen de SGDK con todo lo necesario para crear nuestras ROM Para Mega Drive.

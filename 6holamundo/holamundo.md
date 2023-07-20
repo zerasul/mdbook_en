@@ -110,7 +110,7 @@ Si todo ha ido correctamente, podemos ver como se generará la ROM en la carpeta
 **NOTA**: Para aquellos que usen Windows, puede darle un error si por defecto usan _PowerShell_; esto puede solucionarse estableciendo por defecto la terminal de vscode para que use _cmd_. Para ello usaremos la paleta de comandos y seleccionaremos la opción _View: Toggle Integrated Terminal_; seleccionando posteriormente, para que utilice cmd.
 
 ![Hello](6holamundo/img/hello.png "Hello")
-_Hello Sega en Mega Drive_
+_Hello World Sega en Mega Drive_
 
 [^42]: ROM (Read Only Memory): se trata de una memoria de solo lectura que normalmente se encuentra dentro del cartucho en una EPROM (o Flash en las versiones más modernas).
 

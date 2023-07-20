@@ -14,4 +14,4 @@ subject: Como crear tu juego para la consola de 16 bits que marcó una generaci�
 description: Crear un videojuego para una consola de los años 90 es posible y utilizando software libre gracias a herramientas como SGDK. En estos 16 capítulos encontrarás información de como programar para Sega Mega Drive.
 identifier:
 - scheme: ISBN-10
-  text: ISBN-10 978-3-16-148410-0
+  text: ISBN-13 9798852977953

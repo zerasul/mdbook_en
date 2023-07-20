@@ -8,7 +8,7 @@ Las herramientas que comentamos en este capítulo, son opcionales ya que cada de
 
 Comenzaremos hablando del entorno de desarrollo, y posteriormente nos centraremos en otras herramientas como los emuladores, o incluso herramientas que podemos utilizar para manejar los gráficos.
 
-El objetivo de este capítulo, es configurar un entorno de desarrollo de forma sencilla; por lo que no entraremos en detalle de como utilizar cada herramienta; si que daremos enlaces a manuales y recursos para cada una de las herramientas utilizadas, al final de este capítulo.
+El objetivo de este capítulo, es configurar un entorno de desarrollo de forma sencilla; por lo que no nos centraremos en detalle de como utilizar cada herramienta; si que daremos enlaces a manuales y recursos para cada una de las herramientas utilizadas, al final de este capítulo.
 
 ## Editor de Texto
 
@@ -137,7 +137,7 @@ Tiene distintas funcionalidades como puede ser el guardado de estados, soporte p
 
 Para Microsoft Windows, existe una versión modificada, llamada Gens KMod, que añade distintas herramientas para desarrollo; como puede ser:
 
-* depurador tanto para el Motorola 68000 como Z80.
+* Depurador tanto para el Motorola 68000 como Z80.
 * Depuración de la memoria
 * Visor de Planos
 * Visor de Sprites

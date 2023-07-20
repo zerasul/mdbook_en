@@ -150,7 +150,7 @@ Este chip nos permite crear 4 canales de audio:
 
 Este chip, se podía utilizar tanto por el 68k, como por el z80 de tal forma que se podía generar sonido extra.
 
-Sin embargo, no olvidemos que uno de los puntos fuertes de la Mega Drive, es el sonido estéreo FM. El cual se generaba con el otro chip de sonido. El Yama YM2612.
+Sin embargo, no olvidemos que uno de los puntos fuertes de la Mega Drive, es el sonido estéreo FM. El cual se generaba con el otro chip de sonido. El Yamaha YM2612.
 
 [^24]: Se conoce como onda cuadrada una señal que pasa entre dos valores, sin pasar por valores intermedios. Se suele utilizar en electrónica y en corriente alternas.
 
@@ -162,7 +162,7 @@ Permitía generar 6 canales FM de audio, que daba una señal de salida de 53,267
 
 También permitía generar con otra configuración 5 canales de audio FM, y 1 canal para PCM [^25].
 
-Este chip podía utilizarse a través del z80 que era el que orquestaba el sonido junto al chip PSG; estos chips junto al z80, estaban conectados a un b us de 8 bits; que conectaban con la RAM de sonido de 8Kb de tamaño.
+Este chip podía utilizarse a través del z80 que era el que orquestaba el sonido junto al chip PSG; estos chips junto al z80, estaban conectados a un bus de 8 bits; que conectaban con la RAM de sonido de 8Kb de tamaño.
 
 En las Mega Drive modelo 1, el sonido de salida por la televisión, era sonido Mono; pero tenia un conector jack, que generaba sonido estéreo (además de un control de volumen en la propia consola).
 
@@ -172,7 +172,7 @@ Los modelos 2 y 3 de la mega drive, tenían sonido estéreo por la salida de tel
 
 ## Controlador E/S
 
-Una parte importante a la hora de tener una videoconsola, es poder utilizar periféricos y controladores. La Sega Mega Drive, tenía incorporados dos puertos tipo Atari (tipo DB9); estos puertos, permitían conectar tanto los controladores de 3 como de 6 botones; además de otros periféricos.
+Una parte importante a la hora de tener una videoconsola, es poder utilizar periféricos y controladores. La Sega Mega Drive, tenía incorporados dos puertos tipo Atari (tipo DE9); estos puertos, permitían conectar tanto los controladores de 3 como de 6 botones; además de otros periféricos.
 
 En los primeros modelos de Mega Drive en la parte posterior, se permitía conectar un puerto serie. Este era usado por el Mega Modem para poder conectar la Sega Mega Drive a Internet a través de la línea telefónica.
 

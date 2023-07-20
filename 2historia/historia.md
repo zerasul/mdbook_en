@@ -1,6 +1,6 @@
 # 2. Historia de la Mega Drive
 
-La Sega Mega Drive, fue la tercera consola de videojuegos publicada por la misma tras la SG-1000 y la Master System, Sega impulsó el uso de un procesador de 16 bits; por lo que publicó podemos decir el primer sistema de entretenimiento de 16 bits en el mercado. Tratando de superar el éxito de la NES [^4] de Nintendo.
+La videoconsola Sega Mega Drive, fue la tercera consola de videojuegos publicada por la misma tras la SG-1000 y la Master System, Sega impulsó el uso de un procesador de 16 bits; por lo que publicó podemos decir el primer sistema de entretenimiento de 16 bits en el mercado. Tratando de superar el éxito de la NES [^4] de Nintendo.
 
 Sega trató de superar con los modelos Mark 2 y Mark 3 de la Sega Master System con los 8 bits, pero no tuvo gran aceptación en Japón; no siendo el mismo caso en Europa.
 
