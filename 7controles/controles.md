@@ -297,7 +297,7 @@ void read_mouse(){
 ...
 ```
 
-Vemos en el fragmento anterior, que se comprueba el tipo de controlador; el cual hemos leído con la función ```JOY_getPortType``` y comprobamos que es un ratón lo que hay conectado al puerto 1. Una vez comprobado, tenemos dos funciones; ```JOY_readJoypadX``` y ```JOY_readJoypadY```la cual nos va a permitir leer tanto la coordenada X o coordenada Y del dispositivo conectado al controlador 1.
+Vemos en el fragmento anterior, que se comprueba el tipo de controlador; el cual hemos leído con la función ```JOY_getPortType``` y comprobamos que es un ratón lo que hay conectado al puerto 1. Una vez comprobado, tenemos dos funciones; ```JOY_readJoypadX``` y ```JOY_readJoypadY``` la cual nos va a permitir leer tanto la coordenada X o coordenada Y del dispositivo conectado al controlador 1.
 
 Una vez hemos visto el código, podemos ejecutar el ejemplo y ver como cambian el valor X e Y.
 
