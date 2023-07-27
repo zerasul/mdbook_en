@@ -67,8 +67,6 @@ Otro de los periféricos que podemos encontrar para Sega Mega Drive, es el famos
 
 El ratón de 2 botones, permitía usar los botones A y B; sin embargo, para usar el botón C, la propia Bola del ratón era clickable; lo cual permitía mayor compatibilidad. Sin embargo, el Sega Mouse, no llegó a Sega America por lo que solo se pudo ver en Japón y Europa. Pero si tuvo su propia versión llamada _Mega Mouse_ que tenía 3 botones y un botón start; eliminando la posibilidad de hacer click con la propia Bola del ratón.
 
-![Sega Mouse (Segaretro.org)](7controles/img/SegaMouse_MD_EU.jpg "Sega Mouse")
-_Sega Mouse (Sega Retro.org)_
 
 [^48]: Lemmings; era un juego de estrategia, donde se controlaban unos simpáticos personajes llamados lemmings, que cada uno tenia una función y se tenía que resolver un puzzle. La versión de Mega Drive fue publicada por Sega y lanzada en el año 1992.
 [^49]: Cannon Fodder es un juego de estrategia que fue publicado para Sega Mega Drive en el año 1992.
