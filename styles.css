@@ -429,6 +429,8 @@ body {
     background-color: white;
     display: block!important;
     text-align: center;
+    margin: 1em 15px;
+    width: 100%;
   }
 
   img+em{

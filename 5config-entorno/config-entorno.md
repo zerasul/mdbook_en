@@ -144,7 +144,8 @@ Para Microsoft Windows, existe una versión modificada, llamada Gens KMod, que a
 * Visor de Tiles y paletas (VDP)
 * Visor para Sonido YM2612 y PSG
 
-![Gens Kmod](5config-entorno/img/gens.png "Gens KMod")Gens Kmod</p>
+![Gens Kmod](5config-entorno/img/gens.png "Gens KMod")
+_Gens Kmod_
 
 Puede descargarse de la siguiente dirección:
 
