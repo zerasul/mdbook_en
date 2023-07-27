@@ -15,3 +15,4 @@ description: Crear un videojuego para una consola de los años 90 es posible y u
 identifier:
 - scheme: ISBN-13
   text: ISBN-13 9798852977953
+cover-image: cover.jpg
