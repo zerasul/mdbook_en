@@ -148,7 +148,7 @@ En el código fuente, puedes encontrar la función ```drawPriorityMap```, la cua
 
 ```c
     u16 tilemap_buff[MAXTILES];
-    u16* priority_map_pointer =&tilemap_buff[0];
+    u16* priority_map_pointer=&tilemap_buff[0];
 
     for(int j=0;j<MAXTILES;j++)tilemap_buff[j]=0;
 

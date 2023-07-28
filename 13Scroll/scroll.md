@@ -98,7 +98,7 @@ Una vez dibujado, vamos a configurar que tipo de Scroll vamos a utilizar tanto h
     * ```HSCROLL_TILE```: Indica que será un desplazamiento horizontal por Tile.
 * _VScrollMode_: Modo a utilizar para desplazamiento vertical. Puede tomar los siguientes valores:
     * ```VSCROLL_PLANE```: Indica que se realizará un desplazamiento vertical por plano.
-    * ```VSCROLL_2TILE```: Indica que se realizará un desplazamiento vertical por cada 2 Tile.
+    * ```VSCROLL_COLUMN```: Indica que se realizará un desplazamiento vertical por cada 2 Tile (Por columnas); para versiones anteriores a SGDK 1.90, usar ```VSCROLL_2TILES```.
 
 Recuerda que en este caso, vamos a realizar un desplazamiento por línea horizontalmente, por lo que tendremos que configurar el Scroll de la siguiente forma:
 
@@ -359,10 +359,19 @@ Tras haber dibujado ambos fondos, ya solo nos queda realizar el desplazamiento; 
 
 ```c
 VDP_setScrollingMode(
+    HSCROLL_PLANE,VSCROLL_COLUMN);  
+```
+
+Para versiones inferiores a SGDK 1.90:
+
+```c
+VDP_setScrollingMode(
     HSCROLL_PLANE,VSCROLL_2TILE);  
 ```
 
-Hemos configurado el Scroll horizontal, como de tipo plano (en este ejemplo no desplazaremos horizontalmente); y el scroll vertical como ```VSCROLL_2TILE``` que indica que se realiza desplazamiento cada 2 Tiles; ya que en Mega Drive no se puede realizar scroll vertical de 1 solo Tile.
+Hemos configurado el Scroll horizontal, como de tipo plano (en este ejemplo no desplazaremos horizontalmente); y el scroll vertical como ```VSCROLL_COLUMN``` que indica que se realiza desplazamiento cada 2 Tiles; ya que en Mega Drive no se puede realizar scroll vertical de 1 solo Tile.
+
+**NOTA:** Para versiones anteriores a SGDK 1.90, se debe usar ```VSCROLL_2TILE```.
 
 Una vez configurado, pasaremos a cargar un vector con los valores de Desplazamiento:
 

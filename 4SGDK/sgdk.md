@@ -52,7 +52,7 @@ Durante todos estos años, ha tenido una gran aceptación por la comunidad debid
 
 La librería que nos provee SGDK, está escrita en C aunque tiene otras herramientas que están escritas en otros lenguajes como Java.
 
-Actualmente (2023), se ha publicado la versión 1.80 que incluye soporte para Mega Wifi [^27], además de otras mejoras como el poder importar ficheros _TMX_ para incluir TileSets y TileMaps generados a partir de la herramienta _Tiled_; veremos esta herramienta en un capítulo más adelante.
+Actualmente (2023), se ha publicado la versión 1.90 que incluye diferentes mejoras además de mejorar el soporte como mega Wifi[^27], además de otras mejoras como el poder importar ficheros _TMX_ para incluir TileSets y TileMaps generados a partir de la herramienta _Tiled_; veremos esta herramienta en un capítulo más adelante.
 
 [^27]: Mega Wifi, es un cartucho especial que permite conectar a internet a través de Wifi; además de traer una serie de librerías para gestionar la conectividad con la red.
 

@@ -2,9 +2,9 @@
 
 Uno de los aspectos importantes a la hora de diseñar un videojuego es el uso de TileSets para generar distintos niveles. Esto es importante ya que a partir de una colección de gráficos, podemos generar distintos niveles usando los llamados TileMaps.
 
-Hasta ahora hemos estado trabajando con imágenes estáticas que se mostraban como uno o varios fondos. En este capítulo, trabajaremos la forma de poder crear mapas a partir de un TileSet. Además de poder utilizar distintas herramientas disponibles como puede ser Tiled o usar la última versión de SGDK (1.80).
+Hasta ahora hemos estado trabajando con imágenes estáticas que se mostraban como uno o varios fondos. En este capítulo, trabajaremos la forma de poder crear mapas a partir de un TileSet. Además de poder utilizar distintas herramientas disponibles como puede ser Tiled o usar una de las últimas versión de SGDK (1.80 o superior).
 
-Al final de este capítulo, mostraremos como se puede generar distintos niveles tanto de forma manual, como usando la herramienta _rescomp_ que integra SGDK (Recuerda que necesitas la versión 1.80).
+Al final de este capítulo, mostraremos como se puede generar distintos niveles tanto de forma manual, como usando la herramienta _rescomp_ que integra SGDK (Recuerda que necesitas la versión 1.80 o superior).
 
 ## Tilesets y TileMaps
 
@@ -317,7 +317,7 @@ Una vez que hemos terminado de revisar el código, ya podemos compilar y ejecuta
 ![Ejemplo 10: Uso de TileSets a mano](12TileSets/img/ej10.png "Ejemplo 10: Uso de TileSets a mano")
 _Ejemplo 10: Uso de TileSets a mano_
 
-Como podemos ver, el resultado es casi el mismo (puede cambiar por la forma de cargar la paleta); y ya hemos podido ver como utilizar TileSets y TileMaps en Sega MegaDrive, utilizando herramientas externas como pueden ser _Tiled_, y como la última versión de SGDK 1.80, permite cargar ficheros con formato TMX realizados con la misma herramienta.
+Como podemos ver, el resultado es casi el mismo (puede cambiar por la forma de cargar la paleta); y ya hemos podido ver como utilizar TileSets y TileMaps en Sega MegaDrive, utilizando herramientas externas como pueden ser _Tiled_, y como la versión de SGDK 1.80 o superior, permite cargar ficheros con formato TMX realizados con la misma herramienta.
 
 ## Referencias
 

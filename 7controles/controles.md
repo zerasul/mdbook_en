@@ -94,7 +94,8 @@ Esta función devuelve un valor entero ```u8``` la cual nos puede indicar el tip
 ```c
 u8 value = JOY_getPortType(PORT_1);
 
-if(value & PORT_TYPE_PAD) // comprueba que es un controlador.
+// comprueba que es un controlador.
+if(value & PORT_TYPE_PAD) 
 ```
 
 Los valores que podemos encontrar son:
@@ -177,9 +178,9 @@ En el ejemplo, se puede ver como se dibujará un texto o se borrará, en funció
 
     
     if (value & BUTTON_UP)
-        printChar(UP_TEXT,POSX_UP,POSY_UP);
+      printChar(UP_TEXT,POSX_UP,POSY_UP);
     else
-        printChar(EMPTY_TEXT,POSX_UP,POSY_UP);
+      printChar(EMPTY_TEXT,POSX_UP,POSY_UP);
 ```
 
 Donde vemos que si se pulsa el botón Arriba, se mostrará un texto o sino, se mostrará un texto vacío.
