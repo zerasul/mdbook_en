@@ -21,7 +21,7 @@ Estos dos chips, son orquestados por el procesador Zilog z80; este es quien env�
 
 [^57]: Sonido FM; se refiere al sonido generado a través de la variación de su frecuencia; de tal forma que se genera una señal variando dicha frecuencia.
 
-### Yamaha 2612
+### Yamaha YM2612
 
 Comenzaremos hablando del Yamaha YM2612; el cual es el chip encargado principalmente de emitir sonido FM o samples, de tal forma que tenemos hasta 6 canales para reproducir música o sonido.
 
@@ -34,6 +34,8 @@ Además del chip de sonido Yamaha YM2612, La Sega Mega Drive, tiene un chip de s
 [^58]: Texas Instruments es una marca Registrada. Todos los derechos reservados.
 
 Este chip permite emitir sonido por 4 canales; 3 para generación de ondas (tonos), y otro para ruido (noise). Este chip esta incluido dentro del propio VDP, y permite ser utilizado junto al YM2612 como sistema de sonido para la Sega Mega Drive.
+
+Este chip también es utilizado en otros proyectos de electrónica casera, como el proyecto Durango.
 
 ### Z80
 
@@ -106,10 +108,10 @@ En este libro, comentaremos el uso de Deflemask; que es uno de los más utilizad
 * Soporte para generación de ROMS.
 * Uso del formato VGM [^63] como salida.
 
-[^62]: MIDI; estándar tecnológico que describe un protocolo, interfaz y conectores para poder utilizar instrumentos musicales para que se comuniquen con el ordenador. 
+[^62]: MIDI; estándar tecnológico que describe un protocolo, interfaz y conectores para poder utilizar instrumentos musicales para que se comuniquen con el ordenador.
 [^63]: VGM; formato de audio de música para distintos dispositivos; pensado principalmente para videojuegos.
 
-Este programa no es Software libre y tiene un coste de 9,99$; es uno de los más utilizados para este capítulo, por lo que no es para nada un mal precio. Además de que hay muchísimos tutoriales por internet acerca de este software para creación musical.
+Este programa no es Software libre y tiene un coste de 9,99$; es uno de los más utilizados para crear música, por lo que no es para nada un mal precio. Además de que hay muchísimos tutoriales por internet acerca de este software para creación musical.
 
 ![Deflemask](14sonido/img/deflemask.png "Deflemask")
 _Deflemask_

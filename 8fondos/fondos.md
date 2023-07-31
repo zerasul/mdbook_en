@@ -29,7 +29,7 @@ Es importante conocer estas características, a la hora de trabajar con imágene
 
 Además, hemos podido ver que solo se pueden mostrar 61 colores en pantalla. Esto es debido a los colores transparentes de cada una de las paletas; excepto la primera paleta (paleta 0), que se considera el color de fondo.
 
-Toda esta información, de las paletas y los distintos Tiles que se vana mostrar, se almacenan en la VRAM y son accesibles por el VDP; de tal forma que en algunas ocasiones gracias al uso del DMA, la CPU no necesita trabajar con ello; sino que el propio VDP realiza todo el trabajo de forma más eficiente.
+Toda esta información, de las paletas y los distintos Tiles que se van a mostrar, se almacenan en la VRAM y son accesibles por el VDP; de tal forma que en algunas ocasiones gracias al uso del DMA, la CPU no necesita trabajar con ello; sino que el propio VDP realiza todo el trabajo de forma más eficiente.
 
 Si se necesita conocer, los distintos colores y paletas que hay almacenadas; podemos usar algunas herramientas que nos traen emuladores como _Blastem_; pulsando la tecla <kbd>c</kbd>, podremos ver el contenido de las paletas del VDP.
 
@@ -99,6 +99,7 @@ Podemos importar los siguientes tipos de recurso:
 * _SPRITE_: Recurso tipo Sprite; se usa para controlar los Sprites y las animaciones.
 * _XGM_: Recurso de música usando XGM (.vgm o .xgm).
 * _WAV_: Recurso de sonido.
+* _OBJECTS_: Objectos con información desde un fichero .tmx de Tiled. Lo veremos en el capítulo 12.
 * _BIN_: Información guardada en formato binario.
 
 Durante los próximos capítulos, veremos cada uno de estos recursos y como se utilizan. En este capítulo, nos centraremos en el uso de paleta y de imágenes como recurso.
@@ -181,7 +182,7 @@ _Detalles Imagen 2_
 
 Podemos observar en la anterior imagen, que el primer color es el negro y que es una imagen de 16 colores. Este detalle es importante, ya que se usará como color transparente.
 
-Una vez se tienen las dos imágenes, vamos a centrarnos en importar ambas imágenes usando la herramienta rescomp. Por lo tanto tenemos que definir un fichero _.res_ con el siguiente contenido:
+Una vez se tienen las dos imágenes, vamos a centrarnos en importar ambas imágenes usando la herramienta _rescomp_. Por lo tanto tenemos que definir un fichero _.res_ con el siguiente contenido:
 
 ```res
 IMAGE bg_a "gfx/bga.bmp" NONE 

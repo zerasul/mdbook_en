@@ -44,7 +44,7 @@ Este capítulo mostrará tanto la historia, los componentes que se componen y ad
 
 ## Historia del SGDK
 
-SGDK, comenzó por el año 2005; y es creado por su principal Autor Stephane Dallongeville; aunque al ser software libre, tiene otros autores que puede consultarse en su repositorio de Github (aunque comenzó en Google Code).
+SGDK, comenzó por el año 2005; y es creado por su principal Autor _Stephane Dallongeville_; aunque al ser software libre, tiene otros autores que puede consultarse en su repositorio de Github (aunque comenzó en Google Code).
 
 Repositorio SGDK: [https://github.com/Stephane-D/SGDK](https://github.com/Stephane-D/SGDK)
 
@@ -113,7 +113,7 @@ Una parte importante de SGDK, es que se utiliza para juegos ya comerciales que p
 
 Xeno Crisis [^29], es un juego de perspectiva isométrica, que nos permite luchar contra hordas y hordas de Aliens mientras sobrevivimos en distintas habitaciones y zonas.
 
-Permite jugar 2 jugadores en la Sega Mega Drive; aunque también existen ya versiones para Steam (PC), Switch e incluso versiones para Xbox y Playstation. También se trabaja en una versión para Neo-Geo y DreamCast.
+Permite jugar 2 jugadores en la Sega Mega Drive; aunque también existen ya versiones para Steam (PC), Switch e incluso versiones para Xbox, Playstation, Neo-geo y DreamCast. También se trabaja en una versión para SNES.
 
 Puedes consultar las versiones de este juego en el kickstarter del mismo:
 [https://www.kickstarter.com/projects/1676714319/xeno-crisis-a-new-game-for-the-sega-genesis-mega-d/](https://www.kickstarter.com/projects/1676714319/xeno-crisis-a-new-game-for-the-sega-genesis-mega-d/)
@@ -132,11 +132,11 @@ Se está trabajando en una versión para Nintendo Switch. Puede encontrarse más
 
 [https://neofid-studios.com/en/home-3/](https://neofid-studios.com/en/home-3/)
 
-[^30]: Demons of Astebord es un juego publicado y desarrollado por neofid-studios. Todos los derechos reservados.
+[^30]: Demons of Asteborg es un juego publicado y desarrollado por neofid-studios. Todos los derechos reservados.
 
 ### Metal Dragon
 
-Metal Dragon [^31] es un juego para Sega Mega Drive que tiene una estética de película de acción de los años 80/90; en este juego tienes que rescatar a la hija del presidente y enfrentarte a un sinfin de enemigos.
+Metal Dragon [^31] es un juego para Sega Mega Drive que tiene una estética de película de acción de los años 80/90; en este juego tienes que rescatar a la hija del presidente y enfrentarte a un sin fin de enemigos.
 
 Este juego es de 1 jugador y hay versión para Sega Mega Drive, como para MSX. Además de ser un estudio Español el que ha desarrollado este juego y recientemente esta publicando su juego en la revista _beep_ para Japón. Además de publicar otros juegos como _Life On mars_ o _Life on Earth_.
 
@@ -160,7 +160,7 @@ En este caso, veremos la instalación del mismo en los distintos Sistemas Operat
 
 El primer Sistema Operativo que vamos a ver para instalar SGDK, es Microsoft Windows [^33]; en este caso, veremos las distintas instrucciones necesarias para instalar SGDK.
 
-En primer lugar, necesitaremos descargar una serie de dependencias que se requieren para usar SGDK como por ejemplo el entorno de ejecución Java (JRE [^34]) que nos permitirá utilizar las herramientas como rescomp. Puede instalarse tanto la versión de Oracle, como la versión de _openjdk_ [^35]. Dejamos la URL para poder descargar la versión de Java correspondiente:
+En primer lugar, necesitaremos descargar una serie de dependencias que se requieren para usar SGDK como por ejemplo el entorno de ejecución Java (JRE [^34]) que nos permitirá utilizar las herramientas como _rescomp_. Puede instalarse tanto la versión de Oracle, como la versión de _openjdk_ [^35]. Dejamos la URL para poder descargar la versión de Java correspondiente:
 
 [https://www.java.com/es/download/](https://www.java.com/es/download/)
 
@@ -201,7 +201,7 @@ Para utilizar este proyecto, necesitaremos instalar una serie de dependencias; l
 
 Necesitarás instalar las siguientes dependencias:
 
-* text-info
+* tex-info
 * java
 
 Primero actualizaremos el árbol de dependencias:
@@ -235,7 +235,7 @@ export GENDEV=/opt/gendev/
 **NOTA:** Recuerda que si quieres compilar la librería _libmd_ puedes hacerlo con la siguiente instrucción:
 
 ```bash
-make -f $GEDEV/Makefile
+make -f $GENDEV/Makefile
 ```
 
 Más adelante, veremos en detalle como utilizar SGDK, usando GENDEV.

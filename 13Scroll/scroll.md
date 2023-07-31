@@ -193,7 +193,7 @@ u16 ind;
 
 Vemos que se inicializan una serie de variables globales; vamos a mostrar su utilidad:
 
-* Un Struct llamado _player_, con información del jugador; como el Sprite a utilizar, x, y y el offset a desplazar.
+* Un Struct llamado _player_, con información del jugador; como el Sprite a utilizar, x, y además del offset a desplazar.
 * _xord_: Indica si se necesita desplazar o no.
 * _countpixel_: Esta variable nos va a ayudar a que se genere un nuevo Tile cuando sea necesario; recuerda que el movimiento de los Sprites es a nivel de pixel, mientras los fondos a nivel de Tiles.
 * _col_update_: Indica si hay que actualizar una columna o no; será necesario para generar una nueva columna.

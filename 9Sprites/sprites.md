@@ -252,7 +252,6 @@ Si por el contrario tenemos una versión de SGDK inferior a 1.80, podemos usar l
 
 Como en el propio ejemplo, que establece la paleta ```PAL3``` con los datos de la paleta del recurso importado:
 
-
 Para SGDK 1.80 o superior:
 
 ```c
@@ -360,7 +359,7 @@ _Ejemplo 6: Sprites_
 
 Con este ejemplo, hemos visto ya como añadir Sprites, mostrarlos en nuestro juego, y poder interactuar con él a partir de los controles. Además, de ya tener un juego más completo a partir del uso de fondos y Sprites junto con los controles.
 
-En el siguiente capítulo, nos centraremos en la física que podemos calcular con las distintas opciones que nos provee SGDK.
+En el siguiente capítulo, nos centraremos en la física que podemos calcular con las distintas opciones que nos provee SGDK y el uso del procesador Motorola 68000.
 
 ## Referencias
 

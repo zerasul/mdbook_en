@@ -137,6 +137,8 @@ Por último, ya podemos ejecutar la depuración en el propio editor de Visual St
 ![Depuración con VsCode](16Debug/img/vscodedebug.png "Depuración con VsCode")
 _Depuración con VsCode_
 
+**NOTA**: Para Sistemas Linux usando GENDEV, no esta disponible la depuración debido a que GENDEV no incluye las tablas de símbolos de SGDK.
+
 ## Ejemplo de depuración usando KLog
 
 Tras ver las herramientas y como poder depurar, vamos a mostrar el ejemplo de esta sección y de como poder utilizar las trazas correctamente; para ello, vamos a crear un ejemplo muy sencillo que nos mandará una traza cuando pulsemos un botón (A, B o C). Recuerda que este ejemplo, lo puedes encontrar en el repositorio de ejemplos que acompaña a este libro; correspondiente a la carpeta _ej17.klog_.

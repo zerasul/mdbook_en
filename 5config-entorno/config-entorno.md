@@ -105,7 +105,7 @@ _Configuración Genesis Code_
 
 Las opciones disponibles son:
 
-* custom-makefile: Permite usar un fichero MakeFile personalizado para generar la rom. Si no se especifica, utilizará el del propio SGDK.
+* custom-makefile: Permite usar un fichero Makefile personalizado para generar la rom. Si no se especifica, utilizará el del propio SGDK.
 * Docker Tag: Indica el nombre de la imagen Docker con SGDK. Si no se indica, se utilizará el nombre de _sgdk_.
 * Doragasu Image: Comprueba que la imagen Docker utilizada esta basada en las creadas por _Doragasu_.
 * GDK: sobrescribe la variable de entorno GDK apuntando a la instalación de SGDK (solo Windows).
@@ -178,7 +178,7 @@ _Blastem_
 
 Blastem, además, incluye algunas herramientas para desarrollo. Como puede ser el visor de las paletas del VDP o un depurador incluido en el propio emulador; tanto interno, como poder conectar uno externo.
 
-Blastem, se puede descargar para los sistemas operativos más utilizados (Windows, MacOs, Linux...); tanto desde la siguiente dirección, como usando los repositorios de paquetería de algunas de nuestras distribuciones.
+Blastem, se puede descargar para los sistemas operativos más utilizados (Windows, MacOs, Linux...); tanto desde la siguiente dirección, como usando los repositorios de paquetería de algunas distribuciones.
 
 [https://www.retrodev.com/blastem/](https://www.retrodev.com/blastem/)
 
@@ -215,7 +215,7 @@ Para ello, se utilizan programas como Aseprite el cual es un programa que nos va
 
 Además, también nos va a permitir manejar la paleta de colores para nuestros gráficos. Por lo que podremos ver en todo momento los colores que estamos utilizando para crear nuestros gráficos.
 
-Además, Aseprite permite exportar nuestras animaciones de forma sencilla en distintos formatos, o crear un patron que podamos utilizar posteriormente en nuestro juego.
+Aseprite permite exportar nuestras animaciones de forma sencilla en distintos formatos, o crear un patron que podamos utilizar posteriormente en nuestro juego.
 
 Aseprite no es código abierto, y tiene un coste de 19.99$; el cual se puede adquirir desde su página web.
 

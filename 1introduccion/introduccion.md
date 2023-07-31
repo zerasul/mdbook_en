@@ -40,7 +40,7 @@ Para poder tener una mejor compresión de cada uno de los capítulos a tratar en
 
 [https://github.com/zerasul/mdbook-examples](https://github.com/zerasul/mdbook-examples)
 
-Para cada capítulo, se mostrará un ejemplo con el que trabajar con las distintas herramientas que se comentarán en este libro.
+Para cada capítulo, se mostrará uno o varios ejemplos con el que trabajar con las distintas herramientas que se comentarán en este libro.
 
 Otra parte importante es que habrás podido ver que este libro esta bajo una licencia Creative Commons. Por lo que este libro está disponible para todo el mundo y puede ser mejorado y modificado. Si detectas alguna errata o posible mejora del mismo, no dudes en enviarme cualquier sugerencia al repositorio de código de este libro.
 

@@ -2,9 +2,9 @@
 
 Uno de los aspectos importantes a la hora de diseñar un videojuego es el uso de TileSets para generar distintos niveles. Esto es importante ya que a partir de una colección de gráficos, podemos generar distintos niveles usando los llamados TileMaps.
 
-Hasta ahora hemos estado trabajando con imágenes estáticas que se mostraban como uno o varios fondos. En este capítulo, trabajaremos la forma de poder crear mapas a partir de un TileSet. Además de poder utilizar distintas herramientas disponibles como puede ser Tiled o usar una de las últimas versión de SGDK (1.80 o superior).
+Hasta ahora hemos estado trabajando con imágenes estáticas que se mostraban como uno o varios fondos. En este capítulo, trabajaremos la forma de poder crear mapas a partir de un TileSet. Además de poder utilizar distintas herramientas disponibles como puede ser Tiled o usar una de las últimas versiones de SGDK (1.80 o superior).
 
-Al final de este capítulo, mostraremos como se puede generar distintos niveles tanto de forma manual, como usando la herramienta _rescomp_ que integra SGDK (Recuerda que necesitas la versión 1.80 o superior).
+Al final de este capítulo, mostraremos como se puede generar distintos niveles tanto de forma manual, como usando la herramienta _rescomp_ que integra SGDK (Recuerda que necesitas la versión 1.80 o superior, para algunos ejemplos).
 
 ## Tilesets y TileMaps
 
@@ -54,7 +54,7 @@ Pero para nuestro caso; como podemos importar esta información, a nuestro juego
 
 Sin embargo, para este apartado necesitarás SGDK 1.80 o superior; por lo que en caso de no tener esta versión, mostraremos una forma alternativa.
 
-Otro aspecto a tener en cuenta, es que Tiled también permite exportar la información a un fichero JSon; el cual puede ser util para importar los recursos a nuestro juego usando otras herramientas.
+Otro aspecto a tener en cuenta, es que Tiled también permite exportar la información a un fichero Json (_JavaScript Object Notation_); el cual puede ser util para importar los recursos a nuestro juego usando otras herramientas.
 
 ### Generar TileMap con Rescomp
 
@@ -130,6 +130,19 @@ En el caso de utilizar un fichero TMX, podemos importar el recurso de la siguien
 **NOTA:** Si se quieren cargar los Tiles con baja prioridad, se puede establecer el nombre de la capa con el sufijo "low" o sufijo "high".
 
 **NOTA2:** También puede realizarse la carga de la información de la prioridad nombrando la capa con el sufijo "priority".
+
+A partir de la versión 1.90 de SGDK, se dispone la posibilidad de obtener información de los objetos añadidos desde Tiled en un TMX usando rescomp; aunque ya lo añadía en la anterior versión, se ha mejorado en la última versión. Vamos a mostrar la sintaxis para añadirlo:
+
+```OBJECTS name tmx_file layer_id fields_defs [decl_type [type_fiter]]```; donde:
+
+* name: Nombre del recurso.
+* tmx_file: fichero TMX.
+* layer_id: Identificador de la capa.
+* field_defs: Definición de los campos a exportar.
+* decl_type: Declaración de tipo para los objetos.
+* type_filter: Define un filtrado para los tipos que se quieran importar.
+
+Para más información acerca de como se importan los tipos Objects desde un fichero TMX, consulta la documentación de SGDK.
 
 ### Generar TileMap a mano
 

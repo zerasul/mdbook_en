@@ -51,7 +51,7 @@ De esta forma, puede aumentar el número de colores y mostrar distintos efectos 
 
 ![Modos HighLight y Shadow](11Paletas/img/paletas.png "Modos HighLight y Shadow") _Modos HighLight y Shadow_
 
-**NOTA:**  Para aquellos que tengan la versión impresa o que lean este capítulo en escala de grises, podrán ver este y otros ejemplos en el repositorio de código fuente que acompaña este libro, a todo color.
+**NOTA:**  Para aquellos que tengan la versión en escala de grises, podrán ver este y otros ejemplos en el repositorio de código fuente que acompaña este libro, a todo color.
 
 Podemos ver en la imagen anterior, como la misma paleta de colores, puede estar en modo HighLight o modo shadow ampliando el número de colores a poder mostrar con solo una paleta. Sin embargo, estos colores no son siempre ampliables por tres (es decir, que de 16 colores pasa a 48). Sino que depende de varios casos, se mostrarán más o menos colores.
 

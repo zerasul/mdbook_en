@@ -90,9 +90,9 @@ El accesorio 32X (conocido en Europa como Mega Drive 32X, Sega 32X en América y
 
 Este periférico añadía su propio slot de cartucho y añadiendo nuevas funcionalidades a la Mega Drive. La Sega 32X, salió el 22 de Noviembre de 1994 en América, mientras que para Europa tuvo que esperar a enero de 1995.
 
-No tuvo mucho éxito, ya que a la vez, sega estaba trabajando en la Sega Saturn; una nueva consola de 32 bits. Además de su elevado precio, y que en algunos casos necesitaba tanto 32X como Mega CD a la vez, lo cual era un gran desembolso para el consumidor.
+No tuvo mucho éxito, ya que a la vez, Sega estaba trabajando en la Sega Saturn; una nueva consola de 32 bits. Además de su elevado precio, y que en algunos casos necesitaba tanto 32X como Mega CD a la vez, lo cual era un gran desembolso para el consumidor.
 
-Otro aspecto por el que no tuvo mucho éxito, fue el catálogo de juegos fue bastante pequeño por lo que esto hizo que la gente no considerara tanto esta opción.
+Otro aspecto por el que no tuvo mucho éxito, fue el catálogo de juegos bastante escaso por lo que esto hizo que la gente no considerara tanto esta opción.
 
 Características de la 32X:
 
@@ -132,7 +132,7 @@ El Sega activator se publicó el año 1993 en América, y posteriormente en Bras
 
 ## Juegos y Sagas conocidas
 
-Obviamente, el gran éxito de la Mega Drive, fue su extenso catálogo que a día de hoy, sigue creciendo gracias a los desarrolladores de Homebrew.
+Obviamente, el gran éxito de la Mega Drive, fue su extenso catálogo que a día de hoy, sigue creciendo gracias a los desarrolladores de Homebrew o software casero.
 
 ### Sonic
 

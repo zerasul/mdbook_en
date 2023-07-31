@@ -142,7 +142,7 @@ En el anterior fragmento; si es una instrucción correcta para declarar en este 
 
 _Tabla 6: Funciones para utilizar con Fix16 o Fix32_
 
-Si necesita más información de como utilizar Fix16 o Fix32, puede consultar la documentación de SGDK, el fichero que incluye todas las definiciones:
+Si necesita más información de como utilizar ```Fix16``` o ```Fix32```, puede consultar la documentación de SGDK, el fichero que incluye todas las definiciones:
 
 [https://github.com/Stephane-D/SGDK/blob/master/inc/maths.h](https://github.com/Stephane-D/SGDK/blob/master/inc/maths.h)
 

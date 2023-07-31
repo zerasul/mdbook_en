@@ -33,7 +33,7 @@ Como podemos ver en la imagen anterior, La Mega Drive, se compone de una serie d
 
 Principal procesador de la Mega drive, el Motorola 68000 (MC68000) es un procesador de 16/32 bits de la familia de CISC; se trata del primer modelo de procesador de la familia m68k capaz de direccionar instrucciones de 32 bits. Recibe su nombre por el número de transistores que contiene. El procesador de la Mega Drive, tiene una frecuencia de 7,61Mhz (PAL) o 7,67Mhz (NTSC).
 
-Este procesador tiene una arquitectura basada en 2 bancos (uno para datos y otro para punteros) de 8 registros de 32 bits; además de tener un contador de programa de 32 bits y un registro de estado de 16 bits. Además de tener un bus externo de 24 bits capaz de direccionar hasta 16MB de memoria.
+Este procesador tiene una arquitectura basada en 2 bancos (uno para datos y otro para punteros) de 8 registros de 32 bits; además de tener un contador de programa de 32 bits y un registro de estado de 16 bits. También tiene un bus externo de 24 bits capaz de direccionar hasta 16MB de memoria.
 
 El Motorola 68K tiene distintos registros separados tanto para trabajar con datos, como con punteros. Siendo este último tipo donde se almacena de forma duplicada el puntero de la pila. Uno en modo usuario, y otro en modo supervisor.
 
@@ -96,7 +96,7 @@ El VDP tenía capacidad de hasta 4 planos:
 
 Los planos de Scroll (A y B) estaban basados en Tiles (imágenes de 8x8 píxeles) que permitían poder formar distintas imágenes a partir de estos pequeños trozos. Normalmente basados en un TileMap, con un tamaño de hasta 1024x256.
 
-El VDP, también tenía soporte para Sprites, pudiendo almacenar hasta 80 sprites, teniendo 20 sprites por línea, con 16 colores por sprite, teniendo un tamaño máximo de 1280Tiles (combinando distintos Sprites), combinando Sprites de 16 tamaños distintos.
+El VDP, también tenía soporte para Sprites, pudiendo almacenar hasta 80 sprites, teniendo 20 sprites por línea, con 16 colores por sprite, teniendo un tamaño máximo de 1280 Tiles (combinando distintos Sprites), combinando Sprites de 16 tamaños distintos.
 
 El VDP, podía mostrar hasta 512 colores, mostrando por pantalla entre 61-64 colores. Aunque se podía ampliar usando técnicas de sombreado o resaltado (Shadowing / Highlighting) hasta 1536 en total; con 16 colores (4 bit) por píxel. Además de estar almacenados en 4 paletas de 16 colores.
 
@@ -140,6 +140,8 @@ Además, el Z80 permite retrocompatibilidad con los juegos de Sega Master System
 ## PSG
 
 Dentro del chip del VDP, podemos encontrar tanto el chip dedicado a los gráficos, como un chip de sonido de 8 bits dedicado tanto a dar sonido a la Mega Drive (para sonido 8 bit), como para usarse como chip de sonido en los juegos de Master System.
+
+Hoy en día, este chip aún sigue utilizándose en proyectos de electrónica casera como el proyecto Durango.
 
 El chip de sonido PSG es un chip personalizado por parte de SEGA llamado PSG (SN76496) que esta conectado al reloj del propio Z80, es el mismo chip que tenía la Master System.
 
@@ -192,3 +194,4 @@ El conector para la Mega CD, estaba situado en la parte inferior derecha y conec
 
 * Sega Retro; especificaciones Técnicas: [https://segaretro.org/Sega_Mega_Drive/Technical_specifications](https://segaretro.org/Sega_Mega_Drive/Technical_specifications).
 * Mega Drive Wikipedia: [https://es.wikipedia.org/wiki/Mega_Drive](https://es.wikipedia.org/wiki/Mega_Drive).
+* Proyecto Durango: [https://durangoretro.com](https://durangoretro.com)
