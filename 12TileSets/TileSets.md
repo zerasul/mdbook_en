@@ -12,8 +12,10 @@ En primer lugar, vamos a definir correctamente que son los llamados TileSets y T
 
 Un TileSet o conjunto de patrones, es un conjunto de gráficos que componen todos los elementos que puede contener un escenario o el propio videojuego. Se suelen almacenar como un mapa de bits con todos los elementos.
 
-![Ejemplo de TileSet (Open Game Art)](12TileSets/img/tileset.png "Ejemplo de TileSet (Open Game Art)")
-_Ejemplo de TileSet (Open Game Art)_
+<div class="centered_image">
+<img src="12TileSets/img/tileset.png" title="Ejemplo de TileSet (Open Game Art)" alt="Ejemplo de TileSet (Open Game Art)"/>
+<em>Ejemplo de TileSet (Open Game Art)</em>
+</div>
 
 Como podemos ver en la imagen anterior, se pueden observar los distintos elementos gráficos. Este Tileset nos va a permitir generar escenarios con los distintos elementos que lo componen.
 

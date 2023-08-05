@@ -427,15 +427,24 @@ body {
 
   img{
     background-color: white;
-    display: block!important;
     text-align: center;
-    margin: 0.5em 10px;
+    margin: 0.25em 10px;
     width: 100%;
   }
 
   img+em{
     display: block;
     text-align: center;
+  }
+
+  .centered_image{
+    width: 60%;
+    margin: 0.5em 15%;
+    text-align: center;
+  }
+
+  .centered_image img{
+    width: 100%;
   }
 
   kbd{

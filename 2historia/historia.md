@@ -51,8 +51,10 @@ Una de las principales características de la Sega Mega Drive, es que gracias a 
 
 Sin embargo, el slot que trae para los cartuchos, no tiene el mismo formato que para los juegos de Master System. Por lo que es necesario un adaptador para poder encajar los cartuchos de la consola de 8 bits de Sega.
 
-![Power Base Converter](2historia/img/SegaMegaAdaptor.jpg "Power Base Converter")
-_Power Base Converter_
+<div class="centered_image">
+    <img src="2historia/img/SegaMegaAdaptor.jpg", title="Power Base Converter" alt="Power Base Converter"/>
+    <em>Power Base Converter</em>
+</div>
 
 ### Sega Mouse
 
@@ -183,8 +185,10 @@ Por supuesto, una de las características de este juego, es el modo 2 Jugadores;
 
 Se trataba de un juego que mezclaba plataformas, con algunas pantallas donde controlábamos algún vehículo como puede ser una alfombra mágica, o una burbuja debajo del océano.
 
-![World of Illusion](2historia/img/woi.png "World of Illusion")
-_World of Illusion_
+<div class="centered_image">
+    <img src="2historia/img/woi.png" title="World of Illusion" alt="World of Illusion"/>
+    <em>World of Illusion</em>
+</div>
 
 ## Referencias
 

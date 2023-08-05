@@ -123,8 +123,10 @@ El ejemplo que vamos a estudiar, llamado _ej8.colors_, lo puedes encontrar en el
 
 En este caso, vamos a mostrar un fondo que hemos generado nosotros usando distintos recursos que hemos encontrado por Internet; puedes ver dichos recursos y dar crédito a los autores en las referencias de este capítulo. Veamos el fondo que vamos a mostrar:
 
-![Fondo Ejemplo](11Paletas/img/fondo1.png "Fondo Ejemplo")
-_Fondo Ejemplo_
+<div class="centered_image">
+<img src="11Paletas/img/fondo1.png" title="Fondo Ejemplo" alt="Fondo Ejemplo"/>
+<em>Fondo Ejemplo</em>
+</div>
 
 Como podemos ver en la imagen, vemos un paisaje nocturno donde podemos observar 3 farolas. La Idea del ejemplo, es mostrar que debajo de cada farola haya un haz de luz pero fuera de estas se note un color más oscuro. Este efecto lo podemos realizar usando un mapa de prioridad.
 
@@ -132,8 +134,10 @@ Esto se puede realizar, usando otra imagen, con las zonas que queremos iluminar;
 
 Veamos la imagen del mapa de prioridades:
 
-![Mapa Prioridad](11Paletas/img/fondo2.png "Mapa Prioridad")
-_Mapa Prioridad_
+<div class="centered_image">
+<img src="11Paletas/img/fondo2.png" title="Mapa Prioridad" alt="Mapa Prioridad"/>
+<em>Mapa Prioridad</em>
+</div>
 
 Como vemos en esta imagen, las zonas marcadas, serán las que se mostrarán más claras que las que están de color negro, que coinciden con la posición de las farolas del primer fondo. Este efecto es debido a que a nivel de plano, los tiles con prioridad se mostrarán de forma normal, mientras que los Tiles que estén pintados sin prioridad, tendrán el efecto shadow; de ahí que tenga el efecto de iluminación. Veamos como se realiza este efecto a nivel de código para establecer la prioridad solo de las zonas que están marcadas.
 

@@ -22,8 +22,10 @@ El uso de ficheros de Traza (o logs); es común a la hora de trabajar con sistem
 
 Algunos emuladores como Gens KMod o Blastem, tienen un apartado para ver estas trazas y mostrarlo por dicha consola o fichero. Veamos como se podrían ver los mensajes en el emulador Gens con la modificación KMod.
 
-![Pantalla Mensajes Gens KMod](16Debug/img/messages.png "Pantalla Mensajes Gens KMod")
-_Pantalla Mensajes Gens KMod_
+<div class="centered_image">
+<img src="16Debug/img/messages.png" title="Pantalla Mensajes Gens KMod" alt="Pantalla Mensajes Gens KMod"/>
+<em>Pantalla Mensajes Gens KMod</em>
+</div>
 
 Para acceder a este apartado, puedes encontrarlo en el menú _CPU->Debug->Messages_; y aquí podremos ver los mensajes que enviemos con unas función especial que contiene SGDK.
 
@@ -64,8 +66,10 @@ _Depuración Motorola 68K_
 
 Esto puede ser util para ver el estado del procesador; pero no es lo que estamos buscando; ya que necesitaremos la modificación KMod, para poder definir las opciones de depuración remota. En el menú _options->Debug_, podemos establecer los puertos y opciones relacionadas con la depuración remota.
 
-![Opciones de depuración Gens Kmod](16Debug/img/debugoptgens.png "Opciones de depuración Gens Kmod")
-_Opciones de depuración Gens Kmod_
+<div class="centered_image">
+<img src="16Debug/img/debugoptgens.png" title="Opciones de depuración Gens Kmod" alt="Opciones de depuración Gens Kmod"/>
+<em>Opciones de depuración Gens Kmod</em>
+</div>
 
 Estas opciones, abrirán un puerto (por defecto el 6868); para poder depurar el procesador M68k. Este puerto será utilizando por GDB para conectarse.
 

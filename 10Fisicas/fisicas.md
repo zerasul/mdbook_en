@@ -172,8 +172,10 @@ Vamos a centrarnos en los distintos ejemplos de colliders que se pueden utilizar
 
 En este primer caso, vamos a comprobar cuando un punto esta dentro de un rectángulo; de tal forma por ejemplo, que podamos detectar cuando se llega a algún punto o si el personaje esta tocando el suelo.
 
-![Colisión punto contra caja](10Fisicas/img/pointvsbox.png "Colisión punto contra caja")
-_Colisión punto contra caja_
+<div class="centered_image">
+<img src="10Fisicas/img/pointvsbox.png" title="Colisión punto contra caja" alt="Colisión punto contra caja"/>
+<em>Colisión punto contra caja</em>
+</div>
 
 Como vemos en la imagen anterior, tenemos que detectar que dicho punto esta dentro del rectángulo o caja; para ello, podemos usar la siguiente formula.
 
@@ -200,8 +202,10 @@ Como podemos ver, es simplemente comprobar que el punto esta dentro de los pará
 
 Otro ejemplo más común, es el comprobar que dos rectángulos o cajas se superponen; de esta forma podemos comprobar colisiones entre dos Sprites de forma más sencilla.
 
-![Colisión caja contra caja](10Fisicas/img/boxvsbox.png "Colisión caja contra caja")
-_Colisión caja contra caja_
+<div class="centered_image">
+<img src="10Fisicas/img/boxvsbox.png" title="Colisión caja contra caja" alt="Colisión caja contra caja"/>
+<em>Colisión caja contra caja</em>
+</div>
 
 Como podemos ver en la imagen anterior, tenemos que comprobar cuando se superponen la caja de colisión de dos o más Sprites. Para ello podemos seguir la siguiente formula muy parecida a la usada de punto contra caja.
 
@@ -231,7 +235,10 @@ En este caso, se trata de comprobar si ambas áreas se superponen.
 
 También se puede comprobar cuando un punto esta dentro de un círculo; de esta forma podemos calcular por ejemplo cuando un Sprite con un área de colisión circular toca un punto o esta por encima de dicho punto etc.
 
-![Colisión punto contra círculo](10Fisicas/img/pointvscircle.png "Colisión punto contra círculo")_Colisión punto contra círculo_
+<div class="centered_image">
+<img src="10Fisicas/img/pointvscircle.png" title="Colisión punto contra círculo" alt="Colisión punto contra círculo"/>
+<em>Colisión punto contra círculo</em>
+</div>
 
 Para comprobar que un punto pertenece a un circulo, podemos basarnos en el teorema de Pitágoras para poder calcular la distancia entre el punto y el centro de la circunferencia es correcta.
 
@@ -266,8 +273,10 @@ En este caso hemos podido comprobar la distancia de un punto con respecto al cen
 
 El último ejemplo que veremos, es ver si dos círculos se superponen; de esta forma podemos detectar si dos Sprites con este tipo de colisión, se superponen y por lo tanto tienen algún tipo de acción, etc.
 
-![Colisión círculo contra círculo](10Fisicas/img/circlevscircle.png "Colisión círculo contra círculo")
-_Colisión círculo contra círculo_
+<div class="centered_image">
+<img src="10Fisicas/img/circlevscircle.png" title="Colisión círculo contra círculo" alt="Colisión círculo contra círculo"/>
+<em>Colisión círculo contra círculo</em>
+</div>
 
 Como podemos ver en la anterior imagen, vemos que se pueden superponer áreas de cada circulo y tenemos que ser capaces de poder detectarlas para poder decidir que hacer con dicha colisión. Veamos una formula basada en el anterior caso.
 

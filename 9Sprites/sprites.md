@@ -14,8 +14,10 @@ Vamos a comentar que es un Sprite realmente; se trata de una imagen que represen
 
 Normalmente, un Sprite está compuesto por una serie de imágenes que representan distintos frames de una animación; además de poder representar varias animaciones dentro de una imagen. Esto se conoce como Hoja de Sprite o _spritesheet_.
 
-![Hoja de Sprites](9Sprites/img/nadia.png "Hoja de Sprites")
-_Hoja de Sprites_
+<div class="centered_image">
+<img src="9Sprites/img/nadia.png" title="Hoja de Sprites" alt="Hoja de Sprites" />
+<em>Hoja de Sprites</em>
+</div>
 
 Como podemos ver en la anterior imagen, vemos que se compone de distintos frames de distintas animaciones; normalmente cada animación corresponde a una fila, y cada frame a cada columna.
 
@@ -110,8 +112,10 @@ Vemos como el plano de Sprites, puede ser dibujado con baja o alta prioridad; de
 
 Por otro lado, como podemos ver, un Sprite se compone de distintas animaciones que pueden indicar distintas acciones que puede realizar el personaje (moverse en las distintas direcciones, atacar, saltar); por ello tenemos que tener en cuenta dichas animaciones. En una hoja de Sprites, cada fila corresponde a una animación; y cada columna, corresponde a un Frame de cada animación. Veamos un ejemplo:
 
-![Hoja de Sprites con animaciones](9Sprites/img/anim.png "Hoja de Sprites con animaciones")
-_Hoja de Sprites con animaciones_
+<div class="centered_image">
+<img src="9Sprites/img/anim.png" title="Hoja de Sprites con animaciones" alt="Hoja de Sprites con animaciones"/>
+<em>Hoja de Sprites con animaciones</em>
+</div>
 
 Como vemos en la anterior imagen, se compone de 5 animaciones de 3 Frames cada uno. Observamos que para SGDK, la primera animación es la número 0. Por lo que siempre tenemos que tener en cuenta esto para cambiar de animación cuando sea necesario. Esto también se aplica a los Frames; por lo que el primer Frame de una animación, es el número 0.
 

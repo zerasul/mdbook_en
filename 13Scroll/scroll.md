@@ -163,8 +163,10 @@ En este ejemplo, no solo desplazaremos el plano; sino que iremos generando los T
 
 El primer plano, que usaremos como cielo; se trata de una imagen estática que dibujaremos en el plano B.
 
-![Imagen de Fondo 1](13Scroll/img/Sky_pale.png "Imagen de Fondo 1")
-_Imagen de Fondo 1 (Open Game Art)_
+<div class="centered_image">
+<img src="13Scroll/img/Sky_pale.png" title="Imagen de Fondo 1" alt="Imagen de Fondo 1"/>
+<em>Imagen de Fondo 1 (Open Game Art)</em>
+</div>
 
 Después, tendremos el fondo que iremos desplazando; que se trata de una imagen de 640x224 píxeles; que almacenaremos en memoria ROM y que iremos mostrando conforme sea necesaria.
 
@@ -327,8 +329,10 @@ IMAGE city "city3.png" NONE NONE
 
 Vemos que importamos una imagen, un tileSet y la correspondiente paleta. El fondo a utilizar recuerda a una ciudad por la noche; mostramos la imagen del fondo.
 
-![Fondo ejemplo 13](13Scroll/img/city3.png "Fondo ejemplo 13")
-_Fondo ejemplo 13 (Open Game Art)_
+<div class="centered_image">
+<img src="13Scroll/img/city3.png" title="Fondo ejemplo 13" alt="Fondo ejemplo 13"/>
+<em>Fondo ejemplo 13 (Open Game Art)</em>
+</div>
 
 Una vez vista esta imagen, vamos a revisar el código fuente; comenzaremos viendo, como dibujar cada fondo; uno como imagen, y el otro usaremos el TileSet _rain_, para generar un TileMap para simular la lluvia. Veamos un fragmento:
 
