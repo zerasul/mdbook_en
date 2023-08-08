@@ -34,7 +34,7 @@ Veamos las especificaciones de la Sega Mega Drive:
 6. **Entrada/salida**: Slot de cartuchos por la parte superior, dos conectores para controladores, bus de expansión y entrada de auriculares estéreo(solo modelo 1).
 
 ![Mega Drive Model 1](2historia/img/MD1.jpg "Mega Drive Model 1")
-_Sega Mega Drive Modelo 1 Europea_
+_Sega Mega Drive Modelo 1 Europea (Wikipedia)_
 
 ## Periféricos
 
@@ -53,7 +53,7 @@ Sin embargo, el slot que trae para los cartuchos, no tiene el mismo formato que 
 
 <div class="centered_image">
     <img src="2historia/img/SegaMegaAdaptor.jpg", title="Power Base Converter" alt="Power Base Converter"/>
-    <em>Power Base Converter</em>
+    <em>Power Base Converter (Segaretro.org)</em>
 </div>
 
 ### Sega Mouse
@@ -84,7 +84,7 @@ Las especificaciones técnicas de la Mega CD son:
     * 64 Kb como RAM backup.
 
 ![Mega CD1](2historia/img/megacd.png "Mega CD 1")
-_Sega mega CD Model 1_
+_Sega mega CD Model 1 (SegaRetro.org)_
 
 ### 32X
 
@@ -105,7 +105,7 @@ Características de la 32X:
 * **Sonido**: Se agregaban canales extra PWM digital para un total de 12 canales junto a Mega Drive (o 22 si añadimos Mega CD).
 
 ![32X Europeo](2historia/img/32X_EU.jpg "32X Europeo")
-_Mega Drive 32X Europeo_
+_Mega Drive 32X Europeo (SegaRetro.org)_
 
 ### Mega Modem
 
@@ -138,7 +138,7 @@ Obviamente, el gran éxito de la Mega Drive, fue su extenso catálogo que a día
 
 ### Sonic
 
-No podemos olvidar, a la mascota de Sega. Sonic el Erizo (_sonic the hedgehog_ [^9]); un erizo (o puercoespin) azul que se caracterizaba por una super velocidad y dar brincos.
+No podemos olvidar, a la mascota de Sega. Sonic el Erizo (_sonic the hedgehog_ [^9]); un erizo (o puercoespín) azul que se caracterizaba por una super velocidad y dar brincos.
 
 Sonic tuvo 6 juegos para Sega Mega Drive; y algunos son considerados de los mejores juegos del sistema. Como es el caso de _Sonic 2_.
 
@@ -152,7 +152,7 @@ Además, gracias al juego _Sonic & Knuckles_, se incorporó el sistema Lock On. 
 Además de otros títulos, no solo orientado al 2D, sino al 3D como puede ser Sonic 3D, que fue el último título publicado de sonic para este sistema (aunque también tenia versión para Saturn).
 
 ![Sonic & Knuckles con Lock on](2historia/img/SyK.png "Sonic & Knuckles con Lock on")
-_Sonic & Knuckles con Ranura Lock On_
+_Sonic & Knuckles (PAL) con Ranura Lock On_
 
 [^9]: _Sonic the Hedgehog_ es una Marca registrada de Sega enterprise Inc.
 
@@ -187,7 +187,7 @@ Se trataba de un juego que mezclaba plataformas, con algunas pantallas donde con
 
 <div class="centered_image">
     <img src="2historia/img/woi.png" title="World of Illusion" alt="World of Illusion"/>
-    <em>World of Illusion</em>
+    <em>World of Illusion (PAL EUR)</em>
 </div>
 
 ## Referencias
