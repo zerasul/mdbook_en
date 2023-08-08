@@ -1,4 +1,4 @@
-# Desarrollo HomeBrew Para Sega Mega Drive
+# Desarrollo HomeBrew Para 16 Bits
 
 Este libro contiene información, sobre como desarrollar software casero o "homebrew" para el sistema Sega mega Drive de los años 90.
 
