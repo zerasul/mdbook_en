@@ -12,22 +12,22 @@ Veamos un ejemplo de ensamblador para Motorola 68k:
 
 ```asm
     ORG    $0400
-START:                  ; first instruction of program
+START:                  ;START
 
 * Put program code here
 
-        movea.w #$600,a0    ;En A0 la dirección inicial
-        move.b #$aa,d0      ;En D0 el dato (AA)
-bucle   move.b d0,(a0)+     ;Guarda dato e incrementa A0 puntero
-        cmpa.w #$700,a0     ;Compara A0 con el final
-        bne.s bucle         ;Si no llegó al final salta a bucle
+        movea.w #$600,a0    ;MOVE A
+        move.b #$aa,d0      ;MOVE B
+bucle   move.b d0,(a0)+     ;MOVE B to D0
+        cmpa.w #$700,a0     ;COMPARE 
+        bne.s bucle         ;Loop
                          
 
-    SIMHALT             ; halt simulator
+    SIMHALT             ; HALT
 
 * Put variables and constants here
 
-    END    START        ; last line of source
+    END    START        ; END
 ```
 
 En el anterior fragmento corresponde a un programa que simplemente implementa un bucle y compara una serie de datos, usando registros del procesador y direcciones de la memoria.
