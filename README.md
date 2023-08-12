@@ -6,6 +6,8 @@ Tanto en este repositorio; como en la versión posterior impresa, podra encontra
 
 Este libro contiene lo mínimo e imprescindible para poder crear juegos a partir de una base de conocimiento de programación en C. No te preocupes si no entiendes, algo que se acompañará de ejemplos y explicaciones cada paso; además de explicar las herramientas que se van a utilizar en este caso usando el Framework de desarrollo SGDK (Sega Development Kit); además de editores modernos y otras herramientas útiles en este caso.
 
+Puedes pedir una copia impresa en [Amazon](https://www.amazon.es/dp/B0CF4J4WFL?_encoding=UTF8&psc=1&ref_=cm_sw_r_cp_ud_dp_AY474ME3A50P5A4VMJFM)
+
 ## Contenido de este libro
 
 1. [Introducción.](1introduccion/introduccion.md)
