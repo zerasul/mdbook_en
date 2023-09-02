@@ -6,7 +6,7 @@ Both in this repository and in the later printed version, you can find in 16 cha
 
 This book contains the minimum and essential to be able to create games from a knowledge base of programming in C. Do not worry if you do not understand something that will be accompanied by examples and explanations each step; in addition to explaining the tools to be used in this case using the development framework SGDK (Sega Genesis Development Kit); plus modern editors and other useful tools in this case.
 
-You can buy an impress version on [Amazon](https://www.amazon.es/dp/B0CF4J4WFL?_encoding=UTF8&psc=1&ref_=cm_sw_r_cp_ud_dp_AY474ME3A50P5A4VMJFM)
+You can buy a printed version on [Amazon](https://www.amazon.es/dp/B0CF4J4WFL?_encoding=UTF8&psc=1&ref_=cm_sw_r_cp_ud_dp_AY474ME3A50P5A4VMJFM)
 
 ## Book's Content
 
