@@ -10,7 +10,7 @@ You can buy a printed version on [Amazon](https://www.amazon.es/dp/B0CF4J4WFL?_e
 
 ## Book's Content
 
-1. [Introduction.](1introduccion/introduccion.md)
+1. [Introduction.](1introduction/introduction.md)
 2. [History](2historia/historia.md).
 3. [Architecture](3Arquitectura/arquitectura.md).
 4. [SGDK](4SGDK/sgdk.md).
