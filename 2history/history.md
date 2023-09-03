@@ -188,7 +188,7 @@ It was a game that mixed platforms, with some screens where we controlled a vehi
     <em>World of Illusion (PAL EUR)</em>
 </div>
 
-## Referencias
+## References
 
 * Wikipedia; Sega Mega Drive: [https://es.wikipedia.org/wiki/Mega_Drive](https://es.wikipedia.org/wiki/Mega_Drive).
 * Mega Drive History (Sega Retro): [https://segaretro.org/History_of_the_Sega_Mega_Drive](https://segaretro.org/History_of_the_Sega_Mega_Drive).
