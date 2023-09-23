@@ -262,7 +262,7 @@ The use of containers (using Docker or another implementation), is becoming more
 
 The use of Docker is valid on the three most popular operating systems (in the case of macOS; although there are other ways to use SGDK, many of them are deprecated).
 
-In order to use SGDK with docker, we will first need to generate an image with SGDK; for this we will use a ```Dockerfile`` which will give us the necessary instructions to generate the container image.
+In order to use SGDK with docker, we will first need to generate an image with SGDK; for this we will use a ```Dockerfile``` which will give us the necessary instructions to generate the container image.
 
 To generate the image, we will download the latest version of SGDK from the SGDK repository (the same step as for Windows). Once this is done, we will execute the next instruction in the folder where SGDK is located:
 
