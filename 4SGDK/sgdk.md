@@ -171,7 +171,7 @@ Once the dependencies are downloaded and installed, we will need to download the
 Once SGDK is downloaded and unzipped, we can create the following environment variable (This step is optional):
 
 ```cmd
-GDK = <directorio donde se encuentra SGDK>
+GDK = <SGDK Folder>
 ```
 
 **NOTE:** When downloading SGDK, a compiled version of _libmd_ is already included; however, if you need to compile the library with the downloaded source code, you can do it with the following instruction:
