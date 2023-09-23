@@ -1,129 +1,129 @@
-# 5. Configurar Entorno de Desarrollo
+# 5. Environment Configuration
 
-Ya hemos podido ver, el marco de trabajo o librerías que vamos a utilizar para desarrollar nuestros videojuegos para Sega Mega Drive. Sin embargo, para poder trabajar de forma más eficiente, necesitaremos instalar y configurar una serie de herramientas que nos ayudaran a acelerar el proceso de creación de nuestro juego.
+We have already seen the framework or libraries that we are going to use to develop our video games for Sega Mega Drive. However, in order to work more efficiently, we will need to install and configure a series of tools that will help us to speed up the process of creating our game.
 
-En este capítulo, vamos a ver las herramientas que se pueden utilizar a la hora de crear no sólo el código de nuestro juego; sino también, todos los recursos necesarios para el mismo; como pueden ser las imágenes, sonidos, etc.
+In this chapter, we are going to see the tools that can be used when we create not only the code for our game, as well as all the necessary resources for it; such as images, sounds, etc.
 
-Las herramientas que comentamos en este capítulo, son opcionales ya que cada desarrollador tendrá sus herramientas, pero damos la recomendación de algunas de ellas a la hora de trabajar para crear nuestro juego casero.
+The tools that we discuss in this chapter are optional as each developer will have his own tools, but we recommend some of them when creating our home-made game.
 
-Comenzaremos hablando del entorno de desarrollo, y posteriormente nos centraremos en otras herramientas como los emuladores, o incluso herramientas que podemos utilizar para manejar los gráficos.
+We will start talking about the development environment configuration, and then we will focus on other tools such as emulators, or even tools that can be used to handle graphics.
 
-El objetivo de este capítulo, es configurar un entorno de desarrollo de forma sencilla; por lo que no nos centraremos en detalle de como utilizar cada herramienta; si que daremos enlaces a manuales y recursos para cada una de las herramientas utilizadas, al final de este capítulo.
+The objective of this chapter is to configure a development environment in a simple way, so we will not focus in detail on how to use each tool, but we will provide links to manuals and resources for each of the tools used, at the end of this chapter.
 
-## Editor de Texto
+## Text Editor
 
-A la hora de trabajar con código fuente, necesitaremos tener un editor de texto que nos ayude a la hora de estar con muchos ficheros fuente y que sea rápido y ligero para poder acelerar el máximo el tiempo que tardamos en codificar nuestro juego.
+When working with source code, we will need to have a text editor that helps us to work with many source files; that can help us to speed up the time it takes to code our game as much as possible.
 
-Aunque cada desarrollador utilizará distintas herramientas, en este libro vamos a recomendar el editor de texto _Visual Studio Code_; el cual utilizaremos en los ejemplos y capturas que podrás ver en este libro.
+Although every developer will use different tools, in this book we are going to recommend the text editor _Visual Studio Code_; which we will use in the examples and screenshots that you will see in this book.
 
 ### Visual Studio Code
 
-Visual Studio Code[^37] (no confundir con Visual Studio), es un editor de texto enriquecido que nos va a permitir desarrollar nuestro juego de forma sencilla.
+Visual Studio Code[^37] (not to be confused with Visual Studio), is a rich text editor that will allow us to develop our game in a simple way.
 
-Este editor tiene distintas características como:
+This editor has several features such as:
 
-* Resaltado de sintaxis.
-* Autocompletado inteligente (usando intellisense[^38]).
-* Depuración integrada (requiere configuración avanzada ver capítulo 16).
-* Integración con sistemas de control de versiones (GIT).
-* Ampliable y modularizable gracias a las distintas extensiones que se pueden instalar.
+* Syntax highlighting.
+* Intelligent auto-completion (using intellisense[^38]).
+* Integrated debugging (requires advanced configuration see chapter 16).
+* Integration with version control systems (GIT).
+* Expandable and modular thanks to the various extensions which can be installed.
 
-Visual Studio Code, tiene partes del código fuente con licencia Mit; y otras tiene licencia privativa de Microsoft. Puedes ver parte del código fuente de Visual Studio Code en su repositorio:
+Visual Studio Code, has parts of the source code with Mit license; and others have a proprietary license from Microsoft. You can see part of the Visual Studio Code source code in its repository:
 
 [https://github.com/Microsoft/vscode](https://github.com/Microsoft/vscode)
 
 ![Visual Studio Code](5config-entorno/img/vscode.png "Visual Studio Code")
 _Visual Studio Code_
 
-Para aquellos que no estén familiarizados con este editor de texto, os dejamos un enlace al manual de VsCode:
+For those who are not familiar with this text editor, here is a link to the VsCode manual:
 
 [https://code.visualstudio.com/docs](https://code.visualstudio.com/docs)
 
-Con Visual Studio code, se puede desarrollar fácilmente y se pueden ampliar sus funcionalidades de forma muy sencilla, gracias al repositorio de extensiones que incluye (o incluso instalándolas manualmente).
+With Visual Studio code, you can easily develop and extend its functionalities in a very simple way, thanks to the included extensions repository (or even installing them manually).
 
-[^37]: Visual Studio Code es una marca registrada de Microsoft Corporation Ltd.
-[^38]: intellisense es una marca registrada de Microsoft Corporation ltd.
+[^37]: Visual Studio Code is a registered trademark of Microsoft Corporation Ltd.
+[^38]: intellisense is a registered trademark of Microsoft Corporation ltd.
 
-En este libro, vamos a recomendar algunas de ellas; aunque es solo una recomendación; ya que pueden usarse las que más guste al lector.
+In this book, we are going to recommend some of them; although it is only a recommendation; since the ones that the reader likes the most can be used.
 
-* _Extensión oficial de C/C++_: Nos permitirá programar y activar intellisense para los lenguajes de programación C/C++.
-* _Amiga Assembly_: Aunque este libro no se centra en el uso de ensamblador, si que puede ser interesante poder ver el código de ensamblador que haya escrito con sintaxis resaltada. En este caso, se trata de poder ver con la sintaxis ya coloreada, el ensamblador para Motorola 68000.
-* _Genesis Code_: Este libro se centra en el uso de SGDK; y aunque podemos utilizar directamente SGDK a través de tareas y/o una terminal en el propio editor, suele ser bastante complicado configurar el entorno. Por ello, Genesis Code te simplifica el uso de SGDK a través de este editor. A continuación, nos centraremos en esta extensión.
+* _Official C/C++ extension_: It will allow us to program and activate intellisense for C/C++ programming languages.
+* _Amiga Assembly_: Although this book does not focus on the use of assembler, it can be interesting to see the assembler code that you have written with highlighted syntax. In this case, it is about being able to see with the syntax already colored, the assembler for Motorola 68000.
+* _Genesis Code_: This book focuses on the use of SGDK; and although we can use SGDK directly through tasks and/or a terminal in the editor itself, it is often quite complicated to configure the environment. Therefore, Genesis Code simplifies the use of SGDK through this editor. In this section, we will focus on this extension.
 
 #### Genesis Code
 
-Genesis Code es una extensión para Visual Studio Code, que nos permitirá utilizar SGDK y sus herramientas, de forma sencilla. Genesis Code es código abierto y tiene una licencia MIT. Puedes encontrar su código fuente en la siguiente dirección:
+Genesis Code is an extension for Visual Studio Code, which will allow us to use SGDK and its tools, in a simple way. Genesis Code is open source and has a MIT license. You can find its source code at the following link:
 
 [https://github.com/zerasul/genesis-code](https://github.com/zerasul/genesis-code)
 
-Genesis Code, permite a partir de una serie de comandos, realizar distintas tareas con SGDK; estos comandos son:
+Genesis Code, allows, through a series of commands, to perform different tasks with SGDK; these commands are
 
-* Compilar Nuestro Juego y Construir la ROM.
-* Limpiar los ficheros de construcción.
-* Ejecutar nuestro juego en un emulador.
-* Compilar y ejecutar nuestro juego en un emulador.
-* Crear un nuevo Proyecto.
-* Compilar con opciones de depuración.
-* Importar un fichero en formato TMX o Json para generar un fichero cabecera C. Este comando, utiliza el formato de la herramienta _TILED_ para importar mapas.
+* Compile Our Game and Build the ROM.
+* Clean the construction files.
+* Run our game in an emulator.
+* Compile and run our game in an emulator.
+* Create a new Project.
+* Compile with Debug Options
+* Import a file in TMX or Json format to generate a C header file. This command uses the _TILED_ tool format to import maps.
 
-Además, Genesis Code incluye otras funcionalidades como resaltado de sintaxis para los ficheros de recursos de SGDK _.res_, autocompletado para los recursos o Visor de imágenes personalizado.
+Also, Genesis Code includes other features such as syntax highlighting for SGDK _.res_ resource files, auto-completion for resources or custom image viewer.
 
-Si necesitas más información; acerca de Genesis Code, puedes consultar la documentación de la misma en:
+If you need more information about Genesis Code, you can consult the Genesis Code documentation:
 
 [https://zerasul.github.io/genesis-code-docs](https://zerasul.github.io/genesis-code-docs)
 
-**Instalación**
+**Installation**
 
-Para instalar Genesis Code en Visual Studio Code, puede hacerse a través del repositorio de extensiones. Para ello, pulsaremos en el 5º icono de la izquierda y buscaremos la extensión.
+To install Genesis Code in Visual Studio Code, you can install it through the extensions repository. To do this, click on the 5th icon on the left and search for the extension.
 
 ![Genesis Code](5config-entorno/img/genscode.png "Genesis Code")
-_Extensión Genesis Code_
+_Genesis Code Extension_
 
-Una vez localizada, pulsaremos el botón _install_ (o instalar), y la extensión quedará instalada.
+Once located, click the _install_ button, and the extension will be installed.
 
-Ademas, puede instalarse manualmente, descargando la última versión del repositorio del proyecto:
+It can also be installed manually by downloading the latest version from the project repository:
 
 [https://github.com/zerasul/genesis-code/releases](https://github.com/zerasul/genesis-code/releases)
 
-Una vez descargado el fichero con extensión _.vsix_, abriremos la consola de comandos de Visual Studio Code <kbd>ctrl</kbd>+<kbd>Mayus</kbd>+<kbd>p</kbd> y buscaremos la opción _Extension: Install from vsix..._; seleccionaremos el fichero vsix y esperaremos que acabe la instalación.
+Once the file with extension _.vsix_ is downloaded, open the Visual Studio Code command console <kbd>ctrl</kbd>+<kbd>Shift</kbd>+<kbd>p</kbd> and look for the option _Extension: Install from vsix..._; select the vsix file and wait for the installation to finish.
 
-**Configuración**
+**Configuration**
 
-Genesis Code, es compatible con las siguientes formas de utilizar SGDK:
+Genesis Code supports the following ways of using SGDK:
 
 * SGDK.
 * GENDEV.
 * MARSDEV.
 * Docker.
 
-Dependiendo de la instalación que tengamos de SGDK, tenemos que configurar Genesis Code de una forma u otra.
+Depending on the SGDK installation, we have to configure Genesis Code in one way or another.
 
-Para acceder a la configuración de Genesis Code, accederemos a las opciones de Visual Studio Code (menú File->preferences->settings o <kbd>ctrl</kbd>+<kbd>,</kbd>), y buscaremos las opciones de Genesis Code; las cuales mostramos una captura a continuación.
+To access the Genesis Code configuration, we will access using Visual Studio Code options (File->preferences->settings menú or <kbd>ctrl</kbd>+<kbd>,</kbd>), and look for the Genesis Code options; a screenshot of the options is shown below.
 
-![Configuración Genesis Code](5config-entorno/img/settings.png "Configuración Genesis Code")
-_Configuración Genesis Code_
+![Genesis Code Configuration](5config-entorno/img/settings.png "Genesis Code Configuration")
+_Genesis Code Configuration_
 
-Las opciones disponibles son:
+The options available are:
 
-* custom-makefile: Permite usar un fichero Makefile personalizado para generar la rom. Si no se especifica, utilizará el del propio SGDK.
-* Docker Tag: Indica el nombre de la imagen Docker con SGDK. Si no se indica, se utilizará el nombre de _sgdk_.
-* Doragasu Image: Comprueba que la imagen Docker utilizada esta basada en las creadas por _Doragasu_.
-* GDK: sobrescribe la variable de entorno GDK apuntando a la instalación de SGDK (solo Windows).
-* GENDEV: sobrescribe la variable de entorno GENDEV apuntando a la instalación de Gendev (solo Linux).
-* Gens path: Indica la ruta del ejecutable donde se encuentre el emulador que se va a utilizar.
-* MARSDEV: sobrescribe la variable de entorno MARSDEV apuntando a la instalación de MarsDev.
-* Toolchain Type: Indica el tipo de herramienta que utilizará para usar SGDK; puede tener los siguientes valores:
-    * sgdk/gendev: Utiliza SGDK o Gendev (windows o Linux).
-    * marsdev: Utiliza MARSDEV como entorno para llamar a SGDK.
-    * Docker: Utiliza un contenedor Docker para crear la ROM.
+* custom-makefile: Allows to use a custom Makefile to generate the rom. If not specified, it will use the one from the SGDK itself.
+* Docker Tag: Specifies the name of the Docker image using SGDK. If not specified, the name _sgdk_ will be used.
+* Doragasu Image: Checks that the Docker image used is based on those created by _Doragasu_.
+* GDK: Overwrites the _GDK_ environment variable targeting the SGDK installation (Windows only).
+* GENDEV: Overwrites the GENDEV environment variable targeting the Gendev installation (Linux only).
+* Gens path:Specifies the path to the executable where the emulator to be used is located.
+* MARSDEV: Overwrites the MARSDEV environment variable targeting the MarsDev installation.
+* Toolchain Type: Indicates the specific toolchain you will use for SGDK; it can have the following values
+    * sgdk/gendev: Use SGDK or Gendev (windows or Linux).
+    * marsdev: Use MARSDEV as the environment to call SGDK.
+    * Docker: Use a Docker container to create the ROM.
 
-## Emulador
+## Emulator
 
-A la hora de desarrollar nuestro juego, es importante poder probar el progreso de este y aunque podemos usar un hardware real usando un cartucho FlashCart como _Everdrive_[^39], no es nada práctico, tener que estar transfiriendo la ROM cada vez a la tarjeta SD. Por ello, se utilizan emuladores para poder ejecutar la rom creada y ver los resultados.
+When developing our game, it is important to be able to test its progress and although we can use a real hardware using a FlashCart cartridge like _Everdrive_[^39], it is not practical to transfer the ROM every time to the SD card. Therefore, emulators are used to be able to run the created rom and see the results.
 
-Además, algunos de estos emuladores tienen herramientas que nos pueden ayudar a depurar nuestros juegos; como depuración tanto del 68K como del z80, visor de los gráficos en el VDP, visor de Planos o Sprites,etc.
+In addition, some of these emulators have tools that can help us to debug our games; such as debugging both 68K and z80, VDP graphics viewer, Sprite viewer, etc.
 
-Vamos a ver un par de ejemplos de emulador; es importante destacar que el lector, puede usar con el que mejor se maneje cuando este trabajando en su proyecto homebrew.
+We are going to see a couple of examples of emulators; it is important to emphasize that the reader can use the one that best fits his needs when working on his homebrew project.
 
 Es importante saber, que aunque usemos un emulador, nunca se podrá emular el hardware 100%; por lo que aunque podamos emular el juego, si es interesante poder probarlo en un hardware; es más, a ser posibles en distintos modelos de Mega Drive.
 
