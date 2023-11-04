@@ -11,11 +11,11 @@ You can buy a printed version on [Amazon](https://www.amazon.es/dp/B0CF4J4WFL?_e
 ## Book's Content
 
 1. [Introduction.](1introduction/introduction.md)
-2. [History](2historia/historia.md).
-3. [Architecture](3Arquitectura/arquitectura.md).
+2. [History](2history/history.md).
+3. [Architecture](3Architecture/architecture.md).
 4. [SGDK](4SGDK/sgdk.md).
-5. [Configure environment](5config-entorno/config-entorno.md).
-6. [Hello World](6holamundo/holamundo.md).
+5. [Configure environment](5env-config/env-config.md).
+6. [Hello World](6helloworld/helloworld.md).
 7. [Inputs](7controles/controles.md).
 8. [Backgrounds](8fondos/fondos.md).
 9. [Sprites](9Sprites/sprites.md).
