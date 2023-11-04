@@ -32,7 +32,7 @@ Visual Studio Code, has parts of the source code with Mit license; and others ha
 
 [https://github.com/Microsoft/vscode](https://github.com/Microsoft/vscode)
 
-![Visual Studio Code](5config-entorno/img/vscode.png "Visual Studio Code")
+![Visual Studio Code](5env-config/img/vscode.png "Visual Studio Code")
 _Visual Studio Code_
 
 For those who are not familiar with this text editor, here is a link to the VsCode manual:
@@ -76,7 +76,7 @@ If you need more information about Genesis Code, you can consult the Genesis Cod
 
 To install Genesis Code in Visual Studio Code, you can install it through the extensions repository. To do this, click on the 5th icon on the left and search for the extension.
 
-![Genesis Code](5config-entorno/img/genscode.png "Genesis Code")
+![Genesis Code](5env-config/img/genscode.png "Genesis Code")
 _Genesis Code Extension_
 
 Once located, click the _install_ button, and the extension will be installed.
@@ -100,7 +100,7 @@ Depending on the SGDK installation, we have to configure Genesis Code in one way
 
 To access the Genesis Code configuration, we will access using Visual Studio Code options (File->preferences->settings menú or <kbd>ctrl</kbd>+<kbd>,</kbd>), and look for the Genesis Code options; a screenshot of the options is shown below.
 
-![Genesis Code Configuration](5config-entorno/img/settings.png "Genesis Code Configuration")
+![Genesis Code Configuration](5env-config/img/settings.png "Genesis Code Configuration")
 _Genesis Code Configuration_
 
 The options available are:
@@ -123,148 +123,148 @@ When developing our game, it is important to be able to test its progress and al
 
 In addition, some of these emulators have tools that can help us to debug our games; such as debugging both 68K and z80, VDP graphics viewer, Sprite viewer, etc.
 
-We are going to see a couple of examples of emulators; it is important to emphasize that the reader can use the one that best fits his needs when working on his homebrew project.
+We are going to see a pair of emulators; it is important to know that the reader can use the one that best fits his needs when working on his homebrew project.
 
-Es importante saber, que aunque usemos un emulador, nunca se podrá emular el hardware 100%; por lo que aunque podamos emular el juego, si es interesante poder probarlo en un hardware; es más, a ser posibles en distintos modelos de Mega Drive.
+It is important to know that even if we use an emulator, we can never emulate the 100% accuracy of the real hardware; so even if we can emulate the game, it is interesting to be able to test it on hardware; moreover, if possible on different Mega Drive models.
 
-[^39]: Everdrive: es un Cartucho FlashCart con capacidad de poder cargar roms usando una tarjeta SD o MicroSD.
+[^39]: Everdrive: is a FlashCart cartridge with the ability to load roms using an SD or MicroSD card.
 
 ### Gens KMod
 
-Gens, es un emulador de código abierto y gratuito con licencia GPL-2.0, que permite emular Sega Mega drive, Mega CD, 32X e incluso Master System. Este emulador ha tenido muchas versiones comenzando en una versión para el sistema operativo Windows, pero se han hecho muchos ports para distintos otros Sistemas Operativos.
+Gens, is a free and open source emulator with GPL-2.0 license, that allows you to emulate Sega Mega drive, Mega CD, 32X and even Master System. This emulator has many versions starting with the version for Windows operating system, but many ports have been made for different other Operating Systems.
 
-Tiene distintas funcionalidades como puede ser el guardado de estados, soporte para conexión por internet, mejora de audio,etc. Existen distintas versiones como el llamado _gens Plus_ que añade más mejoras como distintos efectos o Shaders.
+It has different features such as status saving, support for internet connection, audio enhancement, etc. There are different versions such as the so-called _gens Plus_ that adds more improvements such as different effects or Shaders.
 
-Para Microsoft Windows, existe una versión modificada, llamada Gens KMod, que añade distintas herramientas para desarrollo; como puede ser:
+For Microsoft Windows, there is a modified version, called Gens KMod, which adds different tools for development; such as:
 
-* Depurador tanto para el Motorola 68000 como Z80.
-* Depuración de la memoria
-* Visor de Planos
-* Visor de Sprites
-* Visor de Tiles y paletas (VDP)
-* Visor para Sonido YM2612 y PSG
+* Motorola 68000 and Z8 Debuggers.
+* Memory Debug.
+* Plane Explorer.
+* Sprite Explorer.
+* Tiles and Palettes Explorer (VDP).
+* Sound Explorer for YM2612 y PSG.
 
-![Gens Kmod](5config-entorno/img/gens.png "Gens KMod")
+![Gens Kmod](5env-config/img/gens.png "Gens KMod")
 _Gens Kmod_
 
-Puede descargarse de la siguiente dirección:
+It can be downloaded from the following address:
 
 [https://segaretro.org/Gens_KMod](https://segaretro.org/Gens_KMod)
 
-Para poder utilizarlo para nuestro desarrollo, si se tiene la extensión Genesis Code, Puede configurarlo para desarrollar; para ello, puede hacerlo de dos formas:
+In order to use it for our development, if you have the Genesis Code extension, you can configure it to develop; to do so, you can do it in two ways:
 
-La primera es usar el comando _Genesis Code: set Gens Emulator Command Path_ que provee la extensión y añadir la ruta al fichero _gens.exe_ para poder ejecutar el comando.
+The first is to use the _Genesis Code: set Gens Emulator Command Path_ command that provides the extension and add the path to the _gens.exe_ file in order to execute the command.
 
-La otra forma, es a partir de la configuración de Genesis Code podemos añadir la ruta de donde se encuentra el ejecutable del emulador.
+The other way, is from the Genesis Code configuration we can add the path where the emulator executable is located.
 
 ### Blastem
 
-Otro emulador conocido, es _Blastem_; este emulador, permite emular con bastante precisión, el hardware de la Mega Drive; además de tener una serie de herramientas como el visor de las paletas y colores del VDP. Blastem es Software libre bajo la licencia GNU GPL v3.
+Another well-known emulator, is _Blastem_; this emulator, allows to emulate with enough precision, the hardware of the Mega Drive; besides having a series of tools like the viewer of the palettes and colors of the VDP. Blastem is free software under the GNU GPL v3 license.
 
-Este emulador tiene las siguientes características:
+This emulator has the following features:
 
-* Guardado y Carga de estados.
-* Depurador Integrado y posibilidad de conectarlo a un depurador remoto.
-* Soporte para Controlador (Joystick).
-* Emulación de Mega/Sega Mouse.
-* Soporte para teclado Saturn.
-* Soporte para Lock con de Sonic & Knuckles y algunos mappers como Sega Standard Mapper.
-* Soporte para mappers de distintos juegos Homebrew.
-* Soporte para SRAM y EEPROM.
-* Soporte para Shaders y otros filtros.
+* Saving and Loading of states.
+* Integrated Debugger and can be used with a remote debugging (GDB).
+* Gamepad Support (Joystick).
+* Mega/Sega Mouse emulation.
+* Saturn Keyboard Support.
+* Sonic & Knuckles Lock-on Support and some mappers like Sega Standard Mapper.
+* Homebrew Custom Mappers Support.
+* SRAM and EEPROM Support.
+* Filters and Shaders Support..
 
-![Blastem](5config-entorno/img/blastem.png "Blastem")
+![Blastem](5env-config/img/blastem.png "Blastem")
 _Blastem_
 
 Blastem, además, incluye algunas herramientas para desarrollo. Como puede ser el visor de las paletas del VDP o un depurador incluido en el propio emulador; tanto interno, como poder conectar uno externo.
 
-Blastem, se puede descargar para los sistemas operativos más utilizados (Windows, MacOs, Linux...); tanto desde la siguiente dirección, como usando los repositorios de paquetería de algunas distribuciones.
+Blastem can be downloaded for the most used operating systems (Windows, MacOs, Linux...); using the following address, or in the package repositories of some Linux distributions.
 
 [https://www.retrodev.com/blastem/](https://www.retrodev.com/blastem/)
 
-Al igual que con Gens, Blastem puede usarse con la extensión _Genesis Code_; por lo que pueden seguirse los mismos pasos descritos para configurarlo.
+As with Gens, Blastem can be used with the _Genesis Code_ extension, so the same steps described above can be followed to set it up.
 
-## Software de Manipulación Gráfica
+## Graphic Manipulation Software
 
-A la hora de trabajar en un videojuego, es igualmente importante trabajar el código fuente del juego, como de los recursos que se van a utilizar (gráficos, sonido, mapas,etc.); por ello, vamos a revisar algunas herramientas que podemos utilizar para crear todos estos recursos.
+When working on a video game, it is important to work on the source code of the game, as well of the resources to be used (graphics, sound, maps, etc.); therefore, we are going to review some tools that we can use to create all these resources.
 
 ### GIMP
 
-GIMP (Gnu Image Manipulation Program), es un programa de edición de imágenes en forma de mapa de bits; este programa es de código abierto y tiene una licencia GPLv3.
+GIMP (Gnu Image Manipulation Program), is a bitmap image editing program; this program is open source and has a GPLv3 license.
 
-La primera versión de este programa salió en el año 1995 en la universidad de Berkley; y desde entonces se ha convertido en parte del proyecto GNU [^40]. GIMP, nos va a ayudar a modificar las imagenes para poder usarlas en nuestros proyectos.
+The first version of this program was released in 1995 at the University of Berkley; and since then it has become part of the GNU project [^40]. GIMP, is going to help us to modify the images to be able to use them in our projects.
 
-[^40]: Proyecto GNU: [https://www.gnu.org/home.es.html](https://www.gnu.org/home.es.html)
+[^40]: GNU Project: [https://www.gnu.org/home.es.html](https://www.gnu.org/home.es.html)
 
-Permite modificar imágenes digitalizadas a través de sus muchas herramientas que trae integrado como pueden ser recortar, escalar, modificar las propiedades de la imagen (reordenar la paleta). GIMP, es compatible con muchos formatos de imágenes (BMP, PNG, JPG, TIFF, PSD); por lo que puede ser una buena herramienta para convertir en los formatos que necesitemos.
+It allows you to modify digitized images through its many built-in tools such as cropping, scaling, modifying image properties (reordering the palette). GIMP, is compatible with many image formats (BMP, PNG, JPG, TIFF, PSD); so it can be a good tool to convert into the formats we need.
 
-Además de las herramientas que trae integradas, se pueden añadir más herramientas gracias a la extensiones de este programa.
+In addition to the built-in tools, more tools can be added thanks to the extensions of this program.
 
-![GIMP](5config-entorno/img/GIMP2.png "GIMP")
+![GIMP](5env-config/img/GIMP2.png "GIMP")
 _GIMP_
 
-Puede descargarse GIMP, desde su página web Oficial:
+You can download GIMP from its official website:
 
 [https://www.gimp.org/](https://www.gimp.org/)
 
 ### Aseprite
 
-A la hora de crear nuestro gráficos, con programas como GIMP, no son muy usable; por eso se utilizan otros programas para poder crear los Sprites o los patrones necesarios para nuestro juego.
+At the time of creating our graphics, with programs like GIMP, they are not very usable; for that reason other programs are used to be able to create the Sprites or the necessary patterns for our game.
 
-Para ello, se utilizan programas como Aseprite el cual es un programa que nos va a permitir crear nuestros sprites y sus animaciones, de forma sencilla.
+To do this, we use programs like Aseprite which is a program that will allow us to create in a simple way, our sprites and their animations.
 
-Además, también nos va a permitir manejar la paleta de colores para nuestros gráficos. Por lo que podremos ver en todo momento los colores que estamos utilizando para crear nuestros gráficos.
+In addition, it will also allow us to manage the color palette for our graphics. So we will be able to see every moment, the colors that we are using to create our graphics.
 
-Aseprite permite exportar nuestras animaciones de forma sencilla en distintos formatos, o crear un patron que podamos utilizar posteriormente en nuestro juego.
+Aseprite allows us to export our animations easily in different formats, or to create a pattern that we can use later in our game.
 
-Aseprite no es código abierto, y tiene un coste de 19.99$; el cual se puede adquirir desde su página web.
+Aseprite is not open source, and costs $19.99, which can be purchased from their website.
 
 [https://www.aseprite.org/](https://www.aseprite.org/)
 
-Entre sus muchas características, podemos ver:
+We can see some of his features:
 
-* Pre-visualizador de animaciones.
-* Gestión de las paletas.
-* Creación de Patrones.
-* Crear Hojas de Sprites.
-* Creación de pinceles personalizados.
-* Suavizado de lineas al dibujar.
+* Animation previewer.
+* Pallete management.
+* Pattern Creation.
+* SpriteSheet Creation.
+* Custom Brushes Creation.
+* Line Smoothing when drawing.
 
-![Aseprite](5config-entorno/img/asersprite.png "Aseprite")
+![Aseprite](5env-config/img/asersprite.png "Aseprite")
 _Aseprite_
 
 ### TILED
 
-Por último, a la hora de crear nuestros juegos, muchas veces necesitaremos herramientas para poder crear nuestros niveles a partir de bibliotecas de elementos gráficos (también llamados TileSets); por ello, podemos recomendar la utilización de la herramienta Tiled.
+Finally, when creating our games, we will often need tools to create our levels from libraries of graphic elements (also called TileSets); therefore, we can recommend the use of the Tiled tool.
 
-Esta herramienta de código Abierto, nos va a permitir crear nuestros propios mapas, a partir de distintos elementos gráficos y posteriormente, podremos exportarlo a nuestros juegos.
+This open source tool will allow us to create our own maps, from different graphic elements and later, we can export them to our games.
 
-TILED, tiene una licencia GPL, sin embargo, utiliza distintos componentes que tienen diferentes licencias; para más información, consultar la licencia en el repositorio de TILED.
+TILED has a GPL license, however, it uses different components that have different licenses; for more information, consult the license in the TILED repository.
 
 [https://github.com/mapeditor/tiled/blob/master/COPYING](https://github.com/mapeditor/tiled/blob/master/COPYING)
 
-TILED, nos permite generar mapas multicapa, para poder dibujar nuestros niveles de forma independiente cada capa; de esta forma, podemos añadir muchos más elementos de una forma más cómoda.
+TILED, allows us to generate multilayer maps, to be able to draw our levels independently each layer; in this way, we can add many more elements in a more comfortable way.
 
-Además. TILED permite añadir objetos para poder añadir información a cada nivel y poder gestionarlo dentro de nuestro código fuente.
+In addition, TILED allows to add objects to add information to each level and manage it within our source code. TILED allows to add objects in order to add information to each level and to be able to manage it within our source code.
 
-![TILED](5config-entorno/img/TILED.png "TILED")
+![TILED](5env-config/img/TILED.png "TILED")
 _TILED_
 
-Si utiliza la extensión _Genesis Code_, puede exportar los datos de cada mapa a un fichero .h para utilizarlo en nuestros juegos. Veremos más adelante su uso en el capítulo 12.
+If you use the _Genesis Code_ extension, you can export the data for each map to an .h file for use in our games. We will see more about the use of TileSets in chapter 12.
 
-Podemos descargar TILED, desde su página web oficial:
+TILED can be downloaded from its official website:
 
 [https://www.mapeditor.org/](https://www.mapeditor.org/)
 
-## Referencias
+## References
 
 * Visual Studio Code: [https://code.visualstudio.com/](https://code.visualstudio.com/)
-* Extensión Genesis Code: [https://marketplace.visualstudio.com/items?itemName=zerasul.genesis-code](https://marketplace.visualstudio.com/items?itemName=zerasul.genesis-code)
-* Documentación Genesis Code: [https://zerasul.github.io/genesis-code-docs](https://zerasul.github.io/genesis-code-docs)
-* Emulador Gens: [http://www.gens.me/](http://www.gens.me/)
+* Genesis Code Extension: [https://marketplace.visualstudio.com/items?itemName=zerasul.genesis-code](https://marketplace.visualstudio.com/items?itemName=zerasul.genesis-code)
+* Genesis Code Documentation: [https://zerasul.github.io/genesis-code-docs](https://zerasul.github.io/genesis-code-docs)
+* Gens Emulator: [http://www.gens.me/](http://www.gens.me/)
 * Gens KMod: [https://segaretro.org/Gens_KMod](https://segaretro.org/Gens_KMod)
 * Blastem: [https://www.retrodev.com/blastem/](https://www.retrodev.com/blastem/)
 * Gimp: [https://www.gimp.org/](https://www.gimp.org/)
 * Aseprite: [https://www.aseprite.org/](https://www.aseprite.org/)
-* Blog sobre Aseprite: [https://elmundodeubuntu.blogspot.com/2015/11/aseprite-editor-de-sprites.html](https://elmundodeubuntu.blogspot.com/2015/11/aseprite-editor-de-sprites.html)
+* Article about Aseprite: [https://elmundodeubuntu.blogspot.com/2015/11/aseprite-editor-de-sprites.html](https://elmundodeubuntu.blogspot.com/2015/11/aseprite-editor-de-sprites.html)
 * Tiled: [https://www.mapeditor.org/](https://www.mapeditor.org/)
