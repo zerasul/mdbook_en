@@ -230,16 +230,16 @@ _Table 2: ROM Region Values_
 
 It may be compatible in various regions; therefore it may have the value ``JUE`` indicating that it is compatible with Japan, Europe and America.
 
-[^43]: Estos valores corresponden a la forma tradicional; existe una forma posterior que fue adoptada por SEGA; para más información, comprueba las referencias de este capítulo.
+[^43]: These values correspond to the traditional form; there is a later form that was adopted by SEGA; for more information, check the references in this chapter.
 
-**NOTA**: Tener siempre en cuenta que aunque la ROM sea compatible con otras regiones, se debe también definir el Sistema de color PAL o NTSC.
+**NOTE**: Always keep in mind that even if the ROM is compatible with other regions, the PAL or NTSC color system must also be defined.
 
-En las referencias, dejamos más información acerca de la cabecera de la ROM.
+More information about the ROM header can be found in the references.
 
-## Referencias
+## References
 
 * Ohsat Games: [https://www.ohsat.com/](https://www.ohsat.com/)
 * SGDK: [https://github.com/Stephane-D/SGDK](https://github.com/Stephane-D/SGDK)
 * Docker: [https://docs.docker.com/engine/reference/run/](https://docs.docker.com/engine/reference/run/)
-* Danibus (aventuras en mega Drive): [https://danibus.wordpress.com/](https://danibus.wordpress.com/)
+* Danibus (Aventuras en mega Drive): [https://danibus.wordpress.com/](https://danibus.wordpress.com/)
 * Plutiedev: [https://plutiedev.com/rom-header#devices](https://plutiedev.com/rom-header#devices)
