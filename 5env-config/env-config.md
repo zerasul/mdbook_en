@@ -98,7 +98,7 @@ Genesis Code supports the following ways of using SGDK:
 
 Depending on the SGDK installation, we have to configure Genesis Code in one way or another.
 
-To access the Genesis Code configuration, we will access using Visual Studio Code options (File->preferences->settings menú or <kbd>ctrl</kbd>+<kbd>,</kbd>), and look for the Genesis Code options; a screenshot of the options is shown below.
+To access the Genesis Code configuration, we will access using Visual Studio Code options (File->preferences->settings menu or <kbd>ctrl</kbd>+<kbd>,</kbd>), and look for the Genesis Code options; a screenshot of the options is shown below.
 
 ![Genesis Code Configuration](5env-config/img/settings.png "Genesis Code Configuration")
 _Genesis Code Configuration_
@@ -176,7 +176,7 @@ This emulator has the following features:
 ![Blastem](5env-config/img/blastem.png "Blastem")
 _Blastem_
 
-Blastem, además, incluye algunas herramientas para desarrollo. Como puede ser el visor de las paletas del VDP o un depurador incluido en el propio emulador; tanto interno, como poder conectar uno externo.
+Blastem also includes some tools for development. Such as the VDP palette viewer or a debugger included in the emulator itself; both internal, as well as being able to connect an external one.
 
 Blastem can be downloaded for the most used operating systems (Windows, MacOs, Linux...); using the following address, or in the package repositories of some Linux distributions.
 
@@ -224,7 +224,7 @@ Aseprite is not open source, and costs $19.99, which can be purchased from their
 We can see some of his features:
 
 * Animation previewer.
-* Pallete management.
+* Palette management.
 * Pattern Creation.
 * SpriteSheet Creation.
 * Custom Brushes Creation.
