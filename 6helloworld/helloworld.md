@@ -109,7 +109,7 @@ If everything has gone correctly, we can see how the ROM will be generated in th
 
 **NOTE**: For those using Windows, you may get an error if you default to _PowerShell_; this can be fixed by setting the default vscode terminal to use _cmd_. To do this we will use the command palette and select the _View: Toggle Integrated Terminal_ option; subsequently selecting it to use cmd.
 
-![Hello](6holamundo/img/hello.png "Hello")
+![Hello](6helloworld/img/hello.png "Hello")
 _Hello World Sega on Mega Drive_
 
 [^42]: ROM (Read Only Memory): is a read-only memory that is usually located inside the cartridge in an EPROM (or Flash in the most modern versions).
@@ -241,5 +241,5 @@ More information about the ROM header can be found in the references.
 * Ohsat Games: [https://www.ohsat.com/](https://www.ohsat.com/)
 * SGDK: [https://github.com/Stephane-D/SGDK](https://github.com/Stephane-D/SGDK)
 * Docker: [https://docs.docker.com/engine/reference/run/](https://docs.docker.com/engine/reference/run/)
-* Danibus (Aventuras en mega Drive): [https://danibus.wordpress.com/](https://danibus.wordpress.com/)
-* Plutiedev: [https://plutiedev.com/rom-header#devices](https://plutiedev.com/rom-header#devices)
+* Danibus (Aventuras en mega Drive)(spanish): [https://danibus.wordpress.com/](https://danibus.wordpress.com/)
+* Plutiedev (Rom Header Info): [https://plutiedev.com/rom-header#devices](https://plutiedev.com/rom-header#devices)
