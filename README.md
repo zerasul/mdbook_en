@@ -16,7 +16,7 @@ You can buy a printed version on [Amazon](https://www.amazon.es/dp/B0CF4J4WFL?_e
 4. [SGDK](4SGDK/sgdk.md).
 5. [Configure environment](5env-config/env-config.md).
 6. [Hello World](6helloworld/helloworld.md).
-7. [Inputs](7controles/controles.md).
+7. [Inputs](7controls/controls.md).
 8. [Backgrounds](8fondos/fondos.md).
 9. [Sprites](9Sprites/sprites.md).
 10. [Physics and Mathematics](10Fisicas/fisicas.md).
