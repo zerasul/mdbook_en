@@ -280,7 +280,7 @@ First, we are going to enable the support to use the mouse; using the function `
 
 We can also see the ```sprintf``` function which will allow us to display the values of the different variables on the screen. This function works exactly the same as its counterpart in the standard C library.
 
-We can observe that there is a function called ````read_mouse``` which will be in charge of reading the mouse coordinates.
+We can observe that there is a function called ```read_mouse``` which will be in charge of reading the mouse coordinates.
 
 Let's see this function:
 

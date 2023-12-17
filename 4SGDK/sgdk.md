@@ -42,7 +42,7 @@ Sega Genesis Development Kit, is a set of tools such as a compiler, a library, r
 
 This chapter will show both the history, the components that are composed and also see some games made with SGDK and of course, we will get into the subject, installing the SGDK itself in the most popular Operating Systems.
 
-## SGKD History
+## SGDK History
 
 SGDK, started around 2005; and is created by its main author _Stephane Dallongeville_;  although being free software, it has other authors that can be consulted in its Github repository (although it started in Google Code).
 
@@ -221,7 +221,7 @@ sudo apt install texinfo default-jre
 Once the dependencies are installed, we will download the _.deb_ (or tar) package from the GENDEV repository. In the case of installing using the .deb package, we will install it with the following instruction:
 
 ```bash
-sudo dpkg -i <fichero.deb>
+sudo dpkg -i <file.deb>
 ```
 
 If all is OK, we can see that in the address ```/opt/gendev``` all the files will be in the address ```/opt/gendev```.
