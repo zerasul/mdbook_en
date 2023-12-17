@@ -125,7 +125,7 @@ In addition, some of these emulators have tools that can help us to debug our ga
 
 We are going to see a pair of emulators; it is important to know that the reader can use the one that best fits his needs when working on his homebrew project.
 
-It is important to know that even if we use an emulator, we can never emulate the 100% accuracy of the real hardware; so even if we can emulate the game, it is interesting to be able to test it on hardware; moreover, if possible on different Mega Drive models.
+Also you need to know that even if we use an emulator, we can never emulate the 100% accuracy of the real hardware; so even if we can emulate the game, it is interesting to be able to test it on hardware; moreover, if possible on different Mega Drive models.
 
 [^39]: Everdrive: is a FlashCart cartridge with the ability to load roms using an SD or MicroSD card.
 
