@@ -192,7 +192,7 @@ When working on a video game, it is important to work on the source code of the 
 
 GIMP (Gnu Image Manipulation Program), is a bitmap image editing program; this program is open source and has a GPLv3 license.
 
-The first version of this program was released in 1995 at the University of Berkley; and since then it has become part of the GNU project [^40]. GIMP, is going to help us to modify the images to be able to use them in our projects.
+The first version of this program was released in 1995 at the Berkley's University; and since then it has become part of the GNU project [^40]. GIMP, is going to help us to modify the images to be able to use them in our projects.
 
 [^40]: GNU Project: [https://www.gnu.org/home.es.html](https://www.gnu.org/home.es.html)
 
