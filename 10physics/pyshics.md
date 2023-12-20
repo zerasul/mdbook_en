@@ -240,13 +240,13 @@ It is also possible to check when a point is inside a circle; in this way we can
 <em>Collision point against circle</em>
 </div>
 
-Para comprobar que un punto pertenece a un circulo, podemos basarnos en el teorema de Pitágoras para poder calcular la distancia entre el punto y el centro de la circunferencia es correcta.
+To check that a point belongs to a circle, we can use the Pythagorean theorem to calculate the distance between the point and the center of the circle is correct.
 
 ```c
-distancia^2= X diferencia^2 + Y diferencia^2
+distance^2= X difference^2 + Y difference^2
 ```
 
-Teniendo en cuenta que la diferencia es el restar cada coordenada del centro del circulo con el punto. Pudiendo implementar esta formula y comprobar la colisión de la siguiente manera:
+Considering that the difference is the subtraction of each coordinate of the center of the circle with the point. Being able to implement this formula and check the collision as follows:
 
 ```c#
 delta_x = circle_x - point_x
@@ -259,26 +259,26 @@ then
    ...
 ```
 
-Donde:
+Where:
 
-* ```circle_x```: es la posición X del centro del circulo en píxeles.
-* ```circle_y```: es la posición Y del centro del circulo en píxeles.
-* ```point_x```: posición X del punto en píxeles.
-* ```point_y```: posición Y del punto en píxeles.
-* ```circle_radius```: es el radio de la circunferencia.
+* ```circle_x```: X position of the center of the circle in pixels.
+* ```circle_y```: Y position of the center of the circle in pixels.
+* ```point_x```: X position of the point in pixels.
+* ```point_y```: Y position of the point in pixels.
+* ```circle_radius```: is the radius of the circumference.
 
-En este caso hemos podido comprobar la distancia de un punto con respecto al centro del circulo y ver que es menor que el radio.
+In this case we have been able to check the distance of a point with respect to the center of the circle and see that it is smaller than the radius.
 
-### Círculo contra Círculo
+### Circle against Circle
 
-El último ejemplo que veremos, es ver si dos círculos se superponen; de esta forma podemos detectar si dos Sprites con este tipo de colisión, se superponen y por lo tanto tienen algún tipo de acción, etc.
+The last example we will show, is to see if two circles overlap; this way we can detect if two Sprites with this type of collision, overlap and therefore have some type of action, etc.
 
 <div class="centered_image">
-<img src="10Fisicas/img/circlevscircle.png" title="Colisión círculo contra círculo" alt="Colisión círculo contra círculo"/>
-<em>Colisión círculo contra círculo</em>
+<img src="10physics/img/circlevscircle.png" title="Circle against circle collision" alt="Circle against circle collision"/>
+<em>Circle against circle collision</em>
 </div>
 
-Como podemos ver en la anterior imagen, vemos que se pueden superponer áreas de cada circulo y tenemos que ser capaces de poder detectarlas para poder decidir que hacer con dicha colisión. Veamos una formula basada en el anterior caso.
+As we can see in the previous image, we can see that areas of each circle can overlap and we have to be able to detect them in order to decide what to do with the collision. Let's see a formula based on the previous case.
 
 ```c#
 delta_x = circle2_x - circle1_x
@@ -291,18 +291,18 @@ then
 ...
 ```
 
-Donde:
+Where:
 
-* ```circle1_x```: Posición X del centro del primer círculo.
-* ```circle1_y```: Posición Y del centro del primer círculo.
-* ```circle2_x```: Posición X del centro del segundo círculo.
-* ```circle2_y```: Posición Y del centro del segundo círculo.
-* ```circle1_radius```: Radio de la primera circunferencia.
-* ```circle2_radius```: Radio de la segunda circunferencia.
+* ```circle1_x```: X position of the center of the first circle.
+* ```circle1_y```: Y position of the center of the first circle.
+* ```circle2_x```: X position of the center of the second circle.
+* ```circle2_y```: Y position of the center of the second circle.
+* ```circle1_radius```: Radius of the first circle.
+* ```circle2_radius```: Radius of the second circle.
 
-Aunque existen más combinaciones como por ejemplo una caja contra círculo, estos se pueden calcular realizando combinaciones. Además, es importante ver que hemos estudiado las formulas y estas incluyen multiplicaciones de tal forma que en la medida de lo posible, transformar dichas multiplicaciones, por desplazamientos.
+Although there are more combinations such as a box versus circle, these can be calculated by performing combinations. In addition, it is important to see that we have studied the formulas and these include multiplications so that as far as possible, transform such multiplications, to displacements.
 
-## Ejemplo de colisión de Sprites
+## Sprites Collision Example
 
 Una vez hemos visto la teoría de como poder calcular las colisiones, podemos ver el ejemplo de este capítulo. En este caso, vamos a tomar de base el ejemplo anterior, pero añadiendo la verificación de colisiones.
 

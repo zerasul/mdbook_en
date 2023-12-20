@@ -19,7 +19,7 @@ You can buy a printed version on [Amazon](https://www.amazon.es/dp/B0CF4J4WFL?_e
 7. [Inputs](7controls/controls.md).
 8. [Backgrounds](8backgrounds/backgrounds.md).
 9. [Sprites](9Sprites/sprites.md).
-10. [Physics and Maths](10physics/physics.md).
+10. [Physics and Maths](10physics/pyshics.md).
 11. [Color Palette](11Paletas/paletas.md).
 12. [Tilesets](12TileSets/TileSets.md).
 13. [Scroll](13Scroll/scroll.md).
