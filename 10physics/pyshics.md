@@ -173,7 +173,7 @@ We are going to focus on the different examples of colliders that can be used to
 In this first case, we are going to check when a point is inside a rectangle; in such a way, for example, that we can detect when a point is reached or if the character is touching the ground.
 
 <div class="centered_image">
-<img src="10physics/img/pointvsbox.png" title="Collision point vs. box" alt="Collision point vs. box"/>
+<img src="10physics/img/pointvsbox.png" title="Collision point against box" alt="Collision point against box"/>
 <em>Collision point vs. box</em>
 </div>
 
@@ -203,8 +203,8 @@ As we can see, it is simply to check that the point is within the defined parame
 Another more common example is to check that two rectangles or boxes overlap; in this way we can check collisions between two Sprites in a simpler way.
 
 <div class="centered_image">
-<img src="10physics/img/boxvsbox.png" title="Collision box vs box" alt="Collision box vs box"/>
-<em>Collision box vs box</em>
+<img src="10physics/img/boxvsbox.png" title="Collision box against box" alt="Collision against vs box"/>
+<em>Collision box against box</em>
 </div>
 
 As we can see in the previous image, we have to check when the collision box of two or more Sprites overlap. For this we can follow the following formula very similar to the one used for point versus box.
@@ -237,7 +237,7 @@ It is also possible to check when a point is inside a circle; in this way we can
 
 <div class="centered_image">
 <img src="10physics/img/pointvscircle.png" title="Collision point against circle" alt="Collision point against circle"/>
-<em>Colisión punto contra círculo</em>
+<em>Collision point against circle</em>
 </div>
 
 Para comprobar que un punto pertenece a un circulo, podemos basarnos en el teorema de Pitágoras para poder calcular la distancia entre el punto y el centro de la circunferencia es correcta.
