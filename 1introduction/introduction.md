@@ -48,7 +48,7 @@ Another important part is that you will have seen that this book is under a Crea
 
 The objectives of this book are:
 
-1.Learn about the Sega Mega Drive / Sega genesis and its history.
+1. Learn about the Sega Mega Drive / Sega genesis and its history.
 2. Learn about the architecture of the Sega Mega Drive.
 3. To know the different tools that can be used to create homebrew software for Sega Mega Drive.
 4. Know the SGDK (Sega Genesis Development Kit) library.
