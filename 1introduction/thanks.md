@@ -2,7 +2,7 @@
 
 ## Foreword and Acknowledgments
 
-For many, it's been a long road since we turned on the CRT television, tuned in to UHF channel 36, and turned on a screen that said «SEEGAAA». Everything changed at that moment; when we began to see a certain porcupine hopping and cartwheeling at full speed.
+For many, it's been a long road since we turned on the CRT television, tuned in to UHF channel 36, and turned on a screen that said «SEEGAAA». Everything changed at that moment; when we began to see a certain hedgehog hopping and cartwheeling at full speed.
 
 This book is dedicated to all of us who grew up with a 3-button controller in our hands and who have continued to dream of being the ones to create our own games.
 

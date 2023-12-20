@@ -304,13 +304,13 @@ Although there are more combinations such as a box versus circle, these can be c
 
 ## Sprites Collision Example
 
-Una vez hemos visto la teoría de como poder calcular las colisiones, podemos ver el ejemplo de este capítulo. En este caso, vamos a tomar de base el ejemplo anterior, pero añadiendo la verificación de colisiones.
+Once we have seen the theories about how to calculate collisions, we can look at the example of this chapter. In this case, we are going to take the previous example as a basis, but adding collision checking.
 
-Puedes encontrar el ejemplo de esta sección en el repositorio de ejemplos que acompaña a este libro; en este caso, se encuentra en la carpeta _ej7.collisions_; que encontraras tanto el código fuente como los recursos de este ejemplo.
+You can find the example for this section in the example repository that accompanies this book; in this case, it is located in the _ej7.collisions_ folder; you will find both the source code and the resources for this example.
 
-Para poder ver mejor las colisiones, hemos modificado los Sprites para dibujar el contorno de las cajas de colisión. Puedes ver esos Sprites modificados en la carpeta _res_ del ejemplo.
+In order to understand the collisions better, we have modified the Sprites to draw the outline of the collision boxes. You can see those modified Sprites in the _res_ folder of the example.
 
-Se ha creado una estructura, para almacenar los datos de la caja de colisión; en este ejemplo usaremos una caja rectangular para comprobar la colisión.
+A C Struct has been created to store the collision box data; in this example we will use a rectangular box to check the collision.
 
 ```c
 typedef struct {
@@ -321,16 +321,16 @@ typedef struct {
 }BoxCollider;
 ```
 
-Donde las propiedades de esta estructura son:
+Where the properties of this struct are:
 
-* _x_: Coordenada X inicial en píxeles de la esquina superior izquierda.
-* _y_: Coordenada Y inicial en píxeles de la esquina superior izquierda.
-* _w_: Ancho en píxeles del rectángulo.
-* _h_: Alto en píxeles del rectángulo.
+* _x_: X coordinate in pixels of the upper left corner.
+* _y_: Y coordinate in pixels of the upper left corner.
+* _w_: Rectangle Width in pixels.
+* _h_: Rectangle height in pixels.
 
-Además, se ha añadido la función ```checkCollision``` que recibe dos Sprites, y devuelve un int. Esta función será llamada en cada Frame ya que estará incluida en el bucle infinito.
+In addition, the ````checkCollision``` function has been added, which receives two Sprites, and returns an integer. This function will be called in each Frame since it will be included in the infinite loop.
 
-Veamos esta función; para mayor comprensión vamos a estudiarla por fragmentos.
+Let's take a look at this function, we will see some fragments for a better understanding.
 
 ```c
 int checkCollision(Sprite* sprt1, Sprite* sprt2){
@@ -348,9 +348,9 @@ int checkCollision(Sprite* sprt1, Sprite* sprt2){
     sprt2Collider.h=21;
 ```
 
-Como podemos ver en este primer fragmento, se crean las estructuras de cada Collider correspondiente a cada Sprite; esta vez se ha puesto un valor fijo pero dependiendo de cada caso, podría cambiar por animación, frame,etc.
+As we can see in this first fragment, the structures of each Collider corresponding to each Sprite are created; this time a fixed value has been set, but depending on each case, it could change by animation, frame, etc.
 
-Una vez obtenidos dichas variables, calculamos cada punto necesario para comprobar si ambas cajas se superponen; veamos el fragmento.
+Once these variables have been obtained, we calculate each point necessary to check whether the two boxes overlap; let's look at the fragment.
 
 ```c
    
@@ -365,7 +365,7 @@ Una vez obtenidos dichas variables, calculamos cada punto necesario para comprob
     s8 box2_y2 = sprt2Collider.y+sprt2Collider.h;
 ```
 
-Vemos como en cada caso se calcula tanto la posición x1,y1 y la posición x2,y2 que corresponden al punto inicial y final del rectángulo que conforma la caja de colisión. Una vez se tiene cada punto, ya podemos realizar la comprobación:
+We see how in each case both the x1,y1 position and the x2,y2 position are calculated, corresponding to the initial and final point of the rectangle that forms the collision box. Once we have each point, we can perform the check:
 
 ```c
    
@@ -379,7 +379,7 @@ Vemos como en cada caso se calcula tanto la posición x1,y1 y la posición x2,y2
             }
 ```
 
-Vemos como si la comprobación es correcta se devolverá ```TRUE``` (o 1); mientras si no se cumple, se devolverá ```FALSE``` (o 0); por lo que no habría colisión. Por último, mostraremos el fragmento de código donde se realiza la llamada a la función ```checkCollision```:
+We see how if the check is correct it will return ```TRUE``` (or 1); while if it is not fulfilled, it will return ```FALSE``` (or 0); so there would be no collision. Finally, we will show the code fragment where the call to the ```checkCollision``` function is made:
 
 ```c
 
@@ -390,21 +390,21 @@ VDP_drawText(buffer,3,3);
 ...
 ```
 
-Vemos como en cada iteración del bucle, se comprueba la colisión entre los Sprites ```sha``` y ```elli``` de esta forma, se muestra por pantalla cuando ambos Sprites colisionan.
+We see how in each iteration of the loop, the collision between the Sprites ```sha``` and ```elli``` is checked in this way, it is shown on the screen when both Sprites collide.
 
-Por último, ya solo nos queda compilar y ejecutar el ejemplo; ya sea de forma manual, o usando la extensión _Genesis Code_, con el comando _Genesis Code: compile & Run Project_. Si todo va correctamente, nos mostrará el siguiente resultado:
+Finally, we only have to compile and run the example; either manually, or using the _Genesis Code_ extension, with the command _Genesis Code: compile & Run Project_. If everything goes correctly, it will show us the following result:
 
-![Ejemplo 7: Colisiones](10Fisicas/img/ejemplo7.png "Ejemplo 7: Colisiones")
-_Ejemplo 7: Colisiones_
+![Example 7: Collisions](10physics/img/ejemplo7.png "Example 7: Collisions")
+_Example 7: Collisions_
 
-Tras ver este ejemplo, ya podemos ver como usar la físicas y matemáticas a la hora de trabajar con Sega Mega Drive. Desde las distintas instrucciones aritméticas que podemos hacer con el Motorola 68000, hasta pasar por repasar las colisiones entre Sprites y como podemos implementarlos en nuestros juegos.
+After seeing this example, we can see how to use physics and mathematics when working with Sega Mega Drive. From the different arithmetic instructions that we can do with the Motorola 68000, to review the collisions between Sprites and how we can implement them in our games.
 
-En el siguiente capítulo, ya trataremos como Sega mega Drive gestiona los colores y las distintas paletas que podemos utilizar y cambiar.
+In the next chapter, we will discuss how Sega mega Drive manages colors and the different palettes we can use and change.
 
-## Referencias
+## References
 
-* Motorola 68000 Instrucciones: [https://wiki.neogeodev.org/index.php?title=68k_instructions_timings](https://wiki.neogeodev.org/index.php?title=68k_instructions_timings)
-* Optimizaciones GCC: [https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html](https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html)
-* Tipos básicos C: [https://ccia.ugr.es/~jfv/ed1/c/cdrom/cap2/cap24.htm](https://ccia.ugr.es/~jfv/ed1/c/cdrom/cap2/cap24.htm)
+* Motorola 68000 Instructions: [https://wiki.neogeodev.org/index.php?title=68k_instructions_timings](https://wiki.neogeodev.org/index.php?title=68k_instructions_timings)
+* GCC Optimizations: [https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html](https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html)
+* C Basic Types: [https://ccia.ugr.es/~jfv/ed1/c/cdrom/cap2/cap24.htm](https://ccia.ugr.es/~jfv/ed1/c/cdrom/cap2/cap24.htm)
 * PlutieDev: [https://plutiedev.com/basic-collision](https://plutiedev.com/basic-collision)
-* DaniBus (Aventuras en Mega Drive): [https://danibus.wordpress.com/2019/10/13/leccion-10-colisiones/](https://danibus.wordpress.com/2019/10/13/leccion-10-colisiones/)
+* DaniBus (Aventuras en Mega Drive)(Spanish): [https://danibus.wordpress.com/2019/10/13/leccion-10-colisiones/](https://danibus.wordpress.com/2019/10/13/leccion-10-colisiones/)
