@@ -148,7 +148,7 @@ IMAGE bg_color1 "gfx/fondocolor1.png" NONE
 IMAGE bg_prio "gfx/fondocolor2.png" NONE
 ```
 
-In the source code, you can find the function ```drawPriorityMap``, which will draw in the background A the priority map, starting from the second image. It receives the image containing the priorities by parameter; let's see a fragment with the function:
+In the source code, you can find the function ```drawPriorityMap```, which will draw in the background A the priority map, starting from the second image. It receives the image containing the priorities by parameter; let's see a fragment with the function:
 
 ```c
     u16 tilemap_buff[MAXTILES];
