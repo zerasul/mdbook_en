@@ -249,7 +249,7 @@ Let's see a function's fragment:
 
 In this fragment, we can see that if the right button has been pressed and the character is more than 220 pixels to the right, the ```xord``` variable will be set to 1; indicating that there will be a displacement. Besides that the animation of the Sprite will be updated.
 
-Otherwise, the ````xord``` variable will be set to zero indicating that there is no displacement; in addition to updating the position and animation of the Sprite.
+Otherwise, the ```xord``` variable will be set to zero indicating that there is no displacement; in addition to updating the position and animation of the Sprite.
 
 Let's look at the next function; it is the ```void updatePhisics()``` function, which will update everything needed to perform the scrolling. Let's see a Fragment:
 
@@ -263,7 +263,7 @@ if(xord>0){
 }
 ```
 
-In this case, we see if the variable ````xord``` is greater than zero, the offset and the pixel counter will be updated; so if the counter is greater than 7, a new Tile will need to be calculated. Let's look at one last fragment to see how we generate such a Tile at the end of the plane.
+In this case, we see if the variable ```xord``` is greater than zero, the offset and the pixel counter will be updated; so if the counter is greater than 7, a new Tile will need to be calculated. Let's look at one last fragment to see how we generate such a Tile at the end of the plane.
 
 ```c
 if(player.offset>640) player.offset=0;
@@ -375,9 +375,9 @@ VDP_setScrollingMode(
 
 We have configured the horizontal scroll, as of flat type (in this example we will not scroll horizontally); and the vertical scroll as ```VSCROLL_COLUMN``` which indicates that it is made scroll every 2 Tiles; since in Mega Drive it is not possible to make vertical scroll of only 1 Tile.
 
-**NOTA:** Para versiones anteriores a SGDK 1.90, se debe usar ```VSCROLL_2TILE```.
+**NOTE:** For versions prior to SGDK 1.90, ```VSCROLL_2TILE``` must be used.
 
-Una vez configurado, pasaremos a cargar un vector con los valores de Desplazamiento:
+Once configured, we will load a vector with the Displacement values:
 
 ```c
 s16 scrollVector[20];
