@@ -23,7 +23,7 @@ You can buy a printed version on [Amazon](https://www.amazon.es/dp/B0CF4J4WFL?_e
 11. [Color Palette](11colors/colors.md).
 12. [Tilesets](12TileSets/TileSets.md).
 13. [Scroll](13Scroll/scroll.md).
-14. [Sound and Music](14sonido/sonido.md).
+14. [Sound and Music](14sound/sound.md).
 15. [SRAM and Interruptions](15SRAM/sram.md).
 16. [Debug](16Debug/debug.md).
 
