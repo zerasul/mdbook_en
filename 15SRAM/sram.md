@@ -1,29 +1,29 @@
-# 15. SRAM e interrupciones
+# 15. SRAM and Interruptions
 
-Ya estamos acercándonos a la recta final de este libro. Hemos estado revisando tanto la parte visual, como el sonido. Además de estudiar toda la arquitectura de la Sega Mega Drive; vamos a revisar un apartado importante; tanto para guardar los progresos de nuestro juego, como para manejar las distintas interrupciones que podemos utilizar a la hora de dibujar la pantalla.
+We are now approaching the final part of this book. We have been reviewing both the visual part, as well as the sound. Besides studying all the architecture of the Sega Mega Drive; we are going to review an important section; to save the progress of our game, as well to handle the different interruptions that we can use when drawing the screen.
 
-En primer lugar, tenemos que saber como vamos a almacenar los datos y tener en cuenta que no todos los tipos de cartucho a utilizar. Por otro lado, veremos el uso de funciones de interrupción para poder actualizar los recursos de nuestro juego usando dichas interrupciones.
+First of all, we have to know how we are going to store the data and keep in mind that not all types of cartridge to use. On the other hand, we will see the use of interrupt functions to be able to update the resources of our game using these interrupts.
 
-Por último, vamos a ver un ejemplo que utilizará estas interrupciones para poder realizar dichas modificaciones y ver como optimizar nuestro juego.
+Finally, we are going to see an example that will use these interruptions to make these modifications and see how to optimize our game.
 
-## Guardar el progreso de nuestros juegos
+## Save our Game Process
 
-Muchos hemos sufrido, el no poder guardar el progreso de nuestros juegos en Mega Drive; solo algunos juegos disponían de esta capacidad de poder guardar dicho progreso en el cartucho. Esto es debido a que estos cartuchos, tenían una memoria SRAM [^64] junto con una pila de botón (que tenemos que tener cuidado que no se agote tras tantos años); también había algunos tipos especiales como _Sonic 3_ que tenia un tipo de memoria especial sin necesidad de Pila.
+Many of us have suffered, not being able to save the progress of our Mega Drive games; only some games had this ability to save the progress in the cartridge. This is because these cartridges, had a SRAM memory [^64] along with a button battery (which we have to be careful not to run out of battery after so many years); there were also some special types such as _Sonic 3_ that had a special type of memory without the need of battery.
 
-Por ello, si necesitamos almacenar información del progreso de nuestro juego, podemos utilizar esta memoria SRAM, necesitaremos un cartucho que tenga tanto la ROM, como dicha memoria estática.
+Therefore, if we need to store information about the progress of our game, we can use this SRAM memory, we will need a cartridge that has both ROM and static memory.
 
-![Cartucho con SRAM](15SRAM/img/sram.png "Cartucho con SRAM")
-_Cartucho con SRAM (DragonDrive)_
+![SRAM Cartridge](15SRAM/img/sram.png "SRAM Cartridge")
+_SRAM Cartridge (DragonDrive)_
 
-[^64]: SRAM: Memoria RAM estática. Es una memoria estática de acceso aleatorio; que permite una gran velocidad pero normalmente de poco tamaño.
+[^64]: SRAM: Static RAM. It is a static random access memory; it allows high speed but is usually small in size.
 
-Aunque también existe la posibilidad de crear un generador de contraseñas; de tal forma que podamos mostrar dicho código al jugador para poder posteriormente continuar el progreso.
+Although there is also the possibility of creating a password generator; so we can show this code to the player to be able to continue the progress later.
 
 ### SRAM
 
-Como hemos podido comentar, podemos almacenar información en la memoria estática de tal forma que no se pierda dicha información al apagar la consola. Para ello, necesitaremos una forma de enviar información al cartucho para almacenar dicha información en la memoria SRAM.
+As we have already mentioned, we can store information in the static memory in such a way that this information is not lost when the console is turned off. To do this, we will need a way to send information to the cartridge to store this information in the SRAM memory.
 
-Gracias a SGDK, podemos almacenar esta información de manera que podamos también recuperarla. Vamos a poner un caso de uso relacionado con como podemos almacenar o recuperar dicha información. Supongamos el siguiente ```struct``` en C:
+Thanks to SGDK, we can store this information so that we can also retrieve it. Let's put a use case related to how we can store or retrieve such information. Let's assume the following ```struct``` in C:
 
 ```c
 struct{
@@ -34,32 +34,32 @@ struct{
 }player;
 ```
 
-Donde vemos que tenemos almacenada las vidas que tiene el jugador, escena por la que va, la puntuación y por último un checksum para poder comprobar que la información almacenada es correcta. Esta información, la podemos almacenar en la SRAM, usando una serie de funciones.
+Where we see that we have stored the lives that the player has, the scene through which it goes, the score and finally a checksum to be able to verify that the stored information is correct. This information, we can store it in the SRAM, using a series of functions.
 
-En primer lugar, necesitaremos activar al memoria en modo escritura usando la función ```SRAM_enable```; que activa el acceso a la memoria SRAM en modo escritura. En caso de querer acceder solo en modo lectura, podemos usar la función ```SRAM_enableRO```; que activa la memoria SRAM en modo solo lectura.
+First of all, we will need to enable the memory in write mode using the ```SRAM_enable``` function; which enables the SRAM memory access in write mode. In case we want to access only in read mode, we can use the function ```SRAM_enableRO```; which enables the SRAM memory in read-only mode.
 
-Una vez activada, podemos escribir o leer sobre la memoria. Es importante conocer que la SRAM esta dividida en palabras de 8 bits; por lo que a la hora de almacenar la información tenemos que tener esto en cuenta.
+Once enabled, we can write to or read from the memory. It is important to know that the SRAM is divided into 8-bit words; so when storing information we have to take this into account.
 
-Veamos que funciones necesitaremos para almacenar el anterior ```struct```; vemos que necesitaremos almacenar 2 variables de 8 bits y dos de 32 bits. Por lo que necesitaremos 10 bytes para almacenar toda la información.
+Let's see what functions we will need to store the above ```struct```; we see that we will need to store 2 variables of 8 bits and two of 32 bits. So we will need 10 bytes to store all the information.
 
-Podemos usar las funciones ```SRAM_writeByte```,```SRAM_writeWord``` o ```SRAM_writeLong``` para almacena información en la memoria SRAM. Veamos cada una de ellas:
+We can use the ```SRAM_writeByte```,```SRAM_writeWord``` or ```SRAM_writeLong``` functions to store information in SRAM memory. Let's take a look at each of them:
 
-La función ```SRAM_writeByte``` almacena 1 byte en la SRAM en función del Offset que indica el offset en el espacio dentro de la SRAM (recuerda que cada palabra son 8 bits). Recibe los siguientes parámetros:
+The ```SRAM_writeByte``` function stores 1 byte in the SRAM according to the Offset that indicates the offset in the space inside the SRAM (remember that each word is 8 bits). It receives the following parameters:
 
-* _offset_: Indica el offset con el que se almacenará.
-* _value_: Indica el valor a almacenar (un byte).
+* _offset_: The offset where the bytes will be stored in SRAM.
+* _value_: Value To Store (1 byte).
 
-La función ```SRAM_writeWord``` almacena 1 palabra (de 2 bytes) en la SRAM. Recibe los siguientes parámetros:
+The ```SRAM_writeWord``` function stores 1 word (2 bytes) in the SRAM. It receives the following parameters:
 
-* _offset_: Indica el offset con el que se almacenará.
-* _value_: Indica el valor a almacenar (dos bytes).
+* _offset_: The offset where the bytes will be stored in SRAM.
+* _value_: Value To Store (2 bytes).
 
-Por último, la función SRAM_writeLong escribe un entero largo (32 bits) en la SRAM. Recibe los siguientes parámetros:
+Finally, the ````SRAM_writeLong``` function writes a long integer (32 bits) to the SRAM. It receives the following parameters:
 
-* _offset_: Indica el offset con el que se almacenará.
-* _value_: Indica el valor a almacenar (4 bytes).
+* _offset_: The offset where the bytes will be stored in SRAM.
+* _value_: Value To Store (4 bytes).
 
-Teniendo en cuenta las anteriores funciones, podemos crear la siguiente función para guardar el progreso.
+Considering the above functions, we can create the following function to save the progress.
 
 ```c
 void savePlayerProgress(){
@@ -74,29 +74,29 @@ void savePlayerProgress(){
 }
 ```
 
-Como podemos ver, realizaremos un checksum (de forma sencilla); sumando los valores almacenados y almacenándolos en la memoria; de tal forma, que después en la lectura podamos comprobar que se ha realizado correctamente.
+As we can see, we will perform a checksum (in a simple way); adding up the stored values and storing them in the memory; so that later, when reading, we can check that it has been done correctly.
 
-Vamos a ver como sería la operación inversa. Leer desde la memoria SRAM. En este caso, vamos a utilizar las siguientes funciones ```SRAM_readByte```, ```SRAM_readWord``` o ```SRAM_readLong```. Veamos cada una de estas funciones:
+Let's see what the reverse operation would be like. Read from SRAM memory. In this case, we are going to use the following functions ```SRAM_readByte```, ```SRAM_readWord``` or ```SRAM_readLong```. Let's look at each of these functions:
 
-La función ```SRAM_readByte``` lee un byte desde la memoria SRAM. Recibe el siguiente parámetro:
+The ```SRAM_readByte``` function reads a byte from the SRAM memory. It receives the following parameter:
 
-* _offset_: Indica el offset con el que se almacenará.
+* _offset_: The offset where the bytes are stored in SRAM.
 
-Esta función devuelve un entero de 1 byte con la información leída.
+This function returns a 1-byte integer with the information that has been read.
 
-La función ```SRAM_readWord``` lee una palabra (2 bytes) desde la memoria SRAM. Recibe el siguiente parámetro:
+The ```SRAM_readWord``` function reads a word (2 bytes) from the SRAM memory. It receives the following parameter:
 
-* _offset_: Indica el offset con el que se almacenará.
+* _offset_: The offset where the bytes are stored in SRAM.
 
-Esta función devuelve un entero de 2 bytes con la información leída.
+This function returns a 2-byte integer with the information read.
 
-La función ```SRAM_readLong``` lee un entero largo (4 bytes) desde la memoria SRAM. Recibe el siguiente parámetro:
+The ```SRAM_readLong``` function reads a long integer (4 bytes) from SRAM memory. It receives the following parameter:
 
-* _offset_: Indica el offset con el que se almacenará.
+* _offset_: The offset where the bytes are stored in SRAM.
 
-Esta función devuelve un entero de 4 bytes con la información leída.
+This function returns a 4-byte integer with the information read.
 
-Tras ver las funciones que leen desde la memoria SRAM, podemos crear una función para leer dicha información:
+After seeing the functions that read from the SRAM memory, we can create a function to read this information:
 
 ```c
 void readGameProgress(){
@@ -107,78 +107,78 @@ void readGameProgress(){
 }
 ```
 
-Obviamente, quedaría por comprobar que el checksum leído es correcto con el calculado de los datos del struct.
+Obviously, it would still be necessary to verify that the checksum read is correct with the one calculated from the struct data.
 
-## Interrupciones
+## Interruptions
 
-Hemos hablado de como utilizar la SRAM; pero ahora nos quedaría hablar de otro aspecto importante a la hora de trabajar con Sega Mega Drive.
+We have talked about how to use the SRAM; but now we would like to talk about another important aspect when working with Sega Mega Drive.
 
-En los ejemplos, has podido ver que hemos ido haciendo cada acción, y después hemos esperado a que termine de repintar la pantalla; debido al uso de la función ```SYS_doVBlankProcess()```, la cual gestiona el repintado de pantalla y el hardware hasta que se ha terminado de pintar completamente la pantalla.
+In the examples, you can see that we have been doing each action, and then we have waited for the screen to finish repainting; due to the use of the ```SYS_doVBlankProcess()``` function, which manages the screen and hardware repainting until the screen has been completely repainted.
 
-Tenemos que tener en cuenta que esta consola esta pensada para ser usada en televisores CRT; es decir, que se van pintando por cada línea y de arriba a abajo; por lo que en cada pasada, se debe esperar a que tanto el VDP como la televisión, acaben de pintar.
+We have to take into account that this console is designed to be used in CRT  (Cathodic Ray Tube) televisions, that they are painted by each line and from top to bottom; so in each pass, it is necessary to wait until both the VDP and the television finish painting.
 
-Durante este tiempo de pintado, la CPU puede estar muy ociosa; de tal forma que puede ser interesante este tiempo para poder realizar operaciones y optimizar el tiempo de la CPU; ya que si se tarda mucho en realizar todas las operaciones antes de esperar al pintado, puede ocurrir una bajada en las imágenes por segundo (50 para PAL y 60 para NTSC); por lo que es mejor optimizar el uso de la CPU.
+During this painting time, the CPU can be very idle; so it can be interesting to use this time to perform operations and optimize the CPU time; because if it takes too long to perform all operations before waiting for painting, a drop in frames per second can occur (50 for PAL and 60 for NTSC); so it is better to optimize the CPU usage.
 
-Para ello, podemos utilizar las interrupciones; las cuales nos van a permitir ejecutar código durante estos periodos que se esta terminando de pintar la pantalla. Estas interrupciones, son lanzadas por el VDP al terminar de pintar tanto un conjunto de líneas, como la propia pantalla. Veamos un esquema.
+To do this, we can use interrupts, which will allow us to execute code during these periods when the screen is being painted. These interruptions are launched by the VDP when finishing painting both a set of lines and the screen itself. Let's see a diagram.
 
-![Interrupciones Mega Drive](15SRAM/img/hblank.jpg "Interrupciones Mega Drive")
-_Interrupciones Mega Drive_
+![Mega Drive Screen Interruptions](15SRAM/img/hblank.jpg "Mega Drive Screen Interruptions")
+_Mega Drive Screen Interruptions_
 
-Como podemos ver en el esquema, por cada vez que se pinta una línea, se lanza una interrupción _HBlank_, cuando se reposiciona para pintar la siguiente. En este tiempo, se puede utilizar para actualizar parte de nuestro código como puede ser actualizar las paletas.
+As we can see in the schematic, for each time a line is painted, an _HBlank_ interrupt is thrown, when it is repositioned to paint the next one. In this time, it can be used to update part of our code such as updating the palettes (Some games like Sonic uses this technique).
 
-Por otro lado, podemos observar que cuando se termina de pintar la pantalla, se lanza otra interrupción la _VBlank_, la cual también podemos utilizar para actualizar partes de nuestro juego como pueden ser los fondos y/o paleta; de esta forma podemos crear animaciones en los propios fondos.
+On the other hand, we can observe that when the screen is finished painting, another interruption the _VBlank_ is launched, which we can also use to update parts of our game such as the backgrounds and/or palette; in this way we can create animations on the backgrounds themselves.
 
-Siempre has de saber, que tanto HBlank como VBLank tiene un corto periodo de tiempo para ejecutar código por lo que no podemos utilizar operaciones muy complejas. Por ello, tenemos que tener mucho cuidado a la hora de utilizar estas interrupciones.
+You should always know that both HBlank and VBLank have a short period of time to execute code so we cannot use very complex operations. Therefore, we have to be very careful when using these interrupts.
 
-Veamos como se puede utilizar cada una de estas interrupciones.
+Let's see how each of these interrupts can be used.
 
 ### HBlank
 
-La Interrupción HBlank, ocurre cada vez que pinta una línea; aunque en muchas ocasiones no es necesario utilizar una función de interrupción por cada línea; por ello, Mega Drive dispone de un registro de interrupción ($0A), que va a actuar de contador e ira decrementándose hasta llegar a cero.
+The HBlank interrupt occurs every time you paint a line, although in many cases it is not necessary to use an interrupt function for each line; therefore, Mega Drive has an interrupt register ($0A), which will act as a counter and will be decremented until it reaches zero.
 
-Cuando este registro llega a cero, es cuando se llamará a la función de interrupción asociada. Esto podemos controlarlo a nivel de SGDK; por lo que podemos controlar que código ejecutaremos.
+When this register reaches zero, the associated interrupt function will be called. We can control this at the SGDK level.
 
-Es muy importante a tener en cuenta que el tiempo que pasa desde que se lanza la interrupción hasta que se empieza a pintar la siguiente línea, es muy corto por lo que estas funciones no pueden ser muy pesadas.
+It is very important to keep in mind that the time that passes from the time the interruption is triggered until the next line is painted is very short, so these functions cannot be too heavy.
 
-Veamos que funciones tiene SGDK para trabajar con este tipo de interrupción.
+Let's see what functions SGDK has to work with this type of interrupt.
 
-La función ```VDP_setHIntCounter```, permite establecer el valor del contador de interrupción para que se ejecute cada X líneas hay que tener en cuenta que el contador llega hasta el valor 0 por lo que un valor de 5 será desde 5 hasta 0 (5+1); recibe el siguiente parámetro:
+The function ```VDP_setHIntCounter```, allows you to set the value of the interrupt counter to be executed every X lines, note that the counter goes up to the value 0, so a value of 5 will be from 5 to 0 (5+1); it receives the following parameter:
 
-* _value_: Valor a establecer indicando cuantas líneas van a pintarse hasta lanzar la interrupción; si se establece a 0, será en cada línea (scanLine).
+* _value_: Value to be set indicating how many lines will be painted until the interrupt is triggered; if set to 0, it will be on each line (scanLine).
 
-Por otro lado, la función ```VDP_setHInterrupt```, activa a o desactiva la interrupción _Hblank_ de tal forma que no se lanzará la función de interrupción. Recibe el siguiente parámetro:
+On the other hand, the function ```VDP_setHInterrupt```, enables or disables the _Hblank_ interrupt so that the interrupt function will not be triggered. It receives the following parameter:
 
-* _value_: se activa si es distinto de cero o se desactiva si se le pasa un cero.
+* _value_: Enables (non-zero value) or disables (zero value) the HBLank Interruption.
 
-Por último, para establecer la función que se utilizará para la interrupción HBlank, se usará la función ```SYS_setHIntCallback```, que recibe el siguiente parámetro:
+Finally, to set the function to be used for the HBlank interrupt, the ```SYS_setHIntCallback``` function, which receives the following parameter, will be used:
 
-* _CB_: Puntero a función callback será una función que no tendrá parámetros y no devuelve nada; aunque es necesario que tenga como prefijo ```HINTERRUPT_CALLBACK```. Es importante saber que esta función no puede realizar operaciones muy pesadas; aunque puede cambiar la paleta de colores (CRAM), Scroll o algún otro efecto.
+* _CB_: Pointer to callback function will be a function that will not have parameters and does not return anything; although it is necessary that it has as prefix ```HINTERRUPT_CALLBACK```. It is important to know that this function cannot perform very heavy operations; although it can change the color palette (CRAM), Scroll or some other effect.
 
 ### VBlank
 
-Tras ver la interrupción horizontal, podemos ver la interrupción vertical; que ocurre cuando se termina de pintar toda la pantalla; esta interrupción es mucho mayor el tiempo que tarda en realizarse. Por ello, se puede utilizar para realizar más cambios que para las interrupciones horizontales.
+After seeing the horizontal interruption, we can see the vertical interruption; which occurs when the entire screen is finished being painted; this interruption takes much longer to complete. Therefore, it can be used to make more changes than the horizontal interruptions.
 
-Vamos a ver como podemos utilizar esta interrupción, y las funciones que nos provee SGDK para trabajar con este tipo de interrupción. Es importante conocer, que para este tipo de interrupción es muy util realizar todas las operaciones que están relacionadas con el VDP como actualizar los fondos o los propios Sprites.
+We are going to see how we can use this interrupt, and the functions that SGDK provides us to work with this type of interrupt. It is important to know, that for this type of interrupt it is very useful to perform all the operations that are related to the VDP like updating the backgrounds or the Sprites themselves.
 
-Es muy importante tener esto en cuenta ya que realizar estos cambios en el hilo principal, es mucho mas costoso; por lo que tenemos que evitar realizar estos cambios en dicho hilo.
+It is very important to take this into account since making these changes in the main thread is much more expensive, so we have to avoid making these changes in the main thread.
 
-Comenzaremos por la función ```SYS_setVBlankCallback``` que establece la función que establece la función que se ejecutará en la interrupción de _VBlank_. Esta función utiliza el tiempo que hay cuando se llama a ```SYS_doVBlankProcess``` y aprovecha el tiempo mientras se esta pintando la pantalla. Recibe los siguientes parámetros:
+We will start with the function ```SYS_setVBlankCallback``` which sets the function that establishes the function to be executed at the _VBlank_ interrupt. This function uses the time when ```SYS_doVBlankProcess``` is called and takes advantage of the time while the screen is being painted. It receives the following parameters:
 
-* _CB_: puntero a la función de interrupción. Esta función no recibe ningún parámetro ni devuelve ningún dato.
+* _CB_: pointer to the interrupt function. This function does not receive any parameters or return any data.
 
-También existe la función ```SYS_setVIntCallback``` que establece también la función de interrupción funcionando de igual manera que la anterior. Pero en este caso, desde que se lanza la propia interrupción y se acaba de pintar la pantalla. Recibe los siguientes parámetros:
+There is also the function ```SYS_setVIntCallback``` which also sets the interrupt function working in the same way as the previous one. But in this case, since the interrupt itself is launched and the screen is just painted. It receives the following parameters:
 
-* _CB_: puntero a la función de interrupción. Esta función no recibe ningún parámetro ni devuelve ningún dato.
+* _CB_: pointer to the interrupt function. This function does not receive any parameters or return any data.
 
-## Ejemplo con Interrupciones
+## Interruption Example
 
-Ya hemos podido ver las distintas funciones para trabajar con interrupciones; por lo que podemos pasar a realizar un ejemplo de uso con estas funciones. Puedes encontrar el ejemplo de este capítulo, en el repositorio de ejemplos; que puedes encontrar en la siguiente dirección:
+We have already been able to see the different functions for working with interrupts; so we can move on to an example of use with these functions. You can find the example of this chapter, in the repository of examples; that you can find in the following address:
 
 [https://github.com/zerasul/mdbook-examples](https://github.com/zerasul/mdbook-examples)
 
-La carpeta en la que encontrarás el ejemplo es _ej16.interrupts_; en la cual encontraras un ejemplo sencillo, en el que podremos controlar a un personaje. En este caso, vamos a cambiar la forma de interactuar con el juego.
+The folder where you will find the example is _ej16.interrupts_; in this folder you will find a simple example, in which we can control a character. In this case, we are going to change the way of interacting with the game.
 
-En primer lugar, trabajaremos con una serie de variables donde almacenaremos el estado del jugador; para ello utilizaremos el siguiente ```struct```:
+First, we will work with a series of variables where we will store the state of the player; for this we will use the following ```struct```:
 
 ```c
 struct{
@@ -189,18 +189,18 @@ struct{
 }player;
 ```
 
-En este caso, almacenaremos el Sprite a utilizar, posición de x e y, además de la animación actual (utilizaremos una serie de constantes para establecerla). Vamos a definir las siguientes dos funciones:
+In this case, we will store the Sprite to use, x and y position, as well as the current animation (we will use a series of constants to set it). We will define the following two functions:
 
 ```c
 void vblank_int_function();
 void handleInput();
 ```
 
-La primera función ```vblank_int_function``` es la que utilizaremos como función para la interrupción _vBlank_ de tal forma, que la utilizaremos para actualizar la pantalla (fondos, Sprites,etc).
+The first function ```vblank_int_function``` is the one we will use as a function for the _vBlank_ interrupt in such a way, that we will use it to update the screen (backgrounds, Sprites,etc).
 
-Por otro lado, la función ```handleInput``` utilizaremos para gestionar los controles (de forma síncrona).
+On the other hand, the ```handleInput``` function will be used to manage the controls (synchronously).
 
-Veamos el inicio de la función principal:
+Let's look at the beginning of the main function:
 
 ```c
  SYS_disableInts();
@@ -221,11 +221,11 @@ player.sprite = SPR_addSprite(&player_sprt,
 SYS_enableInts();
 ```
 
-Vemos que al inicio de la inicialización, deshabilitamos las interrupciones con la función ```SYS_disableInts``` y ```SYS_enableInts``` que activa las interrupciones. Siempre es importante deshabilitar las interrupciones cuando se esta cargando información (añadiendo sprites, fondos,etc).
+We see that at the beginning of the initialization, we disable the interrupts with the function ```SYS_disableInts``` and ```SYS_enableInts``` which activates the interrupts. It is always important to disable interrupts when loading data (adding sprites, backgrounds, etc).
 
-Una vez añadido el fondo y el sprite, ya podemos activar la función de la interrupción _VBlank_; que lo realizaremos con la función ```SYS_setVBlankCallback```; estableciendo el puntero a la función.
+Once the background and the sprite have been added, we can activate the _VBlank_ interrupt function; which we will do with the function ```SYS_setVBlankCallback```; setting the pointer to the function.
 
-Si revisamos la función de interrupción ```vblank_int_function```, podemos ver que se realiza en esta función:
+If we review the ```vblank_int_function```, we can see that it is performed in this function:
 
 ```c
 void vblank_int_function(){
@@ -236,9 +236,9 @@ void vblank_int_function(){
 }
 ```
 
-En esta función, vemos que se actualiza la posición del Sprite, su animación y se actualizan los Sprites. Esto se realiza en el tiempo que se termina de pintar la pantalla.
+In this function, we see that the position of the Sprite, its animation and the Sprites are updated. This is done in the time that the screen is finished being painted.
 
-Ahora podemos pasar a revisar la función ```handleInput``` que va a gestionar los controles. Veamos un fragmento:
+Now we can move on to review the ```handleInput``` function that will manage the controls. Let's see a fragment:
 
 ```c
 u16 value = JOY_readJoypad(JOY_1);
@@ -250,14 +250,14 @@ if(value & BUTTON_RIGHT){
 ...
 ```
 
-Podemos observar que se comprueba el valor leído del mando 1 (```JOY_1```), y se actualiza el estado del struct. De tal forma, que se actualizará cuando se realice la interrupción _VBlank_. De esta forma, el juego es mucho mas eficiente ya que toda operación con el VDP, se puede realizar en la función de interrupción; mientras que el hilo principal, sirve para actualizar el estado a pintar.
+We can see that the value read from command 1 (```JOY_1```) is checked, and the struct status is updated. In such a way, it will be updated when the _VBlank_ interrupt is performed. In this way, the game is much more efficient since any operation with the VDP, can be performed in the interrupt function; while the main thread, serves to update the state to be painted.
 
-Ahora podemos compilar y ejecutar el ejemplo, donde podemos ver como se puede mover el personaje; de tal forma que es más eficiente que en otros ejemplos. Ya hemos podido ver el contenido de este capítulo; donde hemos visto dos aspectos importantes a la hora de trabajar creando juegos; el uso de la SRAM por si queremos almacenar el progreso del juego, y por otro lado el uso de interrupciones.
+Now we can compile and execute the example, where we can see how the character can move; in such a way that it is more efficient than in other examples. We have already been able to see the content of this chapter; where we have seen two important aspects at the time of working creating games; the use of the SRAM in case we want to store the progress of the game, and on the other hand the use of interrupts.
 
-![Ejemplo 16: Interrupciones](15SRAM/img/ej16.png "Ejemplo 16")
-_Ejemplo 16: Interrupciones_
+![Example 16: Interruptions](15SRAM/img/ej16.png "Example 16: Interruptions")
+_Example 16: Interruptions_
 
-## Referencias
+## Referencies
 
 * Sega/Mega Drive Interrupts: [https://segaretro.org/Sega_Mega_Drive/Interrupts](https://segaretro.org/Sega_Mega_Drive/Interrupts).
 * SGDK: [https://github.com/Stephane-D/SGDK](https://github.com/Stephane-D/SGDK).
