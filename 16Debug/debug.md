@@ -1,99 +1,99 @@
 # 16. Debug
 
-Hemos llegado al último capítulo de este libro y de nuestro viaje por los entresijos de la programación para Sega Mega Drive. Desde que comenzamos a hablar sobre que es la Mega Drive, su historia, arquitectura, configurar nuestro entorno, hasta ver todas las herramientas disponibles para crear nuestros juegos.
+We have reached the last chapter of this book and our journey through the details of programming for the Sega Mega Drive. From when we started talking about what the Mega Drive is, its history, architecture, setting up our environment, to seeing all the tools available to create our games.
 
-Solo queda por hablar de un tema que es bastante importante para todo aquel que se enfrente a la programación; y es a la hora de depurar y poder ver la trazabilidad de nuestro código. Cosa importante, para poder detectar posibles errores de ejecución o comúnmente llamados "bugs".
+It only remains to talk about a topic that is quite important for anyone who faces programming; and it is at the time of debugging and to be able to see the traceability of our code. Important thing, to be able to detect possible execution errors or commonly called "bugs".
 
-Existen muchas herramientas útiles a la hora de encontrar dichos errores. Como puede ser el poder visualizar la memoria de nuestro dispositivo, y poder ver el valor de nuestras variables, instrucción que estamos ejecutando, etc.
+There are many useful tools when it comes to finding such errors. Such as being able to visualize the memory of our device, and being able to see the value of our variables, instruction that we are executing, etc.
 
-Este tipo de herramientas como depuradores, herramientas de trazabilidad (log) e incluso ver una imagen de la memoria, están disponibles en muchos de los emuladores que hemos mencionado en este libro; como puede ser Gens KMod, Blastem o Kega Fusion, además de que el propio SGDK, nos provee algunas de estas herramientas.
+Such tools as debuggers, log tools and even memory image viewing are available in many of the emulators mentioned in this book, such as Gens KMod, Blastem or Kega Fusion, and the SGDK itself provides some of these tools.
 
-En este capítulo, vamos a ver que herramientas podemos usar para depurar nuestros juegos y poder detectar los fallos o errores.
+In this chapter, we are going to see what tools we can use to debug our games and to be able to detect bugs or errors.
 
-## Depuración y trazabilidad
+## Debugging and traceability
 
-Como hemos estado hablando en este capítulo, es importante conocer y utilizar herramientas para poder detectar los errores de nuestro juego y ver que esta haciendo correctamente lo que debe; en muchas ocasiones este tipo de errores no se detectan a simple vista y necesitamos herramientas para ver que esta ocurriendo.
+As we have been talking in this chapter, it is important to know and use tools to be able to detect the errors of our game and to see that it is doing correctly what it should; in many occasions this type of errors are not detected with the first sight and we need tools to see what is happening.
 
-Por ello, necesitamos poder tener una trazabilidad, y la posibilidad de utilizar un depurador para nuestro juego. SGDK, nos provee de herramientas para poder realizar esta trazabilidad.
+Therefore, we need to be able to have traceability, and the possibility of using a debugger for our game. SGDK, provides us with tools to be able to perform this traceability.
 
 ### KLog
 
-El uso de ficheros de Traza (o logs); es común a la hora de trabajar con sistemas. Por ello, algunos emuladores son capaces de escribir una traza con mensajes que el propio programador utiliza; en muchas ocasiones se podrían poner por pantalla. Pero, es mucho mejor poder tener un fichero de trazas con estos mensajes.
+The use of trace files (or logs) is common when working with systems. Therefore, some emulators are able to write a trace with messages that the programmer himself uses; in many occasions they could be put on the screen. But, it is much better to be able to have a trace file with these messages.
 
-Algunos emuladores como Gens KMod o Blastem, tienen un apartado para ver estas trazas y mostrarlo por dicha consola o fichero. Veamos como se podrían ver los mensajes en el emulador Gens con la modificación KMod.
+Some emulators such as Gens KMod or Blastem, have a section to view these traces and display it by that console or file. Let's see how the messages could be seen in the Gens emulator with the KMod modification.
 
 <div class="centered_image">
-<img src="16Debug/img/messages.png" title="Pantalla Mensajes Gens KMod" alt="Pantalla Mensajes Gens KMod"/>
-<em>Pantalla Mensajes Gens KMod</em>
+<img src="16Debug/img/messages.png" title="Gens Kmod Messages Screen" alt="Gens Kmod Messages Screen"/>
+<em>Gens Kmod Messages Screen</em>
 </div>
 
-Para acceder a este apartado, puedes encontrarlo en el menú _CPU->Debug->Messages_; y aquí podremos ver los mensajes que enviemos con unas función especial que contiene SGDK.
+To access this section, you can find it in the menu _CPU->Debug->Messages_; and here we will be able to see the messages we send with a special function that SGDK contains.
 
-La función para enviar información a esta traza es ```kprintf```; la cual escribe un mensaje en dicha traza en vez de escribirlo por pantalla. Esta función es análoga al uso de ```printf``` en c estándar; es decir que recibe 1 o varios parámetros:
+The function to send information to this trace is ```kprintf```; which writes a message to this trace instead of writing it to the screen. This function is analogous to the use of ```printf``` in standard c; that is, it receives 1 or more parameters:
 
-* _fmt_: cadena de caracteres que puede contener una serie de formateadores que empiezan por `%`; que nos permitirán escribir variables de distintos tipos y formatos. Para saber como utilizar estos formatos específicos, puedes revisar la documentación estándar de C (dejamos información en las referencias). Es importante saber, que esta función tiene un buffer interno de 255 bytes; por lo que tenemos que tener esto en cuenta a la hora de poner un mensaje muy largo.
-* ...: el resto de parámetros, será cada una de las variables que sustituirá a cada uno de los formateadores incluidos en el anterior parámetro.
+* _fmt_: character string that can contain a series of formatters starting with `%`; that will allow us to write variables of different types and formats. To know how to use these specific formatters, you can check the standard C documentation (we leave information link in the references). It is important to know, that this function has an internal buffer of 255 bytes; so we have to take this into account when writing a very long message.
+* ...: the rest of the parameters, will be each one of the variables that will replace each one of the formatters included in the previous parameter.
 
-La función ```kprintf```, devuelve el número de bytes escritos (hasta 255) en la traza.
+The ```kprintf``` function returns the number of bytes written (until 255) in the trace.
 
-## Uso de Depurador
+## Using a Debugger
 
-Hemos hablado de como utilizar la consola que trae algunos emuladores para escribir una serie de trazas. Pero en muchas ocasiones nos ocurre que necesitamos utilizar herramientas como depuradores para poder ver que esta pasando en un momento dado en nuestro programa.
+We have talked about how to use the text console that comes with some emulators to write a series of traces. But in many occasions it occurs to us that we need to use tools like debuggers to be able to see what is happening in a given moment in our program.
 
-Por ello, vamos a mostrar en primer lugar, como se podría hacer esta depuración para nuestros juegos; primero de forma más teórica, y después entraremos en más detalle dependiendo de nuestro emulador o herramientas a utilizar.
+Therefore, we are going to show firstly, how this debugging could be done for our games; first in a more theoretical way, and then we will go into more detail depending on our emulator or tools to use.
 
-Si has trabajado con la programación anteriormente, habrás tenido que depurar muchos programas; normalmente en la propia máquina y compilar el código para la misma arquitectura que estas trabajando (normalmente x86_64 o ARM); sin embargo, en este caso no vamos a trabajar con estas arquitecturas; sino con la del Motorola 68000. Por ello necesitamos una forma de depurar este código utilizando un emulador por ejemplo. (Existen formas de depurar con hardware real; pero con mucho más costosas). Veamos un esquema para entender que es lo que queremos hacer.
+If you have worked with programming before, you will have had to debug many programs; usually on the machine itself and compile the code for the same architecture you are working with (usually x86_64 or ARM); however, in this case we are not going to work with these architectures; but with the Motorola 68000 architecture. Therefore we need a way to debug this code using an emulator for example (there are ways to debug with real hardware; but with much more expensive). Let's see a schematic to understand what we want to do.
 
-![Esquema Depuración Remota](16Debug/img/depuracionremota.jpg "Esquema Depuración Remota")
-_Esquema Depuración Remota_
+![Remote Debug Scheme](16Debug/img/depuracionremota.jpg "Remote Debug Scheme")
+_Remote Debug Scheme_
 
-Como podemos ver en el esquema, se disponen de distintos elementos; algunos en la máquina local, que sería el computador en el que estamos trabajando, y otros en una máquina remota que sería en este caso la propia Mega Drive o un emulador.
+As we can see in the diagram, different elements are available; some on the local machine, which would be the computer we are working on, and others on a remote machine, which in this case would be the Mega Drive itself or an emulator.
 
-Si nos centramos en la máquina local, podemos ver que tenemos el editor, que puede ser cualquier editor de código o entorno de desarrollo integrado, con capacidad de conectarse a un depurador; en la imagen puedes ver que se trata de _Visual Studio Code_.
+If we focus on the local machine, we can see that we have the editor, which can be any code editor or integrated development environment, with the ability to connect to a debugger; in the image you can see that it is _Visual Studio Code_.
 
-Por otro lado, necesitaremos utilizar un programa que nos permita conectarnos a una máquina remota (o local) para poder obtener la información necesaria para depurar; como la memoria, instrucción actual, ejecución paso a paso,etc. Para ello, utilizaremos el depurador GDB [^65]; el cual nos va a permitir conectarnos a un emulador (Normalmente utilizando un puerto de red), para poder depurar nuestro juego. SGDK, incluye GDB para poder depurar nuestros juegos.
+On the other hand, we will need to use a program that allows us to connect to a remote (or local) machine in order to obtain the necessary information to debug; such as memory, current instruction, step by step execution, etc. For it, we will use the debugger GDB [^65]; which is going to allow us to connect to an emulator (Normally using a network port), to be able to debug our game. SGDK, includes GDB to be able to debug our games.
 
-[^65]: GDB: Gnu Project Debugger, nos va a permitir ver que ocurre dentro de un programa; además de permitir detener la ejecución y poder visualizar las variables o cambiar los valores de estas.
+[^65]: GDB: Gnu Project Debugger, will allow us to see what happens inside a program; besides allowing to stop the execution and to be able to visualize the variables or to change the values of these.
 
-Por último, la máquina remota que puede ser un emulador, a la que GDB se conectará y proveerá toda la información que necesita el depurador. El emulador, tiene que ser capaz de recibir y enviar esta información al depurador para poder tener un correcto funcionamiento; para una mejor comprensión de como se podría realizar esto o que herramientas disponemos, vamos a ver en detalle para algunos emuladores ya mencionados.
+Finally, the remote machine that can be an emulator, to be connected to GDB and provide all the information needed by the debugger. The emulator, has to be able to receive and send this information to the debugger to be able to have a correct operation; for a better understanding of how this could be done or what tools we have, we are going to see in detail for some emulators already mentioned.
 
 ### Gens KMod
 
-Como hemos podido ver en otros capítulos, Gens es un emulador de código abierto que nos provee una serie de herramientas adicionales para ayudarnos al desarrollo. Por ejemplo, podemos ver el estado de los registros del procesador y como se encuentra:
+As we have seen in other chapters, Gens is an open source emulator that provides us with a number of additional tools to help us in development. For example, we can see the state of the processor registers and how it is:
 
-![Depuración Motorola 68K](16Debug/img/m68debug.png "Depuración Motorola 68K")
-_Depuración Motorola 68K_
+![Motorola 68K Debugger](16Debug/img/m68debug.png "Motorola 68K Debugger")
+_Motorola 68K Debugger (Gens Kmod)_
 
-Esto puede ser util para ver el estado del procesador; pero no es lo que estamos buscando; ya que necesitaremos la modificación KMod, para poder definir las opciones de depuración remota. En el menú _options->Debug_, podemos establecer los puertos y opciones relacionadas con la depuración remota.
+This can be useful to see the status of the processor; but it is not what we are looking for; since we will need the KMod modification, to be able to define the options of remote debugging. In the menu _options->Debug_, we can set the ports and options related to remote debugging.
 
 <div class="centered_image">
-<img src="16Debug/img/debugoptgens.png" title="Opciones de depuración Gens Kmod" alt="Opciones de depuración Gens Kmod"/>
-<em>Opciones de depuración Gens Kmod</em>
+<img src="16Debug/img/debugoptgens.png" title="Gens KMod Debugging Options" alt="Gens KMod Debugging Options"/>
+<em>Gens KMod Debugging Options</em>
 </div>
 
-Estas opciones, abrirán un puerto (por defecto el 6868); para poder depurar el procesador M68k. Este puerto será utilizando por GDB para conectarse.
+These options will open a port (6868 by default) to debug the M68k processor. This port will be used by GDB to connect.
 
-Puedes encontrar más herramientas para depuración o poder visualizar la memoria del VDP,etc. Para más información, consulta la ayuda de Gens KMod.
+You can find more tools for debugging or viewing the VDP memory, etc. For more information, see the Gens KMod help.
 
 ### Blastem
 
-Otro emulador que hemos mencionado por este libro, es el uso de Blastem. También dispone de opciones de depuración, incluyendo una depuración remota. Sin embargo, no funciona correctamente o esta aún en desarrollo. Por lo que el uso de depuración remota, solo esta soportado por las últimas versiones de Blastem (Recomendamos utilizar la versión Nightly; puedes encontrar más información en las referencias).
+Another emulator that we have mentioned for this book is Blastem. It also has debugging options, including remote debugging. However, it does not work properly or is still under development. So the use of remote debugging is only supported by the latest versions of Blastem (we recommend using the Nightly version; you can find more information in the references).
 
-En este caso, podremos utilizar un depurador interno, arrancando Blastem con la opción -d; el cual nos permitirá ejecutar paso a paso. Sin embargo, esta opción nos mostrará las instrucciones en ensamblador y tendremos que ser nosotros quienes las traduzcamos para ver que sta ocurriendo.
+In this case, we can use an internal debugger, starting Blastem with the -d option; which will allow us to execute step by step. However, this option will show us the instructions in assembler and we will have to translate them to see what is happening.
 
-Si queremos utilizar una depuración remota, necesitaremos ejecutar el siguiente comando dentro de GDB:
+If we want to use remote debugging, we will need to execute the following command inside GDB:
 
 ```bash
 target remote:1234| blastem.exe rom.bin -D
 ```
 
-Esto dirá a GDB, que se debe de conectar al puerto 1234 (se puede cambiar) y que inicie Blastem emulando nuestra ROM, además de activar la emulación remota. Con esto, podremos depurar nuestro juego a través de GDB.
+This will tell GDB to connect to port 1234 (can be changed) and to start Blastem emulating our ROM, and to activate the remote emulation. With this, we will be able to debug our game through GDB.
 
 ### Genesis Code
 
-Sin embargo, aunque hemos podido iniciar la emulación, todavía nos queda algo; el poder conectar GDB con nuestro entorno de desarrollo para poder ver las instrucciones de nuestro código C y poder visualizar también paso a paso dichas instrucciones.
+However, although we have been able to start the emulation, we still have something left; to be able to connect GDB with our development environment to be able to see the instructions of our C code and also to be able to visualize step by step those instructions.
 
-Para ello, vamos a ver un ejemplo usando Visual Studio Code, con la extensión _Genesis Code_; que hemos podido ver en este libro, que es una ayuda para el desarrollo usando SGDK. Esta extensión, cuando crea un proyecto, genera una configuración en el directorio _.vscode_; esta configuración, nos ayuda a poder gestionar los ficheros .h, y además a generar la configuración para iniciar la depuración; si echamos un vistazo al fichero _launch.json_, podemos ver.
+For this, we are going to see an example using Visual Studio Code, with the extension _Genesis Code_; that we have been able to see in this book, which is an aid for the development using SGDK. This extension, when it creates a project, generates a configuration in the _.vscode_ directory; this configuration, helps us to be able to manage the .h files, and also to generate the configuration to start the debugging; if we take a look at the _launch.json_ file, we can see.
 
 ```json
 ...
@@ -123,31 +123,31 @@ Para ello, vamos a ver un ejemplo usando Visual Studio Code, con la extensión _
 ...
 ```
 
-Podemos ver algunas propiedades en este fichero:
+We can see some properties in this file:
 
-* _name_: Nombre de la configuración que podremos ver en VSCODE.
-* _program_: Indica el nombre del binario que usará gdb para iniciar la depuración; se trata del fichero _rom.out_ que se genera al compilar en modo depuración.
-* _miDebuggerServerAddress_: Indica la dirección y puerto donde se conectará gdb para hacer la depuración remota. Debe coincidir con el puerto del emulador.
-* _sourceFileMap_: Esta propiedad es importante ya que GDB tiene establecidas unas rutas con las que se compilo y se configuró (Concretamente las del proyecto SGDK); por lo tanto se debe de mapear a nuestra carpeta de fuentes de SGDK.
-* _cwd_: Indica el directorio de trabajo.
-* _MIMode_: Indica el modo de depurador en este caso se trata de gdb.
-* _miDebuggerPath_: Ruta donde se encuentra GDB; en este caso se usa el integrado en SGDK. Puede definirse otro.
-* _setupCommands_: Indica los comandos y configuraciones que se pasará a GDB. Entre ellas se establece el directorio de los fuentes.
+* _name_: Name of the configuration that we will be able to see in VSCODE.
+* _program_: The name of the binary that gdb will use to start debugging; this is the _rom.out_ file that is generated when compiling in debug mode.
+* _miDebuggerServerAddress_: Specifies the address and port where gdb will connect to do remote debugging. It must match the emulator port.
+* _sourceFileMap_: This property is important since GDB has established paths with which it was compiled and configured (specifically those of the SGDK project); therefore it must be mapped to our SGDK source folder.
+* _cwd_:Indicates the working directory.
+* _MIMode_: Indicates the debugger mode in this case gdb.
+* _miDebuggerPath_: Path where GDB is located; in this case the one integrated in SGDK is used. Another one can be defined.
+* _setupCommands_: Indicates the commands and settings to be passed to GDB. Among them, the source directory is set.
 
-Tras visualizar esta configuración, podemos generar la rom con opciones de depuración, usando el comando de _Genesis Code: Compile For Debugging_; para generar la rom añadiendo la tabla de símbolos y todo lo necesario para depurar.
+After viewing this configuration, we can generate the rom with debugging options, using the _Genesis Code: Compile For Debugging_ command; to generate the rom adding the symbol table and everything needed for debugging.
 
-Por último, ya podemos ejecutar la depuración en el propio editor de Visual Studio Code; si todo va correctamente, podremos ver algo como la siguiente pantalla.
+Finally, we can run the debugging in the Visual Studio Code editor itself; if everything goes correctly, we will be able to see something like the following screen.
 
-![Depuración con VsCode](16Debug/img/vscodedebug.png "Depuración con VsCode")
-_Depuración con VsCode_
+![VScode Debugging](16Debug/img/vscodedebug.png "VScode Debugging")
+_VScode Debugging_
 
-**NOTA**: Para Sistemas Linux usando GENDEV, no esta disponible la depuración debido a que GENDEV no incluye las tablas de símbolos de SGDK.
+**NOTE**: For Linux systems using GENDEV, debugging is not available because GENDEV does not include the SGDK symbol tables.
 
-## Ejemplo de depuración usando KLog
+## Example using KLog
 
-Tras ver las herramientas y como poder depurar, vamos a mostrar el ejemplo de esta sección y de como poder utilizar las trazas correctamente; para ello, vamos a crear un ejemplo muy sencillo que nos mandará una traza cuando pulsemos un botón (A, B o C). Recuerda que este ejemplo, lo puedes encontrar en el repositorio de ejemplos que acompaña a este libro; correspondiente a la carpeta _ej17.klog_.
+After seeing the tools and how to debug, we are going to show the example of this section and how to use the traces correctly; for this, we are going to create a very simple example that will send us a trace when we press a button (A, B or C). Remember this example, you can find it in the repository of examples that accompanies this book; corresponding to the folder _ej17.klog_.
 
-En primer lugar definimos la función que gestionará los controles. para este ejemplo de forma asíncrona; que será la función ```handleAsyncInput```. En esta función, vamos a revisar cuando se pulsa el botón A, B o C; guardando cada botón en una variable. Veamos un fragmento:
+First we define the function that will manage the controls. for this example in an asynchronous way; that will be the function ```handleAsyncInput```. In this function, we are going to check when button A, B or C is pressed; saving each button in a variable. Let's see a fragment:
 
 ```c
 char button='\0';
@@ -158,7 +158,7 @@ if(state & changed & BUTTON_A){
 ...
 ```
 
-Vemos que  para cada botón, la variable ```button```, almacena un carácter con el botón correspondiente; y más adelante veremos que usamos la función ```kprintf```, para mostrar la traza correspondiente; veamos un fragmento.
+We see that for each button, the variable ```button```, stores a character with the corresponding button; and later we will see that we use the function ```kprintf```, to show the corresponding trace; let's see a fragment.
 
 ```c
 #ifdef DEBUG
@@ -166,20 +166,20 @@ kprintf("Button Pushed: %c \n",button);
 #endif
 ```
 
-Como habrás podido ver, la instrucción se encuentra entre dos instrucciones de preprocesador; estas instrucciones, harán que este código solo este disponible, si la constante ```DEBUG``` está definida. Esto es una buena práctica; ya que si nuestro juego va a ser publicado, no necesitamos dichas trazas; solo serán útiles mientras se esta desarrollando.
+As you will have been able to see, the instruction is between two preprocessor instructions; these instructions, will make this code only available, if the constant ```DEBUG``` is defined. This is a good practice; since if our game is going to be published, we do not need these traces; they will only be useful while it is being developed.
 
-Si ya compilamos y ejecutamos este ejemplo, al pulsar una tecla, podemos ver en la consola de Blastem (o en el apartado correspondiente de Gens KMod), nuestro mensaje.
+If we have already compiled and executed this example, when we press a key, we can see in the Blastem console (or in the corresponding section of Gens KMod), our message.
 
-![Consola Depuración Blastem](16Debug/img/blastemconsole.png "Consola Depuración Blastem")
-_Ejemplo 17: Consola Depuración Blastem_
+![Blastem Debugging Console](16Debug/img/blastemconsole.png "Blastem Debugging Console")
+_Example 17: Blastem Debugging Console_
 
-Tras ver nuestro último ejemplo, ya damos por finalizado nuestro viaje por la consola de 16 bits; y esperemos que al lector le haya gustado. Además de que esperemos que esto te anime a crear tus propios juegos y publicar más software casero o "homeBrew". Por supuesto no me olvido de darte las gracias personalmente por tu lectura.
+After seeing our last example, we end our journey through the Sega 16-bit console; and we hope the reader liked it. And hopefully this will encourage you to create your own games and publish more homebrew software. Of course I don't forget to thank you personally for your reading.
 
-## Referencias
+## References
 
-* Printf (Documentación C): [https://cplusplus.com/reference/cstdio/printf/](https://cplusplus.com/reference/cstdio/printf/).
+* Printf (C Documentation): [https://cplusplus.com/reference/cstdio/printf/](https://cplusplus.com/reference/cstdio/printf/).
 * Gens KMod: [https://segaretro.org/Gens_KMod](https://segaretro.org/Gens_KMod).
 * Blastem: [https://www.retrodev.com/blastem/nightlies/](https://www.retrodev.com/blastem/nightlies/).
 * GNU GDB: [https://www.sourceware.org/gdb/](https://www.sourceware.org/gdb/).
-* Artículo sobre Depuración: [https://zerasul.me/blog/debug](https://zerasul.me/blog/debug).
+* Debugging Mega Drive Article (Spanish): [https://zerasul.me/blog/debug](https://zerasul.me/blog/debug).
 * Visual Studio Code C Debug: [https://code.visualstudio.com/docs/cpp/cpp-debug](https://code.visualstudio.com/docs/cpp/cpp-debug).
