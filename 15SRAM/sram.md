@@ -54,7 +54,7 @@ The ```SRAM_writeWord``` function stores 1 word (2 bytes) in the SRAM. It receiv
 * _offset_: The offset where the bytes will be stored in SRAM.
 * _value_: Value To Store (2 bytes).
 
-Finally, the ````SRAM_writeLong``` function writes a long integer (32 bits) to the SRAM. It receives the following parameters:
+Finally, the ```SRAM_writeLong``` function writes a long integer (32 bits) to the SRAM. It receives the following parameters:
 
 * _offset_: The offset where the bytes will be stored in SRAM.
 * _value_: Value To Store (4 bytes).
