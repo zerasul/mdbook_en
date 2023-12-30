@@ -24,7 +24,7 @@ We can differentiate the Scroll by direction, which can be of two types:
 Además, dependiendo de la porción de pantalla desplazada, podemos encontrar tres tipos:
 
 * _Line_: The VDP can scroll horizontally up to 224 lines; vertically, however, it is capable of scrolling some portions.
-* _Plano_: The VDP allows a complete plane to be moved both horizontally and vertically.
+* _Plane_: The VDP allows a complete plane to be moved both horizontally and vertically.
 * _Tile_: It is possible to scroll the different Tiles of a line.
 
 In this section, we will focus on these types of Scroll and see how it can be performed in each of the proposed directions.
