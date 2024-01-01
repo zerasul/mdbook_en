@@ -34,7 +34,7 @@ Let's take a look at the specifications of the Sega Mega Drive:
 6. **Input/Output**: Cartridge slot at the top, two controller connectors, expansion bus and stereo headphone input (model 1 only).
 
 ![Mega Drive Model 1](2history/img/MD1.jpg "Mega Drive Model 1")
-_Sega Mega Drive Model 1 European version (Wikipedia)_
+_Sega Mega Drive Model 1 European version (Source: Wikipedia)_
 
 ## Peripherals
 

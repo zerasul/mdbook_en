@@ -2,13 +2,13 @@
 
 Welcome to this book about creating and developing Homebrew software for Sega Mega Drive (or Sega Genesis) [^1]. For many, this system has been the one we have grown up with and has brought us great memories. Therefore, those of us who are still learning about technology like me, can learn how to create software for this architecture that is already more than 30 years old.
 
-Although some may think I'm a little young (36 years old) for the Mega Drive, I guess because of the family environment and having had one when I was a kid, I always let myself spend hours and hours playing _Sonic & Knuckles_[^2] or _World Of Illusion_[^3].
+Although some may think I'm a little young (37 years old) for the Mega Drive, I guess because my family environment and having a Mega Drive when I was a kid, I always let myself spend hours and hours playing _Sonic & Knuckles_[^2] or _World Of Illusion_[^3].
 
 Many will remember the times of the Spectrum where they used magazines with small games that we had to write by hand (usually in BASIC or assembler), where any slightest error would make our game not work. Fortunately, nowadays more modern tools are used than BASIC or assembler. As it can be to use C language together with some library like SGDK or more modern editors that help us in the development of  our game.
 
-Of course there are more modern languages. But we want to remember that assembler was normally used for the developments and that at least using C we will abstract from it. This does not mean that it can no longer be used, since today, many people still work with assembler.
+Of course there are more modern languages. But we want to remember that assembler was normally used for the developments and that at least using C we will abstract from them. This does not mean that it can no longer be used, since today, many people still work with assembler.
 
-This book is intended as a guide to learn the concepts and tools to create a fully functional video game for Sega Mega Drive, using modern tools.
+This book is intended as a guide to learn the concepts and tools to create a fully functional video game for Sega Mega Drive using modern tools.
 
 **NOTE:** This book and its contents are not affiliated with SEGA Inc. or any of its subsidiaries.
 
@@ -22,9 +22,9 @@ This book is intended as a guide to learn the concepts and tools to create a ful
 
 As mentioned in the introduction, this book is intended to be a guide to create a fully functional video game for the Sega Mega Drive (or Sega Genesis) system.
 
-This book is not intended to be an introductory book to programming since advanced concepts are used when entering the world of Homebrew and it is assumed that the user is familiar with these concepts.
+This book is not intended to be an introductory book to programming because advanced concepts are used when entering the world of Homebrew and it is assumed that the user is familiar with these concepts.
 
-In addition, this book is not intended to be a book about video game design; it is not the goal of this book. There is a lot of literature on the subject and we will mainly focus on designing and creating examples to understand the ins and outs of Sega's 16-bit console.
+In addition, this book is not intended to be a book about video game design; it is not the objective of this book. There is a lot of literature on the subject and we will mainly focus on designing and creating examples to understand the details of Sega's 16-bit console.
 
 ### Book's structure
 
@@ -34,9 +34,9 @@ The first part of the book is an introduction to the Mega Drive as its history, 
 
 In the second part, we will talk about how to start making our game, showing the basic concepts; from Hello World, to finish with the use of Sprites.
 
-Finally, we will talk about more advanced concepts such as the use of Scroll, Tilesets, sound and even talk about tools for our development such as debugging (Debug) in addition to being able to use the SRAM to save information of our game.
+Finally the third part, will talk about more advanced concepts such as the use of Scroll, Tilesets, sound and even talk about tools for our development such as debugging (Debug) or how to use the SRAM to save information of our game.
 
-In order to have a better understanding of each of the chapters to be covered in this book, different examples and small code fragments will be commented and made available online in the code repository in Github:
+In order to have a better understanding of each of the chapters to be covered in this book, different examples and small code fragments will be commented and are available online in the code repository at Github:
 
 [https://github.com/zerasul/mdbook-examples](https://github.com/zerasul/mdbook-examples)
 
@@ -51,7 +51,7 @@ The objectives of this book are:
 1. Learn about the Sega Mega Drive / Sega genesis and its history.
 2. Learn about the architecture of the Sega Mega Drive.
 3. To know the different tools that can be used to create homebrew software for Sega Mega Drive.
-4. Know the SGDK (Sega Genesis Development Kit) library.
+4. Know the SGDK (Sega Genesis Development Kit) library and tools.
 5. To know the different concepts of 2D videogame creation applied to the Sega Mega Drive.
 6. Create a fully functional video game for Sega mega Drive.
 
@@ -64,14 +64,14 @@ In order to understand the contents of this book, you will need to know the foll
 * Git
 * Pixel Art drawing tools such as Aseprite.
 
-Of course, don't worry if you don't understand any part of the code, as each chapter has references to help you understand the source code or any other reference discussed.
+Por supuesto, no te preocupes si no entiendes alguna parte del código, ya que cada capítulo tiene referencias que te ayudarán a entender el código fuente o cualquier otra referencia.
 
 In addition, in order to be able to follow all the contents of this book we recommend using the following software or hardware:
 
 * **Windows, Linux or MacOs Operating System**. For those using Linux, the examples and tools have been tested in environments based on Debian distributions (such as Ubuntu).
-* **Visual Studio Code** as an editor. Although you can use any editor you need, in this book we are going to use this editor as an example. In addition to installing custom tools for homebrew development.
+* **Visual Studio Code** as an editor. Although you can use any editor you need, in this book we are going to use this editor as an example. Also, we are going to install custom tools for homebrew development.
 * **Docker**: although this is optional, a container can be used to be able to develop for Sega Mega Drive using SGDK.
-* **Mega Drive Blastem Emulator**. Although you can use any other such as Gens (with the modified Kmod version for Windows) or any other emulator.
+* **Mega Drive Blastem Emulator**. Although you can use any other such as Gens (with the modified Kmod version for Windows) or any other emulator. We are going to see some emulators on next chapters.
 * **Flash cartridge for Mega Drive**: Although it is not mandatory, if you have a Mega Drive, you can use a flash cartridge to load your roms and test them on real hardware. One of the best known is _Everdrive_.
 
 ## References

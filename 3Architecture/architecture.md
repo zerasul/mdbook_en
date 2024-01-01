@@ -41,7 +41,7 @@ In addition to having two ALUs (without floating point support), in order to be 
 
 Another important aspect is that this processor has different working modes (normal, stop and exception); being the last mode important because it allows to handle internal and external signals (interrupts); so it will help us to work with the different signals that we can send to it.
 
-Este procesador fue utilizado por distintas marcas:
+This Processor was used by the next brands:
 
 * Apple (Firsts Macintosh [^12]).
 * Atari (Atari ST [^13], used this processor).
@@ -57,7 +57,7 @@ Este procesador fue utilizado por distintas marcas:
 
 The Mega Drive's main memory, or program RAM, has a capacity of 64 Kb (8KB); it stores the program information and is also used to send the ROM information to the VRAM (through the DMA).
 
-The memory has a 16-bit word capacity (2x8bits) of PSRAM type [^16], which has a latency of 190ns (5.263157 MHz frequency) with an access latency by the CPU of 200-263 ns. The main memory bandwidth for 16 bit is 10.526314 MB/s.
+The memory has a 16-bit word capacity (2x8bits) of PSRAM [^16] type , which has a latency of 190ns (5.263157 MHz frequency) with an access latency by the CPU of 200-263 ns. The main memory bandwidth for 16 bit is 10.526314 MB/s.
 
 [^16]: PSRAM (Pseudostatic RAM) is a type of RAM memory that allows to have included in its circuitry everything necessary to refresh the memory and address it.
 
@@ -85,8 +85,8 @@ The VDP for the mega drive is an evolution of its predecessor from the Sega mast
 
 It was connected through a 16 bit bus to the Motorola 68K and allowed different resolutions:
 
-* Normal Mode: 320x224,256x224 for NTSC y 320x224, 256x224, 320x240 y 256x240 for PAL.
-* Interlaced Mode: 320x448,256x448,320x480 y 256x480 which was used by different games such as the 2 player mode of sonic 2.
+* Normal Mode: 320x224,256x224 for NTSC and 320x224, 256x224, 320x240 y 256x240 for PAL.
+* Interlaced Mode: 320x448,256x448,320x480 and 256x480 which was used by different games such as the 2 player mode of sonic 2.
 
 The VDP had a capacity of up to 4 planes or backgrounds:
 
@@ -141,7 +141,7 @@ In addition, the Z80 allows backward compatibility with Sega Master System games
 
 Inside the VDP chip, we can find both the chip dedicated to graphics, and an 8-bit sound chip dedicated both to give sound to the Mega Drive (for 8-bit sound), and to be used as a sound chip in Master System games.
 
-Today, this chip is still being used in home electronics projects such as the Durango project.
+Today, this chip is still being used in home electronics projects such as the Durango project (more Information about Durango Project can be found in references).
 
 The PSG sound chip is a custom chip by SEGA called PSG (SN76496) that is connected to the clock of the Z80 itself, it is the same chip that had the Master System.
 
