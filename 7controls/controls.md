@@ -19,7 +19,7 @@ To better understand the DE-9 port and how it is composed for a 3-button control
 ![DE-9](7controls/img/de-9.png "DE-9")
 _DE-9 Port Pinout_
 
-where:
+Where:
 
 1. Up
 2. Down
@@ -45,7 +45,7 @@ Some other third-party drivers added some extra functionality such as autoFire o
 
 There were different designs depending on the Mega Drive version (Japan/Europe or America); in addition, many other third party controllers that had many other designs.
 
-![3 Button Controller](7controls/img/controller3Button.jpg "3 Button Controller") 
+![3 Button Controller](7controls/img/controller3Button.jpg "3 Button Controller")
 _3 Button Controller_
 
 ### 6 Buttons Controller
@@ -66,7 +66,6 @@ _Retro-bit brand 6 Buttons Controller._
 Another of the peripherals that we can find for Sega Mega Drive, is the famous _Sega Mouse_; it was a mouse with 2 buttons with different versions. It allowed to play some games that were compatible. Like the famous _lemmings 2_ [^48], or _Cannon Fodder_ [^49].
 
 The 2-button mouse allowed the use of the A and B buttons; however, to use the C button, the mouse ball itself was clickable, which allowed for greater compatibility. The Sega Mouse, however, did not reach to Sega America so it was only seen in Japan and Europe. But Sega America has its own version called _Mega Mouse_ which had 3 buttons and a start button; removing the possibility of clicking with the mouse ball itself.
-
 
 [^48]:Lemmings; it was a strategy game, where you controlled cute characters called lemmings, each one had a function and you had to solve a puzzle. The Mega Drive version was published by Sega and released in 1992.
 [^49]: Cannon Fodder is a strategy game that was released for the Sega Mega Drive in 1992.
@@ -89,7 +88,7 @@ The Function ```JOY_getPortType```, has the next parameters:
     * ```PORT_1```: First Console Port.
     * ```PORT_2```: Second Console Port.
 
-This function returns an integer value ```u8``` which can indicate the type of device, using the & operator. For example:
+This function returns an integer value ```u8``` which can indicate the type of device, using the ```&``` operator. For example:
 
 ```c
 u8 value = JOY_getPortType(PORT_1);
@@ -144,7 +143,7 @@ If we look at the code, we can see that the function ```JOY_readJoypad``` is use
     * ...
     * ```JOY_8```: Eighth Input Device.
 
-This function returns an integer ```u16```; which contains the current state of the controller; you can use the & operator to know which buttons are being used; as we can see in the example:
+This function returns an integer ```u16```; which contains the current state of the controller; you can use the ```&``` operator to know which buttons are being used; as we can see in the example:
 
 ```c
   if (value & BUTTON_UP)
@@ -165,7 +164,7 @@ The above fragment checks that the upward direction is being pressed; we can che
 * ```BUTTON_Z```: Z Button (6 Buttons).
 * ```BUTTON_MODE```: MODE Button (6 Buttons).
 
-In addition, there are aliases if a mouse is used:
+Also, there are aliases if a mouse is used:
 
 * ```BUTTON_LMB``` = Alias for button A for Mouse.
 * ```BUTTON_MMB``` = Alias for button B for Mouse.
@@ -183,7 +182,7 @@ In the example, you can see how a text will be drawn or deleted, depending on th
       printChar(EMPTY_TEXT,POSX_UP,POSY_UP);
 ```
 
-Where we see that if the Up button is clicked, a text will be displayed or an empty text will be displayed.
+Where we see that if the Up button is pressed, a text will be displayed or an empty text will be displayed.
 
 ![Example 2: Synchronous Controllers](7controls/img/ej2.png "Example 2: Synchronous Controllers")
 _Example 2: Synchronous Controllers_
@@ -248,7 +247,7 @@ _Example 3: Asynchronous Controllers_
 
 ### Sega Mouse Programming
 
-So far, we have been working with controllers; either 3 or 6 button controllers; however, it can be interesting to offer support for using a mouse in our games. In this section, we are going to see how to read the _Sega Mouse_, using SGDK.
+We have been working with controllers; either 3 or 6 button controllers; however, it can be interesting to offer support for using a mouse in our games. In this section, we are going to see how to read the _Sega Mouse_, using SGDK.
 
 First of all, not all of us have access to a Sega Mouse; so it is necessary to use an emulator, which allows to use the mouse of our computer inside the emulator itself. In this case we recommend the _Kega Fusion_ or fusion emulator. This emulator, using the <kbd>F12</kbd>, capture the mouse of our computer.
 
