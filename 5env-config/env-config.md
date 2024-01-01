@@ -1,6 +1,6 @@
 # 5. Environment Configuration
 
-We have already seen the framework or libraries that we are going to use to develop our video games for Sega Mega Drive. However, in order to work more efficiently, we will need to install and configure a series of tools that will help us to speed up the process of creating our game.
+We have already seen the libraries and tools that we are going to use to develop our video games for Sega Mega Drive. However, in order to work more efficiently, we will need to install and configure a series of additional tools that will help us to speed up the process of creating our game.
 
 In this chapter, we are going to see the tools that can be used when we create not only the code for our game, as well as all the necessary resources for it; such as images, sounds, etc.
 
@@ -56,7 +56,7 @@ Genesis Code is an extension for Visual Studio Code, which will allow us to use 
 
 [https://github.com/zerasul/genesis-code](https://github.com/zerasul/genesis-code)
 
-Genesis Code, allows, through a series of commands, to perform different tasks with SGDK; these commands are
+Genesis Code, allows, through a series of commands, to perform different tasks with SGDK; these commands are:
 
 * Compile Our Game and Build the ROM.
 * Clean the construction files.
@@ -66,7 +66,7 @@ Genesis Code, allows, through a series of commands, to perform different tasks w
 * Compile with Debug Options
 * Import a file in TMX or Json format to generate a C header file. This command uses the _TILED_ tool format to import maps.
 
-Also, Genesis Code includes other features such as syntax highlighting for SGDK _.res_ resource files, auto-completion for resources or custom image viewer.
+Also, Genesis Code includes other features such as syntax highlighting for SGDK _.res_ resource files, auto-completion for resources or custom image viewer. In addition, you should know that the author of this extension is the same of this book.
 
 If you need more information about Genesis Code, you can consult the Genesis Code documentation:
 
@@ -112,7 +112,7 @@ The options available are:
 * GENDEV: Overwrites the GENDEV environment variable targeting the Gendev installation (Linux only).
 * Gens path:Specifies the path to the executable where the emulator to be used is located.
 * MARSDEV: Overwrites the MARSDEV environment variable targeting the MarsDev installation.
-* Toolchain Type: Indicates the specific toolchain you will use for SGDK; it can have the following values
+* Toolchain Type: Indicates the specific toolchain you will use for SGDK; it can have the following values:
     * sgdk/gendev: Use SGDK or Gendev (windows or Linux).
     * marsdev: Use MARSDEV as the environment to call SGDK.
     * Docker: Use a Docker container to create the ROM.
@@ -121,7 +121,7 @@ The options available are:
 
 When developing our game, it is important to be able to test its progress and although we can use a real hardware using a FlashCart cartridge like _Everdrive_[^39], it is not practical to transfer the ROM every time to the SD card. Therefore, emulators are used to be able to run the created rom and see the results.
 
-In addition, some of these emulators have tools that can help us to debug our games; such as debugging both 68K and z80, VDP graphics viewer, Sprite viewer, etc.
+Also, some of these emulators have tools that can help us to debug our games; such as debugging both 68K and z80, VDP graphics viewer, Sprite viewer, etc.
 
 We are going to see a pair of emulators; it is important to know that the reader can use the one that best fits his needs when working on his homebrew project.
 
@@ -176,7 +176,7 @@ This emulator has the following features:
 ![Blastem](5env-config/img/blastem.png "Blastem")
 _Blastem_
 
-Blastem also includes some tools for development. Such as the VDP palette viewer or a debugger included in the emulator itself; both internal, as well as being able to connect an external one.
+Blastem also includes some tools for development. Such as the VDP palette viewer or a debugger included in the emulator itself; both internal, as well as being able to connect to an external debugger.
 
 Blastem can be downloaded for the most used operating systems (Windows, MacOs, Linux...); using the following address, or in the package repositories of some Linux distributions.
 
@@ -213,7 +213,7 @@ At the time of creating our graphics, with programs like GIMP, they are not very
 
 To do this, we use programs like Aseprite which is a program that will allow us to create in a simple way, our sprites and their animations.
 
-In addition, it will also allow us to manage the color palette for our graphics. So we will be able to see every moment, the colors that we are using to create our graphics.
+Also, it will also allow us to manage the color palette for our graphics. So we will be able to see every moment, the colors that we are using to create our graphics.
 
 Aseprite allows us to export our animations easily in different formats, or to create a pattern that we can use later in our game.
 
@@ -266,5 +266,5 @@ TILED can be downloaded from its official website:
 * Blastem: [https://www.retrodev.com/blastem/](https://www.retrodev.com/blastem/)
 * Gimp: [https://www.gimp.org/](https://www.gimp.org/)
 * Aseprite: [https://www.aseprite.org/](https://www.aseprite.org/)
-* Article about Aseprite: [https://elmundodeubuntu.blogspot.com/2015/11/aseprite-editor-de-sprites.html](https://elmundodeubuntu.blogspot.com/2015/11/aseprite-editor-de-sprites.html)
+* Article about Aseprite (Spanish): [https://elmundodeubuntu.blogspot.com/2015/11/aseprite-editor-de-sprites.html](https://elmundodeubuntu.blogspot.com/2015/11/aseprite-editor-de-sprites.html)
 * Tiled: [https://www.mapeditor.org/](https://www.mapeditor.org/)

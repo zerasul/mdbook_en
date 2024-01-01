@@ -10,9 +10,11 @@ Finally, we will see how to build the rom itself and run it on an emulator, or o
 
 ## Create a new Project
 
-The first step to be able to begin to write our code; and we start with how to create a new project to use it with SGDK. To do that, we are going to create a project with the minimum code that will show us a "Hello Sega" on the screen.
+The first step to be able to begin to write our code, its to create a new project to use it with SGDK. To do that, we are going to create a project with the minimum code that will show us a "Hello Sega" on the screen.
 
 To create a new project, we will use the _Genesis Code_ extension for Visual Studio code; although it can be created manually if required. To create a project with this extension, we will use the command palette using the keyboard shortcut <kbd>ctrl</kbd>+<kbd>⇧ shift</kbd>+<kbd>p</kbd>; and selecting the option _Genesis Code: Create Project_.
+
+**NOTE**: Remember that you can still create manually the project without using Genesis Code.
 
 When selecting this option, we will be asked where the project will be created. Once selected, the necessary files and folders will be generated and opened with Visual Studio Code. We can see the following files and folders:
 
@@ -23,11 +25,11 @@ When selecting this option, we will be asked where the project will be created. 
 * _.gitignore_: This file is used by the Git repository that is generated when the project is created. It contains the files that will not be handled by the version control system.
 * _README.md_: A small Markdown file with a project readme.
 
-Although modifications of the project structure can be found for SGDK; this will depend largely on the Makefile used; in this case we focus on the default file used with SGDK.
+Although modifications of the project structure can be found for SGDK; this will depend largely on the Makefile used; in this case we focus on the default file used by SGDK.
 
 ## Hello World
 
-Once the structure of the project is known, we can now focus on the source code itself; for this, when creating the project, we can observe in the _src_ folder, a file called _main.c_; in this file is the source code of our game.
+Once the structure of the project is known, we can now focus on the source code itself; for this, when creating the project, we can observe in the _src_ folder a file called _main.c_; in this file is the source code of our game.
 
 We remind you that you can find all the projects of this book in the following Github repository; in this case, you can find the code that we will describe in this chapter in the _ej1.helloworld_ folder. Below is the address of the repository:
 
@@ -59,7 +61,7 @@ First, we can see the header file _genesis.h_; this file provides access to all 
 
 [^41]: You can see the configuration of the include files for C/C++, in the VsCode configuration.
 
-If we focus on the ```main``` function we see that a call is made to the function ```VDP_drawText(const char * text,u16 x, u16 y)```; this function calls the VDP graphics chip and will allow us to write a text on the screen, using a default font (or pre-loading a custom font). We see that it has 3 parameters:
+If we focus on the ```main``` function we see that a call is made to the function ```VDP_drawText(const char * text,u16 x, u16 y)```; this function calls the VDP graphics chip and will allow us to write a text on the screen, using a default font (or pre-loading a custom font). We can see that it has 3 parameters:
 
 * _str_: character string with the information to be displayed.
 * _x_: X position where the text will be displayed. The X coordinate indicates the column where the text will be displayed. It is expressed in Tiles.
@@ -107,7 +109,7 @@ docker run --rm -v $PWD:/src sgdk
 
 If everything has gone correctly, we can see how the ROM will be generated in the _out_ folder with the name _rom.bin_ and later, our emulator opens showing it.
 
-**NOTE**: For those using Windows, you may get an error if you default to _PowerShell_; this can be fixed by setting the default vscode terminal to use _cmd_. To do this we will use the command palette and select the _View: Toggle Integrated Terminal_ option; subsequently selecting it to use cmd.
+**NOTE**: For those using Windows, you may get an error if you are using as integrated console by default to _PowerShell_ (in Visual Studio Code); this can be fixed by setting the default vscode terminal to use _cmd_. To do this we will use the command palette and select the _View: Toggle Integrated Terminal_ option; subsequently selecting it to use cmd.
 
 ![Hello](6helloworld/img/hello.png "Hello")
 _Hello World Sega on Mega Drive_
@@ -116,13 +118,13 @@ _Hello World Sega on Mega Drive_
 
 ## ROM Header
 
-When creating the ROM of our game, a series of data about the game must be added. Some of them are generated automatically and others can be customized. SGDK, generates this header but we can add data about the game; as for example the title of the game, version or even with which devices it is compatible.
+When creating the ROM of our game, a series of data about the game must be added in the ROM Header. Some of them are generated automatically and others can be customized. SGDK, generates this header but we can add data about the game; as for example the title of the game, version or even with which devices it is compatible.
 
-We see that it is interesting to talk about this section and see the different options that we can find when generating the ROM header as it is necessary especially to be able to test it properly on real hardware, once we want to have our ROM finalized.
+We see that it is interesting to talk about this section and see the different options that we can find when generating the ROM header as it is necessary especially to be able to test it properly on real hardware, once we have our ROM finished.
 
 As we have already mentioned, SGDK generates the minimum content for the ROM header. This content can be found inside the _src/boot_ folder of our project. In this folder, we can find a file called "rom_head.c", with the definition of a C struct. with the definition of a C struct and its initialization.
 
-let's see the definition of the header struct:
+Let's see the definition of the header struct:
 
 ```C
 const struct
@@ -150,29 +152,29 @@ const struct
 
 We can see that there are different sections for different uses; let's show some of them:
 
-**console**
+**Console**
 
 A 16-byte character string; where the System type of the ROM is indicated; for Mega Drive it can have the value ```SEGA MEGA DRIVE``` or ```SEGA GENESIS```.
 
-**copyright**
+**Copyright**
 
 Indicates the Copyright showing who publishes the ROM and in which year. For example ```(C)SGDK 2019```.
 
-**title_local**
+**Title_local**
 
 Show game tittle.
 
-**title_int**
+**Title_int**
 
 Show international Game Title; can be the same than the previous value.
 
-**serial**
+**Serial**
 
 Show the game serial number; can be useful for identify ROM or compilation Version.
 
-It usually has the format  ```XX YYYYYYYY-ZZ``` where ```XX``` define ROM Type (GM for game), ```YYYYYYYY``` indicate the Serial Number y ```ZZ``` for the revision number.
+It usually has the format  ```XX YYYYYYYY-ZZ``` where ```XX``` define ROM Type (GM for game), ```YYYYYYYY``` indicate the Serial Number and ```ZZ``` for the revision number.
 
-**checksum**
+**Checksum**
 
 The _checksum_ is a 16-bit sum of the ROM contents; this sum can indicate whether the ROM has been modified or not; so some games check it as a way to find out that it is an original ROM; some emulators also check it.
 
@@ -182,7 +184,7 @@ This is one of the most important aspects; in this section, you define which inp
 
 It is important to define it in order to have a better compatibility with all available hardware. Let's see a table with the available options:
 
-| key   | description               |
+| Key   | Description               |
 |-------|---------------------------|
 | J     | 3 Buttons Gamepad         |
 | 6     | 6 Buttons Gamepad         |
@@ -205,19 +207,19 @@ _Table 1: Compatible devices values._
 
 Different options can be used at the same time, i.e. if we define the value ```J6M```, it means that the ROM is compatible with 3 and 6 button controllers, and with the mouse.
 
-**rom_start y rom_end**
+**Rom_start y Rom_end**
 
 Indicates where the ROM begins and ends; these values are calculated by SGDK when the ROM is generated.
 
-**sram_start y sram_end**
+**Sram_start y Sram_end**
 
 If our ROM uses SRAM to store data, the start and end addresses must be defined. ```sram_type``` must also be defined to indicate the type of SRAM to be used.
 
-**modem_support**
+**Modem_support**
 
 Check if this ROM has Modem support and what services are available.
 
-**region**
+**Region**
 
 Indicates the regions in which the ROM is supported (Japan, Europe or America); with the following values [^43] :
 

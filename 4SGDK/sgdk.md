@@ -32,9 +32,9 @@ bucle   move.b d0,(a0)+     ;MOVE B to D0
 
 The above fragment corresponds to a program that simply implements a loop and compares a series of data, using processor registers and memory addresses.
 
-However, this is very tedious even though it can be very optimal to use assembler; and the aim of this book is to use more modern tools. Therefore, we will use the C programming language.
+However, this is very tedious even though it can be very optimal to use assembler. Remember that the aim of this book is to use more modern tools. Therefore, we will use the C programming language.
 
-In addition, there is a set of tools to be able to use this C language for Sega Mega Drive. This set of tools is called Sega Genesis Development Kit or SGDK.
+Also, there is a set of tools to be able to use this C language for Sega Mega Drive. This set of tools is called Sega Genesis Development Kit or SGDK.
 
 Sega Genesis Development Kit, is a set of tools such as a compiler, a library, resource management tools, etc.. That will allow us to create software (video games) for Sega Mega Drive. SGDK, is free and its open source; it is released under the MIT license; except the GCC [^26] compiler that incorporates that has GPL3 license.
 
@@ -52,7 +52,7 @@ During all these years, it has had a great acceptance by the community because i
 
 The library provided by SGDK is written in C although it has other tools that are written in other languages such as Java.
 
-Currently (2023), version 1.90 has been released which includes different improvements besides improving the support as mega Wifi[^27], as well as other improvements such as being able to import _TMX_ files to include TileSets and TileMaps generated from the _Tiled_ tool; we will see this tool in a later chapter.
+Currently (2023), version 1.90 has been released which includes different improvements besides improving the support for mega Wifi[^27], as well as other improvements such as being able to import _TMX_ files to include TileSets and TileMaps generated from the _Tiled_ tool; we will see this tool in a later chapter.
 
 [^27]: Mega Wifi, is a special cartridge that allows you to connect to the Internet via Wifi; in addition to bringing a series of libraries to manage connectivity with the network.
 
@@ -87,7 +87,7 @@ GCC is included with version 6.3.0 inside SGDK, and using tools like make [^28],
 
 LibMd, is a library that incorporates SGDK, with a series of functions and data that will allow us to create video games for Sega Mega Drive; it incorporates everything necessary to handle the hardware either to manage the controls, video, sound, etc..
 
-Is written in C and you can check the documentation inside the SGDK itself, in the _doc_ folder.
+Is written in C and assembler and you can check the documentation inside the SGDK itself, in the _doc_ folder.
 
 ### Rescomp
 
@@ -138,7 +138,7 @@ More details can be found on their web site:
 
 Metal Dragon [^31] is a game for Sega Mega Drive that has an 80s/90s action movie aesthetic; in this game you have to rescue the president's daughter and face endless enemies.
 
-This game is a 1 player game and there is a version for Sega Mega Drive, as well as for MSX. In addition, a Spanish studio is who has developed this game and recently is publishing his game in the magazine _beep_ for Japan. Besides publishing other games like _Life On mars_ or _Life on Earth_.
+This game is a 1 player game and there is a version for Sega Mega Drive, as well as for MSX. In addition, a Spanish studio is who has developed this game and recently is publishing his game in the magazine _beep_ for Japan. Besides publishing other games like _Life On mars_ or _Life on Earth_. Now its working on a new Title called _The secret of the 4 Winds_.
 
 [^31]: Metal Dragon has been developed by the Spanish studio Kai Magazine Software. All rights reserved.
 
