@@ -1,6 +1,6 @@
 # 14. Sound and Music
 
-For now, we have been working mainly with the visual part; like displaying backgrounds, sprites, colors, backgrounds, etc. But a game is not complete if it doesn't have sound; both sound effects and music to enhance the game experience.
+For now, we have been working with the visual part; like displaying backgrounds, sprites, colors, backgrounds, etc. But a game is not complete if it doesn't have sound; both sound effects and music to enhance the game experience.
 
 Therefore, it is important to know how to add sound to our game; from the different effects such as attack, character voice or even a more complex effects, it is important to be able to add them and enjoy them once our game is running.
 
@@ -86,7 +86,7 @@ It is important to know that a second version of this driver is being worked on;
 * Runs 100% on the Z80 (uses the m68K to calculate the times).
 * Support for music pause and playback.
 * Adjustable execution speed (tempo).
-* Formato de entrada VGM.
+* VGM Format Input.
 * Reduces ROM usage with respect to XGM.
 * FM and PSG adjustable volume.
 * 3 PCM channels for 8 bits.
@@ -101,10 +101,10 @@ Although many Drivers already had some integrated editors, such as _GEMS_ or _MU
 
 ### Deflemask
 
-In this book, we will discuss the use of Deflemask; which is one of the most used. This program will allow us to create our music and export it to different systems; among its features it includes:
+In this book, we will discuss the use of Deflemask; which is one of the most used. This program will allow us to create our music and export it to different systems; among its features that includes:
 
 * Real-time emulation of the different sound chips (including yamaha).
-* MIDI[^62] devices support .
+* MIDI[^62] devices support.
 * ROMS generation support.
 * Use of the VGM[^63] format  as output.
 
@@ -118,7 +118,7 @@ _Deflemask_
 
 ## Music & Sound Example
 
-After seeing how the sound system is composed; the Drivers and how to create the sound, we are going to create an example, in where we can reproduce different sounds and music depending on the different buttons that we press. This example, you can find it in the repository of examples that accompanies this book. This example corresponds to the folder _ej15.musicandsound_; where we can find both the code and the resources.
+After seeing how the sound system is composed; the Drivers and how to create the sound or music, we are going to create an example, in where we can reproduce different sounds and music depending on the different buttons that we press. This example, you can find it in the repository of examples that accompanies this book. This example corresponds to the folder _ej15.musicandsound_; where we can find both the code and the resources.
 
 First of all, we are going to show how to import music resources or sound effects using the _rescomp_ tool, which is in charge of reading the files and converting them to binary. We have to differentiate that the files with music are in VGM format, while the files with sound effects are in WAV format.
 
@@ -173,7 +173,7 @@ Where we can see that we imported 2 vgm files, and three audio effects. You can 
 Once the resources have been imported, we can now focus on the code; this set will perform the following actions:
 
 * A Button: Play Music 1.
-* B Button: Play Music 1.
+* B Button: Play Music 2.
 * C Button: Play current Sound Effect.
 * Start Button: Stop Sound.
 * Left Button: Select Next Sound Effect.
