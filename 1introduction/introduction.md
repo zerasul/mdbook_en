@@ -64,7 +64,7 @@ In order to understand the contents of this book, you will need to know the foll
 * Git
 * Pixel Art drawing tools such as Aseprite.
 
-Por supuesto, no te preocupes si no entiendes alguna parte del código, ya que cada capítulo tiene referencias que te ayudarán a entender el código fuente o cualquier otra referencia.
+Of course, don't worry if you don't understand any part of the code, as each chapter has references that will help you understand the source code or any other reference.
 
 In addition, in order to be able to follow all the contents of this book we recommend using the following software or hardware:
 
