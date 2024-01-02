@@ -17,9 +17,9 @@ A TileSet is a set of graphics that compose all the elements that can contain a 
 <em>TileSet example (Open Game Art)</em>
 </div>
 
-As we can see in the previous image, the different graphic elements can be appreciated. This Tileset will allow us to generate scenes with the different elements that compose it.
+As we can see in the previous image different graphic elements can be appreciated. This Tileset will allow us to generate scenes with the different elements that compose it.
 
-Once we have seen what a TileSet is, we will define the so-called TileMap. A TileMap is a set of references to elements of a TileSet to define a scene or any other element needed to display it on screen. Usually we use indexes to indicate the element of the TileSet to be displayed. Let's see an example of a TileMap from the previous TileSet.
+Una vez que hemos visto lo que es un TileSet, vamos a definir lo que es un TileMap. Un TileMap es un conjunto de referencias a elementos de un TileSet para definir una escena o cualquier otro elemento necesario para mostrarla en pantalla. Normalmente utilizamos índices para indicar el elemento del TileSet a mostrar. Veamos un ejemplo de un TileMap del TileSet anterior.
 
 ![TileMap Example](12TileSets/img/mapabosque.png "TileMap Example")
 _TileMap Example_
@@ -133,7 +133,7 @@ In case of using a TMX file, we can import the resource as follows:
 
 **NOTE2:** The priority information can also be loaded by naming the layer with the suffix "priority".
 
-From version 1.90 of SGDK, the possibility of obtaining information of the objects added from Tiled in a TMX using rescomp is available; although it was already added in the previous version, it has been improved in the last version. Let's show the syntax to add it:
+From version 1.90 of SGDK, the possibility of obtaining information of the objects added from Tiled in a TMX using rescomp is available; although it was already added in the previous version, it has been improved in this last version. Let's show the syntax to add it:
 
 ```OBJECTS name tmx_file layer_id fields_defs [decl_type [type_filter]]```; where:
 
@@ -144,7 +144,7 @@ From version 1.90 of SGDK, the possibility of obtaining information of the objec
 * decl_type: Type declaration for the objects.
 * type_filter: Define a filter for the types to be imported.
 
-Para más información acerca de como se importan los tipos Objects desde un fichero TMX, consulta la documentación de SGDK.
+For more information on how to import Objects types from a TMX file, see the SGDK documentation.
 
 ### Generate TileMap Manually
 
@@ -327,7 +327,7 @@ This function, displays a tilemap as a rectangle; so we can draw screen areas, w
     * DMA_QUEUE: DMA Queue is used.
     * DMA_QUEUE_COPY: DMA Copy Queue is used.
 
-We see that to calculate the Tile to show, we use a formula that is to search in the array that we have created in the .h file, and then all the tiles are displayed on the screen. There are other functions to make this data as ```VDP_setTileMapXY```, that allows to draw in a concrete coordinate; for more information about how to use these functions, you can consult the SGDK documentation.
+We see that to calculate the Tile to show, we use a formula that is to search in the array that we have created in the .h file, and then all the tiles are displayed on the screen. There are other functions to make this data as ```VDP_setTileMapXY```, that allows to draw in a concrete coordinate; for more information about how to use these functions, you can see the SGDK documentation.
 
 Once we have finished reviewing the code, we can compile and run this example:
 
@@ -338,6 +338,6 @@ As we can see, the result is almost the same (it can change by the way of loadin
 
 ## References
 
-* Example TileSet: [https://opengameart.org/content/forest-tileset-new-and-old](https://opengameart.org/content/forest-tileset-new-and-old).
+* Example TileSet (Open Game Art): [https://opengameart.org/content/forest-tileset-new-and-old](https://opengameart.org/content/forest-tileset-new-and-old).
 * Tiled: [https://www.mapeditor.org/](https://www.mapeditor.org/).
 * Genesis Code Documentation: [https://zerasul.github.io/genesis-code-docs/](https://zerasul.github.io/genesis-code-docs/)
