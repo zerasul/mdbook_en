@@ -196,7 +196,7 @@ VDP_drawImageEx(BG_B, &bg_b,
 index+=bg_b.tileset->numTile;
 VDP_drawImageEx(BG_A, &bg_a, 
      TILE_ATTR_FULL(PAL1,FALSE,FALSE,FALSE,
-        index),0,0,TRUE,CPU);
+     index),0,0,TRUE,CPU);
 index+=bg_a.tileset->numTile;
 ```
 

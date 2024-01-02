@@ -152,9 +152,11 @@ In the source code, you can find the function ```drawPriorityMap```, which will 
 
 ```c
     u16 tilemap_buff[MAXTILES];
-    u16* priority_map_pointer=&tilemap_buff[0];
+    u16* priority_map_pointer=
+        &tilemap_buff[0];
 
-    for(int j=0;j<MAXTILES;j++)tilemap_buff[j]=0;
+    for(int j=0;j<MAXTILES;j++)
+        tilemap_buff[j]=0;
 
     u16 *shadow_tilemap = bg_map->
           tilemap->tilemap;
