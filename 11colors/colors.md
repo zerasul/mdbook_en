@@ -2,9 +2,9 @@
 
 We can't talk about the Sega Mega Drive's Development, if we don't talk about colors and how they are handled by this system. So far we have been talking about the palettes and how we can handle them when dealing with backgrounds or the different sprites in the examples that we have been showing.
 
-In this chapter, we are going to show the different colors that the Mega Drive can handle, and how to store them in the different palettes available at hardware level. In addition, we are going to show how to perform different effects such as transparencies or highlight some color with respect to the background, thanks to the _HighLight_ and _Shadow_ colors.
+In this chapter, we are going to show the different colors that the Mega Drive can handle, and how to store them in the different palettes available at hardware level. Also, we are going to show how to perform different effects such as transparencies or highlight some color with respect to the background, thanks to the _HighLight_ and _Shadow_ colors.
 
-Finally, we will see an example where we will handle the different effects, and in addition, we will see some advanced functions related to screen painting that will help us to add more effects.
+Finally, we will see an example where we will handle the different effects and in addition, we will see some advanced functions related to screen painting that will help us to add more effects.
 
 ## Sega Mega Drive Color
 
@@ -15,11 +15,11 @@ However, we have not been able to see how many colors in total the Sega Mega Dri
 ![Mega Drive Palette Color](11colors/img/RGB_9bits_palette.png "Mega Drive Palette Color")
 _Mega Drive Palette Color (Wikipedia)_
 
-As we can see in the previous image, the different colors that the Sega Mega Drive is capable of displaying are shown, and it is important to take this into account, since when working with the different graphics, we must know which color would correspond to the Sega Mega Drive if we are working with RGB from our development team.
+As we can see in the previous image, the different colors of the Sega Mega Drive is capable of displaying are shown, and it is important to take this into account since when working with the different graphics, we must know which color would correspond to the Sega Mega Drive if we are working with RGB from our development team.
 
 In case the color we are working with does not correspond to a color for the Sega Mega Drive, SGDK will transform this color to the closest color.
 
-In addition, SGDK comes with functions and macros, to work with different colors. For example:
+Also, SGDK comes with functions and macros to work with different colors. For example:
 
 ```c
 u16 vdpRedColor = 
@@ -34,9 +34,9 @@ There are also equivalents in other formats:
 * ```RGB24_TO_VDPCOLOR```: Transforms a color in RGB 24-bit format to VDP.
 * ```RGB3_3_3_TO_VDPCOLOR```: Transforms a color in RGB format (r,g,b) to VDP. Where each component has value from 0 to 7.
 
-Obviously it is important to know that when working with colors and palettes using SGDK, the palette information is usually imported together with the graphics information (on CRAM). Therefore, it is important that in order to save colors and not having to change the palette, the palette is reused for different graphics.
+Obviously it is important to know that when working with colors and palettes using SGDK, the palette information is usually imported together with the graphics information. Therefore, it is important that in order to save colors and not having to change the palette, the palette is reused for different graphics.
 
-If during the game we have to change the palette and load different graphics, this can cause bottlenecks since the information must pass from the ROM to the VRAM either through CPU or using DMA. Using any of these alternatives, we can generate such a bottleneck since they share the bus.
+If during the game we have to change the palette and load different graphics, this can cause bottlenecks since the information must pass from the ROM to the VRAM (or CRAM) either through CPU or using DMA. Using any of these alternatives, we can generate such a bottleneck since they share the bus.
 
 ## HighLight & Shadow
 
@@ -57,7 +57,7 @@ We can see in the previous image, how the same color palette can be in HighLight
 
 In this section, we are going to show how these modes work in the Sega mega Drive. Since depending on what is going to be shown and the priority of the same one, it has a behavior or another. We are going to see how these modes behave in planes and Sprites.
 
-To activate the HighLight/Shadow mode, you can use the function ```VDP_setHilightShadow``` which indicates whether it is activated or not. It receives by parameter with value 1 or 0. For example:
+To activate the HighLight/Shadow mode, you can use the function ```VDP_setHilightShadow``` which indicates whether it is activated or not. It receives a parameter with value 1 or 0. For example:
 
 ```c
 VDP_setHilightShadow(1);
@@ -104,7 +104,7 @@ This function returns the RGB value of the color at that position in the CRAM.
 
 You can also set the color at a specific position. In this case we will use the ```PAL_setColor``` function which receives the following parameters:
 
-* _index_:CRAM index (0 to 63), in order to set the color to be replaced.
+* _index_: CRAM index (0 to 63), in order to set the color to be replaced.
 * _value_: RGB value of the color to be used. In this case, you can use the ```RGB8_8_8_8_TO_VDPCOLOR``` or similar functions to set the color value.
 
 One aspect to take into account, is that these functions modify the value of the CRAM that is next to the VDP; therefore, the color value must be written and if both the CPU and the DMA are being used we have to take into account that there may be a bottleneck.
@@ -115,7 +115,7 @@ You can find more information about the functions to modify the CRAM colors by b
 
 In this chapter we have been working with color palettes and the effects we can do on them. Therefore, in the example we are going to study, we will use the different color palettes and their respective Shadow effects.
 
-In this example, we are going to use the characteristics of the priority, to be able to simulate an effect of lights; simulating in this case, the light of some streetlights, and to see how it affects to the different Sprites, with the different characteristics that can have.
+In this example, we are going to use the characteristics of the priority, to be able to simulate an effect of lights; simulating in this case, the light of some street lamps, and to see how it affects to the different Sprites, with the different properties that they can have.
 
 The example we are going to study, called _ej8.colors_, can be found in the repository of examples that accompanies this book. We remind you that this repository can be found at the following address:
 
@@ -141,7 +141,7 @@ Let's look at the image of the priority map:
 
 As we can see in this image, the marked areas will be the ones that will appear lighter than the black ones, which coincide with the position of the street lamps in the foreground. This effect is due to the fact that at the plane level, the tiles with priority will be displayed normally, while the Tiles that are painted without priority, will have the shadow effect; hence it has the effect of illumination. Let's see how this effect is done at the code level to set the priority only for the areas that are marked.
 
-Each background is loaded using a _.res_ file with the definition of both images:
+The backgrounds are loaded using a _.res_ file with the definition of both images:
 
 ```res
 IMAGE bg_color1 "gfx/fondocolor1.png" NONE
@@ -210,7 +210,7 @@ _Example 8: Colors and Shadow_
 
 As we can see in the image, in each streetlight a part is shown illuminated; this is because these areas are painting Tiles with Priority; so they are shown in a normal way; the rest of Tiles that do not have priority are shown in Shadow mode. With this, we confirm that the behavior with the planes, is as we have mentioned previously.
 
-We also see that at the Sprite level, if we move our character, it is also affected by the Shadow mode; in this way we can give the sensation of a lighting that is affected by our character. Obviously, we can also work with HighLight mode, using Palette 3, and playing with colors 14 and 15. But we can see that in examples later.
+We also see that at the Sprite level, if we move our character, it is also affected by the Shadow mode; in this way we can give the sensation of a lighting that is affected by our character. Obviously, we can also work with HighLight mode, using Palette 3, and playing with colors 14 and 15.
 
 With this example, we have already seen how the color palettes and the Shadow and HighLight modes work.
 
