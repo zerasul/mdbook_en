@@ -1,24 +1,24 @@
 # 10. Physics and Maths in Mega Drive
 
-There is an important aspect when working with computers that we have to take into account. Especially when creating video games that have different interactions. A computer is nothing more than a calculator that performs calculations in binary numbers.[^53].
+There is an important thing we need to know when working with computers that we have to take into consideration. Especially when creating video games that have different interactions. A computer is nothing more than a calculator that performs calculations in binary numbers[^53].
 
 Therefore, we have to take into consideration that in each architecture and processor, it can have different behaviors when performing calculations; either from a simple addition, to more expensive operations such as accessing memory or the division or multiplication itself.
 
-In this topic, we are going to talk about how the Motorola 68000 works and the different operations it can perform. We will also go into detail on working with floating point, and we will even see at the end how to implement collision between different Sprites using SGDK.
+In this chapter, we are going to talk about how the Motorola 68000 works and the different operations it can perform. We will also go into detail on working with floating point, and we will even see at the end how to implement collision between different Sprites using SGDK.
 
-This topic can be a little complicated to understand; but it is necessary to be able to create in the most efficient way possible, our videogame without having loss of frames, or that the screen freezes.
+This topic can be a little complicated to understand; but it is necessary to be able to create in the most efficient way possible, our videogame without having loss of frames or the screen freezes.
 
 [^53]: The binary system is a numbering system in base 2, so you can only have two values 0 or 1.
 
 ## Arithmetic on Motorola 68000
 
-We are going to start talking about the Motorola 68000 processor; since this is the main processor of the Sega Mega Drive and although it also has a Zilog Z80 processor, we will focus on the Motorola. Remember that you can see more information about the architecture and how these processors work in the Sega Mega Drive in chapter 3.
+We are going to start talking about the Motorola 68000 processor; because this is the main processor of the Sega Mega Drive and although it also has a Zilog Z80 processor, we will focus on the Motorola. Remember that you can see more information about the architecture and operation of these processors in Sega Mega Drive in chapter 3.
 
 In this section we will show how some arithmetic operations are performed and how they can be performed more efficiently.
 
-We begin by explaining how the m68k processor works; it is a processor that has 32-bit registers and can work with them thanks to its two ALU [^54]. It is important to know the limitations provided by this processor; although it can work perfectly with any mathematical operation, it cannot work with decimal numbers, for example, or the efficiency when working with the different mathematical operations.
+We begin by explaining how the m68k processor works; it is a processor that has 32-bit registers and can work with them thanks to its two ALU [^54]. It is important to know the limitations provided by this processor; although it can work perfectly with any mathematical operation, it cannot work with decimal numbers for example, or the efficiency when working with the different mathematical operations.
 
-A microprocessor does not take the same time to perform an addition, or to perform a multiplication or division; normally the duration of these operations are performed in cycles (the duration of a processor cycle is 1/F; where F is the clock frequency). We are going to show the cost in cycles that the different arithmetic operations can take.
+A microprocessor does not take the same time to perform an addition or to perform a multiplication or division; normally the duration of these operations are performed in cycles (the duration of a processor cycle is 1/F; where F is the clock frequency). We are going to show the cost in cycles of the different arithmetic operations can take.
 
 | **Operation** | **Description** | **Cost (cycles)**   |
 |:-------------:|-----------------|---------------------|
@@ -32,7 +32,6 @@ A microprocessor does not take the same time to perform an addition, or to perfo
 |       OR      | Or              |                  12 |
 |      SUB      | Subtract        |                  12 |
 |      ASR,ASL  | Shift           |                  8  |
-
 _Table3: Motorola 68000 Processor Operations and Cost_
 
 We can observe that both multiplication and division are very costly operations so performing them can be inefficient (158 and 70 cycles respectively). Therefore, it is necessary to avoid using these operations.
@@ -61,7 +60,7 @@ a/2; //3
 a>>1; //3
 ```
 
-Scrolling to the right, we can see that it can be divided by 2. So it can be more efficient when working with these arithmetic operations.
+Shifting to the right, we can see it can be divided by 2. So it can be more efficient when working with these arithmetic operations.
 
 **NOTE**: It is important to know whether the compiler used can transform multiplication or division operations into more efficient operations[^55].
 
@@ -74,35 +73,33 @@ After seeing the arithmetic operations and how to optimize them, we are going to
 
 When working with different types of data, we need to know how they are stored in memory and how they can be used; for example, when working with numbers.
 
-Therefore, we are going to show the different types of numerical data that SGDK provides us; although we can continue using the classic types of C (they are definitions from these); let's see a table with the different types of data and how much it occupies in memory.
+Therefore, we are going to show the different types of numerical data that SGDK provides us; although we can continue using the classic types of C (they are re-definitions from them); let's see a table with the different types of data and how much they consume in memory.
 
 | **SGDK Type** |  **Type (C)**  | **Description**             | **Range**               |
 |---------------|:--------------:|-----------------------------|-------------------------|
-|       u8      |  unsigned char | 8 Bits unsigned Integer  | 0 a 255                 |
-|       s8      |      char      | 8 Bits Signed Integer  | -128 a 127              |
-|      u16      | unsigned short | 16 Bits Unsigned Integer | 0 a 65535               |
-|      s16      |      short     | 16 Bits Signed Integer | -32678 a 32677          |
-|      u32      |  unsigned long | 32 Bits Unsigned Integer | 0 a 4294967295          |
-|      s32      |      long      | 32 Bits Signed Integer | -2147483648 a 217483647 |
-
-_Tabla 4: Data type in SGDK and its equivalent in C._
+|       u8      |  unsigned char | 8 Bits Unsigned Integer  | 0 to 55                 |
+|       s8      |      char      | 8 Bits Signed Integer  | -128 to 127             |
+|      u16      | unsigned short | 16 Bits Unsigned Integer | 0 to 5535               |
+|      s16      |      short     | 16 Bits Signed Integer | -32678 to 32677          |
+|      u32      |  unsigned long | 32 Bits Unsigned Integer | 0 to 294967295          |
+|      s32      |      long      | 32 Bits Signed Integer | -2147483648 to 217483647 |
+_Table 4: SGDK data type and C equivalent._
 
 We can see that there are different types of data available for integers, so we must always take into account the value it can contain in order to avoid overflows and unexpected behavior.
 
-You may have noticed that we have not included numeric data types with decimals; this is because the Motorola 68000 processor did not have floating point support; however, we can use it with SGDK.
+You may have noticed that we have not included numeric data types with decimals; this is because the Motorola 68000 processor did not have floating point support; however, we can use it with SGDK special Types.
 
 ## Floating Point
 
-The Motorola 68000 processor does not support floating point, therefore, calculations with decimal numbers cannot be performed; therefore, all calculations must be implemented with integers and transformations must be performed to work with them.
+The Motorola 68000 processor does not support floating point therefore, calculations with decimal numbers cannot be performed; so all calculations must be implemented with integers and transformations must be performed to work with them.
 
 Therefore SGDK, brings a series of data prepared to work with floating point; these data types are the ```FIX16``` and ```FIX32```; that would correspond to the ```float``` and ```double``` types of C; let's see a table with its data:
 
 | **SGDK Type** | **Type (C)** | **Description** | **Range**               |
 |---------------|:------------:|-----------------|-------------------------|
-|     fix16     |     float    | Simple Decimal  | 3.4*E^-38 a 3.4*E^+38   |
-|     fix32     |    double    | Double Decimal  | 1.7*E^-308 a 1.7*E^+308 |
-
-_Tabla 5: Decimal data types in SGDK._
+|     fix16     |     float    | Simple Decimal  | 3.4*E^-38 to 3.4*E^+38   |
+|     fix32     |    double    | Double Decimal  | 1.7*E^-308 to 1.7*E^+308 |
+_Table 5: Decimal data types in SGDK._
 
 Note that the ```fix16``` or ```fix32``` data types are not equivalent to float or double in code. For example:
 
@@ -139,10 +136,9 @@ In the previous fragment; whether it is a correct instruction to declare in this
 | fix32sqrt(a)          | Performs the square root of a fix32                                          |
 | sinFix16(v)           | Performs the sine of the angle in radians represented in the range from 0 to 1024.   |
 | cosFix32(v)           | Performs the cosine of the angle in radians represented in the range from 0 to 1024 |
-
 _Table 6: Functions for use with Fix16 or Fix32_
 
-If you need more information on how to use ```Fix16``` or ```Fix32```, you can consult the SGDK documentation, the file that includes all the definitions:
+If you need more information on how to use ```Fix16``` or ```Fix32```, you can see on the SGDK documentation, the file that includes all the definitions:
 
 [https://github.com/Stephane-D/SGDK/blob/master/inc/maths.h](https://github.com/Stephane-D/SGDK/blob/master/inc/maths.h)
 
@@ -162,7 +158,7 @@ The macro ```GET_VDPSTATUS``` will return different from 0, when two or more spr
 
 To better check how Sprites can collide, we will talk about collision boxes or commonly called colliders; and then we will see how to calculate the collision between them.
 
-A collision box, or _collider_, is an area within a Sprite that represents that collision can occur within that area. It is usually represented by a rectangle or a circle.
+A collision box or _collider_, is an area within a Sprite that represents that collision can occur within that area. It is usually represented by a rectangle or a circle.
 
 It is common to define a box (BOX) or a circle (CIRCLE); with SGDK, you can define the type of collider you will have when importing sprites with _rescomp_; however, this functionality is not yet fully implemented.
 
@@ -192,7 +188,7 @@ Where:
 * ```point_x```: Point X Position in Pixels.
 * ```point_y```: Point Y Position in Pixels.
 * ```box_x1```: X position from the beginning of the box.
-* ```box_y1```: Y position of the start of the box.
+* ```box_y1```: Y position from the beginning of the box.
 * ```box_x2```: X position at the end of the box.
 * ```box_y2```: Y position of the end of the box.
 
@@ -300,11 +296,11 @@ Where:
 * ```circle1_radius```: Radius of the first circle.
 * ```circle2_radius```: Radius of the second circle.
 
-Although there are more combinations such as a box versus circle, these can be calculated by performing combinations. In addition, it is important to see that we have studied the formulas and these include multiplications so that as far as possible, transform such multiplications, to displacements.
+Although there are more combinations such as a box versus circle, these can be calculated by performing combinations. In addition, it is important to see that we have studied the formulas and these include multiplications so that as far as possible, transform such multiplications into shifts.
 
 ## Sprites Collision Example
 
-Once we have seen the theories about how to calculate collisions, we can look at the example of this chapter. In this case, we are going to take the previous example as a basis, but adding collision checking.
+Once we have seen the theories on how to calculate collisions, we can look at the example of this chapter. In this case, we are going to take the previous example as a baseline, but adding collision checking.
 
 You can find the example for this section in the example repository that accompanies this book; in this case, it is located in the _ej7.collisions_ folder; you will find both the source code and the resources for this example.
 
@@ -321,7 +317,7 @@ typedef struct {
 }BoxCollider;
 ```
 
-Where the properties of this struct are:
+Where the properties of this Struct are:
 
 * _x_: X coordinate in pixels of the upper left corner.
 * _y_: Y coordinate in pixels of the upper left corner.
@@ -355,14 +351,14 @@ Once these variables have been obtained, we calculate each point necessary to ch
 ```c
    
    s8 box1_x1 = sprt1Collider.x;
-    s8 box1_y1 = sprt1Collider.y;
-    s8 box1_x2 = sprt1Collider.x+sprt1Collider.w;
-    s8 box1_y2 = sprt1Collider.y+sprt1Collider.h;
+   s8 box1_y1 = sprt1Collider.y;
+   s8 box1_x2 = sprt1Collider.x + sprt1Collider.w;
+   s8 box1_y2 = sprt1Collider.y + sprt1Collider.h;
 
-    s8 box2_x1 = sprt2Collider.x;
-    s8 box2_y1 = sprt2Collider.y;
-    s8 box2_x2 = sprt2Collider.x+sprt2Collider.w;
-    s8 box2_y2 = sprt2Collider.y+sprt2Collider.h;
+   s8 box2_x1 = sprt2Collider.x;
+   s8 box2_y1 = sprt2Collider.y;
+   s8 box2_x2 = sprt2Collider.x + sprt2Collider.w;
+   s8 box2_y2 = sprt2Collider.y + sprt2Collider.h;
 ```
 
 We see how in each case both the x1,y1 position and the x2,y2 position are calculated, corresponding to the initial and final point of the rectangle that forms the collision box. Once we have each point, we can perform the check:
@@ -397,7 +393,7 @@ Finally, we only have to compile and run the example; either manually, or using 
 ![Example 7: Collisions](10physics/img/ejemplo7.png "Example 7: Collisions")
 _Example 7: Collisions_
 
-After seeing this example, we can see how to use physics and mathematics when working with Sega Mega Drive. From the different arithmetic instructions that we can do with the Motorola 68000, to review the collisions between Sprites and how we can implement them in our games.
+After seeing this example, we can see how to use physics and maths when working with Sega Mega Drive. From the different arithmetic instructions that we can do with the Motorola 68000, to review the collisions between Sprites and how we can implement them in our games.
 
 In the next chapter, we will discuss how Sega mega Drive manages colors and the different palettes we can use and change.
 
