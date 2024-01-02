@@ -1,10 +1,10 @@
 # 13. Scroll
 
-Until now, we have been working with backgrounds and images that occupied the entire width of the screen; but what happens if an image is larger than what the screen allows; and if our scenario is changing as our character or characters move, in these cases we use Scroll.
+Until now, we have been working with backgrounds and images that take up the entire width of the screen; but what if an image is larger than the screen allows; and if our scenery is changing as our character or characters move, in these cases we use Scroll.
 
 A scroll is nothing more than the possibility of moving the elements of a background in one direction; in such a way that we can give the sensation of movement.
 
-In this chapter, we are going to show how to use the scrolling capabilities of the Mega Drive, thanks to the VDP.
+In this chapter, we are going to show how to use the scrolling capabilities of the Mega Drive, thanks to the VDP chip.
 
 We will see the different types of Scroll that there are, and we will also see in which directions we can do it.
 
@@ -21,7 +21,7 @@ We can differentiate the Scroll by direction, which can be of two types:
 * _Horizontal_: when scrolling from right to left or vice versa.
 * _Vertical_: when scrolling from top to bottom or vice versa.
 
-Además, dependiendo de la porción de pantalla desplazada, podemos encontrar tres tipos:
+Also, depending on the portion of screen scrolled, we can find three types:
 
 * _Line_: The VDP can scroll horizontally up to 224 lines; vertically, however, it is capable of scrolling some portions.
 * _Plane_: The VDP allows a complete plane to be moved both horizontally and vertically.
@@ -31,7 +31,7 @@ In this section, we will focus on these types of Scroll and see how it can be pe
 
 ### Line Scroll
 
-We will start by talking about line scrolling; in this case we can scroll up to 224 lines per screen horizontally; one per pixel (in PAL). In such a way that we can scroll different portions of the screen independently. This is done by the VDP chip itself, thanks to the scrolling table stored in VRAM.
+We will start by talking about line scrolling; in this case we can scroll up to 240 lines per screen horizontally; one per pixel (224 in NTSC). In such a way that we can scroll different portions of the screen independently. This is done by the VDP chip itself, thanks to the scrolling table stored in VRAM.
 
 Each of the 224 lines stores a fragment of the plan that can be shifted to the right or left so that the direction can be changed if necessary. It is not possible to scroll for each column, although it can be done for every 2 Tiles.
 
@@ -65,6 +65,7 @@ We have seen the theory of how to scroll by line, plane or Tiles; so in order to
 * Example of displacement by lines; let's see how to deform a logo to make an effect using displacement.
 * Example of plane displacement; in this case, we are going to perform the famous paralax effect so that we can see how the plane is displaced to show a larger map.
 * Example of displacement by Tiles; in this last example, we are going to see how using 1 Tile and a Tilemap, we can generate a rain effect, using displacement by Tiles.
+* Example of plane displacement but using the new Structure called Map.
 
 Remember that all the examples mentioned in this book are available in the Github repository that accompanies this book; here is the address:
 
@@ -81,7 +82,7 @@ _Example Image_
 
 What we are going to do is to make a displacement of each line; the even lines will go to one side, and the odd ones to the other. Let's see how we can do it.
 
-First, we need to draw the image on the Background to be used.:
+First, we need to draw the image on the Background to be used:
 
 ```c
 VDP_drawImageEx(BG_B,&logo,
@@ -144,7 +145,7 @@ This function named ```VDP_setHorizontalScrollLine``` allows to perform line scr
     * DMA_QUEUE: DMA queue is used.
     * DMA_QUEUE_COPY: DMA Copy queue is used.
 
-You may have seen that we are sending information of each of the lines; whether they move or not; this is not the most efficient; since we can create an array only with the information of the lines to be moved. In such a way that it will be more efficient and less resource consuming for the hardware.
+You may have seen that we are sending information of each of the lines; whether they move or not; this is not the most efficient; since we can create an array only with the information of the lines to be moved. In such a way it will be more efficient and less resource consuming for the hardware.
 
 Once we have been able to explain the code and how this example works, we can now compile and run, so that we can see in an emulator how this effect looks like.
 
@@ -159,7 +160,7 @@ We remember that the VDP, allows to store a plane of up to 512x256px; but in ROM
 
 This example can be found in the examples repository under the name _ej12.planescroll_; in this case, we will use a fixed plane, and a second plane, which we will scroll horizontally when necessary.
 
-In this example, we will not only move the plane; but we will generate the necessary Tiles as necessary so that we will discover the scenery little by little. Let's see the images that we will use as planes.
+In this example, we will not only move the plane; we will generate the needed Tiles as necessary so that we will discover the scenery little by little. Let's see the images that we will use as planes.
 
 The foreground, which we will use as the sky; it is a static image that we will draw in plane B.
 
@@ -177,7 +178,7 @@ As we can see in the previous image, the red background color will be the transp
 
 Once we have the images, let's review the code; which we have decided to divide into three parts; the main function, the control handling function and finally a function to update the screen when needed.
 
-We will start by talking about the main function; where we will initialize all the variables and draw the backgrounds. Let's see a fragment:
+We will start by talking about the main function; where we will initialize all the global variables and draw the backgrounds. Let's see a fragment:
 
 ```c
 struct{
@@ -205,21 +206,21 @@ With these variables, we are going to perform the scrolling; but first we will d
 
 ```c
 SPR_init();
-    ind = TILE_USER_INDEX;
-    VDP_drawImageEx(BG_B,&sky,
-        TILE_ATTR_FULL(PAL0,FALSE,
-        FALSE,FALSE,ind)
-            ,0,0,TRUE,CPU);
-    ind+= sky.tileset->numTile;
-    VDP_drawImageEx(BG_A,&map1,
-        TILE_ATTR_FULL(PAL1,FALSE,
-            FALSE,FALSE,ind),
-            0,0,TRUE,CPU);
-    player.elliSprt=SPR_addSprite(&elli,
-        20,135,
-        TILE_ATTR(PAL2,FALSE,FALSE,FALSE));
-    SPR_setAnim(player.elliSprt,IDLE);
-    PAL_setPalette(PAL2,elli.palette->data,CPU);
+ind = TILE_USER_INDEX;
+VDP_drawImageEx(BG_B,&sky,
+    TILE_ATTR_FULL(PAL0,FALSE,
+    FALSE,FALSE,ind)
+        ,0,0,TRUE,CPU);
+ind+= sky.tileset->numTile;
+VDP_drawImageEx(BG_A,&map1,
+    TILE_ATTR_FULL(PAL1,FALSE,
+        FALSE,FALSE,ind),
+        0,0,TRUE,CPU);
+player.elliSprt=SPR_addSprite(&elli,
+    20,135,
+    TILE_ATTR(PAL2,FALSE,FALSE,FALSE));
+SPR_setAnim(player.elliSprt,IDLE);
+PAL_setPalette(PAL2,elli.palette->data,CPU);
 ```
 
 Once the screen and the Sprites have been drawn, we will go on to configure the Scroll mode:
@@ -278,7 +279,7 @@ if(player.offset>640) player.offset=0;
     VDP_setHorizontalScroll(BG_A,-player.offset);
 ```
 
-We see how at the beginning, it is checked that the offset is not greater than the size of the plane. If this happens, the offset is initialized again to zero to give a sense of infinity. Once this is done, we will check that ```countpixel```, is zero; if so, the column to update will be calculated; let's see that formula:
+We see how at the beginning, it is checked that the offset is not greater than the size of the plane. If this happens, the offset is initialized again to zero to give a sense of infinity. Once this is done, we will check that ```countpixel```, is zero; if so, the column to update will be calculated; let's see this formula:
 
 ```c
 col_update=(((player.offset+320)>>3)&79);
@@ -351,7 +352,7 @@ VDP_setTileMapDataRect(BG_A,tileMap,
 0,0,40,32,40,DMA_QUEUE);
 ```
 
-As you can see, we create a TileMap from the Tiles; that compose the TileSet we have loaded; and we draw the screen, using a rectangle of 40x32 Tiles (All the available space at the top). Once the TileMap is loaded in the background A, we will draw the image in the background B; both with low priority; so the background B will be behind the background A; giving sensation of depth.
+As you can see, we create a TileMap from Tiles; that compose the TileSet we have loaded; and we draw the screen, using a rectangle of 40x32 Tiles (All the available space at the top). Once the TileMap is loaded in the background A, we will draw the image in the background B; both with low priority; so the background B will be behind the background A; giving sensation of depth.
 
 ```c
 VDP_drawImageEx(BG_B,&city,
@@ -416,7 +417,7 @@ You will see that a displacement is made every 5 units; that will be the number 
 After reviewing the functions and verifying that the code is correct, we can compile and execute this example. You will be able to see how the rain is moving over the city; although in this case we are moving all the positions at the same time, and it can give the sensation of displacement of plane, we can change these values and make more tests to verify its use.
 
 ![Example 13](13Scroll/img/ej13.png "Example 13")
-_Example 13_
+_Example 13: Tile Scrolling_
 
 ### Scroll using MAP
 
@@ -471,7 +472,7 @@ The function ```Map_create```; creates a new struct Map; that will allow us to h
 
 This function returns a pointer to a ```Map``` structure with all the information of the map or scenario to be displayed.
 
-After seeing how to create a map, let's move on to how to perform Scroll; in this case we use the function ``` MAP_scrollTo```; that performs the Scroll of the map and recalculates the Tiles as they are needed. It is no longer necessary to count the Tiles and generate the Tiles off screen; this function does it. Let's see the parameters it receives:
+After seeing how to create a map, let's move on to how to perform Scroll; in this case we use the function ```MAP_scrollTo```; that performs the Scroll of the map and recalculates the Tiles as they are needed. It is no longer necessary to count the Tiles and generate the Tiles off screen; this function does it. Let's see the parameters it receives:
 
 * _map_: Pointer with the information of the created map (returned by the ```Map_create``` function).
 * _x_: X axis offset (in pixels).
@@ -482,7 +483,7 @@ This function is called inside ```updatePhisics```; it is no longer performed wi
 We can now compile and run this example; which we will see has a behavior analogous to example 12. However, the logic is much simpler. You can find more information about the Map structure and the functions that use it in the SGDK documentation.
 
 ![Example 14](13Scroll/img/ej12.png "Example 14")
-_Example 14_
+_Example 14: Plane Scrolling using Map_
 
 After seeing this last example, we can conclude this chapter; where we have been able to see how the Scroll works, which allows to create different effects and to give a better sensation to our games.
 
