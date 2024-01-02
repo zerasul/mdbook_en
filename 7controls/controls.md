@@ -197,7 +197,7 @@ An interrupt is a signal received by the processor, which stops the current task
 
 SGDK, allows us to create a function to handle the events of the controls asynchronously; in such a way that it will only act if a key has been pressed:
 
-```JOY_setEventHandler```;this function allows you to define a function to be executed when a key is pressed.
+```JOY_setEventHandler```; this function allows you to define a function to be executed when a key is pressed.
 
 It hast the next Parameters:
 
@@ -223,7 +223,7 @@ We can see in the above snippet, that the ```JOY_Init``` function is called whic
 If we take a look at the function, we can see the following code:
 
 ```c
-    void inputHandler(u16 joy,u16 changed,
+    void inputHandler(u16 joy, u16 changed,
             u16 state){
 
 
