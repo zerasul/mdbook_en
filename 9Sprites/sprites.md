@@ -12,7 +12,7 @@ Finally, we will show an example of using Sprites with SGDK.
 
 Let's comment what a Sprite really is; it is an image that represents an object in the game. This object does not need to be controlled by the CPU itself, so it can be controlled by the graphics chip itself, such as the VDP of the Sega Mega Drive.
 
-Normally, a Sprite is composed of a series of images that represent different frames of an animation; in addition to being able to represent several animations within an image. This is known as a  SpriteSheet.
+Usually, a Sprite is composed of a series of images that represent different frames of an animation; in addition to being able to represent several animations within one image. This is known as a SpriteSheet.
 
 <div class="centered_image">
 <img src="9Sprites/img/nadia.png" title="SpriteSheet" alt="SpriteSheet" />
@@ -32,17 +32,17 @@ Although it is possible to have different Sprites to represent different objects
 * Each Sprite can use a maximum of 16 colors, since it will be associated to one of the four available palettes.
 * Each frame should be divisible by 8 (to be able to divide each animation).
 
-It is also important to know that the Sprites will be stored in the VRAM so we have to take into account that they normally have a space of 512x512px in that memory to store the information of the different Sprites.
+It is also important to know that the Sprites will be stored in the VRAM so it is necessary to take into account that normally they have a space of 512x512px in the memory to store the information of the different Sprites.
 
 ## Import Sprites Resources
 
-After knowing how the Sega Mega Drive works with Sprites and especially to see the limitations that the hardware provides us, we are going to see how we can import the Sprite resources for our games. For it we will use the tool that integrates SGDK, we will use _rescomp_.
+After knowing how the Sega Mega Drive works with the Sprites and especially to see the limitations that the hardware provides us, we are going to see how we can import the Sprite resources for our games. To do this we will use the tool that integrates SGDK, we will use _rescomp_.
 
-As we saw in the previous chapter, with _rescomp_ we can import resources of different types to be able to use them in SGDK. In this section, we are going to see how to import a Sprite and divide the different frames it composes. Remember that each resource must be defined in a file with _.res_ extension.
+As we saw in the previous chapter, with _rescomp_ we can import resources of different types to be able to use them in SGDK. In this section, we are going to see how to import a Sprite and divide the different frames it composes. Remember that each resource can be defined in a file with _.res_ extension (you can define various resources in one resource file).
 
 Let's see an example:
 
-```
+```bash
 SPRITE main-sprt "sprt/zeraready.bmp" 2 4 NONE 5 CIRCLE
 ```
 
@@ -101,7 +101,7 @@ Later on, we will see more functions that we can use, especially when we look at
 
 When working with Sprites in SGDK, it is important to know how to work with the different functions that will allow us to modify the characteristics of the Sprites, such as their position, animation, frame or priority.
 
-One of the first characteristics that we have to take into account, is when working with Sprites, their position is calculated in pixels, not in Tiles. Although each frame is drawn and calculated at Tile level. Therefore it is important to always know the position of a sprite both the X and Y coordinate in pixels.
+One of the first features that we have to take into account, is when working with Sprites, their position is calculated in pixels, not in Tiles. Although each frame is drawn and calculated at Tile level. Therefore it is important to always know the position of a sprite both the X and Y coordinate in pixels.
 
 Another aspect to take into account is, that the Sprites are drawn in their own Background; and therefore, they have a priority; in such a way, that it can be established. Let's see again the priority scheme of the different planes.
 
@@ -127,8 +127,8 @@ Now that we have seen how to work with Sprites in SGDK, let's see an example. We
 
 This example will consist of working with two sprites and see how we can move them, change animation, priority, etc. These two Sprites, are composed of two SpriteSheets of 72x160 and 96x160 Pixels each one. Let's see these two Sprite Sheets.
 
-![Example SpriteSheet](9Sprites/img/sprites.png "Example SpriteSheet")
-_Example SpriteSheet_
+![Example SpriteSheets](9Sprites/img/sprites.png "Example SpriteSheets")
+_Example SpriteSheets_
 
 As we can see in the images, they are two sheets of Sprites, with different animations and Frames. In this case they are Frames of different sizes. The character on the left, each Frame has 32x32 pixels (4x4 tiles); while the character on the right, has 24x32 pixels (3x4 Tiles); so we have to take this into account when importing both resources. To import these resources, we will use a _.res_ file, to define each one of them.
 
@@ -173,7 +173,7 @@ int shaPrio=TRUE;
 int elliPrio=FALSE;
 ```
 
-We will use these variables during the code of the example; as they can be the pointers to the different Sprites, position x and y of one of them, and the state of the priority of each one of the Sprites. Later we will see how we are going to use them.
+We will use these variables during the code of the example; such as the pointers to the different Sprites, x and y position of one of them, and the priority status of each one of the Sprites. Later we will see how we will use them.
 
 Next, we will focus on function ```main``` where we can see the initialization of the different resources:
 
@@ -220,7 +220,7 @@ The ```TILE_ATTR``` macro allows you to set the attributes of a tilemap; let's l
 
 * _pal_: Color Palette to use(```PAL0```,```PAL1```,```PAL2```,```PAL3```)
 * _prio_: Sprite priority ```TRUE``` for high priority or ```FALSE``` for Low priority.
-* _FlipV_: set vertical mirroring ```TRUE``` for mirrored or ```FALSE``` otherwise.
+* _FlipV_: Set vertical mirroring ```TRUE``` for mirrored or ```FALSE``` otherwise.
 * _FlipH_: Set horizontal mirroring ```TRUE``` for mirrored or ```FALSE``` otherwise.
 
 SGDK's Sprite Engine is in charge of automatically placing the different Sprite Tiles in the VRAM; however, this can lead to VRAM fragmentation due to gaps between different Sprites. To avoid this, the ```SPR_addSpriteSafe``` function can be used; however, we have to be careful, as it can be slower.
@@ -244,13 +244,13 @@ Both the ```SPR_addSprite``` and ```SPR_addSpriteSafe``` functions return a poin
 
 More information can be found in SGDK's documentation.
 
-Once the two sprites are added, we have to assign the resource palettes to each of the palettes available in Sega Mega Drive. Remember that each palette has 16 colors and that the first one corresponds to a transparent color. Depending on our version of SGDK, we can use different functions. If you have version 1.80 or higher, you can use the following function ``PAL_setPalette``. It receives the following parameters:
+Once the two sprites are added, we have to assign the resource palettes to each of the palettes available in Sega Mega Drive. Remember each palette has 16 colors and the first one corresponds to a transparent color. Depending on our version of SGDK, we can use different functions. If we have version 1.80 or higher, we can use the following function ```PAL_setPalette```. It receives the following parameters:
 
 * _pal_: Palette Number (```PAL0```,```PAL1```,```PAL2```,```PAL3```).
 * _data_: Data with the palette can be that of the resource itself, or set a custom palette.
 * _tm_: Transfer method for storing the palette using ```CPU``` or ```DMA```.
 
-If on the other hand we have a version of SGDK lower than 1.80, we can use the function ```VDP_setPalette```; to set the palette to a Sprite. It receives the following parameters:
+If on the other hand we have a version of SGDK lower than 1.80, we can use the function ```VDP_setPalette``` to set the palette to a Sprite. It receives the following parameters:
 
 * _pal_: Palette Number (```PAL0```,```PAL1```,```PAL2```,```PAL3```).
 * _data_: Data with the palette. It can be that of the resource itself, or set a custom one.
@@ -280,7 +280,7 @@ SPR_setAnim(elli,4);
 Which is performed using the ```SPR_setAnim``` function, which allows a Sprite to define the animation index to use. It receives the following parameters:
 
 * _sprite_: Sprite Pointer.
-* _ind_: Animation Index to be used. Recall that the indexes of the animations start with 0. As can be seen in the example, it can be interesting to define a series of constants for the animations.
+* _ind_: Animation Index to be used. Remember the indexes of the animations start with 0. As can be seen in the example, it can be interesting to define a series of constants for the animations.
 
 Let'se the rest of the ```main``` function:
 
@@ -297,7 +297,7 @@ while(1)
     }
 ```
 
-We see that inside the infinite loop, we make a series of calls to functions; like reading the synchronous controls (that we will see later), the position of a Sprite is established, with the function ```SPR_setPosition```; and the Sprite engine is updated calling the function ```SPR_update```. In addition to displaying on screen information such as the priority of each Sprite, and ending the loop with the call to ```SYS_doVBlankProcess```.
+We can see inside the infinite loop, we make a series of calls to functions; like reading the synchronous controls (that we will see later), the position of a Sprite is established, with the function ```SPR_setPosition```; and the Sprite engine is updated calling the function ```SPR_update```. In addition to displaying on screen information such as the priority of each Sprite, and ending the loop with the call to ```SYS_doVBlankProcess```.
 
 The ```SPR_setPosition``` function sets the position of the sprite in pixels; let's see the parameters it receives:
 
@@ -355,7 +355,7 @@ void readInput(){
 
 In this fragment, we can see how to read, first of all, the buttons pressed by controller 1 using the function ```JOY_readJoypad``` (remember that you can learn more about the functions to read the input, in the chapter 7); then, we check which button has been pressed; which for this case, we only use those of the addresses.
 
-In each case, the animation is set, and the variable with the position is modified. The first case, only sets 4 directions and you can only go to one at a time. In future examples we will set to use 8 addresses.
+In each case, the animation is set, and the variable with the position is modified. The first case, only sets 4 directions and you can only go to one at a time.
 
 Once we have seen the code of the example, we can compile it and run it in an emulator. Obtaining the following screen:
 
