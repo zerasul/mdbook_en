@@ -2,7 +2,7 @@
 
 We have already been able to start to see our first games; but we are missing the ability to see more color and to play with the different features offered by the Sega Mega Drive.
 
-One of the most significant sections when working with games, are the backgrounds. These backgrounds are images that we can superimpose, in order to give a sense of depth. Sega Mega Drive, allows to work with several backgrounds (or planes), in such a way that we can give that of movement and of a greater interaction.
+Uno de los apartados más significativos a la hora de trabajar con juegos, son los fondos. Estos fondos son imágenes que podemos superponer, con el fin de dar sensación de profundidad. Sega Mega Drive, permite trabajar con varios fondos (o planos), de tal forma que podemos darles movimiento o una mayor interacción.
 
 In this chapter, we will focus on the use of backgrounds or plans, through SGDK and the use of tools to manage these backgrounds, such as the _rescomp_ tool.
 
@@ -17,11 +17,11 @@ Let's see the features of the graphics for Sega Mega Drive:
 * Any graphic or image is drawn divided by Tiles[^50], of a size of 8x8 pixels.
 * Only 4096 Tiles can be stored (64Kb of VRAM).
 * The images are stored in indexed format [^51] not as RGB [^52].
-* Only 4 palettes of 16 colors each can be stored.
-* Normally, only 61 colors can be displayed on the screen.
+* Only 4 palettes of 16 colors each can be stored in CRAM.
+* Normally, only 61 colors can be displayed on the screen (61 colors and 3 transparent).
 * In each palette, the first color is considered transparent. Except the First palette that the first color is used as background.
 
-[^50]:A Tile is a fragment of an image that is displayed as if it were a mosaic; thus an image is composed of a series of Tiles.
+[^50]:A Tile is a fragment of an image that is displayed as a mosaic; thus an image is composed of a series of Tiles.
 [^51]: An image in indexed format stores a palette with the different colors it contains; each pixel then only has information about the color it represents in that palette.
 [^52]: RGB (Red Green Blue) is a format that is defined in each pixel to store the color red, green and blue in such a way that each color can be seen by combining these three.
 
@@ -31,7 +31,7 @@ In addition, we could see that only 61 colors can be displayed on the screen. Th
 
 All this information, from the palettes and the different Tiles to be displayed, are stored in the VRAM (and CRAM) and are accessible by the VDP; so that in some occasions thanks to the use of the DMA, the CPU does not need to work with it; but the VDP itself performs all the work more efficiently.
 
-If you need to know, the different colors and palettes that are stored; we can use some tools that bring us emulators such as _Blastem_; pressing the <kbd>c</kbd> key, we can see the contents of the palettes of the VDP.
+If you need to know the different colors and palettes that are stored; we can use some tools that bring us emulators such as _Blastem_; pressing the <kbd>c</kbd> key, we can see the contents of the palettes of the VDP.
 
 ![Blastem VDP Viewer](8backgrounds/img/blastem.png "Blastem VDP Viewer")
 _Blastem VDP Viewer_
@@ -48,14 +48,14 @@ In this section, we will only talk about backgrounds and how we can use them for
 
 It is important to know that a background is drawn from top to bottom and from left to right. So, it is easier to work with them. In addition, we cannot forget that backgrounds work at the tile level, not at the pixel level.
 
-Finally, although the Sega Mega Drive has a screen resolution of 320x224 (320x240 NTSC) which corresponds to 40x28 tiles in PAL, you can store more Tiles per background so that we can store up to 64x32 Tiles; so that we could use this extra Tiles for scrolling; that we will see in more detail in a next chapter.
+Finally, although the Sega Mega Drive has a screen resolution of 320x240 (320x224 NTSC) which corresponds to 40x30 tiles in PAL, you can store more Tiles per background so that we can store up to 64x32 Tiles; so that we could use this extra Tiles for scrolling; that we will see in more detail in a next chapter.
 
 ### Background A, B and Window
 
 As we have mentioned, Sega Mega Drive has 2 backgrounds available to work with (apart from the one in charge of the Sprites).
 
-* **Background A**; allows you to draw a complete plan.
-* **Background B**; allows you to draw a complete plan.
+* **Background A**; allows you to draw a complete background.
+* **Background B**; allows you to draw a complete background.
 * **Window**; is a special plane, which allows writing inside Background A, the Window Background, has a different scroll than Background A and is therefore often used to display e.g. the user interface.
 
 ![Gens Kmod Plane Viewer](8backgrounds/img/planeExplorer.png "Gens Kmod Plane Viewer")
@@ -68,7 +68,7 @@ In addition, the backgrounds A, B and the Sprite plane (which we will see in the
 ![Background Priority Schema](8backgrounds/img/esquemaplanos.png "Background Priority Schema")
 _Background Priority Schema_
 
-As we can see in the previous image, the A, B and Sprite planes can have a low or high priority. In such a way, that we can play indistinctly with them, to be able to show them in different places and thus; to be able to show that sensation of depth.
+As we can see in the previous image, planes A, B and Sprite can have a low or high priority. In such a way, that we can play indistinctly with them, to be able to show them in different places and be able to show that sensation of depth.
 
 ## Rescomp
 
@@ -84,7 +84,7 @@ rescomp file.res [out.s] [-noheader]
 
 We note that several parameters are received:
 
-* _file.res_: Resource File Name.
+* _file.res_: Resources File Name.
 * _out.s (optional)_: .s result file. If not specified, an .s file is generated with the name of the resource to be imported.
 * _-noheader_: indicates that a C _.h_ header file will not be generated.
 
@@ -94,7 +94,7 @@ We can import the following resource types:
 * _PALETTE_: Color Palette.
 * _TILEMAP_: TileMap (from SGDK version 1.80 or above).
 * _TILESET_: Tileset; contains a set of tiles that can be used to generate images or sprites.
-* _MAP_: Map type resource; contains a palette, a tileset and the map information(from SGDK Version 1.60 or above).
+* _MAP_: Map type resource; contains a palette, a tileset and the map information (from SGDK Version 1.60 or above).
 * _IMAGE_: Image type resource; contains a palette, a tileset and a tilemap.
 * _SPRITE_: Sprite type resource; used to control Sprites and animations.
 * _XGM_: Music resource using XGM (.vgm or .xgm).
@@ -142,7 +142,7 @@ Where:
 
 #### Image
 
-An image for SGDK contains a tileset, a palette and a tilemap of an image, usually static. Let's see an example of the options available to define an image resource in rescomp:
+An image for SGDK contains a tileset, a palette and a tilemap of an static image. Let's see an example of the options available to define an image resource in rescomp:
 
 ```res
 IMAGE img1 "img_file" BEST NONE [mapbase]
@@ -171,16 +171,16 @@ This example, we can see it in the repository of examples that accompanies this 
 
 ![Example Backgrounds](8backgrounds/img/fondosejemplo.png "Example Backgrounds")_Example Backgrounds_
 
-As we can see in the previous figure, we have 2 images; the first one a blue background imitating the sky; and the second one a background of yellow tiles with a black background.
+As we can see in the previous figure, we have 2 images; the first one a blue background that mimics the sky; and the second one a background of yellow tiles with a black background.
 
-Let's focus on this second image; in which we see that black background. This background will be transparent, since it will be the first color of the palette of this image.
+Let's focus on the second image; in which we see that black background. This background will be transparent, since it will be the first color of the palette of this image.
 
 **NOTE**: If we use the _Genesis Code_ extension, we can see the palette of that image. If it is not displayed, you can right click on the image title and click the _reopen With..._ option.
 
 ![Image 2 Details](8backgrounds/img/bgbdetails.png "Image 2 Details")
 _Image 2 Details_
 
-We can see in the previous image that the first color is black and that it is a 16-color image. This detail is important, since it will be used as a transparent color.
+We can see in the previous image that the palette's first color is black and that it is a 16-color image. This detail is important, since it will be used as a transparent color.
 
 Once we have the two images, we are going to focus on importing both images using the _rescomp_ tool. Therefore we have to define a _.res_ file with the following content:
 
@@ -220,9 +220,9 @@ int main()
 }
 ```
 
-Let's see in detail the previous example; first, we include the LibMD library header, followed by the header of the resources generated with rescomp. In addition, we can observe the call to a function ```VDP_setScreenWidth320```; which sets the horizontal resolution to 320px (by default it is this resolution).
+Let's see in detail the previous example; first, we include the «LibMD» library header, followed by the header of the resources generated with rescomp. In addition, we can observe the call to a function ```VDP_setScreenWidth320```; which sets the horizontal resolution to 320px (by default it is this resolution).
 
-Next, we can observe that the value of ```TILE_USER_INDEX``` is saved in a variable; this constant will indicate the index where the memory where the tiles are stored can be accessed. This is important not to show tiles that we don't need at that moment or empty memory areas that can give error; since the first positions of the video memory, SGDK uses them to initialize the palettes etc...
+Next, we can observe that the value of ```TILE_USER_INDEX``` is saved in a variable; this constant will indicate the index to the video memory where the tiles are stored can be accessed. This is important not to show tiles that we don't need at that moment or empty memory areas that can give error; since the first positions of the video memory, SGDK uses them to initialize the palettes etc...
 
 **NOTE**: If you use a version of SGDK lower than 1.80, you must use the constant ```TILE_USERINDEX```.
 
@@ -230,7 +230,7 @@ Next, we can see the call to the function ```VDP_drawImageEx```; which will allo
 
 * _plane_: Plane to be used; it can have the values ```BG_A```, ```BG_B``` or ```WINDOW```; to indicate the plane to use (for versions prior to SGDK 1.60, use ```PLAN_A```, ```PLAN_B```).
 * _image_: Memory address where the image resource to be used is located; the & operator can be used together with the name we have given to the resource when defining it in rescomp.
-* _TileBase_: Indicates the base Tile by which the image will be loaded. This will be done through the macro ```TILE_ATTR_FULL```; which we will see later.
+* _TileBase_: Indicates the base Tile by which the image will be loaded. This will be done through the macro ```TILE_ATTR_FULL```; we will see the details of this macro later.
 * _X_: X position in Tiles.
 * _Y_: Y position in Tiles.
 * _loadPal_: indicates whether the palette will be loaded or not.
@@ -239,7 +239,7 @@ Next, we can see the call to the function ```VDP_drawImageEx```; which will allo
 We have seen that to define the base Tile to load the image, you can use the macro ```TILE_ATTR_FULL```; which receives the following parameters:
 
 * PalIndex: Index of the palette to be used. It can be ```PAL0```, ```PAL2```, ```PAL2```, ```PAL3```. To indicate the 4 available palettes.
-* Priority: Indicates the priority by which it will be loaded. ```TRUE```for high priority, or ```FALSE```; for low priority.
+* Priority: Indicates the priority by which it will be loaded. ```TRUE``` for high priority, or ```FALSE```; for low priority.
 * VFLIP: Vertical Mirroring. Indicates whether it will be vertically mirrored (```TRUE``` for mirrored or ```FALSE``` otherwise).
 * HFLIP: Horizontal Mirroring. Indicates whether it will be horizontally mirrored  (```TRUE``` for mirrored or ```FALSE``` otherwise).
 * index: Indicates the index to be stored in the video memory. The index variable will be used to store it in memory.
@@ -252,7 +252,7 @@ Then we see the following line:
 ind+=bg_a.tileset->numTile;
 ```
 
-Which indicates that the index to be used to save in the video memory, the value is increased to the end of the tiles contained in the image. This is important in order not to overwrite the video memory. Next we see the second call:
+Indicating that the index to be used to save in the video memory, the value is incremented until the end of the tiles contained in the image. This is important in order not to overwrite the video memory. Next we see the second call:
 
 ```c
 VDP_drawImageEx(BG_A,&bg_b,
@@ -276,4 +276,4 @@ With this example, we can now see how to load images using Recomp, and draw them
 * SGDK: [https://github.com/Stephane-D/SGDK](https://github.com/Stephane-D/SGDK).
 * Danibus (Aventuras en Mega Drive)(Spanish): [https://danibus.wordpress.com/](https://danibus.wordpress.com/).
 * Ohsat Games: [https://www.ohsat.com/tutorial/mdmisc/creating-graphics-for-md/](https://www.ohsat.com/tutorial/mdmisc/creating-graphics-for-md/).
-* Mega Drive Software Manual: [https://segaretro.org/images/a/a2/Genesis_Software_Manual.pdf](https://segaretro.org/images/a/a2/Genesis_Software_Manual.pdf).
+* Mega Drive Software Manual [PDF]: [https://segaretro.org/images/a/a2/Genesis_Software_Manual.pdf](https://segaretro.org/images/a/a2/Genesis_Software_Manual.pdf).
