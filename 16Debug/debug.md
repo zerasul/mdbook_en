@@ -38,11 +38,11 @@ The ```kprintf``` function returns the number of bytes written (until 255) in th
 
 ## Using a Debugger
 
-We have talked about how to use the text console that comes with some emulators to write a series of traces. But in many occasions it occurs to us that we need to use tools like debuggers to be able to see what is happening in a given moment in our program.
+We have talked about how to use the text console that comes with some emulators to write a series of traces. But in many occasions it occurs to us we need to use tools such as debuggers to be able to see what is happening at a given moment in our program.
 
 Therefore, we are going to show firstly, how this debugging could be done for our games; first in a more theoretical way, and then we will go into more detail depending on our emulator or tools to use.
 
-If you have worked with programming before, you will have had to debug many programs; usually on the machine itself and compile the code for the same architecture you are working with (usually x86_64 or ARM); however, in this case we are not going to work with these architectures; but with the Motorola 68000 architecture. Therefore we need a way to debug this code using an emulator for example (there are ways to debug with real hardware; but with much more expensive). Let's see a schematic to understand what we want to do.
+If you have worked with programming before, you will have had to debug many programs; usually on the machine itself and compile the code for the same architecture you are working with (usually x86_64 or ARM); however, in this case we are not going to work with these architectures; but we will work with the Motorola 68000 architecture. Therefore we need a way to debug this code using an emulator for example (there are ways to debug with real hardware; but with much more expensive). Let's see a schematic to understand what we want to do.
 
 ![Remote Debug Scheme](16Debug/img/depuracionremota.jpg "Remote Debug Scheme")
 _Remote Debug Scheme_
@@ -87,7 +87,7 @@ If we want to use remote debugging, we will need to execute the following comman
 target remote:1234| blastem.exe rom.bin -D
 ```
 
-This will tell GDB to connect to port 1234 (can be changed) and to start Blastem emulating our ROM, and to activate the remote emulation. With this, we will be able to debug our game through GDB.
+This will tell GDB to connect to port 1234 (can be changed on Blastem's configuration) and to start Blastem emulating our ROM, and to activate the remote emulation. With this, we will be able to debug our game through GDB.
 
 ### Genesis Code
 

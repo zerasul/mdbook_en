@@ -8,7 +8,7 @@ creator:
 contributor:
 - role: rev
   text: Emilio Berenguel
-rights: (C) 2023 Víctor Suárez. Creative Commons Non-Commercial Share Alike 4.0
+rights: (C) 2024 Víctor Suárez. Creative Commons Non-Commercial Share Alike 4.0
 language: en-US
 subject: How to create your game for the 16-bit console that marked a generation in the XXI Century.
 description: Creating a video game for a console of the 90's is possible and using free software thanks to tools like SGDK. In these 16 chapters you will find information on how to program for Sega Mega Drive.

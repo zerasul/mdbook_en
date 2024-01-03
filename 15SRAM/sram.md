@@ -2,7 +2,7 @@
 
 We are now approaching the final part of this book. We have been reviewing both the visual part, as well as the sound. Besides studying all the architecture of the Sega Mega Drive; we are going to review an important section; to save the progress of our game, as well to handle the different interruptions that we can use when drawing the screen.
 
-First of all, we have to know how we are going to store the data and keep in mind that not all types of cartridge to use. On the other hand, we will see the use of interrupt functions to be able to update the resources of our game using these interrupts.
+First of all, we have to know how we are going to store the data and keep in mind that not all types of cartridge has the feature to store information. On the other hand, we will see the use of interrupt functions to be able to update the resources of our game using these interrupts.
 
 Finally, we are going to see an example that will use these interruptions to make these modifications and see how to optimize our game.
 
@@ -66,11 +66,11 @@ void savePlayerProgress(){
 
     SRAM_writeByte(0,player.lives);
     SRAM_writeByte(1,player.scene);
-    SRAM_writeByte(2,player.score);
+    SRAM_writeLong(2,player.score);
     u32 checksum= player.lives+
         player.scene+player.score;
     player.checksum=checksum;
-    SRAM_writeByte(6,player.checksum);
+    SRAM_writeLong(6,player.checksum);
 }
 ```
 
@@ -113,9 +113,9 @@ Obviously, it would still be necessary to verify that the checksum read is corre
 
 We have talked about how to use the SRAM; but now we would like to talk about another important aspect when working with Sega Mega Drive.
 
-In the examples, you can see that we have been doing each action, and then we have waited for the screen to finish repainting; due to the use of the ```SYS_doVBlankProcess()``` function, which manages the screen and hardware repainting until the screen has been completely repainted.
+In the previous chapters examples, you can see that we have been doing each action, and then we have waited for the screen to finish repainting; due to the use of the ```SYS_doVBlankProcess()``` function, which manages the screen and hardware repainting until the screen has been completely repainted.
 
-We have to take into account that this console is designed to be used in CRT  (Cathodic Ray Tube) televisions, that they are painted by each line and from top to bottom; so in each pass, it is necessary to wait until both the VDP and the television finish painting.
+We have to take into account that this console is designed to be used in CRT  _(Cathodic Ray Tube)_ televisions, that they are painted by each line and from top to bottom; so in each frame, it is necessary to wait until both the VDP and the television finish painting.
 
 During this painting time, the CPU can be very idle; so it can be interesting to use this time to perform operations and optimize the CPU time; because if it takes too long to perform all operations before waiting for painting, a drop in frames per second can occur (50 for PAL and 60 for NTSC); so it is better to optimize the CPU usage.
 
@@ -203,7 +203,7 @@ On the other hand, the ```handleInput``` function will be used to manage the con
 Let's look at the beginning of the main function:
 
 ```c
- SYS_disableInts();
+SYS_disableInts();
 u16 ind = TILE_USER_INDEX;
 VDP_drawImageEx(BG_A,&back1,
     TILE_ATTR_FULL(PAL0,FALSE,
@@ -250,14 +250,14 @@ if(value & BUTTON_RIGHT){
 ...
 ```
 
-We can see that the value read from command 1 (```JOY_1```) is checked, and the struct status is updated. In such a way, it will be updated when the _VBlank_ interrupt is performed. In this way, the game is much more efficient since any operation with the VDP, can be performed in the interrupt function; while the main thread, serves to update the state to be painted.
+We can see the value read from controller 1 (```JOY_1```) is checked, and the struct status is updated. In such a way, it will be updated when the _VBlank_ interrupt is performed. In this way, the game is much more efficient since any operation with the VDP, can be performed in the interrupt function; while the main thread, serves to update the state to be painted.
 
 Now we can compile and execute the example, where we can see how the character can move; in such a way that it is more efficient than in other examples. We have already been able to see the content of this chapter; where we have seen two important aspects at the time of working creating games; the use of the SRAM in case we want to store the progress of the game, and on the other hand the use of interrupts.
 
 ![Example 16: Interruptions](15SRAM/img/ej16.png "Example 16: Interruptions")
 _Example 16: Interruptions_
 
-## Referencies
+## References
 
 * Sega/Mega Drive Interrupts: [https://segaretro.org/Sega_Mega_Drive/Interrupts](https://segaretro.org/Sega_Mega_Drive/Interrupts).
 * SGDK: [https://github.com/Stephane-D/SGDK](https://github.com/Stephane-D/SGDK).
