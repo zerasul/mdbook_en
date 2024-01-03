@@ -91,7 +91,7 @@ VDP_drawImageEx(BG_B,&logo,
     ,0,0,TRUE,DMA);
 ```
 
-Once drawn, we are going to configure what type of Scroll we are going to use both horizontally and vertically; for it, we will use the function ```VDP_setScrollingMode``; which allows to configure what type or mode of Scroll we will use; let's see what parameters this function receives:
+Once drawn, we are going to configure what type of Scroll we are going to use both horizontally and vertically; for it, we will use the function ```VDP_setScrollingMode```; which allows to configure what type or mode of Scroll we will use; let's see what parameters this function receives:
 
 * _HScrollMode_: Mode to be used for horizontal scrolling. It can take the following values:
     * ```HSCROLL_LINE```: The horizontal Line Scroll will be used.
@@ -441,6 +441,8 @@ As we can see, we load a palette, a Tileset and a Map from the image we want to 
 ```
 MAP name "file" tileset-ref compression offset
 ```
+
+Where:
 
 * _name_: Resource's Name
 * _file_: File to be loaded; it can be an image, or a TMX file from Tiled.

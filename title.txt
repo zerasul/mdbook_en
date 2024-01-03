@@ -14,5 +14,5 @@ subject: How to create your game for the 16-bit console that marked a generation
 description: Creating a video game for a console of the 90's is possible and using free software thanks to tools like SGDK. In these 16 chapters you will find information on how to program for Sega Mega Drive.
 identifier:
 - scheme: ISBN-13
-  text: ISBN-13 9798852977953
+  text: ISBN-13 9798873869305
 cover-image: coveren.jpg
