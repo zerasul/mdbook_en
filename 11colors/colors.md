@@ -178,7 +178,7 @@ First of all, we can observe how a buffer is initialized to empty, which we will
 
 The ```TILE_ATTR_PRIORITY_MASK```; mask allows to store in each Tile, only the priority information, so that nothing will be displayed on the screen; this is important to be able to display the background with the different effects.
 
-Once the priority map has been filled in, it is painted in plane A, using the function ```VDP_setTileMapDataRectExRectEx```; which will allow us to draw a rectangle as a Tiles map per screen.
+Once the priority map has been filled in, it is painted in plane A, using the function ```VDP_setTileMapDataRectEx```; which will allow us to draw a rectangle as a Tiles map per screen.
 
 After having drawn this map, we can draw the other background in the way we already know; but without priority:
 

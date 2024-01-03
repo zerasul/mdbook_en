@@ -324,7 +324,7 @@ Where the properties of this Struct are:
 * _w_: Rectangle Width in pixels.
 * _h_: Rectangle height in pixels.
 
-In addition, the ````checkCollision``` function has been added, which receives two Sprites, and returns an integer. This function will be called in each Frame since it will be included in the infinite loop.
+In addition, the ```checkCollision``` function has been added, which receives two Sprites, and returns an integer. This function will be called in each Frame since it will be included in the infinite loop.
 
 Let's take a look at this function, we will see some fragments for a better understanding.
 

@@ -19,7 +19,7 @@ A TileSet is a set of graphics that compose all the elements that can contain a 
 
 As we can see in the previous image different graphic elements can be appreciated. This Tileset will allow us to generate scenes with the different elements that compose it.
 
-Una vez que hemos visto lo que es un TileSet, vamos a definir lo que es un TileMap. Un TileMap es un conjunto de referencias a elementos de un TileSet para definir una escena o cualquier otro elemento necesario para mostrarla en pantalla. Normalmente utilizamos índices para indicar el elemento del TileSet a mostrar. Veamos un ejemplo de un TileMap del TileSet anterior.
+Now that we have seen what a TileSet is, let's define what is a TileMap. A TileMap is a set of references to the elements of a TileSet to define a scene or any other element needed to display it on screen. Normally we use indexes to indicate the TileSet element to display. Let's see an example of a TileMap of the previous TileSet.
 
 ![TileMap Example](12TileSets/img/mapabosque.png "TileMap Example")
 _TileMap Example_
