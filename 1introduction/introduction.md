@@ -2,13 +2,13 @@
 
 Welcome to this book about creating and developing Homebrew software for Sega Mega Drive (or Sega Genesis) [^1]. For many, this system has been the one we have grown up with and has brought us great memories. Therefore, those of us who are still learning about technology like me, can learn how to create software for this architecture that is already more than 30 years old.
 
-Although some may think I'm a little young (37 years old) for the Mega Drive, I guess because my family environment and having a Mega Drive when I was a kid, I always let myself spend hours and hours playing _Sonic & Knuckles_[^2] or _World Of Illusion_[^3].
+Although some may think I'm somewhat young (37 years old) for the Mega Drive, I guess because my family environment and owning a Mega Drive when I was a kid, I always let myself spend hours and hours playing _Sonic & Knuckles_[^2] or _World Of Illusion_[^3].
 
-Many will remember the times of the Spectrum where they used magazines with small games that we had to write by hand (usually in BASIC or assembler), where any slightest error would make our game not work. Fortunately, nowadays more modern tools are used than BASIC or assembler. As it can be to use C language together with some library like SGDK or more modern editors that help us in the development of  our game.
+Many of us will remember the times of the ZX Spectrum where they appear on magazines with small games that we had to write by hand (usually in BASIC or assembler language), where any slightest error would make our game not work. Fortunately, nowadays more modern tools are used than BASIC or assembler. As it can be to use C language together with some library like SGDK or more modern editors that help us in the development of  our game.
 
 Of course there are more modern languages. But we want to remember that assembler was normally used for the developments and that at least using C we will abstract from them. This does not mean that it can no longer be used, since today, many people still work with assembler.
 
-This book is intended as a guide to learn the concepts and tools to create a fully functional video game for Sega Mega Drive using modern tools.
+This book is intended as a guide to learn concepts and tools to create a fully functional video game for Sega Mega Drive using modern tools.
 
 **NOTE:** This book and its contents are not affiliated with SEGA Inc. or any of its subsidiaries.
 
