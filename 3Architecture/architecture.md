@@ -1,6 +1,6 @@
 # 3. Architecture
 
-To be able to develop for Mega Drive, we need to know its architecture in order to avoid problems when creating our games; if we know how it works, we can avoid memory problems, bottlenecks...
+To be able to develop for Mega Drive, we need to know about his architecture in order to avoid problems when creating our games; if we know how it works, we can avoid memory problems, bottlenecks...
 
 When working with these systems with few resources, its important to know the architecture, and we can optimize our code and our game will be lighter. Not only do we need to know the architecture of the processor itself, but it is also good to know the different elements that can be found in a Mega Drive.
 
@@ -11,7 +11,7 @@ In addition to each component will be discussed its capabilities and functions b
 To better understand its architecture, we will first show a diagram with each of the components and how they are connected.
 
 ![Mega Drive Architecture](3Architecture/img/arqmegadrive.png "Mega Drive Architecture")
-_Mega Drive Architecture_
+_Mega Drive Architecture Schema_
 
 As we can see in the previous image, the Mega Drive is composed of a series of elements connected by different Buses; one of 16 bits and another one of 8 bits. Let's see the elements that are composed:
 
@@ -63,7 +63,7 @@ The memory has a 16-bit word capacity (2x8bits) of PSRAM [^16] type , which has 
 
 ## ROM (Cartridge)
 
-The ROM memory, or properly speaking the "cartridge", is where the game information is stored. Normally, it is a chip of EPROM or EEPROM type (although the current cartridges can be Flash), where the game is stored both the code itself, as well as all the graphics and resources of the game.
+The ROM memory, or properly speaking the "cartridge", is where the game information is stored. Normally, it is a chip of EPROM or EEPROM type (although the current cartridges can be Flash memory), where the game is stored both the code itself, as well as all the graphics and resources of the game.
 
 The reading of this cartridge is done through the slot on the top of the Mega Drive; just insert the contacts through the slot that we can see at the top. Normally, a standard cartridge, had a bandwidth of 10MB/s (although there were some of 15.20-15.34 MB/s); in addition to take into account that the access of the 68k to the rom normally had a speed of 5MB/s.
 
@@ -85,7 +85,7 @@ The VDP for the mega drive is an evolution of its predecessor from the Sega mast
 
 It was connected through a 16 bit bus to the Motorola 68K and allowed different resolutions:
 
-* Normal Mode: 320x224,256x224 for NTSC and 320x224, 256x224, 320x240 y 256x240 for PAL.
+* Normal Mode: 320x240,256x240 for NTSC and 320x224, 256x224 for PAL.
 * Interlaced Mode: 320x448,256x448,320x480 and 256x480 which was used by different games such as the 2 player mode of sonic 2.
 
 The VDP had a capacity of up to 4 planes or backgrounds:
@@ -131,7 +131,7 @@ The Sega mega Drive processor has a clock frequency of 3.579545Mhz (NTSC) and 3.
 
 It has access to an 8KB memory to be used as sound RAM, as the Z80 can be used to orchestrate sound or as a co-processor.
 
-In addition, the Z80 allows backward compatibility with Sega Master System games so that no additional hardware (using an adapter for the slot) is required.
+In addition, the Z80 allows backward compatibility with Sega Master System games so that no additional hardware is required (using an adapter for the slot).
 
 [^21]: Zx Spectrum and Sinclair are trademarks of Sinclair Research Ltd.
 [^22]: Neo Geo Pocket and Neo Geo Pocket Color are trademarks of SNK.
