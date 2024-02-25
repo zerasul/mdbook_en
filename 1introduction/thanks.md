@@ -2,11 +2,11 @@
 
 ## Foreword and Acknowledgments
 
-For many, it's been a long road since we turned on the CRT television, tuned in to UHF channel 36, and turned on a screen that said «SEEGAAA». Everything changed at that moment; when we began to see a certain hedgehog hopping and cartwheeling at full speed.
+For many of us, it's been a long time since we turned on the CRT television, tuned in to UHF channel 36, and turned on a screen that said «SEEGAAA». Everything changed at that moment; when we began to see a certain hedgehog hopping and cartwheeling at full speed.
 
 This book is dedicated to all of us who grew up with a 3-button controller in our hands and who have continued to dream of being the ones to create our own games.
 
-Many of us have since moved on down the technology path; especially those of us I affectionately call the _"Tech-inquiring"_; as like me that we have learned to use technology and how to create it.
+Many of us have been specialized on the technology path; especially those of us I affectionately call the _"Tech-inquiring"_; as like me that we have learned to use technology and how to create it.
 
 I want to thank all of you who have supported me to make this book and to continue giving talks and workshops about it.
 

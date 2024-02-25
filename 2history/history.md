@@ -53,7 +53,7 @@ However, the slot that comes with the cartridges, does not have the same format 
 
 <div class="centered_image">
     <img src="2history/img/SegaMegaAdaptor.jpg", title="Power Base Converter" alt="Power Base Converter"/>
-    <em>Power Base Converter (Segaretro.org)</em>
+    <em>Power Base Converter (Source: Segaretro.org)</em>
 </div>
 
 ### Sega Mouse
@@ -84,7 +84,7 @@ The Mega CD technical specifications are:
     * 64 Kb Backup RAM.
 
 ![Mega CD1](2history/img/megacd.png "Mega CD 1")
-_Sega mega CD Model 1 (SegaRetro.org)_
+_Sega mega CD Model 1 (Source: SegaRetro.org)_
 
 ### 32X
 
@@ -105,7 +105,7 @@ Features of 32X:
 * **Sound**: Extra digital PWM channels were added for a total of 12 channels with Mega Drive (or 22 if we add Mega CD).
 
 ![32X European Version](2history/img/32X_EU.jpg "32X European Version")
-_Mega Drive 32X European Version (SegaRetro.org)_
+_Mega Drive 32X European Version (Source: SegaRetro.org)_
 
 ### Mega Modem
 
@@ -121,7 +121,7 @@ However, the technology was not yet well developed and did not work as expected.
 
 Many of us will have played with motion controls such as the famous Wii[^7] remote controllers or Xbox Kinect[^8] systems.
 
-Long before these motion controllers, Sega America released the Sega Activator. It was an octagon with 8 infrared sensors.
+Some time before these motion controllers, Sega America released the Sega Activator. It was an octagon with 8 infrared sensors.
 
 The player was placed in the middle, and depending on which side of the octagon he touched, it was a button on the controller. It tried to sell with some games as a "martial arts simulator"; but it was not very successful, as only a few games were released for this device.
 
@@ -158,7 +158,7 @@ _Sonic & Knuckles (PAL) with Lock On slot_
 
 The 80's and 90's were also characterized by a game genre that today is more in disuse but not equally fun.
 
-We are talking about the _Beat'em up_; which were usually horizontal scrolling games, allowing players to fight hordes and hordes of enemies.
+We are talking about the _Beat'em up_ Genre; which were usually horizontal scrolling games, allowing players to fight hordes and hordes of enemies.
 
 One of the most characteristic games of this genre is _Streets of Rage_, a game that tells the adventures of 3 ex-cop characters who try to rid the streets of corruption by killing any enemy that gets in their way.
 
