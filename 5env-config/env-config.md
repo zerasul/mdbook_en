@@ -119,7 +119,7 @@ The options available are:
 
 ## Emulator
 
-When developing our game, it is important to be able to test its progress and although we can use a real hardware using a FlashCart cartridge like _Everdrive_[^39], it is not practical to transfer the ROM every time to the SD card. Therefore, emulators are used to be able to run the created rom and see the results.
+When developing our game, it is important to be able to test its progress and although we can use a real hardware using a FlashCart cartridge like _Everdrive_[^39], it is not practical to transfer the ROM every time to the SD card. Therefore, emulators can be used to be able to run the generated rom and see the results.
 
 Also, some of these emulators have tools that can help us to debug our games; such as debugging both 68K and z80, VDP graphics viewer, Sprite viewer, etc.
 
@@ -135,7 +135,7 @@ Gens, is a free and open source emulator with GPL-2.0 license, that allows you t
 
 It has different features such as status saving, support for internet connection, audio enhancement, etc. There are different versions such as the so-called _gens Plus_ that adds more improvements such as different effects or Shaders.
 
-For Microsoft Windows, there is a modified version, called Gens KMod, which adds different tools for development; such as:
+For Microsoft Windows, there is a modified version, called _Gens KMod_, which adds different tools for development; such as:
 
 * Motorola 68000 and Z8 Debuggers.
 * Memory Debug.
@@ -151,7 +151,7 @@ It can be downloaded from the following address:
 
 [https://segaretro.org/Gens_KMod](https://segaretro.org/Gens_KMod)
 
-In order to use it for our development, if you have the Genesis Code extension, you can configure it to develop; to do so, you can do it in two ways:
+In order to use it for our development, if you have the Genesis Code extension, you can configure it to use for developing; to do so, you can do it in two ways:
 
 The first is to use the _Genesis Code: set Gens Emulator Command Path_ command that provides the extension and add the path to the _gens.exe_ file in order to execute the command.
 
@@ -198,7 +198,7 @@ The first version of this program was released in 1995 at the Berkley's Universi
 
 It allows you to modify digitized images through its many built-in tools such as cropping, scaling, modifying image properties (reordering the palette). GIMP, is compatible with many image formats (BMP, PNG, JPG, TIFF, PSD); so it can be a good tool to convert into the formats we need.
 
-In addition to the built-in tools, more tools can be added thanks to the extensions of this program.
+In addition to the built-in tools, more tools can be added thanks to the extensions or plugins of this program.
 
 ![GIMP](5env-config/img/GIMP2.png "GIMP")
 _GIMP_
