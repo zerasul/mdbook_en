@@ -2,7 +2,7 @@
 
 We have already been able to start to see our first games; but we are missing the ability to see more color and to play with the different features offered by the Sega Mega Drive.
 
-Uno de los apartados más significativos a la hora de trabajar con juegos, son los fondos. Estos fondos son imágenes que podemos superponer, con el fin de dar sensación de profundidad. Sega Mega Drive, permite trabajar con varios fondos (o planos), de tal forma que podemos darles movimiento o una mayor interacción.
+One of the most significant sections when working with games, are the backgrounds. These backgrounds are images that we can superimpose, in order to give a sense of depth. Sega Mega Drive, allows to work with several backgrounds (or planes), in such a way that we can give them movement or a greater interaction.
 
 In this chapter, we will focus on the use of backgrounds or plans, through SGDK and the use of tools to manage these backgrounds, such as the _rescomp_ tool.
 
@@ -10,7 +10,7 @@ We will start by talking about how the Sega Mega Drive handles images or graphic
 
 ## Images in Sega Mega Drive
 
-First of all, before going into more concepts, we are going to study how the images or graphics are managed in the Sega Mega Drive; through the VDP.
+First of all, before going into more advanced concepts, we are going to study how the images or graphics are managed in the Sega Mega Drive; through the VDP.
 
 Let's see the features of the graphics for Sega Mega Drive:
 
@@ -18,7 +18,7 @@ Let's see the features of the graphics for Sega Mega Drive:
 * Only 4096 Tiles can be stored (64Kb of VRAM).
 * The images are stored in indexed format [^51] not as RGB [^52].
 * Only 4 palettes of 16 colors each can be stored in CRAM.
-* Normally, only 61 colors can be displayed on the screen (61 colors and 3 transparent).
+* Usually, only 61 colors can be displayed on the screen (61 colors and 3 transparent).
 * In each palette, the first color is considered transparent. Except the First palette that the first color is used as background.
 
 [^50]:A Tile is a fragment of an image that is displayed as a mosaic; thus an image is composed of a series of Tiles.
@@ -27,7 +27,7 @@ Let's see the features of the graphics for Sega Mega Drive:
 
 It is important to know these features when working with images in Mega Drive, in order not to lose quality or any color if the palette is not well referenced.
 
-In addition, we could see that only 61 colors can be displayed on the screen. This is due to the transparent colors of each of the palettes; except for the first palette (palette 0), which is considered the background color.
+In addition, we could see that only 61 colors can be displayed on the screen. This is due to the transparent colors of each of the palettes; except for the first palette (_palette 0_), which is considered the background color.
 
 All this information, from the palettes and the different Tiles to be displayed, are stored in the VRAM (and CRAM) and are accessible by the VDP; so that in some occasions thanks to the use of the DMA, the CPU does not need to work with it; but the VDP itself performs all the work more efficiently.
 
@@ -68,7 +68,7 @@ In addition, the backgrounds A, B and the Sprite plane (which we will see in the
 ![Background Priority Schema](8backgrounds/img/esquemaplanos.png "Background Priority Schema")
 _Background Priority Schema_
 
-As we can see in the previous image, planes A, B and Sprite can have a low or high priority. In such a way, that we can play indistinctly with them, to be able to show them in different places and be able to show that sensation of depth.
+As we can see in the previous image, backgrounds A, B and Sprite can have a low or high priority. In such a way, that we can play indistinctly with them, to be able to show them in different places and be able to show that sensation of depth.
 
 ## Rescomp
 
@@ -98,6 +98,7 @@ We can import the following resource types:
 * _IMAGE_: Image type resource; contains a palette, a tileset and a tilemap.
 * _SPRITE_: Sprite type resource; used to control Sprites and animations.
 * _XGM_: Music resource using XGM (.vgm or .xgm).
+* _XGM2_: Music resource using new sound driver XGM2.
 * _WAV_: Sound resource.
 * _OBJECTS_: Objects with information from a Tiled .tmx file. We will see it in chapter 12.
 * _BIN_: Information stored in binary format.
@@ -127,7 +128,7 @@ As we have seen, you can import either Palettes, images or resources. Let's see 
 
 A palette is the information of the 16 colors that we can store for use in the different graphics. It is important, that every image we use for SGDK, must be stored as a 4 or 8 bpp indexing.
 
-**NOTE**: From version 1.80 onwards, you can use RGB images with additional information for the palette. Simply add in the first pixels a sample of the palette to be used. For more information, see the SGDK documentation.
+**NOTE**: From version 1.80 or later, you can use RGB images with additional information for the palette. Simply add in the first pixels a sample of the palette to be used. For more information, see the SGDK documentation.
 
 To define a palette resource for rescomp; the following syntax is used:
 
@@ -169,7 +170,7 @@ Once we have seen how the images are treated and how to import them using the re
 
 This example, we can see it in the repository of examples that accompanies this book, with the name of _ej5.backgrounds_; which we can observe, that we are going to show 2 backgrounds as the following ones:
 
-![Example Backgrounds](8backgrounds/img/fondosejemplo.png "Example Backgrounds")_Example Backgrounds_
+![Example Backgrounds](8backgrounds/img/fondosejemplo.png "Example Backgrounds")_Example Backgrounds (Source: OpenGameArt)_
 
 As we can see in the previous figure, we have 2 images; the first one a blue background that mimics the sky; and the second one a background of yellow tiles with a black background.
 

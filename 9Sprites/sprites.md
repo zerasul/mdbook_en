@@ -1,6 +1,6 @@
 # 9. Sprites
 
-We already have our first more colorful example with some backgrounds. But something else is needed, to give life to our first game; since among other things, we don't even have a player. In this case, let's talk about the Sprites.
+We already have our first more colorful example with some backgrounds. But something else is needed, to give life to our first game; we need another parts like the player, or the enemies. Let's talk about the Sprites.
 
 A Sprite is a bitmap (usually) that represents an object in the game without the need of additional calculations by the CPU; either the player, enemies, objects that we can interact, etc. The Sprites can be static, or have animations that can help us to give life to our game.
 
@@ -12,14 +12,14 @@ Finally, we will show an example of using Sprites with SGDK.
 
 Let's comment what a Sprite really is; it is an image that represents an object in the game. This object does not need to be controlled by the CPU itself, so it can be controlled by the graphics chip itself, such as the VDP of the Sega Mega Drive.
 
-Usually, a Sprite is composed of a series of images that represent different frames of an animation; in addition to being able to represent several animations within one image. This is known as a SpriteSheet.
+Usually, a Sprite is composed of a series of images that represent different frames of an animation; in addition to being able to represent several animations within one image. This is known as a _SpriteSheet_.
 
 <div class="centered_image">
 <img src="9Sprites/img/nadia.png" title="SpriteSheet" alt="SpriteSheet" />
-<em>SpriteSheet</em>
+<em>SpriteSheet Example</em>
 </div>
 
-As we can see in the previous image, we can see that it is composed of different frames of different animations; normally each animation corresponds to a row, and each frame to each column.
+As we can see in the previous image, we can see that it is composed of different frames and different animations; normally each animation corresponds to a row, and each frame to each column.
 
 Although it is possible to have different Sprites to represent different objects, we have to take into account the following limitations when working with Sprites in Sega Mega Drive.
 
@@ -50,7 +50,7 @@ Where:
 
 * _SPRITE_ Resource Type.
 * _name_: Name that we will give to the resource to reference it. In this example _main-sprt_.
-* _path_: Path of the resource relative to the _res_ directory; it will be enclosed in double quotes. In this example _"sprt/zeraready.bmp"_.
+* _path_: Path of the resource relative to the _res_ directory; it will be enclosed in double quotes. In this case _"sprt/zeraready.bmp"_.
 * _width_: Size in Tiles of the width of each frame. It must be less than 32. In this example it indicates 2 Tiles (16 px).
 * _height_: Size in Tiles of the height of each frame must be less than 32. In this example it indicates 4 Tiles (32px).
 * _compression_: Indicates whether the image can be compressed; it can take the following values:
@@ -77,7 +77,7 @@ In addition to the above properties, the following characteristics of the input 
 * _Rescomp_ detects only rows where there are animations; it ignores empty rows.
 * By default, the collider is calculated with 75% of each frame.
 
-When _rescomp_, will process a _SPRITE_ type resource, it performs the cuts of the different animations and optimizes both at frame and hardware level, in order to be able to store in the most optimal way in the VRAM.
+When _rescomp_, will process a SPRITE type resource, it performs the cuts of the different animations and optimizes both at frame and hardware level, in order to be able to store in the most optimal way in the VRAM.
 
 When processing the Sprite resource, it will generate (if the _-noheader_ option has not been specified), an .h file with the reference to the resources.
 
@@ -93,7 +93,7 @@ In order to use the Sprite engine, we can use at code level two functions ```SPR
 
 * ```SPR_init```: Initializes the Sprite engine with default values. Normally, it reserves 420 Tiles in VRAM. In addition, it initializes the hardware to store the Sprites. There is another function called ```SPR_initEx``` that allows to pass by parameter the number of Reserved Tiles.
 
-* ```SPR_update```:Updates and displays the active Sprites. Thanks to this function, every time it is called, it will recalculate the active Sprites and will change the frame of those that need it. It is important that this function is before the call to ```SYS_doVBlankProcess```, so that the frames are updated.
+* ```SPR_update```: Updates and displays the active Sprites. Thanks to this function, every time it is called, it will recalculate the active Sprites and will change the frame of those that need it. It is important to call this function is before the call to ```SYS_doVBlankProcess```, so the frames can be updated.
 
 Later on, we will see more functions that we can use, especially when we look at the example in this section.
 
