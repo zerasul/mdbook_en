@@ -33,11 +33,11 @@ Where:
 
 [^44]: Micro Machines 2: Turbo Tournament was a game published by Codemasters that allowed up to 4 simultaneous players.
 
-If you need to know more about the different controllers and how they are composed, we have left additional information in the references of this chapter.
+If you need to know more about the different controllers and how they are composed, we have left additional information at the references of this chapter.
 
 In this section, we are going to see some of them to comment on their characteristics, and which versions can be found.
 
-### 3 Buttons Controller
+### 3 Buttons Gamepad
 
 The best known Sega Mega Drive controller, it had a directional pad, and also 4 buttons called A, B, C, and START Button.
 
@@ -46,9 +46,9 @@ Some other third-party drivers added some extra functionality such as autoFire o
 There were different designs depending on the Mega Drive version (Japan/Europe or America); in addition, many other third party controllers that had many other designs.
 
 ![3 Button Controller](7controls/img/controller3Button.jpg "3 Button Controller")
-_3 Button Controller_
+_3 Button GamePad_
 
-### 6 Buttons Controller
+### 6 Buttons Gamepad
 
 Another version of the controller for Sega Mega Drive, is the 6-button controller; which added three additional buttons (X,Y and Z). This version was used by some games like _Comix Zone_ [^45] or even _Streets of Rage 3_ [^46].
 
