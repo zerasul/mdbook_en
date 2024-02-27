@@ -36,7 +36,7 @@ However, this is very tedious even though it can be very optimal to use assemble
 
 Also, there is a set of tools to be able to use this C language for Sega Mega Drive. This set of tools is called Sega Genesis Development Kit or SGDK.
 
-Sega Genesis Development Kit, is a set of tools such as a compiler, a library, resource management tools, etc.. That will allow us to create software (video games) for Sega Mega Drive. SGDK, is free and its open source; it is released under the MIT license; except the GCC [^26] compiler that incorporates that has GPL3 license.
+Sega Genesis Development Kit, is a set of tools such as a compiler, a library, resource management tools, etc.. That will allow us to create software (video games) for Sega Mega Drive. SGDK, is free and its open source; it is released under the MIT license; except the GCC [^26] compiler that has GPL3 license.
 
 [^26]: GCC (Gnu Compiler Collection) is a set of open source compilers that is incorporated in many GNU/Linux distributions.
 
@@ -52,7 +52,7 @@ During all these years, it has had a great acceptance by the community because i
 
 The library provided by SGDK is written in C although it has other tools that are written in other languages such as Java.
 
-Currently (2023), version 1.90 has been released which includes different improvements besides improving the support for mega Wifi[^27], as well as other improvements such as being able to import _TMX_ files to include TileSets and TileMaps generated from the _Tiled_ tool; we will see this tool in a later chapter.
+Currently (2024), version 2.00 has been released which includes the new sound driver XGM2; also has improving the support for mega Wifi[^27], and some improvements on the Sprite Engine.
 
 [^27]: Mega Wifi, is a special cartridge that allows you to connect to the Internet via Wifi; in addition to bringing a series of libraries to manage connectivity with the network.
 
@@ -126,7 +126,7 @@ Demons of Asteborg [^30] is a game for Sega Mega Drive, which has a side-scrolli
 
 In this case, only 1 player is allowed and can be found both in the Mega Drive version, on Steam and Nintendo Switch.
 
-In addition, they have released a new title called _Astrebros_, which is now available for purchase, and are working to port a new game called _Demons of Clawn_.
+In addition, they have released a new title called _Astrebros_, which is now available for purchase, and are working to port a new game called _Daemon Clawn_.
 
 More details can be found on their web site:
 
@@ -138,7 +138,7 @@ More details can be found on their web site:
 
 Metal Dragon [^31] is a game for Sega Mega Drive that has an 80s/90s action movie aesthetic; in this game you have to rescue the president's daughter and face endless enemies.
 
-This game is a 1 player game and there is a version for Sega Mega Drive, as well as for MSX. In addition, a Spanish studio is who has developed this game and recently is publishing his game in the magazine _beep_ for Japan. Besides publishing other games like _Life On mars_ or _Life on Earth_. Now its working on a new Title called _The secret of the 4 Winds_.
+This game is a 1 player game and there is a version for Sega Mega Drive, as well as for MSX. In addition, a Spanish studio _Kai Magazine Software_ is who has developed this game and recently is publishing his game in the magazine _beep_ for Japan. Besides publishing other games like _Life On mars_ or _Life on Earth_. Now its working on a new Title called _The secret of the 4 Winds_.
 
 [^31]: Metal Dragon has been developed by the Spanish studio Kai Magazine Software. All rights reserved.
 
@@ -147,6 +147,8 @@ This game is a 1 player game and there is a version for Sega Mega Drive, as well
 1985 World cup [^32] is a game for Sega Mega Drive that allows us to relive the great soccer titles like the _World Cup Italia 90_. Where players from all over the world will face each other.
 
 This game allows you to play up to 2 players on the same machine, and also has a unique feature; it has integrated the Mega Wi-fi; it allows you to connect to the internet via Wi-fi; and to play online; without the need of a modem; only the cartridge itself.
+
+The same studio are currently working on a port of _Coloco_ for Sega Mega Drive.
 
 [^32]: 1985 World cup is published by Nape Games. All rights reserved.
 
@@ -240,6 +242,8 @@ make -f $GENDEV/Makefile
 
 Later, we will see in detail how to use SGDK, using GENDEV.
 
+**NOTE:** GENDEV doesn't use the last version of SGDK; we recommend to use Docker.
+
 ### MarsDev
 
 We have been using all the tools that SGDK or GENDEV has; however, sometimes it is very complicated to maintain all the tools in different environments that are very heterogeneous.
@@ -282,6 +286,8 @@ docker run --rm -v $PWD:/src/sgdk
 
 With the above instruction, the Mega Drive ROM will be compiled and generated.
 
+Also, you can find prebuilt images thanks to _Doragasu_ that includes a SGDK Docker image in his Gitlab Repository; you can find the repository address at References.
+
 ## References
 
 * SGKD: [https://github.com/Stephane-D/SGDK](https://github.com/Stephane-D/SGDK).
@@ -295,3 +301,4 @@ With the above instruction, the Mega Drive ROM will be compiled and generated.
 * Open JDK: [https://openjdk.java.net/](https://openjdk.java.net/).
 * MarsDev: [https://github.com/andwn/marsdev](https://github.com/andwn/marsdev).
 * Docker: [https://www.docker.com/](https://www.docker.com/).
+* Doragasu SGDK Docker Images: [https://gitlab.com/doragasu/docker-sgdk](https://gitlab.com/doragasu/docker-sgdk)
