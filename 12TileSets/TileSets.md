@@ -14,12 +14,12 @@ A TileSet is a set of graphics that compose all the elements that can contain a 
 
 <div class="centered_image">
 <img src="12TileSets/img/tileset.png" title="TileSet example (Open Game Art)" alt="TileSet example (Open Game Art)"/>
-<em>TileSet example (Open Game Art)</em>
+<em>TileSet example (Source: Open Game Art)</em>
 </div>
 
 As we can see in the previous image different graphic elements can be appreciated. This Tileset will allow us to generate scenes with the different elements that compose it.
 
-Now that we have seen what a TileSet is, let's define what is a TileMap. A TileMap is a set of references to the elements of a TileSet to define a scene or any other element needed to display it on screen. Normally we use indexes to indicate the TileSet element to display. Let's see an example of a TileMap of the previous TileSet.
+Now that we have seen what a TileSet is, let's define what is a TileMap. A TileMap is a set of references to the elements of a TileSet to define a scene or any other element needed to display it on screen. Usually we use indexes to indicate the TileSet element to display. Let's see an example of a TileMap of the previous TileSet.
 
 ![TileMap Example](12TileSets/img/mapabosque.png "TileMap Example")
 _TileMap Example_
@@ -39,7 +39,7 @@ _Tiled_
 
 As we can see in the previous image, Tiled allows you to create maps from a set of patterns. These sets of patterns and map information can be imported into our Mega Drive game using different tools.
 
-Let's focus on how to create a map using Tiled; specifically from the TileSet example above, we can generate a new map. To do this, we import a new _set of patterns_, to Tiled and save it with the format _.tsx_; a tsx file, stores the information of a TileSet. You can specify the size of each Tile (Remember a Tile is a fragment of the image); in this case, we will use the size of 8x8 px.
+Let's focus on how to create a map using Tiled; specifically from the TileSet example above, we can generate a new map. To do this, we import a new _set of patterns_, to Tiled and save it with the format _.tsx_; a tsx file, stores the information of a TileSet. You can specify the size of each Tile (Remember a Tile is a fragment of an image); in this case, we will use the size of 8x8 px.
 
 When generating a map, we can do it with different layers. Each layer can contain different elements that we have in the different sets of patterns. So that we can enrich our map with more elements.
 
@@ -154,9 +154,9 @@ If you are using the Visual Studio Code extension; _Genesis Code_, you can gener
 
 To do this, simply in our game, use this command, and select the _.tmx_ file, it will automatically generate an .h file.
 
-For more information on how to import Tmx files, using Genesis Code, see the Genesis Code documentation.
+For more information on how to import Tmx files, using Genesis Code, see the _Genesis Code_ documentation.
 
-We can also obtain the information by hand; to do so, we can open the TMX file with a text editor and obtain the information (only if the information is as CSV [^56] and uncompressed).
+We can also obtain the information manually; to do so, we can open the TMX file with a text editor and obtain the information (only if the information is as CSV [^56] and uncompressed).
 
 [^56]: CSV (Comma Separated Values); file format that stores each data separated by ",".
 
@@ -308,7 +308,7 @@ Let's see a fragment:
         BG_B,tileMap1b,0,0,40,28,40,CPU);
 ```
 
-We observe how two arrays of type u16 have been defined, containing 1120 positions; one for each Tile to be stored; then these Tiles are filled, using the information stored in the .h file, and using the macro ```TILE_ATTR_FULL``` to load in each Tile the information of the palette, priority, etc.
+We observe how two arrays of type _u16_ have been defined, containing 1120 positions; one for each Tile to be stored; then these Tiles are filled, using the information stored in the .h file, and using the macro ```TILE_ATTR_FULL``` to load in each Tile the information of the palette, priority, etc.
 
 After loading each Tile, we draw on screen each layer, using the function ```VDP_setTileMapDataRect```.
 

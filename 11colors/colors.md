@@ -2,7 +2,7 @@
 
 We can't talk about the Sega Mega Drive's Development, if we don't talk about colors and how they are handled by this system. So far we have been talking about the palettes and how we can handle them when dealing with backgrounds or the different sprites in the examples that we have been showing.
 
-In this chapter, we are going to show the different colors that the Mega Drive can handle, and how to store them in the different palettes available at hardware level. Also, we are going to show how to perform different effects such as transparencies or highlight some color with respect to the background, thanks to the _HighLight_ and _Shadow_ colors.
+In this chapter, we are going to talk about the different colors that the Mega Drive can handle, and how to store them in the different palettes available at hardware level. Also, we are going to show how to perform different effects such as transparencies or highlight some color with respect to the background, thanks to the _HighLight_ and _Shadow_ mode colors.
 
 Finally, we will see an example where we will handle the different effects and in addition, we will see some advanced functions related to screen painting that will help us to add more effects.
 
@@ -13,7 +13,7 @@ So far we have mentioned that Sega Mega Drive can display up to 64 colors on the
 However, we have not been able to see how many colors in total the Sega Mega Drive can display. Sega Mega Drive stores colors in a 9-bit RGB color palette. This means that it can display 512 colors that Sega Mega Drive is capable of handling. But remember that we can only see 64 colors per screen due to the 4 palettes of 16 colors.
 
 ![Mega Drive Palette Color](11colors/img/RGB_9bits_palette.png "Mega Drive Palette Color")
-_Mega Drive Palette Color (Wikipedia)_
+_Mega Drive Palette Color (Source: Wikipedia)_
 
 As we can see in the previous image, the different colors of the Sega Mega Drive is capable of displaying are shown, and it is important to take this into account since when working with the different graphics, we must know which color would correspond to the Sega Mega Drive if we are working with RGB from our development team.
 
@@ -40,7 +40,7 @@ If during the game we have to change the palette and load different graphics, th
 
 ## HighLight & Shadow
 
-We have been able to see how to work with the different colors provided by the Sega Mega Drive. Using the different palettes we have available, we can work with up to 64 colors on screen. However, this number is expandable thanks to the use of HighLight and Shadow, among others.
+We have been able to see how to work with the different colors provided by the Sega Mega Drive. Using the different palettes we have available, we can work with up to 64 colors on screen. However, this number is expandable thanks to the use of _HighLight_ and _Shadow_, among others.
 
 The use of these modes allows the number of colors to be expanded by modifying the brightness of the palette in two ways:
 
@@ -67,7 +67,7 @@ Let's see how this function behaves when activated in Backgrounds or Sprites.
 
 ### Backgrounds
 
-When working with planes, the HighLight mode is not accessible; since it is prepared for Sprites. However, we can access the colors of the other two modes. Taking into account the following characteristics:
+When working with backgrounds, the HighLight mode is not accessible; since it is prepared for Sprites. However, we can access the colors of the other two modes. Taking into account the following characteristics:
 
 * If the Tiles have priority, it will be displayed with Normal colors.
 * If the Tiles do not have priority, the shadow mode will be displayed.
@@ -77,7 +77,7 @@ When working with planes, the HighLight mode is not accessible; since it is prep
 
 When working with Sprites, we have to take into account the following characteristics:
 
-* If the palette used is one of the first 3, (```PAL0```, ```PAL1```, ```PAL2```), it will behave the same as the planes (with priority normal color, without priority shadow color).
+* If the palette used is one of the first 3, (```PAL0```, ```PAL1```, ```PAL2```), it will behave the same as the backgrounds (with priority normal color, without priority shadow color).
 * If the palette used is the fourth palette (```PAL3```), we have to take into account the following cases:
     * If the Sprite background has Normal color:
         * Colors 14 and 15 of the palette will be displayed in _HighLight_ mode.
@@ -125,7 +125,7 @@ In this case, we are going to show a background that we have generated using dif
 
 <div class="centered_image">
 <img src="11colors/img/fondo1.png" title="Example Background" alt="Example Background"/>
-<em>Example Background</em>
+<em>Example Background (Source: Open Game Art)</em>
 </div>
 
 As we can see in the image, we see a night scene where we can observe 3 street lamps. The idea of the example is to show that under each streetlight there is a beam of light but outside of them a darker color is noticed. This effect can be done using a priority map.
@@ -210,11 +210,11 @@ If everything went fine, we can see an image similar to this one:
 ![Example 8: Colors and Shadow](11colors/img/ej8.png "Example 8: Colors and Shadow")
 _Example 8: Colors and Shadow_
 
-As we can see in the image, in each streetlight a part is shown illuminated; this is because these areas are painting Tiles with Priority; so they are shown in a normal way; the rest of Tiles that do not have priority are shown in Shadow mode. With this, we confirm that the behavior with the planes, is as we have mentioned previously.
+As we can see in the image, in each streetlight a part is shown illuminated; this is because these areas are painting Tiles with Priority; so they are shown in a normal way; the rest of Tiles that do not have priority are shown in Shadow mode. With this, we confirm that the behavior with the backgrounds, is as we have mentioned previously.
 
 We also see that at the Sprite level, if we move our character, it is also affected by the Shadow mode; in this way we can give the sensation of a lighting that is affected by our character. Obviously, we can also work with HighLight mode, using Palette 3, and playing with colors 14 and 15.
 
-With this example, we have already seen how the color palettes and the Shadow and HighLight modes work.
+With this example, we have already seen how the color palettes and the _Shadow_ and _HighLight_ modes work.
 
 ## References
 

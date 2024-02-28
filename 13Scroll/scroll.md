@@ -14,7 +14,7 @@ In addition, we will see the different examples, with different use cases with t
 
 As we have already mentioned, scrolling is the ability to move parts of the image we are displaying; in the case of the Sega Mega Drive, it is the ability to move the tiles of each plane in different directions.
 
-The VDP; allows different types of displacement of the two planes (A and B); either depending on the direction (Horizontal or vertical) or the portion of the screen (per line or per column); this allows different effects and give a better sense of movement. This effect is commonly known as _Parallax_.
+The VDP; allows different types of displacement of the two backgrounds (A and B); either depending on the direction (Horizontal or vertical) or the portion of the screen (per line or per column); this allows different effects and give a better sense of movement. This effect is commonly known as _Parallax_.
 
 We can differentiate the Scroll by direction, which can be of two types:
 
@@ -23,7 +23,7 @@ We can differentiate the Scroll by direction, which can be of two types:
 
 Also, depending on the portion of screen scrolled, we can find three types:
 
-* _Line_: The VDP can scroll horizontally up to 224 lines; vertically, however, it is capable of scrolling some portions.
+* _Line_: The VDP can scroll horizontally up to 224 lines (or 240 in PAL); vertically, however, it is capable of scrolling some portions.
 * _Plane_: The VDP allows a complete plane to be moved both horizontally and vertically.
 * _Tile_: It is possible to scroll the different Tiles of a line.
 
@@ -33,11 +33,11 @@ In this section, we will focus on these types of Scroll and see how it can be pe
 
 We will start by talking about line scrolling; in this case we can scroll up to 240 lines per screen horizontally; one per pixel (224 in NTSC). In such a way that we can scroll different portions of the screen independently. This is done by the VDP chip itself, thanks to the scrolling table stored in VRAM.
 
-Each of the 224 lines stores a fragment of the plan that can be shifted to the right or left so that the direction can be changed if necessary. It is not possible to scroll for each column, although it can be done for every 2 Tiles.
+Each of the 224 lines stores a fragment of the backgrounds that can be shifted to the right or left so that the direction can be changed if necessary. It is not possible to scroll for each column, although it can be done for every 2 Tiles.
 
-We remind you that this can be done in each of the two available plans.
+We remind you that this can be done in each of the two available backgrounds.
 
-### Plane Scroll
+### Plane Scroll (Background Scrolling)
 
 On the other hand, a complete plane can also be scrolled; for example, because a plane can be scrolled from top to bottom and from right to left; in such a way that we can have images or maps larger than what is allowed on the screen (320x240 or 320x224).
 
@@ -63,11 +63,11 @@ All displacement information, both vertical and horizontal, is stored in the VRA
 We have seen the theory of how to scroll by line, plane or Tiles; so in order to better understand how these scrolls are performed, let's see three examples:
 
 * Example of displacement by lines; let's see how to deform a logo to make an effect using displacement.
-* Example of plane displacement; in this case, we are going to perform the famous paralax effect so that we can see how the plane is displaced to show a larger map.
+* Example of plane displacement; in this case, we are going to perform the famous parallax effect so that we can see how the plane is displaced to show a larger map.
 * Example of displacement by Tiles; in this last example, we are going to see how using 1 Tile and a Tilemap, we can generate a rain effect, using displacement by Tiles.
 * Example of plane displacement but using the new Structure called Map.
 
-Remember that all the examples mentioned in this book are available in the Github repository that accompanies this book; here is the address:
+Remember that all the examples mentioned in this book are available in the Github repository that accompanies this book; here you can find the address:
 
 [https://github.com/zerasul/mdbook-examples](https://github.com/zerasul/mdbook-examples)
 
@@ -75,7 +75,7 @@ Remember that all the examples mentioned in this book are available in the Githu
 
 In this first example, we are going to focus on scrolling by lines; remember that we can scroll the 224 horizontal lines that we have available. This example corresponds to the folder _ej11.linescroll_; that you will find in the examples repository.
 
-For this example, we will use an image with a logo that reminds us the Sonic home screen; this is the image.
+For this example, we will use an image with a logo that reminds us the Sonic initial screen; this is the image.
 
 ![Example Image](13Scroll/img/logo.png "Example Image")
 _Example Image_
@@ -111,7 +111,7 @@ VDP_setScrollingMode(
 Once configured, we are going to load the offsets that each line will have so we will need one variable per line; so we will create an array to store all the offsets.
 
 ```c
-s16 lines[224];
+s16 lines[224];//240 for PAL
 ```
 
 This array we initialize it to zero; so all the positions have value; and later it is when we give values to each position; for the even lines the displacement is increased, and for the odd ones it is decreased. This will allow us, to give a sensation of movement and to create a deformation of the logo.
@@ -166,13 +166,13 @@ The foreground, which we will use as the sky; it is a static image that we will 
 
 <div class="centered_image">
 <img src="13Scroll/img/Sky_pale.png" title="Background Image 1" alt="Background Image 1"/>
-<em>Background Image 1 (Open Game Art)</em>
+<em>Background Image 1 (Source: Open Game Art)</em>
 </div>
 
 Then, we will have the background that we will be moving; which is an image of 640x224 pixels; that we will store in ROM memory and that we will be showing as needed.
 
 ![Background Image 2](13Scroll/img/map1.png "Background Image 2")
-_Background Image 2 (Open Game Art)_
+_Background Image 2 (Source: Open Game Art)_
 
 As we can see in the previous image, the red background color will be the transparent color (it is the first color of the color palette). With these two backgrounds and one Sprite, is what we are going to work with.
 
@@ -232,7 +232,7 @@ Once the screen and the Sprites have been drawn, we will go on to configure the 
 
 As we can see in the previous fragment, we will configure both horizontal and vertical scroll as Plane scrolling. Then inside the game loop, we will call the rest of the functions and the Sprite table will be updated.
 
-Let's see how the rest of the functions work; as in the case of the function ```void inputHandle()```, that manages the input of the buttons. In this case, the idea is that when the character moves to the right and reaches a certain point, it moves and can advance through the stage; however in this case we will only implement the displacement to the left so if the Sprite moves in the opposite direction it will not advance.
+Let's see how the rest of the functions work; as in the case of the function ```void inputHandle()```, manages the input of the buttons. In this case, the idea is when the character moves to the right and reaches a certain point, it moves and can advance through the stage; however in this case we will only implement the displacement to the left so if the Sprite moves in the opposite direction it will not advance.
 
 Let's see a function's fragment:
 
@@ -332,7 +332,7 @@ We see that we import an image, a tileSet and the corresponding palette. The bac
 
 <div class="centered_image">
 <img src="13Scroll/img/city3.png" title="Example 13 Background" alt="Example 13 Background"/>
-<em>Example 13 Background (Open Game Art)</em>
+<em>Example 13 Background (Source: Open Game Art)</em>
 </div>
 
 Once we have seen this image, let's review the source code; we will start by seeing how to draw each background; one as an image, and the other one we will use the TileSet _rain_, to generate a TileMap and simulate the rain. Let's see a fragment:
@@ -423,9 +423,9 @@ _Example 13: Tile Scrolling_
 
 There is still a way to scroll; as you may have seen, in the example of scrolling by plane, it is quite complicated to calculate the next Tile to be displayed; therefore, alternative functions can be used, thanks to the ```Map``` structure.
 
-This structure was added in SGDK version 1.60; therefore, this example can only be used in that version or higher; a Map is a structure that stores a large amount of information about an image or scenario; therefore, using this type of functions we have to be careful not to bottleneck the CPU or DMA.
+The ```Map``` structure was added in SGDK version 1.60; therefore, this example can only be used in that version or higher; a Map is a structure that stores a large amount of information about an image or scenario; therefore, using this type of functions we have to be careful not to bottleneck the CPU or DMA.
 
-For this example, we will reuse example 12 to move a plane, but we will modify it to use Map, instead of moving it ourselves.
+For this example, we will reuse _example 12_ to move a plane, but we will modify it to use Map, instead of moving it ourselves.
 
 Let's start by showing how we are going to import the resources; since they will no longer be two images; but instead an image, a Tileset, a palette and finally a Map will be used.
 

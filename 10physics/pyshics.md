@@ -4,7 +4,7 @@ There is an important thing we need to know when working with computers that we 
 
 Therefore, we have to take into consideration that in each architecture and processor, it can have different behaviors when performing calculations; either from a simple addition, to more expensive operations such as accessing memory or the division or multiplication itself.
 
-In this chapter, we are going to talk about how the Motorola 68000 works and the different operations it can perform. We will also go into detail on working with floating point, and we will even see at the end how to implement collision between different Sprites using SGDK.
+In this chapter, we are going to talk about how the Motorola 68000 processor works and the different operations it can perform. We will also go into detail on working with floating point, and we will even see at the end how to implement collision between different Sprites using SGDK.
 
 This topic can be a little complicated to understand; but it is necessary to be able to create in the most efficient way possible, our videogame without having loss of frames or the screen freezes.
 
@@ -12,7 +12,7 @@ This topic can be a little complicated to understand; but it is necessary to be 
 
 ## Arithmetic on Motorola 68000
 
-We are going to start talking about the Motorola 68000 processor; because this is the main processor of the Sega Mega Drive and although it also has a Zilog Z80 processor, we will focus on the Motorola. Remember that you can see more information about the architecture and operation of these processors in Sega Mega Drive in chapter 3.
+We are going to start talking about the Motorola 68000 processor; because it is the main processor of the Sega Mega Drive and although it also has a Zilog Z80 processor, we will focus on the Motorola. Remember that you can see more information about the architecture and operation of these processors in Sega Mega Drive in chapter 3.
 
 In this section we will show how some arithmetic operations are performed and how they can be performed more efficiently.
 
@@ -62,7 +62,7 @@ a>>1; //3
 
 Shifting to the right, we can see it can be divided by 2. So it can be more efficient when working with these arithmetic operations.
 
-**NOTE**: It is important to know whether the compiler used can transform multiplication or division operations into more efficient operations[^55].
+**NOTE**: It is important to know whether the compiler like GCC used can transform multiplication or division operations into more efficient operations[^55].
 
 After seeing the arithmetic operations and how to optimize them, we are going to show another section to take into account when programming for Sega Mega Drive; it is the use of the different types of data to be able to optimize the use of memory; since this is important when working with systems with few resources (64kb of RAM memory).
 
@@ -115,6 +115,8 @@ fix16 a = FIX16(1.24);
 ```
 
 In the previous fragment; whether it is a correct instruction to declare in this case a variable of type fix16. In addition, we can see some useful functions to use with decimal data types. Let's see a table with some of them.
+
+Also, it is important to know that in SGDK 2.00; there are some improvements at the creations of the ```FIX16``` and ```FIX32``` types.
 
 | **Functions**         | **Description**  |
 |-----------------------|-------------------------------------------------------------------------------|
@@ -364,7 +366,6 @@ Once these variables have been obtained, we calculate each point necessary to ch
 We see how in each case both the x1,y1 position and the x2,y2 position are calculated, corresponding to the initial and final point of the rectangle that forms the collision box. Once we have each point, we can perform the check:
 
 ```c
-   
    if ((box1_x1 <= box2_x2) &&
             (box1_x2 >= box2_x1) &&
             (box1_y1 <= box2_y2) &&
@@ -378,7 +379,6 @@ We see how in each case both the x1,y1 position and the x2,y2 position are calcu
 We see how if the check is correct it will return ```TRUE``` (or 1); while if it is not fulfilled, it will return ```FALSE``` (or 0); so there would be no collision. Finally, we will show the code fragment where the call to the ```checkCollision``` function is made:
 
 ```c
-
 SPR_update();
 int collision = checkCollision(sha, elli);
 sprintf(buffer, "Collision: %d", collision);

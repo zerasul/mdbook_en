@@ -52,7 +52,7 @@ During all these years, it has had a great acceptance by the community because i
 
 The library provided by SGDK is written in C although it has other tools that are written in other languages such as Java.
 
-Currently (2024), version 2.00 has been released which includes the new sound driver XGM2; also has improving the support for mega Wifi[^27], and some improvements on the Sprite Engine.
+Currently (2024), version 2.00 has been released which includes the new sound driver XGM2; also has some improvements at the initialization of floating point types, and some improvements on the Sprite Engine.
 
 [^27]: Mega Wifi, is a special cartridge that allows you to connect to the Internet via Wifi; in addition to bringing a series of libraries to manage connectivity with the network.
 

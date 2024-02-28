@@ -218,7 +218,7 @@ We see in the previous fragment, that the function ```SPR_addSprite``` is used; 
 
 The ```TILE_ATTR``` macro allows you to set the attributes of a tilemap; let's look at its parameters:
 
-* _pal_: Color Palette to use(```PAL0```,```PAL1```,```PAL2```,```PAL3```)
+* _pal_: Color Palette to use (```PAL0```,```PAL1```,```PAL2```,```PAL3```)
 * _prio_: Sprite priority ```TRUE``` for high priority or ```FALSE``` for Low priority.
 * _FlipV_: Set vertical mirroring ```TRUE``` for mirrored or ```FALSE``` otherwise.
 * _FlipH_: Set horizontal mirroring ```TRUE``` for mirrored or ```FALSE``` otherwise.
@@ -357,7 +357,7 @@ In this fragment, we can see how to read, first of all, the buttons pressed by c
 
 In each case, the animation is set, and the variable with the position is modified. The first case, only sets 4 directions and you can only go to one at a time.
 
-Once we have seen the code of the example, we can compile it and run it in an emulator. Obtaining the following screen:
+Once we have seen the code of the example, we can compile and run it in an emulator. Obtaining the following screen:
 
 ![Example 6: Sprites](9Sprites/img/ej6.png "Example 6: Sprites")
 _Example 6: Sprites_
