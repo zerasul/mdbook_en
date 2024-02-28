@@ -49,7 +49,7 @@ It is important to know this processor, since when working with the sound, it is
 
 As we have been talking about, the sound system is composed of the two chips (Yamaha and PSG), which are orchestrated by the Zilog Z80 processor; therefore, it is necessary to send the information to this processor, and execute the different instructions for the chips to emit the relevant sound.
 
-This requires knowledge and programming of the Zilog Z80 processor, normally the programming is not done as we are used to in this book using the C programming language. Instead, assembly language is used for the Z80.
+This requires knowledge and programming of the Zilog Z80 processor, normally the programming is not done as we are used to in this book using the C programming language. Instead, we use assembly language for Z80 processor.
 
 ```asm
 printc:               ; Routine print character
@@ -64,7 +64,7 @@ printc:               ; Routine print character
 
 In the above snippet, we see a bit of assembler for the z80 (in this case, it is for ZX Spectrum); creating a program for the Z80 to orchestrate the sound chips, is what is commonly called a Sound Driver.
 
-There are several implementations of sound drivers for Sega Mega Drive; such as GEMS [^59], MUCOM88 [^60], 4PCM or XGM. Each one has been used in several games and used to compose music since they brought tools for it, like a tracker [^61] to compose.
+There are several implementations of sound drivers for Sega Mega Drive; such as GEMS [^59], MUCOM88 [^60], 4PCM, XGM or XGM2. Each one has been used in several games and used to compose music since they brought tools for it, like a tracker [^61] to compose.
 
 [^59]: GEMS (Genesis Editor for Music and Sound effects), is a sound driver for Sega Mega Drive developed by _Recreational Brainware_.
 [^60]: MUCOM88, is a sound driver developed by _Yuzo Koshiro_, considered one of the greatest composers of music for videogames (composer of the Streets of Rage soundtrack).
@@ -81,7 +81,9 @@ Among its features, it has:
 * It allows to send FM and PSG sound at the same time, using the channels both to send sound or the different samples; being able to reach up to 13 sound channels (5FM + 4PCM + 4PSG).
 * It allows you to play sound effects in PCM format with 16 priority levels; this is useful when working with different sources.
 
-It is important to know that a second version of this driver is being worked on; the XGM2. This driver includes improvements with respect to the previous version since it had many problems when compiling and generating the binary files; since they consumed a lot of space in the ROM (20/25% of the ROM could be the music). Therefore Stef, is working on this new version that contains interesting changes:
+### XGM2
+
+It is important to know that a second version of the XGM Driver was released in January 2024; this driver are included in the SGDK 2.00 version. This driver includes improvements with respect to the previous version since it had many problems when compiling and generating the binary files; since they consumed a lot of space in the ROM (20/25% of the ROM could be the music). This new Driver contains the next features:
 
 * Runs 100% on the Z80 (uses the m68K to calculate the times).
 * Support for music pause and playback.
@@ -91,7 +93,7 @@ It is important to know that a second version of this driver is being worked on;
 * FM and PSG adjustable volume.
 * 3 PCM channels for 8 bits.
 
-You can find more information about the XGM2 driver on Stef's Patreon.
+You can find more information about the XGM2 at the SGDK 2.00 Documentation.
 
 ## Music and Sound Creation
 
@@ -118,9 +120,13 @@ _Deflemask_
 
 ## Music & Sound Example
 
-After seeing how the sound system is composed; the Drivers and how to create the sound or music, we are going to create an example, in where we can reproduce different sounds and music depending on the different buttons that we press. This example, you can find it in the repository of examples that accompanies this book. This example corresponds to the folder _ej15.musicandsound_; where we can find both the code and the resources.
+After seeing how the sound system is composed; the Drivers and how to create the sound or music, We are going to see tow examples; the first example we are going to se the original XGM Driver, and all the functions related.
 
-First of all, we are going to show how to import music resources or sound effects using the _rescomp_ tool, which is in charge of reading the files and converting them to binary. We have to differentiate that the files with music are in VGM format, while the files with sound effects are in WAV format.
+The second example, we are going to use the new XGM2 Driver; also, we are going to see the related functions for use with this Driver. Of course in both examples, we are going to see how to import all the resources.
+
+### XGM
+
+Let's check the first example that you can find in the Github Repository that companies this book; the folder with this example is _ej15.musicandsound_. We are going to show how to import music resources or sound effects using the _rescomp_ tool, which is in charge of reading the files and converting them to binary. We have to differentiate that the files with music are in VGM format, while the files with sound effects are in WAV format.
 
 We will start by showing how to import a VGM file for use with the XGM driver.
 
@@ -155,6 +161,7 @@ Where:
     * 1/2/2ADPCM: 2-channel 4-bit driver.
     * 3/4/4PCM: 4 channels at 8 bits.
     * 5/6/XGM: 4 channels with 8 bits.
+    * XGM2: It can mix up to 3 samples (8 bit signed) at either 13.3 Khz or 6.65 Khz while playing XGM music.
 * _out-rate_: Output rate to decode the output. Only used for Z80_DRIVER_PCM.
 * _far_: Additional parameter to add information at the end of the ROM (used for Bank-switch).
 
@@ -260,7 +267,7 @@ The ```XGM_setPCM``` function initializes the sound to be played using the XGM D
 The ```XGM_startPlayPCM``` function plays a previously initialized sound effect; it receives the following parameters:
 
 * _id_: Sound Identifier assigned in the previous step.
-* _prioridad_: defines the priority with which the sound will be played. It can have a value between 0 and 15; 0 being the lowest and 15 the highest.
+* _priority_: defines the priority with which the sound will be played. It can have a value between 0 and 15; 0 being the lowest and 15 the highest.
 * _channel_: channel to play the sound; you can select the different channels allowed by the XGM driver. In this case, ```SOUND_PCM_CH4``` indicates that channel 4 will be used as PCM. See the SGDK documentation for all available channels.
 
 Now that we have seen what happens when the C button is pressed, let's see what happens when the Start button is pressed.
@@ -291,6 +298,64 @@ Finally, pressing the left or right buttons will select the previous or next sou
 }
 ```
 
+### XGM2
+
+Let's focus now on the new XGM2 Driver; for this case, we are going to reuse the previous example, and change for use with the XGM2 Sound Driver. This example can be found in the repository that companies this book, at the folder _ej15b.xgm2_.
+
+**NOTE**: You will need SGDK 2.00 version or later for use this example.
+
+First, let's focus on how to import the resources using _rescomp_; in this case a new object type is used to import the music:
+
+```res
+XGM2 name "file" options
+```
+
+Where:
+
+* _name_: Resource's Name.
+* _file_: VGM File Name; must be at the _res_ folder.
+* _options_: options to be added to call the new tool _xgm2tool_; incorporated in SGDK version 2.00.
+
+In the case of _WAV_ files, it is done in the same way of the previous example but indicating the driver type as _XGM2_; for example:
+
+```
+WAV sound1 "sound/Explosion2.wav" XGM2  
+```
+
+After import all the resources, we can focus on the code. The code is the same as the previous example; but we are going to use the new added functions for use the _XGM2_ sound driver.
+
+Let's focus on the main functionM we can see two new functions; the ```XGM2_setFMVolume``` and the ```XGM2_setPSGVolume``` functions. Theses functions controls the FM and PSG chips Volume. This is a new feature added with the XGM2 Sound Driver.
+
+The function ```XGM2_setFMVolume```; set the current FM sound volume; receive the next parameter:
+
+* _volume_: an integer between 0 and 100; to set the FM sound volume.
+
+In the other hand the function ```XGM2_setPSGVolume```; this function controls the PSG chip volume. It Receives the next parameter:
+
+* _volume_: an integer between 0 and 100; to set the FM sound volume.
+
+Now let's focus on the ```inputhandler``` function; this function has the same functionality and structure than the earlier example. But now we are going to see the new functions for use with the XGM2 Sound Driver.
+
+First, we are going to see the function ```XGM2_play```; this function play the current resource using the XGM2 Sound Driver; lets see the Parameters:
+
+* _resource_: resource pointer to be played.
+
+Other functions that we can see are ```XGM2_stop```; this function stop current music. Also, we can see the function ```XG2_isPlaying```; this function returns ```TRUE``` if there is a music playing or ```FALSE``` otherwise.
+
+Let's focus on the PCM sound functions for the XGM2 Sound Driver.
+
+The function ```XGM2_playPCM``` play a PCM sound using one channel. Let's see the parameters:
+
+* _resource_: Resource Pointer to be played.
+* _len_: Resource len; must be 256 Multiple.
+* _channel_: Channel to be used; you can use the ```SoundPCMChannel``` enum for select the channel. See the SGDK documentation for more information.
+
+For last, we can see the ```XGM2_stopPCM``` this function stops the current PCM sound that is currently played; this function receive the next parameter:
+
+* _channel_: Channel to be used; you can use the ```SoundPCMChannel``` enum for select the channel. See the SGDK documentation for more information.
+
+There are more functions for use with the XGM2 Sound Driver; check the SGDK Documentation for more information.
+
 Once we have finished reviewing the buttons and how each case works, we can compile and run our example. We leave it to the reader to review how we display the screen by loading an image and a TileSet. If everything goes correctly, you will be able to see and hear this example in the emulator.
 
 ![Example 15: Sound and Music](14sound/img/ej15.png "Example 15: Sound and Music")
@@ -305,5 +370,6 @@ I want to thank _Diego Escudero_ for providing the melodies for this example.
 * GEMS: [https://segaretro.org/GEMS](https://segaretro.org/GEMS)
 * MUCOM88: [https://onitama.tv/mucom88/index_en.html](https://onitama.tv/mucom88/index_en.html)
 * XGM: [https://raw.githubusercontent.com/Stephane-D/SGDK/master/bin/xgm.txt](https://raw.githubusercontent.com/Stephane-D/SGDK/master/bin/xgm.txt)
+* XGM2: [https://github.com/Stephane-D/SGDK/blob/master/bin/xgm2.txt](https://github.com/Stephane-D/SGDK/blob/master/bin/xgm2.txt)
 * Deflemask: [https://www.deflemask.com/](https://www.deflemask.com/)
 * Sound Effects (Open Game Art): [https://opengameart.org/content/sound-effects-mini-pack15](https://opengameart.org/content/sound-effects-mini-pack15)
