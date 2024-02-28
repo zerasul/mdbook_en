@@ -120,7 +120,7 @@ _Deflemask_
 
 ## Music & Sound Example
 
-After seeing how the sound system is composed; the Drivers and how to create the sound or music, We are going to see tow examples; the first example we are going to se the original XGM Driver, and all the functions related.
+After seeing how the sound system is composed; the Drivers and how to create the sound or music, We are going to see two examples; the first example we are going to see the original XGM Driver, and all the functions related.
 
 The second example, we are going to use the new XGM2 Driver; also, we are going to see the related functions for use with this Driver. Of course in both examples, we are going to see how to import all the resources.
 
@@ -324,7 +324,7 @@ WAV sound1 "sound/Explosion2.wav" XGM2
 
 After import all the resources, we can focus on the code. The code is the same as the previous example; but we are going to use the new added functions for use the _XGM2_ sound driver.
 
-Let's focus on the main functionM we can see two new functions; the ```XGM2_setFMVolume``` and the ```XGM2_setPSGVolume``` functions. Theses functions controls the FM and PSG chips Volume. This is a new feature added with the XGM2 Sound Driver.
+Let's focus on the main function we can see two new functions; the  ```XGM2_setFMVolume``` and the ```XGM2_setPSGVolume``` functions. Theses functions controls the FM and PSG chips Volume. This is a new feature added with the XGM2 Sound Driver.
 
 The function ```XGM2_setFMVolume```; set the current FM sound volume; receive the next parameter:
 
