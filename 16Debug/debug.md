@@ -1,6 +1,6 @@
 # 16. Debug
 
-We have reached the last chapter of this book and our journey through the details of programming for the Sega Mega Drive. From when we started talking about what the Mega Drive is, its history, architecture, setting up our environment, to seeing all the tools available to create our games.
+We have reached the last chapter of this book and our journey through the details of programming for the Sega Mega Drive. From when we started talking about what a Mega Drive is, its history, architecture, setting up our environment, to seeing all the tools available to create our games.
 
 It only remains to talk about a topic that is quite important for anyone who faces programming; and it is at the time of debugging and to be able to see the traceability of our code. Important thing, to be able to detect possible execution errors or commonly called "bugs".
 

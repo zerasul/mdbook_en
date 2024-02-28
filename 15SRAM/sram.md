@@ -8,7 +8,7 @@ Finally, we are going to see an example that will use these interruptions to mak
 
 ## Save our Game Process
 
-Many of us have suffered, not being able to save the progress of our Mega Drive games; only some games had this ability to save the progress in the cartridge. This is because these cartridges, had a SRAM memory [^64] along with a button battery (which we have to be careful not to run out of battery after so many years); there were also some special types such as _Sonic 3_ that had a special type of memory without the need of battery.
+Many of us have suffered, not being able to save the progress of our Mega Drive games; only some games had this ability to save the progress in the cartridge. This is because these cartridges, had a SRAM memory [^64] along with a button battery (which we have to be careful not to run out of battery after so many years); there were also some special types such as _Sonic 3_ that had a special type of memory without the need of battery (using flash memory).
 
 Therefore, if we need to store information about the progress of our game, we can use this SRAM memory, we will need a cartridge that has both ROM and static memory.
 
@@ -122,13 +122,13 @@ During this painting time, the CPU can be very idle; so it can be interesting to
 To do this, we can use interrupts, which will allow us to execute code during these periods when the screen is being painted. These interruptions are launched by the VDP when finishing painting both a set of lines and the screen itself. Let's see a diagram.
 
 ![Mega Drive Screen Interruptions](15SRAM/img/hblank.jpg "Mega Drive Screen Interruptions")
-_Mega Drive Screen Interruptions_
+_Sega Mega Drive Screen Interruptions_
 
 As we can see in the schematic, for each time a line is painted, an _HBlank_ interrupt is thrown, when it is repositioned to paint the next one. In this time, it can be used to update part of our code such as updating the palettes (Some games like Sonic uses this technique).
 
 On the other hand, we can observe that when the screen is finished painting, another interruption the _VBlank_ is launched, which we can also use to update parts of our game such as the backgrounds and/or palette; in this way we can create animations on the backgrounds themselves.
 
-You should always know that both HBlank and VBLank have a short period of time to execute code so we cannot use very complex operations. Therefore, we have to be very careful when using these interrupts.
+You should always know that both _HBlank_ and _VBLank_ have a short period of time to execute code so we cannot use very complex operations. Therefore, we have to be very careful when using these interrupts.
 
 Let's see how each of these interrupts can be used.
 
@@ -176,7 +176,7 @@ We have already been able to see the different functions for working with interr
 
 [https://github.com/zerasul/mdbook-examples](https://github.com/zerasul/mdbook-examples)
 
-The folder where you will find the example is _ej16.interrupts_; in this folder you will find a simple example, in which we can control a character. In this case, we are going to change the way of interacting with the game.
+The folder where you will find this example is _ej16.interrupts_; in this folder you will find a simple example, in which we can control a character. In this case, we are going to change the way of interacting with the game.
 
 First, we will work with a series of variables where we will store the state of the player; for this we will use the following ```struct```:
 
