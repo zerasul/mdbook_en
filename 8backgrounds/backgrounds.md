@@ -245,7 +245,7 @@ We have seen that to define the base Tile to load the image, you can use the mac
 * HFLIP: Horizontal Mirroring. Indicates whether it will be horizontally mirrored  (```TRUE``` for mirrored or ```FALSE``` otherwise).
 * index: Indicates the index to be stored in the video memory. The index variable will be used to store it in memory.
 
-As we can see in the example, we can see that the resource called bg_a is loaded in Plane B and that it will be saved in the ``PAL0``` palette; that is, the first available palette. In addition, it will be with low priority; and it will be loaded using CPU and not DMA.
+As we can see in the example, we can see that the resource called bg_a is loaded in Plane B and that it will be saved in the ```PAL0``` palette; that is, the first available palette. In addition, it will be with low priority; and it will be loaded using CPU and not DMA.
 
 Then we see the following line:
 
