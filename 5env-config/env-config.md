@@ -66,7 +66,7 @@ Genesis Code, allows, through a series of commands, to perform different tasks w
 * Compile with Debug Options
 * Import a file in TMX or Json format to generate a C header file. This command uses the _TILED_ tool format to import maps.
 
-Also, Genesis Code includes other features such as syntax highlighting for SGDK _.res_ resource files, auto-completion for resources or custom image viewer. In addition, you should know that the author of this extension is the same of this book.
+Also, Genesis Code includes other features such as syntax highlighting for SGDK _.res_ resource files, auto-completion for resources or custom image viewer. In addition, you should know that the author of this extension is the same as this book.
 
 If you need more information about Genesis Code, you can consult the Genesis Code documentation:
 
@@ -155,7 +155,7 @@ In order to use it for our development, if you have the Genesis Code extension, 
 
 The first is to use the _Genesis Code: set Gens Emulator Command Path_ command that provides the extension and add the path to the _gens.exe_ file in order to execute the command.
 
-The other way, is from the Genesis Code configuration we can add the path where the emulator executable is located.
+The other way is from the Genesis Code configuration we can add the path where the emulator executable is located.
 
 ### Blastem
 
@@ -164,7 +164,7 @@ Another well-known emulator, is _Blastem_; this emulator, allows to emulate with
 This emulator has the following features:
 
 * Saving and Loading of states.
-* Integrated Debugger and can be used with a remote debugging (GDB).
+* Integrated Debugger and can be used with remote debugging (GDB).
 * Gamepad Support (Joystick).
 * Mega/Sega Mouse emulation.
 * Saturn Keyboard Support.
@@ -186,13 +186,13 @@ As with Gens, Blastem can be used with the _Genesis Code_ extension, so the same
 
 ## Graphic Manipulation Software
 
-When working on a video game, it is important to work on the source code of the game, as well of the resources to be used (graphics, sound, maps, etc.); therefore, we are going to review some tools that we can use to create all these resources.
+When working on a video game, it is important to work on the source code of the game, as well as the resources to be used (graphics, sound, maps, etc.); therefore, we are going to review some tools that we can use to create all these resources.
 
 ### GIMP
 
 GIMP (Gnu Image Manipulation Program), is a bitmap image editing program; this program is open source and has a GPLv3 license.
 
-The first version of this program was released in 1995 at the Berkley's University; and since then it has become part of the GNU project [^40]. GIMP, is going to help us to modify the images to be able to use them in our projects.
+The first version of this program was released in 1995 at the Berkley's University; and since then it has become part of the GNU project [^40]. GIMP is going to help us to modify the images to be able to use them in our projects.
 
 [^40]: GNU Project: [https://www.gnu.org/home.es.html](https://www.gnu.org/home.es.html)
 
@@ -211,7 +211,7 @@ You can download GIMP from its official website:
 
 At the time of creating our graphics, with programs like GIMP, they are not very usable; for that reason other programs are used to be able to create the Sprites or the necessary patterns for our game.
 
-To do this, we use programs like Aseprite which is a program that will allow us to create in a simple way, our sprites and their animations.
+To do this, we use programs like Aseprite which is a program that will allow us to create, in a simple way, our sprites and their animations.
 
 Also, it will also allow us to manage the color palette for our graphics. So we will be able to see every moment, the colors that we are using to create our graphics.
 
@@ -245,7 +245,7 @@ TILED has a GPL license, however, it uses different components that have differe
 
 TILED, allows us to generate multilayer maps, to be able to draw our levels independently each layer; in this way, we can add many more elements in a more comfortable way.
 
-In addition, TILED allows to add objects to add information to each level and manage it within our source code. TILED allows to add objects in order to add information to each level and to be able to manage it within our source code.
+In addition, TILED allows to add objects to add information to each level and manage it within our source code.
 
 ![TILED](5env-config/img/TILED.png "TILED")
 _TILED_

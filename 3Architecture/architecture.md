@@ -6,7 +6,7 @@ When working with these systems with few resources, its important to know the ar
 
 In this chapter, we are going to study each of the elements that make up the Mega Drive and the architecture of how each of them are connected, as well as their functions and characteristics.
 
-In addition to each component will be discussed its capabilities and functions both in Mega Drive Mode and in backward compatibility when running Sega Master System games.
+In addition, each component will discuss its capabilities and functions both in Mega Drive Mode and in backward compatibility when running Sega Master System games.
 
 To better understand its architecture, we will first show a diagram with each of the components and how they are connected.
 
@@ -17,7 +17,7 @@ As we can see in the previous image, the Mega Drive is composed of a series of e
 
 * CPU Motorola 68000: Mega Drive Main CPU.
 * RAM 64kb: Main Program RAM.
-* ROM: External ROM Memory (cartridge); it uses slot at the top to communicate.
+* ROM: External ROM Memory (cartridge); it uses a slot at the top to communicate.
 * Accessory Port: Bottom Auxiliary Port (Mega CD).
 * VDP: Mega Drive graphics chip, consisting of several elements:
     * VDP: Chip with everything needed for the graphics and elements to be displayed.
@@ -39,7 +39,7 @@ The Motorola 68K has separate registers for working with both data and pointers.
 
 In addition to having two ALUs (without floating point support), in order to be able to work with data and pointers at the same time.
 
-Another important aspect is that this processor has different working modes (normal, stop and exception); being the last mode important because it allows to handle internal and external signals (interrupts); so it will help us to work with the different signals that we can send to it.
+Another important aspect is that this processor has different working modes (normal, stop and exception); being the last mode is important because it allows it to handle internal and external signals (interrupts); so it will help us to work with the different signals that we can send to it.
 
 This Processor was used by the next brands:
 
@@ -57,7 +57,7 @@ This Processor was used by the next brands:
 
 The Mega Drive's main memory, or program RAM, has a capacity of 64 Kb (8KB); it stores the program information and is also used to send the ROM information to the VRAM (through the DMA).
 
-The memory has a 16-bit word capacity (2x8bits) of PSRAM [^16] type , which has a latency of 190ns (5.263157 MHz frequency) with an access latency by the CPU of 200-263 ns. The main memory bandwidth for 16 bit is 10.526314 MB/s.
+The memory has a 16-bit word capacity (2 x 8bits) of PSRAM [^16] type , which has a latency of 190ns (5.263157 MHz frequency) with an access latency by the CPU of 200-263 ns. The main memory bandwidth for 16 bit is 10.526314 MB/s.
 
 [^16]: PSRAM (Pseudostatic RAM) is a type of RAM memory that allows to have included in its circuitry everything necessary to refresh the memory and address it.
 
@@ -65,11 +65,11 @@ The memory has a 16-bit word capacity (2x8bits) of PSRAM [^16] type , which has 
 
 The ROM memory, or properly speaking the "cartridge", is where the game information is stored. Normally, it is a chip of EPROM or EEPROM type (although the current cartridges can be Flash memory), where the game is stored both the code itself, as well as all the graphics and resources of the game.
 
-The reading of this cartridge is done through the slot on the top of the Mega Drive; just insert the contacts through the slot that we can see at the top. Normally, a standard cartridge, had a bandwidth of 10MB/s (although there were some of 15.20-15.34 MB/s); in addition to take into account that the access of the 68k to the rom normally had a speed of 5MB/s.
+The reading of this cartridge is done through the slot on the top of the Mega Drive; just insert the contacts through the slot that we can see at the top. Normally, a standard cartridge had a bandwidth of 10MB/s (although there were some of 15.20-15.34 MB/s); in addition to taking into account that the access of the 68k to the rom normally had a speed of 5MB/s.
 
 The basic cartridge that we are used to seeing in Mega Drive, has a capacity of 32Mb (4MB), and can also have a small RAM (SRAM) through a CR2302 button battery. There are cartridges with more functionalities, like the well-known _Sonic & Knuckles_ which had the top Lock On slot. Besides other cartridges with some extended functionalities like the _Virtua Racing [^17]_; that extended the capacity of the Mega Drive, thanks to a chip with a customized DSP [^18].
 
-As we have said, by default a Mega Drive cartridge has a maximum size of 32Mb, however, this was expandable by adding extra functionality to the cartridge, as is the case of _Street Fighter_ which expanded the cartridge by adding different chips and using a mapper, could change the ROM memory bank. This "Mapper" known as _Sega Standard Mapper_, has been reused in some current homebrew games and allow to expand the available size.
+As we have said, by default a Mega Drive cartridge has a maximum size of 32Mb, however, this was expandable by adding extra functionality to the cartridge, as is the case of _Street Fighter_ which expanded the cartridge by adding different chips and using a mapper, could change the ROM memory bank. This "Mapper" known as _Sega Standard Mapper_, has been reused in some current Homebrew games and allows to expand the available size.
 
 ![PCB ROM Mega Drive](3Architecture/img/cartuchopcb.png "PCB ROM Mega Drive")
 _ROM PCB Cartridge_
@@ -94,13 +94,13 @@ The VDP had a capacity of up to 4 planes or backgrounds:
 * 1 Window background .
 * 1 Sprite background .
 
-The Scroll planes (A and B) were based on Tiles (8x8 pixel images) that allowed to form different images from these small pieces. Usually based on a TileMap, with a size up to 1024x256.
+The Scroll planes (A and B) were based on Tiles (8x8 pixel images) that allowed them to form different images from these small pieces. Usually based on a TileMap, with a size up to 1024x256.
 
 The VDP, also had support for Sprites, being able to store up to 80 sprites, having 20 sprites per line, with 16 colors per sprite, having a maximum size of 1280 Tiles (combining different Sprites), combining Sprites of 16 different sizes.
 
 The VDP could display up to 512 colors, showing 61-64 colors per screen. Although it could be expanded using shading or highlighting techniques (Shadowing / Highlighting) up to 1536 in total; with 16 colors (4 bit) per pixel. In addition to being stored in 4 palettes of 16 colors.
 
-As for memory, the VDP had at its disposal 64KB of video RAM, which allowed to store a lot of tiles (taking into account that it is connected by a 16 bit bus to the ROM and with the ability to use the DMA). The memory was divided into:
+As for memory, the VDP had at its disposal 64KB of video RAM, which allowed it to store a lot of tiles (taking into account that it is connected by a 16 bit bus to the ROM and with the ability to use the DMA). The memory was divided into:
 
 * 2KB a 8KB for Background A.
 * 2Kb a 8KB for Background B.
@@ -109,7 +109,7 @@ As for memory, the VDP had at its disposal 64KB of video RAM, which allowed to s
 
 In addition, the VDP had a 232-byte cache for operations.
 
-Thanks to DMA [^20], information could be sent from ROM to VRAM (and RAM), without going through the CPU.
+Thanks to DMA [^20] information could be sent from ROM to VRAM (and RAM), without going through the CPU.
 
 [^19]: The NTSC and PAL systems are color systems that were used in different countries when displaying on CRT screens normally.
 [^20]: DMA (Direct Memory Access), allows information to pass through the bus without the need to interact with the CPU; however the CPU, RAM and DMA bus were shared so there could be bottlenecks.
@@ -127,7 +127,7 @@ It is the processor used in many devices; such as:
 * Nintendo Game Boy [^23] using a clone version (GB-Z80).
 * Sega Master System and Sega SG-100(using a compatible processor).
 
-The Sega mega Drive processor has a clock frequency of 3.579545Mhz (NTSC) and 3.546894Mhz (PAL); connected to an 8-bit bus.
+The Sega Mega Drive processor has a clock frequency of 3.579545Mhz (NTSC) and 3.546894Mhz (PAL); connected to an 8-bit bus.
 
 It has access to an 8KB memory to be used as sound RAM, as the Z80 can be used to orchestrate sound or as a co-processor.
 
@@ -160,13 +160,13 @@ However, let's not forget that one of the strong points of the Mega Drive is the
 
 Main sound chip of the Mega Drive, this chip allowed the Mega Drive to generate FM sound thanks to the Yamaha YM2612 chip, which was connected to the 68k clock.
 
-It allowed to generate 6 FM audio channels, which gave an output signal of 53.267Khz (NTSC) and 52.781Khz (PAL).
+It was able to generate 6 FM audio channels, which gave an output signal of 53.267Khz (NTSC) and 52.781Khz (PAL).
 
 It also allowed to generate with another configuration 5 FM audio channels, and 1 channel for PCM[^25].
 
 This chip could be used through the z80 which was the one that orchestrated the sound together with the PSG chip; these chips together with the z80, were connected to an 8-bit bus; which connected to the sound RAM with 8Kb of size.
 
-In the Mega Drive model 1, the sound output by the television, was Mono sound; but it had a jack connector, which generated stereo sound (in addition to a volume control on the console itself).
+In the Mega Drive model 1, the sound output by the television was Mono sound; but it had a jack connector, which generated stereo sound (in addition to a volume control on the console itself).
 
 The models 2 and 3 of the mega drive, had stereo sound through the TV output, but no longer had the Jack connector. In addition, some models had a clone version of the YM2612.
 
@@ -174,21 +174,21 @@ The models 2 and 3 of the mega drive, had stereo sound through the TV output, bu
 
 ## I/O Controller
 
-An important part of having a video game console is being able to use peripherals and controllers. The Sega Mega Drive had two built-in Atari-type ports (DE9 type); these ports allowed to connect both 3 and 6-button controllers, as well as other peripherals.
+An important part of having a video game console is being able to use peripherals and controllers. The Sega Mega Drive had two built-in Atari-type ports (DE9 type); these ports allowed it to connect both 3 and 6-button controllers, as well as other peripherals.
 
 In the early Mega Drive models on the back, a serial port was allowed to be connected. This was used by the Mega Modem to connect the Sega Mega Drive to the Internet via the telephone line.
 
 By default, only 2 controllers were allowed to be connected to the Mega Drive through the various ports available on the Mega Drive. However, there were special cartridges (J-CART), which had two additional ports on the cartridge itself; allowing up to 4 players.
 
-All this was done by the Input-Output controller. This controller was connecting to both the 16-bit bus and the 8-bit bus to be able to access both Mega Drive mode and Master System backwards compatible mode.
+All this was done by the Input-Output controller. This controller was connected to both the 16-bit bus and the 8-bit bus to be able to access both Mega Drive mode and Master System backwards compatible mode.
 
-## Auxiliar Port (MCD)
+## Auxiliary Port (MCD)
 
-One of the important parts of the Mega Drive, was its ability to expand; thanks among others to its Mega CD accessory.
+One of the important parts of the Mega Drive was its ability to expand; thanks among others to its Mega CD accessory.
 
-This accessory allowed to increase computing, graphics and even sound capabilities by having access to a CD-ROM reader.
+This accessory allowed for increased computing, graphics and even sound capabilities by having access to a CD-ROM reader.
 
-The connector for the Mega CD, was located at the bottom right and connected through a few pins. This connector was connected to the 16-bit bus to be accessed through the Motorola 68000.
+The connector for the Mega CD was located at the bottom right and connected through a few pins. This connector was connected to the 16-bit bus to be accessed through the Motorola 68000.
 
 ## References
 

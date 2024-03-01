@@ -6,7 +6,7 @@ However, this book is about homebrew software development for Sega Mega Drive; s
 
 To develop software for the Mega Drive, we must know how the Motorola 68000 processor works; as well as the memory addresses to access peripherals, video, etc...
 
-This was important in the 90's when it was developed directly in assembler, since there were no tools such as very advanced compilers that could compile to assembler for this architecture efficiently. Therefore, assembler was used directly.
+This was important in the 90's when it was developed directly in assembler, since there were no tools such as very advanced compilers that could compile to assembler for this architecture efficiently. Therefore, the assembler was used directly.
 
 Let's see an example of Motorola 68k assembler:
 
@@ -36,7 +36,7 @@ However, this is very tedious even though it can be very optimal to use assemble
 
 Also, there is a set of tools to be able to use this C language for Sega Mega Drive. This set of tools is called Sega Genesis Development Kit or SGDK.
 
-Sega Genesis Development Kit, is a set of tools such as a compiler, a library, resource management tools, etc.. That will allow us to create software (video games) for Sega Mega Drive. SGDK, is free and its open source; it is released under the MIT license; except the GCC [^26] compiler that has GPL3 license.
+Sega Genesis Development Kit, is a set of tools such as a compiler, a library, resource management tools, etc.. That will allow us to create software (video games) for Sega Mega Drive. SGDK, is free and its open source; it is released under the MIT license; except the GCC [^26] compiler that has a GPL3 license.
 
 [^26]: GCC (Gnu Compiler Collection) is a set of open source compilers that is incorporated in many GNU/Linux distributions.
 
@@ -68,7 +68,7 @@ SGDK, is composed of a series of tools that will help us to create our games for
 
 The Components are:
 
-* A GCC compiler that will allow us to compile our code to instructions for the 68K processor. The current version of GCC that includes SGDK is 6.30 (It can be configured to use a more recent compiler). In addition, it includes a debugger _GDB_ that will allow us to debug our games (we will see it later in the debugging chapter) We remember that the compiler has a GPL3 license.
+* A GCC compiler that will allow us to compile our code to instructions for the 68K processor. The current version of GCC that includes SGDK is 6.30 (It can be configured to use a more recent compiler). In addition, it includes a debugger _GDB_ that will allow us to debug our games (we will see it later in the debugging chapter). We remember that the compiler has a GPL3 license.
 * A library called _libmd_ with all the functions and tools that allow us to develop with the C language for Sega Mega Drive.
 * Library documentation: You can find in the _doc_ folder, all the information about the library functions.
 * A resource manager _rescomp_; that will allow us to import the resources of our game (graphics, sounds, sprite, etc.).
@@ -107,13 +107,13 @@ In the previous example, it is shown how to import a sprite sheet that we will s
 
 ## Games made with SGDK
 
-An important part of SGDK, is that it is used for commercial games that you can find in some crowdfunding. In this section, we are going to comment some of the most known ones, and we will leave some addresses so you can learn more about them:
+An important part of SGDK is that it is used for commercial games that you can find in some crowdfunding. In this section, we are going to comment some of the most known ones, and we will leave some addresses so you can learn more about them:
 
 ### Xeno crisis
 
 Xeno Crisis [^29], is an isometric perspective game, which allows us to fight against hordes and hordes of Aliens while surviving in different rooms and areas.
 
-It allows to play 2 players on the Sega Mega Drive; although there are already versions for Steam (PC), Switch and even versions for Xbox, Playstation, Neo-geo and DreamCast. A SNES version is also in progress.
+It allows 2 players to play on the Sega Mega Drive; although there are already versions for Steam (PC), Switch and even versions for Xbox, Playstation, Neo-geo and DreamCast. A SNES version is also in progress.
 
 You can check the versions of this game in the Kickstarter of this game:
 [https://www.kickstarter.com/projects/1676714319/xeno-crisis-a-new-game-for-the-sega-genesis-mega-d/](https://www.kickstarter.com/projects/1676714319/xeno-crisis-a-new-game-for-the-sega-genesis-mega-d/)
@@ -138,7 +138,7 @@ More details can be found on their web site:
 
 Metal Dragon [^31] is a game for Sega Mega Drive that has an 80s/90s action movie aesthetic; in this game you have to rescue the president's daughter and face endless enemies.
 
-This game is a 1 player game and there is a version for Sega Mega Drive, as well as for MSX. In addition, a Spanish studio _Kai Magazine Software_ is who has developed this game and recently is publishing his game in the magazine _beep_ for Japan. Besides publishing other games like _Life On mars_ or _Life on Earth_. Now its working on a new Title called _The secret of the 4 Winds_.
+This game is a 1 player game and there is a version for Sega Mega Drive, as well as for MSX. In addition, a Spanish studio _Kai Magazine Software_ is who has developed this game and recently is publishing his game in the magazine _beep_ for Japan. Besides publishing other games like _Life On mars_ or _Life on Earth_. Now it's working on a new Title called _The secret of the 4 Winds_.
 
 [^31]: Metal Dragon has been developed by the Spanish studio Kai Magazine Software. All rights reserved.
 
@@ -148,9 +148,9 @@ This game is a 1 player game and there is a version for Sega Mega Drive, as well
 
 This game allows you to play up to 2 players on the same machine, and also has a unique feature; it has integrated the Mega Wi-fi; it allows you to connect to the internet via Wi-fi; and to play online; without the need of a modem; only the cartridge itself.
 
-The same studio are currently working on a port of _Coloco_ for Sega Mega Drive.
+The same studio is currently working on a port of _Coloco_ for Sega Mega Drive.
 
-[^32]: 1985 World cup is published by Nape Games. All rights reserved.
+[^32]: 1985 World cup was published by Nape Games. All rights reserved.
 
 ## SGDK Installation
 
@@ -189,7 +189,7 @@ Later, we will see how to use the SGDK in different ways.
 [^33]: Microsoft Windows is a registered trademark of Microsoft Corporation.
 
 [^34]: JRE (Java Runtime Environment); execution environment for running applications developed for the Java Virtual Machine (JVM).
-[^35]: OpenJdk; is an open source implementation for the Java ecosystem.
+[^35]: OpenJdk is an open source implementation for the Java ecosystem.
 
 ### Linux
 
@@ -242,13 +242,13 @@ make -f $GENDEV/Makefile
 
 Later, we will see in detail how to use SGDK, using GENDEV.
 
-**NOTE:** GENDEV doesn't use the last version of SGDK; we recommend to use Docker.
+**NOTE:** GENDEV doesn't use the last version of SGDK; we recommend using Docker.
 
 ### MarsDev
 
 We have been using all the tools that SGDK or GENDEV has; however, sometimes it is very complicated to maintain all the tools in different environments that are very heterogeneous.
 
-Therefore, the MARSDEV project allows to have a homogeneous way of using SGDK or the different tools available.
+Therefore, the MARSDEV project allows a homogeneous way of using SGDK or the different tools available.
 
 You can download MarsDev from its repository:
 

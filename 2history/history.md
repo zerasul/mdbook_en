@@ -1,20 +1,20 @@
 # 2. Mega Drive History
 
-The video game console Sega Mega Drive, was the third video game console published by the same after the SG-1000 and the Master System, Sega pushed the use of a 16-bit processor; so published we can say the first 16-bit entertainment system on the market. Trying to surpass the success of Nintendo's NES [^4].
+The video game console Sega Mega Drive, was the third video game console published by the same company after the SG-1000 and the Master System, Sega pushed the use of a 16-bit processor; so published we can say the first 16-bit entertainment system on the market. Trying to surpass the success of Nintendo's NES [^4].
 
-Sega tried to overcome with the Mark 2 and Mark 3 models of the Sega Master System with the 8 bits, but it did not have great acceptance in Japan; not being the same case in Europe.
+Sega tried to overcome this with the Mark 2 and Mark 3 models of the Sega Master System with the 8 bits, but it did not have great acceptance in Japan; not being the same case in Europe.
 
-On October 29, 1988, Sega released the Sega Mega Drive which is known during its development as "Mark V" through _beep!_ magazine. However, it was not very successful at first and only about 400.000 units were sold.
+On October 29, 1988, Sega released the Sega Mega Drive which was known during its development as "Mark V" through _beep!_ magazine. However, it was not very successful at first and only about 400.000 units were sold.
 
 Later on, Sega America tried to talk to Atari to distribute Mega Drive in America; however they refused (they focused on launching _Atari ST_). It was then, when Sega distributed under its own subsidiary Sega of America, the Sega Mega Drive under the name Sega Genesis. The Sega Genesis was released on January 9, 1989.
 
 In Europe, the Sega Mega Drive was launched on November 30, 1990; taking advantage of the success of the Sega Master System and that more games like _Altered Beast_ or _Golden Axe_ had already been published.
 
-It was in 1992, when Sega launched great successes of its catalog; such as Sonic 2 and the first Sega CD model was put on sale. However, it was not very successful because it lacked little catalog and had a high price.
+It was in 1992, when Sega launched great successes of its catalog; such as Sonic 2 and the first Sega CD model was put on sale. However, it was not very successful because it lacked a small catalog and had a high price.
 
 In 1993, Sega presented the Mega Drive 2 with a redesign of the same. However, that year Nintendo overtook Sega in the middle of the 16-bit war.
 
-In 1994, several systems appeared (3DO, Jaguar, etc...) Sega Japan was with the "Saturn" project while Sega America tried to commercialize the 32X peripheral. At the end of that year with the appearance of the game _Donkey Kong country_ for the SNES[^5], they made that the Sega Mega Drive was declining. But not before giving great titles of this console as the _Ristar_ or _Rocket Knight Adventures_ [^6].
+In 1994, several systems appeared (3DO, Jaguar, etc...) Sega Japan was involved with the "Saturn" project while Sega America tried to commercialize the 32X peripheral. At the end of that year with the appearance of the game _Donkey Kong country_ for the SNES[^5], they made that the Sega Mega Drive was declining. But not before giving great titles of this console as the _Ristar_ or _Rocket Knight Adventures_ [^6].
 
 [^4]: NES (Nintendo Entertainment System): is a registered trademark of Nintendo Company Ltd.
 
@@ -64,7 +64,7 @@ In this book, we will discuss how to use it in our games, since SGDK, brings sup
 
 ### Mega CD
 
-One of the main peripherals of the Mega Drive. It allowed to expand its capacity through the expansion bus at the bottom.
+One of the main peripherals of the Mega Drive. It was allowed to expand its capacity through the expansion bus at the bottom.
 
 It added the ability to use optical storage (CD-ROM). In addition to expanding the capacity of the Mega Drive; being able to have a great quality of Audio and video.
 
@@ -123,7 +123,7 @@ Many of us will have played with motion controls such as the famous Wii[^7] remo
 
 Some time before these motion controllers, Sega America released the Sega Activator. It was an octagon with 8 infrared sensors.
 
-The player was placed in the middle, and depending on which side of the octagon he touched, it was a button on the controller. It tried to sell with some games as a "martial arts simulator"; but it was not very successful, as only a few games were released for this device.
+The player was placed in the middle, and depending on which side of the octagon he touched, it was a button on the controller. It tried to sell some games as a "martial arts simulator"; but it was not very successful, as only a few games were released for this device.
 
 The Sega activator was released in 1993 in America, and later in Brazil and Russia.
 
@@ -140,11 +140,11 @@ We can't forget Sega's pet. Sonic the Hedgehog.[^9] a blue hedgehog that was cha
 
 Sonic had 6 games for Sega Mega Drive; and some of them are considered one of the best games of the system. As is the case of _Sonic 2_.
 
-The main feature of Sonic games, is the speed, and they are games with scroll usually horizontal (although it also had vertical scrolling), with a very high speed. Sometimes taking the console to the limit. Along with a great colorful scenery, Sonic was one of the favorite games of all those who owned a Mega Drive.
+The main feature of Sonic games is the speed, and they are games with scroll usually horizontal (although it also had vertical scrolling), with a very high speed. Sometimes taking the console to the limit. Along with a great colorful scenery, Sonic was one of the favorite games of all those who owned a Mega Drive.
 
 In addition, thanks to the game _Sonic & Knuckles_, that includes the Lock on System. Which was a cartridge slot on the top that by adding two other titles, you could get two additional games.
 
-* If Sonic 3 was added, it allowed you to play the _Sonic 3 & Knuckles_ game; which added the ability to play as Knuckles in Sonic 3, as well as having additional features.
+* If Sonic 3 was added, it allowed you to play the _Sonic 3 & Knuckles_ game, which added the ability to play as Knuckles in Sonic 3, as well as having additional features.
 * If Sonic 2 was added, you were allowed to play as Knuckles in Sonic 2.
 
 In addition to other titles, not only oriented to 2D, but to 3D as Sonic 3D, which was the last published Sonic title for this system (although it also had a version for Saturn).
@@ -164,7 +164,7 @@ One of the most characteristic games of this genre is _Streets of Rage_, a game 
 
 With a very catchy soundtrack created by composer _Yuzo Koshiro_; considered one of the best composers for the Sega Mega Drive.
 
-This saga, had 3 games in the Sega Mega Drive, which dyed a great gameplay and a great variety of scenarios, enemies, weapons, etc...
+This saga had 3 games in the Sega Mega Drive, which had a great gameplay and a great variety of scenarios, enemies, weapons, etc...
 
 The fourth game, released in 2020; but already for modern systems (PC,PlayStation[^10], Xbox, Switch[^11]).
 
@@ -173,13 +173,13 @@ The fourth game, released in 2020; but already for modern systems (PC,PlayStatio
 
 ### World of Illusion
 
-In the 1990s, the Disney company also published several titles of its animated characters for the Sega mega Drive.
+In the 1990s, the Disney company also published several titles of its animated characters for the Sega Mega Drive.
 
-Since the famous _QuackShot_, another also known is the _Castle of Illusion_ considered in its 8 Bits version as one of the best games for Sega Master System.
+Since the famous _QuackShot_, another also known is the _Castle of Illusion_, considered in its 8 Bits version as one of the best games for Sega Master System.
 
 However, I want to point out a title of which I am very fond. It is the _World of illusion_; a game starring Mickey Mouse and Donald Duck, which will allow us to go to a fantasy world with many scenarios with many colors and animations.
 
-Of course, one of the features of this game, is the 2 Player mode; which introduced the collaboration of both players; being a great game to play in cooperative mode.
+Of course, one of the features of this game is the 2 Player mode; which introduced the collaboration of both players; being a great game to play in cooperative mode.
 
 It was a game that mixed platforms, with some screens where we controlled a vehicle such as a magic carpet, or a bubble under the ocean.
 

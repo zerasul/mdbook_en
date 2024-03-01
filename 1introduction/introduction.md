@@ -4,7 +4,7 @@ Welcome to this book about creating and developing Homebrew software for Sega Me
 
 Although some may think I'm somewhat young (37 years old) for the Mega Drive, I guess because my family environment and owning a Mega Drive when I was a kid I always let myself spend hours and hours playing _Sonic & Knuckles_[^2] or _World Of Illusion_[^3].
 
-Many of us will remember the times of the ZX Spectrum where they appear on magazines with small games that we had to write by hand (usually in BASIC or assembler language), where any slightest error would make our game not work. Fortunately, today we can use more modern tools BASIC or assembler. As it can be to use C language together with some library like SGDK or more modern editors that help us in the development of  our game.
+Many of us will remember the times of the ZX Spectrum where they appeared in magazines with small games that we had to write by hand (usually in BASIC or assembler language), where any slightest error would make our game not work. Fortunately, today we can use more modern tools like BASIC or assembler. As it can be to use C language together with some library like SGDK or more modern editors that help us in the development of  our game.
 
 Of course there are more modern languages. But we want to remember that assembler was normally used for the developments and that at least using C we will abstract from them. This does not mean that it can no longer be used, since today, many people still work with assembler.
 
@@ -32,9 +32,9 @@ This book is divided in 16 chapters where in each one of them a topic is approac
 
 The first part of the book is an introduction to the Mega Drive as its history, architecture and the tools and libraries that we will use, such as the SGDK library (Sega Genesis Development Kit) and the development environment to use.
 
-In the second part, we will talk about how to start making our game, showing the basic concepts; from Hello World, to finish with the use of Sprites.
+In the second part, we will talk about how to start making our game, showing the basic concepts; from Hello World, to finishing with the use of Sprites.
 
-Finally the third part, will talk about more advanced concepts such as the use of Scroll, Tilesets, sound and even talk about tools for our development such as debugging (Debug) or how to use the SRAM to save information of our game.
+Finally the third part, will talk about more advanced concepts such as the use of Scroll, Tilesets, sound and even talk about tools for our development such as debugging (Debug) or how to use the SRAM to save information about our game.
 
 In order to have a better understanding of each of the chapters to be covered in this book, different examples and small code fragments will be commented and are available online in the code repository at Github:
 
@@ -73,7 +73,7 @@ In addition, in order to be able to follow all the contents of this book we reco
 * **Windows, Linux or MacOs Operating System**. For those using Linux, the examples and tools have been tested in environments based on Debian distributions (such as Ubuntu).
 * **Visual Studio Code** as an editor. Although you can use any editor you need, in this book we are going to use this editor as an example. Also, we are going to install custom tools for homebrew development.
 * **Docker**: although this is optional, a container can be used to be able to develop for Sega Mega Drive using SGDK.
-* **Mega Drive Blastem Emulator**. Although you can use any other such as Gens (with the modified Kmod version for Windows) or any other emulator. We are going to see some emulators on next chapters.
+* **Mega Drive Blastem Emulator**. Although you can use any other such as Gens (with the modified Kmod version for Windows) or any other emulator. We are going to see some emulators in the next chapters.
 * **Flash cartridge for Mega Drive**: Although it is not mandatory, if you have a Mega Drive, you can use a flash cartridge to load your roms and test them on real hardware. One of the best known is _Everdrive_.
 
 ## References
