@@ -111,6 +111,7 @@ The options available are:
 * GDK: Overwrites the _GDK_ environment variable targeting the SGDK installation (Windows only).
 * GENDEV: Overwrites the GENDEV environment variable targeting the Gendev installation (Linux only).
 * Gens path:Specifies the path to the executable where the emulator to be used is located.
+* Add Status bar Buttons: Add buttons with the commonly used commands to the status bar.
 * MARSDEV: Overwrites the MARSDEV environment variable targeting the MarsDev installation.
 * Toolchain Type: Indicates the specific toolchain you will use for SGDK; it can have the following values:
     * sgdk/gendev: Use SGDK or Gendev (windows or Linux).

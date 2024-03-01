@@ -160,7 +160,7 @@ The above fragment checks that the upward direction is being pressed; we can che
 * ```BUTTON_C```: C Button.
 * ```BUTTON_START```: Start Button.
 * ```BUTTON_X```: X Button (6 Buttons).
-* ```BUTTON_y```: Y Button (6 Buttons).
+* ```BUTTON_Y```: Y Button (6 Buttons).
 * ```BUTTON_Z```: Z Button (6 Buttons).
 * ```BUTTON_MODE```: MODE Button (6 Buttons).
 

@@ -15,4 +15,4 @@ description: Creating a video game for a console of the 90's is possible and usi
 identifier:
 - scheme: ISBN-13
   text: ISBN-13 9798873869305
-cover-image: coveren.jpg
+cover-image: coveren.png
