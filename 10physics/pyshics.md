@@ -18,7 +18,7 @@ In this section we will show how some arithmetic operations are performed and ho
 
 We begin by explaining how the m68k processor works; it is a processor that has 32-bit registers and can work with them thanks to its two ALU [^54]. It is important to know the limitations provided by this processor; although it can work perfectly with any mathematical operation, it cannot work with decimal numbers for example, or the efficiency when working with the different mathematical operations.
 
-A microprocessor does not take the same time to perform an addition or to perform a multiplication or division; normally the duration of these operations are performed in cycles (the duration of a processor cycle is 1/F; where F is the clock frequency). We are going to show the cost in cycles of the different arithmetic operations can take.
+A microprocessor does not take the same time to perform an addition or to perform a multiplication or division; normally the duration of these operations are performed in cycles (the duration of a processor cycle is 1/F; where F is the clock frequency). We are going to show the cost in cycles of the different arithmetic operations.
 
 | **Operation** | **Description** | **Cost (cycles)**   |
 |:-------------:|-----------------|---------------------|
@@ -116,7 +116,7 @@ fix16 a = FIX16(1.24);
 
 In the previous fragment; whether it is a correct instruction to declare in this case a variable of type fix16. In addition, we can see some useful functions to use with decimal data types. Let's see a table with some of them.
 
-Also, it is important to know that in SGDK 2.00; there are some improvements at the creations of the ```FIX16``` and ```FIX32``` types.
+Also, it is important to know that in SGDK 2.00; there are some improvements to the creations of the ```FIX16``` and ```FIX32``` types.
 
 | **Functions**         | **Description**  |
 |-----------------------|-------------------------------------------------------------------------------|
@@ -229,7 +229,7 @@ Where:
 
 In this case, the aim is to check whether the two areas overlap.
 
-### Dot vs. Circle
+### Point vs. Circle
 
 It is also possible to check when a point is inside a circle; in this way we can calculate for example when a Sprite with a circular collision area touches a point or is above such a point etc.
 
@@ -269,7 +269,7 @@ In this case we have been able to check the distance of a point with respect to 
 
 ### Circle against Circle
 
-The last example we will show, is to see if two circles overlap; this way we can detect if two Sprites with this type of collision, overlap and therefore have some type of action, etc.
+The last example we will show is to see if two circles overlap; this way we can detect if two Sprites with this type of collision overlap and therefore have some type of action, etc.
 
 <div class="centered_image">
 <img src="10physics/img/circlevscircle.png" title="Circle against circle collision" alt="Circle against circle collision"/>
@@ -393,9 +393,9 @@ Finally, we only have to compile and run the example; either manually, or using 
 ![Example 7: Collisions](10physics/img/ejemplo7.png "Example 7: Collisions")
 _Example 7: Collisions_
 
-After seeing this example, we can see how to use physics and maths when working with Sega Mega Drive. From the different arithmetic instructions that we can do with the Motorola 68000, to review the collisions between Sprites and how we can implement them in our games.
+After seeing this example, we can see how to use physics and math when working with Sega Mega Drive. From the different arithmetic instructions that we can do with the Motorola 68000, to review the collisions between Sprites and how we can implement them in our games.
 
-In the next chapter, we will discuss how Sega mega Drive manages colors and the different palettes we can use and change.
+In the next chapter, we will discuss how Sega Mega Drive manages colors and the different palettes we can use and change.
 
 ## References
 

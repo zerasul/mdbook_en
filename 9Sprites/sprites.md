@@ -1,8 +1,8 @@
 # 9. Sprites
 
-We already have our first more colorful example with some backgrounds. But something else is needed, to give life to our first game; we need another parts like the player, or the enemies. Let's talk about the Sprites.
+We already have our first more colorful example with some backgrounds. But something else is needed, to give life to our first game; we need other parts like the player, or the enemies. Let's talk about the Sprites.
 
-A Sprite is a bitmap (usually) that represents an object in the game without the need of additional calculations by the CPU; either the player, enemies, objects that we can interact, etc. The Sprites can be static, or have animations that can help us to give life to our game.
+A Sprite is a bitmap (usually) that represents an object in the game without the need of additional calculations by the CPU; either the player, enemies, objects that we can interact with, etc. The Sprites can be static, or have animations that can help us to give life to our game.
 
 Therefore, in this chapter, we are going to talk about Sprites; starting to talk about what they are, and how we can use them in our games in Sega Mega Drive. We will talk about how Sprites are built in Mega Drive, followed by how to import Sprite resources, using _rescomp_, and how they are used by SGDK and the Sprite engine it integrates.
 
@@ -29,7 +29,7 @@ Although it is possible to have different Sprites to represent different objects
 * You can only have 20 Sprites per horizontal line.
 * The size of each hardware Sprite can be between 1 and 4 Tiles. However, SGDK allows to store larger ones by combining them.
 * The maximum Sprite size for SGDK is 16x16 (128x128 pixels) Tiles; however, they can be extended by making combinations of Sprites.
-* Each Sprite can use a maximum of 16 colors, since it will be associated to one of the four available palettes.
+* Each Sprite can use a maximum of 16 colors, since it will be associated with one of the four available palettes.
 * Each frame should be divisible by 8 (to be able to divide each animation).
 
 It is also important to know that the Sprites will be stored in the VRAM so it is necessary to take into account that normally they have a space of 512x512px in the memory to store the information of the different Sprites.
@@ -58,7 +58,7 @@ Where:
     * 0/NONE: No compression (Default).
     * 1/APLIB: ApLib Algorithm (good compression, but slower).
     * 2/FAST/LZ4W: LZ4 Algorithm (less compression, but faster).
-* _time_: Time between frames usually 1/60; if we put more time, then the animation is more faster. If set to 0, the Sprite will not be animated.
+* _time_: Time between frames is usually 1/60; if we put more time, then the animation is faster. If set to 0, the Sprite will not be animated.
 * _collision_: indicates the information of how the box will be for collisions. This option, although set in rescomp, is not yet used by SGDK. It will be a future enhancement. It can have the values CIRCLE, BOX or NONE (default is NONE).
 * _opt_: Indicates the optimization to be performed when saving and cropping the image; it can have the following values:
     * 0/BALANCED: Default way, try to optimize in a balanced way.
@@ -77,7 +77,7 @@ In addition to the above properties, the following characteristics of the input 
 * _Rescomp_ detects only rows where there are animations; it ignores empty rows.
 * By default, the collider is calculated with 75% of each frame.
 
-When _rescomp_, will process a SPRITE type resource, it performs the cuts of the different animations and optimizes both at frame and hardware level, in order to be able to store in the most optimal way in the VRAM.
+When _rescomp_ will process a SPRITE type resource, it performs the cuts of the different animations and optimizes both at frame and hardware level, in order to be able to store in the most optimal way in the VRAM.
 
 When processing the Sprite resource, it will generate (if the _-noheader_ option has not been specified), an .h file with the reference to the resources.
 
@@ -91,9 +91,9 @@ SGDK's Sprite engine is based on saving a list of all active Sprites, so that on
 
 In order to use the Sprite engine, we can use at code level two functions ```SPR_init``` and ```SPR_update```. Let's see each of them.
 
-* ```SPR_init```: Initializes the Sprite engine with default values. Normally, it reserves 420 Tiles in VRAM. In addition, it initializes the hardware to store the Sprites. There is another function called ```SPR_initEx``` that allows to pass by parameter the number of Reserved Tiles.
+* ```SPR_init```: Initializes the Sprite engine with default values. Normally, it reserves 420 Tiles in VRAM. In addition, it initializes the hardware to store the Sprites. There is another function called ```SPR_initEx``` that allows passing by parameter the number of Reserved Tiles.
 
-* ```SPR_update```: Updates and displays the active Sprites. Thanks to this function, every time it is called, it will recalculate the active Sprites and will change the frame of those that need it. It is important to call this function is before the call to ```SYS_doVBlankProcess```, so the frames can be updated.
+* ```SPR_update```: Updates and displays the active Sprites. Thanks to this function, every time it is called, it will recalculate the active Sprites and will change the frame of those that need it. It is important to call this function before the call to ```SYS_doVBlankProcess```, so the frames can be updated.
 
 Later on, we will see more functions that we can use, especially when we look at the example in this section.
 
@@ -103,7 +103,7 @@ When working with Sprites in SGDK, it is important to know how to work with the 
 
 One of the first features that we have to take into account, is when working with Sprites, their position is calculated in pixels, not in Tiles. Although each frame is drawn and calculated at Tile level. Therefore it is important to always know the position of a sprite both the X and Y coordinate in pixels.
 
-Another aspect to take into account is, that the Sprites are drawn in their own Background; and therefore, they have a priority; in such a way, that it can be established. Let's see again the priority scheme of the different planes.
+Another aspect to take into account is that the Sprites are drawn in their own Background; and therefore, they have a priority; in such a way, that it can be established. Let's see again the priority scheme of the different planes.
 
 ![Background priority schema](9Sprites/img/esquemaplanos.png "Background priority schema")
 _Background priority schema_
@@ -119,7 +119,7 @@ On the other hand, as we can see, a Sprite is composed of different animations t
 
 As we can see in the previous image, it is composed of 5 animations of 3 Frames each. We observe that for SGDK, the first animation is number 0. So we always have to take this into account to change animation when necessary. This also applies to the Frames; so the first Frame of an animation is number 0.
 
-Finally, as we have seen when importing Sprite resources with _rescomp_, we can define the speed of animation change through a number. This number is manipulable and therefore, we can use it; it is always important to know that more time, minus change; thats means if we add more time the animation change is more faster. That is to say that the value of 1 indicates that the animation will be changed in each frame, therefore, it would be 50/60 times per second.
+Finally, as we have seen when importing Sprite resources with _rescomp_, we can define the speed of animation change through a number. This number is manipulable and therefore, we can use it; it is always important to know that more time, minus change; that means if we add more time the animation change is faster. That is to say that the value of 1 indicates that the animation will be changed in each frame, therefore, it would be 50/60 times per second.
 
 ## Example With Sprites in SGDK
 
@@ -139,7 +139,7 @@ SPRITE elliSprt "sprt/elliready.png" 4 4 NONE 5 BOX
 
 We see that the first one, which we will call _shaSprt_ and we will obtain the file with the bitmap inside the sprt folder (remember that all the resources must go in the _res_ folder), then we see that we define that each Frame has 3 Tiles of width and 4 of height; to be able to make the cut correctly. Finally, we will not use compression, and the speed of change of Frame will be 6 times per second.
 
-For the second Sprite, that we will call _elliSprt_, we will do the same way; but taking into account that each Frame is 4 tiles wide and 4 tiles high. Once we have defined both Sprites and also the corresponding backgrounds (that we will reuse those of the previous example), we will be able to compile the project and that rescomp, generates the resources and header files _.h_ if necessary.
+For the second Sprite, that we will call _elliSprt_, we will do the same way; but taking into account that each Frame is 4 tiles wide and 4 tiles high. Once we have defined both Sprites and also the corresponding backgrounds (that we will reuse those of the previous example), we will be able to compile the project and that rescomp, generate the resources and header files _.h_ if necessary.
 
 With these steps we would already have imported the sprites and backgrounds to use in our source code. Let's analyze the source code. In this example we will use both synchronous and asynchronous controls, as well as backgrounds.
 
