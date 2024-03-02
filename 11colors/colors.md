@@ -8,14 +8,14 @@ Finally, we will see an example where we will handle the different effects and i
 
 ## Sega Mega Drive Color
 
-So far we have mentioned that Sega Mega Drive can display up to 64 colors on the screen (actually 61 without counting transparent colors). This is due to the fact that Sega Mega Drive always works with 16 color palettes and that only 4 palettes are available.
+So far we have mentioned that the Sega Mega Drive can display up to 64 colors on the screen (actually 61 without counting transparent colors). This is due to the fact that Sega Mega Drive always works with 16 color palettes and that only 4 palettes are available.
 
 However, we have not been able to see how many colors in total the Sega Mega Drive can display. Sega Mega Drive stores colors in a 9-bit RGB color palette. This means that it can display 512 colors that Sega Mega Drive is capable of handling. But remember that we can only see 64 colors per screen due to the 4 palettes of 16 colors.
 
 ![Mega Drive Palette Color](11colors/img/RGB_9bits_palette.png "Mega Drive Palette Color")
 _Mega Drive Palette Color (Source: Wikipedia)_
 
-As we can see in the previous image, the different colors of the Sega Mega Drive is capable of displaying are shown, and it is important to take this into account since when working with the different graphics, we must know which color would correspond to the Sega Mega Drive if we are working with RGB from our development team.
+As we can see in the previous image, the different colors of the Sega Mega Drive is capable of displaying are shown, and it is important to take this into account since when working with the different graphics, we must know which color would correspond to the Sega Mega Drive if we are working with RGB from our development computer.
 
 In case the color we are working with does not correspond to a color for the Sega Mega Drive, SGDK will transform this color to the closest color.
 
@@ -27,14 +27,14 @@ u16 vdpRedColor =
 
 ```
 
-The macro ```RGB8_8_8_8_TO_VDPCOLOR```, allows to transform an RGB color defined by 3 parameters (red, green, blue) to the equivalent color for VDP. Each of the parameters has a value from 0 to 255. This can be interesting to modify colors of the environment or to make some effect with it.
+The macro ```RGB8_8_8_8_TO_VDPCOLOR```, allows the transformation of an RGB color defined by 3 parameters (red, green, blue) to the equivalent color for VDP. Each of the parameters has a value from 0 to 255. This can be interesting to modify colors of the environment or to make some effect with it.
 
 There are also equivalents in other formats:
 
 * ```RGB24_TO_VDPCOLOR```: Transforms a color in RGB 24-bit format to VDP.
-* ```RGB3_3_3_TO_VDPCOLOR```: Transforms a color in RGB format (r,g,b) to VDP. Where each component has value from 0 to 7.
+* ```RGB3_3_3_TO_VDPCOLOR```: Transforms a color in RGB format (r,g,b) to VDP. Where each component has a value from 0 to 7.
 
-Obviously it is important to know that when working with colors and palettes using SGDK, the palette information is usually imported together with the graphics information. Therefore, it is important that in order to save colors and not having to change the palette, the palette is reused for different graphics.
+Obviously it is important to know that when working with colors and palettes using SGDK, the palette information is usually imported together with the graphics information. Therefore, it is important that in order to save colors and not have to change the palette, the palette is reused for different graphics.
 
 If during the game we have to change the palette and load different graphics, this can cause bottlenecks since the information must pass from the ROM to the VRAM (or CRAM) either through CPU or using DMA. Using any of these alternatives, we can generate such a bottleneck since they share the bus.
 
@@ -55,7 +55,7 @@ In this way, you can increase the number of colors and show different effects su
 
 We can see in the previous image, how the same color palette can be in HighLight mode or shadow mode, increasing the number of colors to be displayed with only one palette. However, these colors are not always expandable by three (i.e. from 16 colors to 48). It depends on various cases, more or less colors will be displayed.
 
-In this section, we are going to show how these modes work in the Sega mega Drive. Since depending on what is going to be shown and the priority of the same one, it has a behavior or another. We are going to see how these modes behave in planes and Sprites.
+In this section, we are going to show how these modes work in the Sega Mega Drive. Since depending on what is going to be shown and the priority of the same one, it has a behavior or another. We are going to see how these modes behave in planes and Sprites.
 
 To activate the HighLight/Shadow mode, you can use the function ```VDP_setHilightShadow``` which indicates whether it is activated or not. It receives a parameter with value 1 or 0. For example:
 
@@ -115,7 +115,7 @@ You can find more information about the functions to modify the CRAM colors by b
 
 In this chapter we have been working with color palettes and the effects we can do on them. Therefore, in the example we are going to study, we will use the different color palettes and their respective Shadow effects.
 
-In this example, we are going to use the characteristics of the priority, to be able to simulate an effect of lights; simulating in this case, the light of some street lamps, and to see how it affects to the different Sprites, with the different properties that they can have.
+In this example, we are going to use the characteristics of the priority, to be able to simulate an effect of lights; simulating in this case, the light of some street lamps, and to see how it affects the different Sprites, with the different properties that they can have.
 
 The example we are going to study, called _ej8.colors_, can be found in the repository of examples that accompanies this book. We remind you that this repository can be found at the following address:
 
@@ -176,7 +176,7 @@ In the source code, you can find the function ```drawPriorityMap```, which will 
 
 First of all, we can observe how a buffer is initialized to empty, which we will use to draw the image; subsequently, we will go through each Tile of the priority map, and compare it with a special mask.
 
-The ```TILE_ATTR_PRIORITY_MASK```; mask allows to store in each Tile, only the priority information, so that nothing will be displayed on the screen; this is important to be able to display the background with the different effects.
+The ```TILE_ATTR_PRIORITY_MASK``` mask allows to store in each Tile only the priority information, so that nothing will be displayed on the screen; this is important to be able to display the background with the different effects.
 
 Once the priority map has been filled in, it is painted in plane A, using the function ```VDP_setTileMapDataRectEx```; which will allow us to draw a rectangle as a Tiles map per screen.
 
@@ -188,7 +188,7 @@ VDP_drawImageEx(BG_B, &bg_color1,
     FALSE,index),0,0,TRUE,CPU);
 ```
 
-We see how this image is drawn in plane B without priority and we use palette 0 (```PAL0```).
+We see how this image is drawn in Plan B without priority and we use palette 0 (```PAL0```).
 
 Also in this case, we are going to show a Sprite that we will draw without priority, and that we can move to the left or to the right. Which we draw without priority, and we will use Palette 1.
 
@@ -199,7 +199,7 @@ Also in this case, we are going to show a Sprite that we will draw without prior
         TILE_ATTR(PAL1,FALSE,FALSE,FALSE));
 ```
 
-Finally and most important, we have to activate the Shadow HighLight mode; using the ```VDP_setHilightShadow``` function, setting the value to 1.
+Finally and most importantly, we have to activate the Shadow HighLight mode; using the ```VDP_setHilightShadow``` function, setting the value to 1.
 
 ```c
     VDP_setHilightShadow(1);
@@ -210,7 +210,7 @@ If everything went fine, we can see an image similar to this one:
 ![Example 8: Colors and Shadow](11colors/img/ej8.png "Example 8: Colors and Shadow")
 _Example 8: Colors and Shadow_
 
-As we can see in the image, in each streetlight a part is shown illuminated; this is because these areas are painting Tiles with Priority; so they are shown in a normal way; the rest of Tiles that do not have priority are shown in Shadow mode. With this, we confirm that the behavior with the backgrounds, is as we have mentioned previously.
+As we can see in the image, in each streetlight a part is shown illuminated; this is because these areas are painting Tiles with Priority; so they are shown in a normal way; the rest of Tiles that do not have priority are shown in Shadow mode. With this, we confirm that the behavior with the backgrounds is as we have mentioned previously.
 
 We also see that at the Sprite level, if we move our character, it is also affected by the Shadow mode; in this way we can give the sensation of a lighting that is affected by our character. Obviously, we can also work with HighLight mode, using Palette 3, and playing with colors 14 and 15.
 

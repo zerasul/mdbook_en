@@ -14,7 +14,7 @@ In addition, we will see the different examples, with different use cases with t
 
 As we have already mentioned, scrolling is the ability to move parts of the image we are displaying; in the case of the Sega Mega Drive, it is the ability to move the tiles of each plane in different directions.
 
-The VDP; allows different types of displacement of the two backgrounds (A and B); either depending on the direction (Horizontal or vertical) or the portion of the screen (per line or per column); this allows different effects and give a better sense of movement. This effect is commonly known as _Parallax_.
+The VDP allows different types of displacement of the two backgrounds (A and B); either depending on the direction (Horizontal or vertical) or the portion of the screen (per line or per column); this allows different effects and gives a better sense of movement. This effect is commonly known as _Parallax_.
 
 We can differentiate the Scroll by direction, which can be of two types:
 
@@ -114,7 +114,7 @@ Once configured, we are going to load the offsets that each line will have so we
 s16 lines[224];//240 for PAL
 ```
 
-This array we initialize it to zero; so all the positions have value; and later it is when we give values to each position; for the even lines the displacement is increased, and for the odd ones it is decreased. This will allow us, to give a sensation of movement and to create a deformation of the logo.
+This array we initialize it to zero; so all the positions have value; and later it is when we give values to each position; for the even lines the displacement is increased, and for the odd ones it is decreased. This will allow u, to give a sensation of movement and to create a deformation of the logo.
 
 ```c
 for(i=84;i<121;i+=2){
@@ -154,9 +154,9 @@ _Example 11: Line Scroll_
 
 ### Plane Scrolling
 
-We have been able to see the scrolling by lines; but in many occasions, we need to scroll the plane because it can be bigger than what we show on the screen; in addition, the image to show may be that a scenario is much bigger than what can be stored in a plane.
+We have been able to see the scrolling by lines; but on many occasions, we need to scroll the plane because it can be bigger than what we show on the screen; in addition, the image to show may be that a scenario is much bigger than what can be stored in a plane.
 
-We remember that the VDP, allows to store a plane of up to 512x256px; but in ROM, it is possible to store much bigger information. In this aspect, we are going to show a much larger image, and it will scroll as we need it.
+We remember that the VDP allows us to store a plane of up to 512x256px; but in ROM, it is possible to store much bigger information. In this aspect, we are going to show a much larger image, and it will scroll as we need it.
 
 This example can be found in the examples repository under the name _ej12.planescroll_; in this case, we will use a fixed plane, and a second plane, which we will scroll horizontally when necessary.
 
@@ -352,7 +352,7 @@ VDP_setTileMapDataRect(BG_A,tileMap,
 0,0,40,32,40,DMA_QUEUE);
 ```
 
-As you can see, we create a TileMap from Tiles; that compose the TileSet we have loaded; and we draw the screen, using a rectangle of 40x32 Tiles (All the available space at the top). Once the TileMap is loaded in the background A, we will draw the image in the background B; both with low priority; so the background B will be behind the background A; giving sensation of depth.
+As you can see, we create a TileMap from Tiles; that compose the TileSet we have loaded; and we draw the screen, using a rectangle of 40x32 Tiles (All the available space at the top). Once the TileMap is loaded in the background A, we will draw the image in the background B; both with low priority; so the background B will be behind the background A; giving a sensation of depth.
 
 ```c
 VDP_drawImageEx(BG_B,&city,
@@ -360,7 +360,7 @@ VDP_drawImageEx(BG_B,&city,
         FALSE,FALSE,ind),0,0,TRUE,CPU);
 ```
 
-After having drawn both backgrounds, the only thing left to do is to perform the scrolling; so we will set the Scroll mode.
+After having drawn both backgrounds, the only thing left to do is to perform the scrolling; so we'll set the Scroll mode.
 
 ```c
 VDP_setScrollingMode(
@@ -407,14 +407,14 @@ You will see that a displacement is made every 5 units; that will be the number 
 * _plane_: Background to displace the Tiles; it can be  ```BG_A``` or ```BG_B```.
 * _firstcol_: First column to be scrolled.
 * _scroll_: Array with the values to be moved.
-* ncols: Number of columns to move.
+* _ncols_: Number of columns to move.
 * _tm_: transfer method; it allows using the CPU, or the different DMA values; it can have the following values:
     * CPU: CPU is used.
     * DMA: DMA is used.
     * DMA_QUEUE: DMA queue is used.
     * DMA_QUEUE_COPY: DMA Copy queue is used.
 
-After reviewing the functions and verifying that the code is correct, we can compile and execute this example. You will be able to see how the rain is moving over the city; although in this case we are moving all the positions at the same time, and it can give the sensation of displacement of plane, we can change these values and make more tests to verify its use.
+After reviewing the functions and verifying that the code is correct, we can compile and execute this example. You will be able to see how the rain is moving over the city; although in this case we are moving all the positions at the same time, and it can give the sensation of displacement of the plan, we can change these values and make more tests to verify its use.
 
 ![Example 13](13Scroll/img/ej13.png "Example 13")
 _Example 13: Tile Scrolling_
@@ -487,7 +487,7 @@ We can now compile and run this example; which we will see has a behavior analog
 ![Example 14](13Scroll/img/ej12.png "Example 14")
 _Example 14: Plane Scrolling using Map_
 
-After seeing this last example, we can conclude this chapter; where we have been able to see how the Scroll works, which allows to create different effects and to give a better sensation to our games.
+After seeing this last example, we can conclude this chapter; where we have been able to see how the Scroll works, which allows us to create different effects and to give a better sensation to our games.
 
 ## References
 

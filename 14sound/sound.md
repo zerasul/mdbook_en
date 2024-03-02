@@ -2,9 +2,9 @@
 
 For now, we have been working with the visual part; like displaying backgrounds, sprites, colors, backgrounds, etc. But a game is not complete if it doesn't have sound; both sound effects and music to enhance the game experience.
 
-Therefore, it is important to know how to add sound to our game; from the different effects such as attack, character voice or even a more complex effects, it is important to be able to add them and enjoy them once our game is running.
+Therefore, it is important to know how to add sound to our game; from the different effects such as attack, character voice or even more complex effects, it is important to be able to add them and enjoy them once our game is running.
 
-We can not forget the music; since for many the soundtrack of Mega Drive games, has been our childhood and today just listening to a couple of chords, and transports us to that time. That's why music is so important in a videogame.
+We can not forget the music; since for many the soundtrack of Mega Drive games, has been our childhood and today just listening to a couple of chords, transports us to that time. That's why music is so important in a videogame.
 
 In this chapter, we are going to show how the Mega Drive is able to play sound and even music and how we can add it to our game.
 
@@ -33,9 +33,9 @@ In addition to the Yamaha YM2612 sound chip, the Sega Mega Drive has a sound chi
 
 [^58]: Texas Instruments is a registered trademark. All rights reserved.
 
-This chip allows to emit sound by 4 channels; 3 for wave generation (tones), and another one for noise. This chip is included in the VDP itself, and can be used together with the YM2612 as a sound system for the Sega Mega Drive.
+This chip emits sound by 4 channels; 3 for wave generation (tones), and another one for noise. This chip is included in the VDP itself, and can be used together with the YM2612 as a sound system for the Sega Mega Drive.
 
-This chip is also used in other home electronics projects, such as the Durango project.
+This chip is also used in other home electronics projects, such as the _Durango_ project.
 
 ### Z80
 
@@ -43,13 +43,13 @@ We have seen the two sound chips provided by the Sega Mega Drive; however, by th
 
 This 8-bit processor has two functionalities; the first one, to support the sound system together with 8 Kb of RAM, to orchestrate the sound chips. On the other hand, in backward compatibility mode it is the main processor for Sega Master System games.
 
-It is important to know this processor, since when working with the sound, it is necessary to program it, unlike the rest of the components, which usually use more the Motorola 68000 processor; for this reason, it is complicated to use sound in Sega Mega Drive.
+It is important to know this processor, since when working with the sound, it is necessary to program it, unlike the rest of the components, which usually use the Motorola 68000 processor; for this reason, it is complicated to use sound in Sega Mega Drive.
 
 ## Sound Driver
 
 As we have been talking about, the sound system is composed of the two chips (Yamaha and PSG), which are orchestrated by the Zilog Z80 processor; therefore, it is necessary to send the information to this processor, and execute the different instructions for the chips to emit the relevant sound.
 
-This requires knowledge and programming of the Zilog Z80 processor, normally the programming is not done as we are used to in this book using the C programming language. Instead, we use assembly language for Z80 processor.
+This requires knowledge and programming of the Zilog Z80 processor, normally the programming is not done as we are used to in this book using the C programming language. Instead, we use assembly language for the Z80 processor.
 
 ```asm
 printc:               ; Routine print character
@@ -78,12 +78,12 @@ Among its features, it has:
 
 * It only uses Z80.
 * Developed just to minimize the CPU having to decode the sound.
-* It allows to send FM and PSG sound at the same time, using the channels both to send sound or the different samples; being able to reach up to 13 sound channels (5FM + 4PCM + 4PSG).
+* It allows FM and PSG sound at the same time, using the channels both to send sound or the different samples; being able to reach up to 13 sound channels (5FM + 4PCM + 4PSG).
 * It allows you to play sound effects in PCM format with 16 priority levels; this is useful when working with different sources.
 
 ### XGM2
 
-It is important to know that a second version of the XGM Driver was released in January 2024; this driver are included in the SGDK 2.00 version. This driver includes improvements with respect to the previous version since it had many problems when compiling and generating the binary files; since they consumed a lot of space in the ROM (20/25% of the ROM could be the music). This new Driver contains the next features:
+It is important to know that a second version of the XGM Driver was released in January 2024; this driver is included in the SGDK 2.00 version. This driver includes improvements with respect to the previous version since it had many problems when compiling and generating the binary files; since they consumed a lot of space in the ROM (20/25% of the ROM could be the music). This new Driver contains the next features:
 
 * Runs 100% on the Z80 (uses the m68K to calculate the times).
 * Support for music pause and playback.
@@ -97,13 +97,13 @@ You can find more information about the XGM2 at the SGDK 2.00 Documentation.
 
 ## Music and Sound Creation
 
-We have been talking about the Drivers that are in charge of giving the instructions to the Z80 processor to orchestrate the different sound chips; but another very important aspect, is to talk about how we can create the music of our game. For it, Trackers or sequencers are usually used, to create the different instructions that later the Driver will read and will proceed to execute in the sound chips.
+We have been talking about the Drivers that are in charge of giving the instructions to the Z80 processor to orchestrate the different sound chips; but another very important aspect is to talk about how we can create the music of our game. For it, Trackers or sequencers are usually used, to create the different instructions that later the Driver will read and will proceed to execute in the sound chips.
 
 Although many Drivers already had some integrated editors, such as _GEMS_ or _MUCOM88_. More modern and sophisticated programs are used today to be able to create music on our computer in a much simpler way.
 
 ### Deflemask
 
-In this book, we will discuss the use of Deflemask; which is one of the most used. This program will allow us to create our music and export it to different systems; among its features that includes:
+In this book, we will discuss the use of Deflemask, which is one of the most used. This program will allow us to create our music and export it to different systems; among its features that includes:
 
 * Real-time emulation of the different sound chips (including yamaha).
 * MIDI[^62] devices support.
@@ -126,7 +126,7 @@ The second example, we are going to use the new XGM2 Driver; also, we are going 
 
 ### XGM
 
-Let's check the first example that you can find in the Github Repository that companies this book; the folder with this example is _ej15.musicandsound_. We are going to show how to import music resources or sound effects using the _rescomp_ tool, which is in charge of reading the files and converting them to binary. We have to differentiate that the files with music are in VGM format, while the files with sound effects are in WAV format.
+Let's check the first example that you can find in the Github Repository that accompanies this book; the folder with this example is _ej15.musicandsound_. We are going to show how to import music resources or sound effects using the _rescomp_ tool, which is in charge of reading the files and converting them to binary. We have to differentiate that the files with music are in VGM format, while the files with sound effects are in WAV format.
 
 We will start by showing how to import a VGM file for use with the XGM driver.
 
@@ -204,7 +204,7 @@ sounds[2]=sound3;
 
 As we can see, the three sound effects have been initialized and the variable has been set to 1, so we will load the first sound by default.
 
-After seeing the global variables and how we are going to initialize them, we will review the ```inputHandler``` function; which is in charge of managing each time we press a button in the controller. We are going to review this function:
+After seeing the global variables and how we are going to initialize them, we will review the ```inputHandler``` function, which is in charge of managing each time we press a button in the controller. We are going to review this function:
 
 ```c
 void inputHandler(u16 joy, u16 changed,
@@ -279,7 +279,7 @@ if(changed & state & BUTTON_START){
 }
 ```
 
-In this case it is about stopping the playback of both the music and the sound effect that is playing. Two functions are used for this purpose; ```XGM_stopPlay``` and ```XGM_stopPlay``` for the playback of the current music.
+In this case it is about stopping the playback of both the music and the sound effect that is playing. Two functions are used for this purpose; ```XGM_stopPlay``` and ```XGM_stopPlayPCM``` for the playback of the current music.
 
 On the other hand, the function ```XGM_stopPlayPCM```; for the playback of the sound effect being played on a specific channel; receives the following parameters:
 
@@ -302,7 +302,7 @@ Finally, pressing the left or right buttons will select the previous or next sou
 
 Let's focus now on the new XGM2 Driver; for this case, we are going to reuse the previous example, and change for use with the XGM2 Sound Driver. This example can be found in the repository that companies this book, at the folder _ej15b.xgm2_.
 
-**NOTE**: You will need SGDK 2.00 version or later for use this example.
+**NOTE**: You will need the SGDK 2.00 version or later to use this example.
 
 First, let's focus on how to import the resources using _rescomp_; in this case a new object type is used to import the music:
 
@@ -322,37 +322,37 @@ In the case of _WAV_ files, it is done in the same way of the previous example b
 WAV sound1 "sound/Explosion2.wav" XGM2  
 ```
 
-After import all the resources, we can focus on the code. The code is the same as the previous example; but we are going to use the new added functions for use the _XGM2_ sound driver.
+After importing all the resources, we can focus on the code. The code is the same as the previous example; but we are going to use the new added functions to use the _XGM2_ sound driver.
 
-Let's focus on the main function we can see two new functions; the  ```XGM2_setFMVolume``` and the ```XGM2_setPSGVolume``` functions. Theses functions controls the FM and PSG chips Volume. This is a new feature added with the XGM2 Sound Driver.
+Let's focus on the ```main``` function. We can see two new functions; the  ```XGM2_setFMVolume``` and the ```XGM2_setPSGVolume``` functions. These functions control the FM and PSG chips Volume. This is a new feature added with the XGM2 Sound Driver.
 
 The function ```XGM2_setFMVolume```; set the current FM sound volume; receive the next parameter:
 
 * _volume_: an integer between 0 and 100; to set the FM sound volume.
 
-In the other hand the function ```XGM2_setPSGVolume```; this function controls the PSG chip volume. It Receives the next parameter:
+On the other hand the function ```XGM2_setPSGVolume```; this function controls the PSG chip volume. It Receives the next parameter:
 
 * _volume_: an integer between 0 and 100; to set the FM sound volume.
 
-Now let's focus on the ```inputhandler``` function; this function has the same functionality and structure than the earlier example. But now we are going to see the new functions for use with the XGM2 Sound Driver.
+Now let's focus on the ```inputhandler``` function; this function has the same functionality and structure as the earlier example. But now we are going to see the new functions for use with the XGM2 Sound Driver.
 
 First, we are going to see the function ```XGM2_play```; this function play the current resource using the XGM2 Sound Driver; lets see the Parameters:
 
 * _resource_: resource pointer to be played.
 
-Other functions that we can see are ```XGM2_stop```; this function stop current music. Also, we can see the function ```XG2_isPlaying```; this function returns ```TRUE``` if there is a music playing or ```FALSE``` otherwise.
+Other functions that we can see are ```XGM2_stop```; this function stops current music. Also, we can see the function ```XG2_isPlaying```; this function returns ```TRUE``` if there is music playing or ```FALSE``` otherwise.
 
 Let's focus on the PCM sound functions for the XGM2 Sound Driver.
 
-The function ```XGM2_playPCM``` play a PCM sound using one channel. Let's see the parameters:
+The function ```XGM2_playPCM``` plays a PCM sound using one channel. Let's see the parameters:
 
 * _resource_: Resource Pointer to be played.
 * _len_: Resource len; must be 256 Multiple.
-* _channel_: Channel to be used; you can use the ```SoundPCMChannel``` enum for select the channel. See the SGDK documentation for more information.
+* _channel_: Channel to be used; you can use the ```SoundPCMChannel``` enum to select the channel. See the SGDK documentation for more information.
 
 For last, we can see the ```XGM2_stopPCM``` this function stops the current PCM sound that is currently played; this function receive the next parameter:
 
-* _channel_: Channel to be used; you can use the ```SoundPCMChannel``` enum for select the channel. See the SGDK documentation for more information.
+* _channel_: Channel to be used; you can use the ```SoundPCMChannel``` enum to select the channel. See the SGDK documentation for more information.
 
 There are more functions for use with the XGM2 Sound Driver; check the SGDK Documentation for more information.
 
