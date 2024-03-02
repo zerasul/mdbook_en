@@ -1,8 +1,8 @@
 # 15. SRAM and Interruptions
 
-We are now approaching the final part of this book. We have been reviewing both the visual part, as well as the sound. Besides studying all the architecture of the Sega Mega Drive; we are going to review an important section; to save the progress of our game, as well to handle the different interruptions that we can use when drawing the screen.
+We are now approaching the final part of this book. We have been reviewing both the visual part, as well as the sound. Besides studying all the architecture of the Sega Mega Drive; we are going to review an important section; to save the progress of our game, as well as to handle the different interruptions that we can use when drawing the screen.
 
-First of all, we have to know how we are going to store the data and keep in mind that not all types of cartridge has the feature to store information. On the other hand, we will see the use of interrupt functions to be able to update the resources of our game using these interrupts.
+First of all, we have to know how we are going to store the data and keep in mind that not all types of cartridges have the feature to store information. On the other hand, we will see the use of interrupt functions to be able to update the resources of our game using these interrupts.
 
 Finally, we are going to see an example that will use these interruptions to make these modifications and see how to optimize our game.
 
@@ -36,7 +36,7 @@ struct{
 
 Where we see that we have stored the lives that the player has, the scene through which it goes, the score and finally a checksum to be able to verify that the stored information is correct. This information, we can store it in the SRAM, using a series of functions.
 
-First of all, we will need to enable the memory in write mode using the ```SRAM_enable``` function; which enables the SRAM memory access in write mode. In case we want to access only in read mode, we can use the function ```SRAM_enableRO```; which enables the SRAM memory in read-only mode.
+First of all, we will need to enable the memory in write mode using the ```SRAM_enable``` function, which enables the SRAM memory access in write mode. In case we want to access only in read mode, we can use the function ```SRAM_enableRO```; which enables the SRAM memory in read-only mode.
 
 Once enabled, we can write to or read from the memory. It is important to know that the SRAM is divided into 8-bit words; so when storing information we have to take this into account.
 
@@ -59,7 +59,7 @@ Finally, the ```SRAM_writeLong``` function writes a long integer (32 bits) to th
 * _offset_: The offset where the bytes will be stored in SRAM.
 * _value_: Value To Store (4 bytes).
 
-Considering the above functions, we can create the following function to save the progress.
+Considering the above functions, we can create the following function to save progress.
 
 ```c
 void savePlayerProgress(){
@@ -158,7 +158,7 @@ Finally, to set the function to be used for the HBlank interrupt, the ```SYS_set
 
 After seeing the horizontal interruption, we can see the vertical interruption; which occurs when the entire screen is finished being painted; this interruption takes much longer to complete. Therefore, it can be used to make more changes than the horizontal interruptions.
 
-We are going to see how we can use this interrupt, and the functions that SGDK provides us to work with this type of interrupt. It is important to know, that for this type of interrupt it is very useful to perform all the operations that are related to the VDP like updating the backgrounds or the Sprites themselves.
+We are going to see how we can use this interrupt, and the functions that SGDK provides us to work with this type of interrupt. It is important to know that for this type of interrupt it is very useful to perform all the operations that are related to the VDP like updating the backgrounds or the Sprites themselves.
 
 It is very important to take this into account since making these changes in the main thread is much more expensive, so we have to avoid making these changes in the main thread.
 
@@ -196,7 +196,7 @@ void vblank_int_function();
 void handleInput();
 ```
 
-The first function ```vblank_int_function``` is the one we will use as a function for the _vBlank_ interrupt in such a way, that we will use it to update the screen (backgrounds, Sprites,etc).
+The first function ```vblank_int_function``` is the one we will use as a function for the _vBlank_ interrupt in such a way that we will use it to update the screen (backgrounds, Sprites,etc).
 
 On the other hand, the ```handleInput``` function will be used to manage the controls (synchronously).
 
@@ -221,7 +221,7 @@ player.sprite = SPR_addSprite(&player_sprt,
 SYS_enableInts();
 ```
 
-We see that at the beginning of the initialization, we disable the interrupts with the function ```SYS_disableInts``` and ```SYS_enableInts``` which activates the interrupts. It is always important to disable interrupts when loading data (adding sprites, backgrounds, etc).
+We see that at the beginning of the initialization, we disable the interrupts with the function ```SYS_disableInts``` and ```SYS_enableInts``` which activate the interrupts. It is always important to disable interrupts when loading data (adding sprites, backgrounds, etc).
 
 Once the background and the sprite have been added, we can activate the _VBlank_ interrupt function; which we will do with the function ```SYS_setVBlankCallback```; setting the pointer to the function.
 
@@ -250,7 +250,7 @@ if(value & BUTTON_RIGHT){
 ...
 ```
 
-We can see the value read from controller 1 (```JOY_1```) is checked, and the struct status is updated. In such a way, it will be updated when the _VBlank_ interrupt is performed. In this way, the game is much more efficient since any operation with the VDP, can be performed in the interrupt function; while the main thread, serves to update the state to be painted.
+We can see the value read from controller 1 (```JOY_1```) is checked, and the struct status is updated. In such a way, it will be updated when the _VBlank_ interrupt is performed. In this way, the game is much more efficient since any operation with the VDP can be performed in the interrupt function; while the main thread serves to update the state to be painted.
 
 Now we can compile and execute the example, where we can see how the character can move; in such a way that it is more efficient than in other examples. We have already been able to see the content of this chapter; where we have seen two important aspects at the time of working creating games; the use of the SRAM in case we want to store the progress of the game, and on the other hand the use of interrupts.
 

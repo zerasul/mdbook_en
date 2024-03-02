@@ -4,7 +4,7 @@ We have reached the last chapter of this book and our journey through the detail
 
 It only remains to talk about a topic that is quite important for anyone who faces programming; and it is at the time of debugging and to be able to see the traceability of our code. Important thing, to be able to detect possible execution errors or commonly called "bugs".
 
-There are many useful tools when it comes to finding such errors. Such as being able to visualize the memory of our device, and being able to see the value of our variables, instruction that we are executing, etc.
+There are many useful tools when it comes to finding such errors. Such as being able to visualize the memory of our device, and being able to see the value of our variables, instructions that we are executing, etc.
 
 Such tools as debuggers, log tools and even memory image viewing are available in many of the emulators mentioned in this book, such as Gens KMod, Blastem or Kega Fusion, and the SGDK itself provides some of these tools.
 
@@ -14,7 +14,7 @@ In this chapter, we are going to see what tools we can use to debug our games an
 
 As we have been talking in this chapter, it is important to know and use tools to be able to detect the errors of our game and to see that it is doing correctly what it should; in many occasions this type of errors are not detected with the first sight and we need tools to see what is happening.
 
-Therefore, we need to be able to have traceability, and the possibility of using a debugger for our game. SGDK, provides us with tools to be able to perform this traceability.
+Therefore, we need to be able to have traceability, and the possibility of using a debugger for our game. SGDK provides us with tools to be able to perform this traceability.
 
 ### KLog
 
@@ -31,7 +31,7 @@ To access this section, you can find it in the menu _CPU->Debug->Messages_; and 
 
 The function to send information to this trace is ```kprintf```; which writes a message to this trace instead of writing it to the screen. This function is analogous to the use of ```printf``` in standard c; that is, it receives 1 or more parameters:
 
-* _fmt_: character string that can contain a series of formatters starting with `%`; that will allow us to write variables of different types and formats. To know how to use these specific formatters, you can check the standard C documentation (we leave information link in the references). It is important to know, that this function has an internal buffer of 255 bytes; so we have to take this into account when writing a very long message.
+* _fmt_: character string that can contain a series of formatters starting with `%`; that will allow us to write variables of different types and formats. To know how to use these specific formatters, you can check the standard C documentation (we leave an information link in the references). It is important to know that this function has an internal buffer of 255 bytes; so we have to take this into account when writing a very long message.
 * ...: the rest of the parameters, will be each one of the variables that will replace each one of the formatters included in the previous parameter.
 
 The ```kprintf``` function returns the number of bytes written (until 255) in the trace.
@@ -53,9 +53,9 @@ If we focus on the local machine, we can see that we have the editor, which can 
 
 On the other hand, we will need to use a program that allows us to connect to a remote (or local) machine in order to obtain the necessary information to debug; such as memory, current instruction, step by step execution, etc. For it, we will use the debugger GDB [^65]; which is going to allow us to connect to an emulator (Normally using a network port), to be able to debug our game. SGDK, includes GDB to be able to debug our games.
 
-[^65]: GDB: Gnu Project Debugger, will allow us to see what happens inside a program; besides allowing to stop the execution and to be able to visualize the variables or to change the values of these.
+[^65]: GDB: Gnu Project Debugger, will allow us to see what happens inside a program; besides allowing us to stop the execution and to be able to visualize the variables or to change the values of these.
 
-Finally, the remote machine that can be an emulator, to be connected to GDB and provide all the information needed by the debugger. The emulator, has to be able to receive and send this information to the debugger to be able to have a correct operation; for a better understanding of how this could be done or what tools we have, we are going to see in detail for some emulators already mentioned.
+Finally, the remote machine that can be an emulator, to be connected to GDB and provide all the information needed by the debugger. The emulator has to be able to receive and send this information to the debugger to be able to have a correct operation; for a better understanding of how this could be done or what tools we have, we are going to see in detail for some emulators already mentioned.
 
 ### Gens KMod
 
