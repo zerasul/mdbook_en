@@ -63,7 +63,7 @@ _Retro-bit brand 6 Buttons Controller._
 
 ### Sega Mouse
 
-Another of the peripherals that we can find for Sega Mega Drive, is the famous _Sega Mouse_; it was a mouse with 2 buttons with different versions. It allowed the playyer to play some games that were compatible. Like the famous _lemmings 2_ [^48], or _Cannon Fodder_ [^49].
+Another of the peripherals that we can find for Sega Mega Drive, is the famous _Sega Mouse_; it was a mouse with 2 buttons with different versions. It allowed the player to play some games that were compatible. Like the famous _lemmings 2_ [^48], or _Cannon Fodder_ [^49].
 
 The 2-button mouse allowed the use of the A and B buttons; however, to use the C button, the mouse ball itself was clickable, which allowed for greater compatibility. The Sega Mouse, however, did not reach Sega America so it was only seen in Japan and Europe. But Sega America has its own version called _Mega Mouse_ which had 3 buttons and a start button; removing the possibility of clicking with the mouse ball itself.
 
