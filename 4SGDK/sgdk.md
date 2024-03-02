@@ -130,7 +130,7 @@ In addition, they have released a new title called _Astrebros_, which is now ava
 
 More details can be found on their web site:
 
-[https://neofid-studios.com/en/home-3/](https://neofid-studios.com/en/home-3/)
+[https://neofid-studios.com/](https://neofid-studios.com/)
 
 [^30]: Demons of Asteborg is a game published and developed by neofid-studios. All rights reserved.
 
