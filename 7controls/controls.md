@@ -43,7 +43,7 @@ The best known Sega Mega Drive controller, it had a directional pad, and also 4 
 
 Some other third-party drivers added some extra functionality such as autoFire or other options.
 
-There were different designs depending on the Mega Drive version (Japan/Europe or America); in addition, many other third party controllers that had many other designs.
+There were different designs depending on the Mega Drive version (Japan/Europe or America); in addition, many other third party controllers had many other designs.
 
 ![3 Button Controller](7controls/img/controller3Button.jpg "3 Button Controller")
 _3 Button GamePad_
@@ -52,7 +52,7 @@ _3 Button GamePad_
 
 Another version of the controller for Sega Mega Drive, is the 6-button controller; which added three additional buttons (X,Y and Z). This version was used by some games like _Comix Zone_ [^45] or even _Streets of Rage 3_ [^46].
 
-Also, as there were some games that were not compatible with the 6-button mode, an additional button was added, which allowed to use the controller in "3-button" mode. This button called _MODE_, if pressed when starting the game, changed the controller mode [^47].
+Also, as there were some games that were not compatible with the 6-button mode, an additional button was added, which allowed the user to use the controller in "3-button" mode. This button called _MODE_, if pressed when starting the game, changed the controller mode [^47].
 
 ![6 Buttons Controller](7controls/img/md6buttons.jpg "6 Buttons Controller")
 _Retro-bit brand 6 Buttons Controller._
@@ -63,16 +63,16 @@ _Retro-bit brand 6 Buttons Controller._
 
 ### Sega Mouse
 
-Another of the peripherals that we can find for Sega Mega Drive, is the famous _Sega Mouse_; it was a mouse with 2 buttons with different versions. It allowed to play some games that were compatible. Like the famous _lemmings 2_ [^48], or _Cannon Fodder_ [^49].
+Another of the peripherals that we can find for Sega Mega Drive, is the famous _Sega Mouse_; it was a mouse with 2 buttons with different versions. It allowed the playyer to play some games that were compatible. Like the famous _lemmings 2_ [^48], or _Cannon Fodder_ [^49].
 
-The 2-button mouse allowed the use of the A and B buttons; however, to use the C button, the mouse ball itself was clickable, which allowed for greater compatibility. The Sega Mouse, however, did not reach to Sega America so it was only seen in Japan and Europe. But Sega America has its own version called _Mega Mouse_ which had 3 buttons and a start button; removing the possibility of clicking with the mouse ball itself.
+The 2-button mouse allowed the use of the A and B buttons; however, to use the C button, the mouse ball itself was clickable, which allowed for greater compatibility. The Sega Mouse, however, did not reach Sega America so it was only seen in Japan and Europe. But Sega America has its own version called _Mega Mouse_ which had 3 buttons and a start button; removing the possibility of clicking with the mouse ball itself.
 
 [^48]:Lemmings; it was a strategy game, where you controlled cute characters called lemmings, each one had a function and you had to solve a puzzle. The Mega Drive version was published by Sega and released in 1992.
 [^49]: Cannon Fodder is a strategy game that was released for the Sega Mega Drive in 1992.
 
 ## Input Programming
 
-After seeing in detail some of the input devices we can work with, we are going to show how to program our game to use them. SGDK, provides different methods to be able to interact with the controls; using the controller or even the Mouse. Therefore, we are going to show three examples of different methods that can be found to develop our game.
+After seeing in detail some of the input devices we can work with, we are going to show how to program our game to use them. SGDK provides different methods to be able to interact with the controls; using the controller or even the Mouse. Therefore, we are going to show three examples of different methods that can be found to develop our game.
 
 First, we will see how to know what type of controller is being used (3 or 6 buttons, or mouse). In addition, we will show 2 ways to read the input of our controllers, the first one in a synchronous way, and the second one in an asynchronous way; the first one reads at all times if a button has been pressed and asks which of them have been. The second method uses the processor interrupts, in order to define an interrupt routine for each button press.
 
@@ -208,7 +208,7 @@ It hast the next Parameters:
         * ...
         * ```JOY_8```: 8 Input Device.
     * ```u16 changed```: Button Pressed. For Example: ```BUTTON_START```.
-    * ```u16 state```: State; show if is pressed or released. ```state=0``` indicate that the button is released.
+    * ```u16 state```: State; show if it is pressed or released. ```state=0``` indicates that the button is released.
 
 Once we have seen how the function is used to handle the events of the controllers, we can see in the examples repository the example _ej3.controls2_; which has the behavior similar to the previous example; however, we can see that the function has been defined to handle the different events.
 
@@ -249,7 +249,7 @@ _Example 3: Asynchronous Controllers_
 
 We have been working with controllers; either 3 or 6 button controllers; however, it can be interesting to offer support for using a mouse in our games. In this section, we are going to see how to read the _Sega Mouse_, using SGDK.
 
-First of all, not all of us have access to a Sega Mouse; so it is necessary to use an emulator, which allows to use the mouse of our computer inside the emulator itself. In this case we recommend the _Kega Fusion_ or fusion emulator. This emulator, using the <kbd>F12</kbd>, capture the mouse of our computer.
+First of all, not all of us have access to a Sega Mouse; so it is necessary to use an emulator, which allows us to use the mouse of our computer inside the emulator itself. In this case we recommend the _Kega Fusion_ or fusion emulator. This emulator, using the <kbd>F12</kbd>, captures the mouse of our computer.
 
 We have created a new example; in the repository of examples for this book; remember that you can find it at:
 

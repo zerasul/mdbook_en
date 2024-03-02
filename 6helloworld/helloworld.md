@@ -4,7 +4,7 @@ We have already prepared our development environment and seen the different tool
 
 In this chapter, we will start talking about how to create a new project; focusing on its structure and how to use the project to create our game.
 
-After commenting on how to create a project, we will start to coding, and see the way that we will create our first game; showing on screen the famous hello world. showing the source code and we will explain it.
+After commenting on how to create a project, we will start coding, and see the way that we will create our first game; showing on screen the famous hello world. showing the source code and we will explain it.
 
 Finally, we will see how to build the rom itself and run it on an emulator, or on the contrary we can pass it to a FlashCart, and see it on a real console.
 
@@ -14,7 +14,7 @@ The first step to be able to begin to write our code, its to create a new projec
 
 To create a new project, we will use the _Genesis Code_ extension for Visual Studio code; although it can be created manually if required. To create a project with this extension, we will use the command palette using the keyboard shortcut <kbd>ctrl</kbd>+<kbd>⇧ shift</kbd>+<kbd>p</kbd>; and selecting the option _Genesis Code: Create Project_.
 
-**NOTE**: Remember that you can still create manually the project without using Genesis Code.
+**NOTE**: Remember that you can still manually create the project without using Genesis Code.
 
 When selecting this option, we will be asked where the project will be created. Once selected, the necessary files and folders will be generated and opened with Visual Studio Code. We can see the following files and folders:
 
@@ -67,7 +67,7 @@ If we focus on the ```main``` function we see that a call is made to the functio
 * _x_: X position where the text will be displayed. The X coordinate indicates the column where the text will be displayed. It is expressed in Tiles.
 * _y_: Y position where the text will be displayed. The Y coordinate indicates the row where the text will be displayed. It is expressed in Tiles.
 
-Both X and Y position are expressed in Tiles. A Tile is a square of 8x8 pixels that is painted on the screen; the VDP works in this unit and therefore we must take into account this dimension. In the example we see that we will draw in the position 10,13 that is to say, (80px,104px).
+Both X and Y positions are expressed in Tiles. A Tile is a square of 8x8 pixels that is painted on the screen; the VDP works in this unit and therefore we must take into account this dimension. In the example we see that we will draw in the position 10,13 that is to say, (80px,104px).
 
 Once we have seen how to write text on the screen, we can observe that an infinite loop appears; this is important when designing videogames; because if this loop were not present, the execution would end, and it would not be possible to interact with the game.
 
@@ -81,7 +81,7 @@ After finishing writing our code, we can take the next step; generate the ROM [^
 
 In this step, all the necessary files will be generated, and at the end we will have a file called _rom.bin_ with our ROM ready to be executed in an emulator, or in a real hardware.
 
-To compile our game, it is necessary to have correctly configured SGDK; either using the environment variables, or with the configuration of _Genesis Code_. In addition to have correctly configured the path where our emulator is located.
+To compile our game, it is necessary to have correctly configured SGDK; either using the environment variables, or with the configuration of _Genesis Code_. In addition to having correctly configured the path where our emulator is located.
 
 The command _Genesis Code: compile & Run Project_, will be used to generate the ROM and then run an emulator with the generated ROM. There are other commands to Compile (_Genesis Code: Compile Project_) or compile for debugging (_Genesis Code: Compile For Debugging_). In this example, we will use the _Compile & Run Project_ option.
 
@@ -109,7 +109,7 @@ docker run --rm -v $PWD:/src sgdk
 
 If everything has gone correctly, we can see how the ROM will be generated in the _out_ folder with the name _rom.bin_ and later, our emulator opens showing it.
 
-**NOTE**: For those using Windows, you may get an error if you are using as integrated console by default to _PowerShell_ (in Visual Studio Code); this can be fixed by setting the default vscode terminal to use _cmd_. To do this we will use the command palette and select the _View: Toggle Integrated Terminal_ option; subsequently selecting it to use cmd.
+**NOTE**: For those using Windows, you may get an error if you are using an integrated console by default to _PowerShell_ (in Visual Studio Code); this can be fixed by setting the default vscode terminal to use _cmd_. To do this we will use the command palette and select the _View: Toggle Integrated Terminal_ option; subsequently selecting it to use cmd.
 
 ![Hello](6helloworld/img/hello.png "Hello")
 _Hello World on Sega Mega Drive_
@@ -162,17 +162,17 @@ Indicates the Copyright showing who publishes the ROM and in which year. For exa
 
 **Title_local**
 
-Show game tittle.
+Show game title.
 
 **Title_int**
 
-Show international Game Title; can be the same than the previous value.
+Show international Game Title; can be the same as the previous value.
 
 **Serial**
 
-Show the game serial number; can be useful for identify ROM or compilation Version.
+Show the game serial number; can be useful for identifying ROM or compilation Version.
 
-It usually has the format  ```XX YYYYYYYY-ZZ``` where ```XX``` define ROM Type (GM for game), ```YYYYYYYY``` indicate the Serial Number and ```ZZ``` for the revision number.
+It usually has the format  ```XX YYYYYYYY-ZZ``` where ```XX``` defines ROM Type (GM for game), ```YYYYYYYY``` indicates the Serial Number and ```ZZ``` for the revision number.
 
 **Checksum**
 
@@ -182,7 +182,7 @@ The _checksum_ is a 16-bit sum of the ROM contents; this sum can indicate whethe
 
 This is one of the most important aspects; in this section, you define which input or output devices it is compatible with; whether it is a 3 or 6 button gamepad, mouse, CD-ROM, Activator, etc....
 
-It is important to define it in order to have a better compatibility with all available hardware. Let's see a table with the available options:
+It is important to define it in order to have better compatibility with all available hardware. Let's see a table with the available options:
 
 | Key   | Description               |
 |-------|---------------------------|

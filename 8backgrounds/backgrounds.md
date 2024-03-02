@@ -2,7 +2,7 @@
 
 We have already been able to start to see our first games; but we are missing the ability to see more color and to play with the different features offered by the Sega Mega Drive.
 
-One of the most significant sections when working with games, are the backgrounds. These backgrounds are images that we can superimpose, in order to give a sense of depth. Sega Mega Drive, allows to work with several backgrounds (or planes), in such a way that we can give them movement or a greater interaction.
+One of the most significant sections when working with games are the backgrounds. These backgrounds are images that we can superimpose, in order to give a sense of depth. Sega Mega Drive allow us to work with several backgrounds (or planes), in such a way that we can give them movement or a greater interaction.
 
 In this chapter, we will focus on the use of backgrounds or plans, through SGDK and the use of tools to manage these backgrounds, such as the _rescomp_ tool.
 
@@ -68,15 +68,15 @@ In addition, the backgrounds A, B and the Sprite plane (which we will see in the
 ![Background Priority Schema](8backgrounds/img/esquemaplanos.png "Background Priority Schema")
 _Background Priority Schema_
 
-As we can see in the previous image, backgrounds A, B and Sprite can have a low or high priority. In such a way, that we can play indistinctly with them, to be able to show them in different places and be able to show that sensation of depth.
+As we can see in the previous image, backgrounds A, B and Sprite can have a low or high priority. In such a way, we can play indistinctly with them, to be able to show them in different places and be able to show that sensation of depth.
 
 ## Rescomp
 
-In order to import the different resources for our game, it is necessary to use a tool that is included in the SGDK itself. This tool is called _rescomp_ "Resource Compiler"; which will allow to import the resources generating all the necessary to be able to use it through the SGDK itself.
+In order to import the different resources for our game, it is necessary to use a tool that is included in the SGDK itself. This tool is called _rescomp_ "Resource Compiler"; which will allow importing the resources generating all the necessary to be able to use it through the SGDK itself.
 
 This tool generates everything needed to import the different types of resources of our game (graphics, sprites, music, sound, binary...). It is based on the use of files that describe each resource; these files with extension _.res_, include all the description of the resources to import.
 
-Rescomp, reads these files and will generate one or more .s files with the resource information and if not otherwise indicated, a c _.h_ header file. Let's see how to use it.
+Rescomp reads these files and will generate one or more .s files with the resource information and if not otherwise indicated, a C _.h_ header file. Let's see how to use it.
 
 ```bash
 rescomp file.res [out.s] [-noheader]
@@ -116,7 +116,7 @@ In the example above, we can see how resources are defined as TileSet and as Pal
 
 **NOTE**: If you use the _Genesis Code_ extension, it includes an editor with context-sensitive help when using _.res_ files.
 
-Finally, it is important to know, that if we use the _makefile_ file that SGDK brings by default, Rescomp is automatically called when a .res file is added (it must be inserted in the _res_ folder); so it is not necessary for us to call it. Also, if you need more information about Rescomp, you can find the documentation for it in the SGDK itself:
+Finally, it is important to know that if we use the _makefile_ file that SGDK brings by default, Rescomp is automatically called when a .res file is added (it must be inserted in the _res_ folder); so it is not necessary for us to call it. Also, if you need more information about Rescomp, you can find the documentation for it in the SGDK itself:
 
 [https://github.com/Stephane-D/SGDK/blob/master/bin/rescomp.txt](https://github.com/Stephane-D/SGDK/blob/master/bin/rescomp.txt)
 
@@ -126,7 +126,7 @@ As we have seen, you can import either Palettes, images or resources. Let's see 
 
 #### Palettes
 
-A palette is the information of the 16 colors that we can store for use in the different graphics. It is important, that every image we use for SGDK, must be stored as a 4 or 8 bpp indexing.
+A palette is the information of the 16 colors that we can store for use in the different graphics. It is important that every image we use for SGDK, must be stored as a 4 or 8 bpp indexing.
 
 **NOTE**: From version 1.80 or later, you can use RGB images with additional information for the palette. Simply add in the first pixels a sample of the palette to be used. For more information, see the SGDK documentation.
 
@@ -143,7 +143,7 @@ Where:
 
 #### Image
 
-An image for SGDK contains a tileset, a palette and a tilemap of an static image. Let's see an example of the options available to define an image resource in rescomp:
+An image for SGDK contains a tileset, a palette and a tilemap of a static image. Let's see an example of the options available to define an image resource in rescomp:
 
 ```res
 IMAGE img1 "img_file" BEST NONE [mapbase]
@@ -190,7 +190,7 @@ IMAGE bg_a "gfx/bga.bmp" NONE
 IMAGE bg_b "gfx/bgb.bmp" NONE
 ```
 
-We can see that we have created 2 resources of type ``IMAGE``; which do not have any compression. If we compile now our project manually, or using the Genesis Code command, _Genesis Code: Compile Project_; we will see that a _.h_ file will be generated. This file will be used to reference the generated resources.
+We can see that we have created 2 resources of type ``IMAGE``; which do not have any compression. If we compile our project manually, or using the Genesis Code command, _Genesis Code: Compile Project_; we will see that a _.h_ file will be generated. This file will be used to reference the generated resources.
 
 Once we have seen how these resources have been imported, let's focus on the code; which we can see the source code:
 
@@ -223,7 +223,7 @@ int main()
 
 Let's see in detail the previous example; first, we include the «LibMD» library header, followed by the header of the resources generated with rescomp. In addition, we can observe the call to a function ```VDP_setScreenWidth320```; which sets the horizontal resolution to 320px (by default it is this resolution).
 
-Next, we can observe that the value of ```TILE_USER_INDEX``` is saved in a variable; this constant will indicate the index to the video memory where the tiles are stored can be accessed. This is important not to show tiles that we don't need at that moment or empty memory areas that can give error; since the first positions of the video memory, SGDK uses them to initialize the palettes etc...
+Next, we can observe that the value of ```TILE_USER_INDEX``` is saved in a variable; this constant will indicate the index to the video memory where the tiles are stored and can be accessed. It is important not to show tiles that we don't need at that moment or empty memory areas that can give errors; since the first positions of the video memory, SGDK uses them to initialize the palettes etc...
 
 **NOTE**: If you use a version of SGDK lower than 1.80, you must use the constant ```TILE_USERINDEX```.
 
@@ -235,7 +235,7 @@ Next, we can see the call to the function ```VDP_drawImageEx```; which will allo
 * _X_: X position in Tiles.
 * _Y_: Y position in Tiles.
 * _loadPal_: indicates whether the palette will be loaded or not.
-* _dma_: Indicates whether dma or CPU will be used. This is important since the use of DMA, avoids the CPU having to work to pass the information from the ROM to the VRAM. Therefore you can set the value to ```DMA``` to use the dma, or ```CPU``` to use the CPU itself; keep in mind that both the CPU and the DMA use the same bus and there may be bottlenecks when passing data from ROM to RAM or VRAM.
+* _dma_: Indicates whether DMA or CPU will be used. This is important since the use of DMA avoids the CPU having to work to pass the information from the ROM to the VRAM. Therefore you can set the value to ```DMA``` to use the dma, or ```CPU``` to use the CPU itself; keep in mind that both the CPU and the DMA use the same bus and there may be bottlenecks when passing data from ROM to RAM or VRAM.
 
 We have seen that to define the base Tile to load the image, you can use the macro ```TILE_ATTR_FULL```; which receives the following parameters:
 
