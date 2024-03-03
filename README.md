@@ -8,6 +8,8 @@ This book contains the minimum and essential to be able to create games from a k
 
 You can buy a printed version on [Amazon](https://a.co/d/fI8vqzk).
 
+Spanish Edition: [https://github.com/zerasul/mdbook](https://github.com/zerasul/mdbook)
+
 ## Book's Content
 
 1. [Introduction.](1introduction/introduction.md)
